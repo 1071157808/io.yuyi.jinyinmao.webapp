@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.jym730647" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>jym</name>
-  <description>&#xD;
+  <description>
         io.yuyi.jinyinmao.webapp
-    </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">&#xD;
-      Ionic Framework Team&#xD;
-    </author>
+  </description>
+  <author email="lu.siqi@yuyidev.com" href="http://www.yuyidev.com/">
+      Shanghai Yuyi Mdt InfoTech Ltd.
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
