@@ -1184,7 +1184,22 @@ a.fq:hover,a.fq:visited {
   display: none;
 }
 
-.bar-header a {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ion-header-bar > div > a {
   display: block;
   text-indent: -999px;
   overflow: hidden;
