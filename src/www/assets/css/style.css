@@ -942,10 +942,10 @@ a.fq:hover,a.fq:visited {
     padding: 10px 10px 0;
     font-size: 16px
   }
-  .jym-logo {
-    width: 60px;
-    height: 48px
-  }
+  /*.jym-logo {*/
+    /*width: 60px;*/
+    /*height: 48px*/
+  /*}*/
   .jym-logos {
     width: 60px;
     height: 48px
@@ -1183,3 +1183,12 @@ a.fq:hover,a.fq:visited {
 .showMon {
   display: none;
 }
+
+.bar-header a {
+  display: block;
+  text-indent: -999px;
+  overflow: hidden;
+  background: url(../img/global/logo.png) no-repeat 50% 50%;
+  background-size: 100% auto;
+}
+
