@@ -223,6 +223,8 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
+# WebStorm
+.idea/
 
 # ionic project
 # Specifies intentionally untracked files to ignore when using Git
@@ -230,3 +232,4 @@ node_modules
 
 platforms/
 plugins/
+hooks/
