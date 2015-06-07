@@ -8,7 +8,7 @@ angular.module('jym.user.login', [
                 views: {
                     'content@':{
                         controller: 'UserLoginCtrl as userLoginCtrl',
-                        templateUrl: 'app/jinbaoyin/jinbaoyin.tpl.html'
+                        templateUrl: '../../jinbaoyin/jinbaoyin.tpl.html'
                     }
                 }
             })
