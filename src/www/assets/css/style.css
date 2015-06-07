@@ -1441,15 +1441,10 @@ ion-item.divider {
   padding-top: 6px;
   padding-bottom: 6px;
 }
-
-.item span{
+.item a {
+  padding-top: 6px;
+  padding-bottom: 6px;
   font-size: 16px;
-}
-
-.button-grey {
-  background-color: #c3d0d7 ;
-  border-color: #c3d0d7 ;
-
 }
 
 #logout {
@@ -1458,6 +1453,25 @@ ion-item.divider {
 
 #user-index {
   background-color:#FBF7ED ;
+}
+ion-item p{
+  text-align: left;
+  font-size: 6px;
+}
+ion-item img {
+  width: 100%;
+}
+#fudian {
+  color:#C64047;
+}
+#fuxin {
+  color:#1DB8D6 ;
+}
+#shibingcunzhen {
+  color: #AC7A21;
+}
+#xingye {
+  color:#416ED0 ;
 }
 /*ion-list ion-item end*/
 
