@@ -2,7 +2,11 @@ angular.module('JYM', [
     'ionic',
     'ngCordova',
     'jym.interceptors',
-    'jym.jinbaoyin'
+    'jym.jinbaoyin',
+    'jym.shangpiao',
+    'jym.user',
+    'jym.yinhangzhuanqu',
+    'jym.yinpiao'
 ])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('jym', {

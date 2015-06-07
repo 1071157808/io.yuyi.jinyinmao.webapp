@@ -7,7 +7,7 @@ angular.module('jym.shangpiao', [
                 views: {
                     'content@':{
                         controller: 'ShangpiaoIndexCtrl as shangpiaoIndexCtrl',
-                        templateUrl: 'index.tpl.html'
+                        templateUrl: 'app/shangpiao/index.tpl.html'
                     }
                 }
             })
