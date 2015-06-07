@@ -4,10 +4,10 @@
   </div>
   <div class="ui-right">
     <ul class="jym-nav-top">
-      <li><a class="jym-nav-index active" ui-sref="jym.jinbaoyin">首页</a></li>
+      <li><a class="jym-nav-index" ui-sref="jym.jinbaoyin">首页</a></li>
       <li><a class="jym-nav-zhuanqu" ui-sref="jym.yinhangzhuanqu">银行专区</a></li>
       <li><a class="jym-nav-yinpiao" ui-sref="jym.yinpiao">银企众盈</a></li>
-      <li><a class="jym-nav-shangpiao" ui-sref="jym.shangpiao">商融保盈</a></li>
+      <li><a class="jym-nav-shangpiao active" ui-sref="jym.shangpiao">商融保盈</a></li>
       <li><a class="jym-nav-login" ui-sref="jym.user">我的金银猫</a></li>
     </ul>
 
@@ -16,65 +16,93 @@
 </ion-header-bar>
 <ion-view>
   <ion-content>
-    <ion-slide-box on-slide-changed="slideHasChanged($index)">
-      <ion-slide>
-        <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </ion-slide>
-
-    </ion-slide-box>
-
-    <div class="jinbaoyin-index-product padding">
-      <h4 class="padding">“金包银”融资项目 第211期</h4>
-      <h5>承兑汇票抵押</h5>
-      <strong class="jinbaoyin-yield">
-        <em>7</em><samp>%</samp>
-      </strong>
-      <div class="clearfix">
-        <span><em>100</em>元起</span>
-        <span>随时存取</span>
-        <span>灵活投资</span>
-      </div>
-    </div>
-    <div class="">
-      <button class="button button-action" href="/zcb/detail">立即抢购</button>
-    </div>
-
-    <div class="ui-gid3" href="/page/safe">
-      <div class="jym-safe-control" id="jym-index-safe">
-        <a class="ui-grid3" href="/page/safe">
-          <div class="ui-block-a">
-            <span class="icon-safe-1"></span>
-            <em>风险趋零</em>
-            <i></i>
+    <ion-list>
+      <ion-item>
+        <a href="/cpl/detail">
+          <div class="right-40 padding">
+            <em>8.58<samp>%</samp></em>
+            <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
+            <li class="jqm-min-price">5000<samp>&nbsp;元起</samp></li>
+            <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
           </div>
-          <div class="ui-block-b">
-            <span class="icon-safe-2"></span>
-            <em>刚性兑付</em>
-            <i></i>
-          </div>
-          <div class="ui-block-c">
-            <span class="icon-safe-3"></span>
-            <em>双重保障</em>
-            <i></i>
+          <div class="left-60 padding">
+            <li>"商融保盈"融资项目第1278900期</li>
+            <div class="detail">
+            <li class="saleStatus">已售罄</li>
+            <li>最迟还款日 2015-12-04</li>
+            <li>风控措施</li>
+            <li>国企担保</li>
+            </div>
           </div>
         </a>
-      </div>
-    </div>
 
-    <br>
+     </ion-item>
+      <ion-item class="divider">
+      </ion-item>
+      <ion-item>
+        <a href="/cpl/detail">
+          <div class="right-40 padding">
+            <em>8.58<samp>%</samp></em>
+            <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
+            <li class="jqm-min-price">5000<samp>&nbsp;元起</samp></li>
+            <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
+          </div>
+          <div class="left-60 padding">
+            <li>"商融保盈"融资项目第1278900期</li>
+            <div class="detail">
+              <li class="saleStatus">已售罄</li>
+              <li>最迟还款日 2015-12-04</li>
+              <li>风控措施</li>
+              <li>国企担保</li>
+            </div>
+          </div>
+        </a>
+      </ion-item>
+      <ion-item class="divider">
+      </ion-item>
+      <ion-item>
+        <a href="/cpl/detail">
+          <div class="right-40 padding">
+            <em>8.58<samp>%</samp></em>
+            <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
+            <li class="jqm-min-price">5000<samp>&nbsp;元起</samp></li>
+            <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
+          </div>
+          <div class="left-60 padding">
+            <li>"商融保盈"融资项目第1278900期</li>
+            <div class="detail">
+              <li class="saleStatus">已售罄</li>
+              <li>最迟还款日 2015-12-04</li>
+              <li>风控措施</li>
+              <li>国企担保</li>
+            </div>
+          </div>
+        </a>
+      </ion-item>
+      <ion-item class="divider">
+      </ion-item>
+      <ion-item>
+        <a href="/cpl/detail">
+          <div class="right-40 padding">
+            <em>8.58<samp>%</samp></em>
+            <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
+            <li class="jqm-min-price">5000<samp>&nbsp;元起</samp></li>
+            <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
+          </div>
+          <div class="left-60 padding">
+            <li>"商融保盈"融资项目第1278900期</li>
+            <div class="detail">
+              <li class="saleStatus">已售罄</li>
+              <li>最迟还款日 2015-12-04</li>
+              <li>风控措施</li>
+              <li>国企担保</li>
+            </div>
+          </div>
+        </a>
+      </ion-item>
+      <ion-item class="divider">
+      </ion-item>
+    </ion-list>
 
-    <ion-footer-bar class="bar-dark">
-      <div class="icon ion-ios-telephone-outline left"><span>&nbsp;&nbsp;1234588</span></div>
-      <div class="icon ion-ios-contact-outline right"></div>
-    </ion-footer-bar>
   </ion-content>
 </ion-view>
