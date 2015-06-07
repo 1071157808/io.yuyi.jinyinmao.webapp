@@ -1,4 +1,5 @@
 angular.module('jym.yinpiao', [
+    'jym.yinpiao.detail'
 ])
     .config(function ($stateProvider) {
         $stateProvider
