@@ -7,6 +7,7 @@
   "dependencies": {
     "angularjs": "~1.4.0",
     "lodash": "~3.9.3",
-    "ngCordova": "~0.1.17-alpha"
+    "ngCordova": "~0.1.17-alpha",
+    "angular-cache": "~4.2.0"
   }
 }

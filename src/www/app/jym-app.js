@@ -1,5 +1,6 @@
 angular.module('JYM', [
     'ionic',
+    'angular-cache',
     'ngCordova',
     'jym.jinbaoyin'
 ])
@@ -21,4 +22,43 @@ angular.module('JYM', [
         });
 
         $urlRouterProvider.otherwise('/');
+    })
+    .config(function(CacheFactoryProvider) {
+        angular.extend(CacheFactoryProvider.defaults, {maxAge: 2 * 1000});
     });
+//.config(function ($httpProvider) {
+//    $httpProvider.interceptors.push(function ($q, $state, $ionicPopup) {
+//        return {
+//            'request': function(config) {
+//
+//                return config;
+//            },
+//
+//            'requestError': function(rejection) {
+//
+//                return $q.reject(rejection);
+//            },
+//
+//            'response': function(response) {
+//
+//                return response;
+//            },
+//
+//            'responseError': function(rejection) {
+//                if(rejection.status == 401 || rejection.status == 403){
+//                    $state.go('jym.user.login');
+//                }
+//
+//                if(rejection.status == 400){
+//                    $ionicPopup.alert({
+//                        title: '提示信息',
+//                        template: 'rejection.data.message'
+//                    })
+//                }
+//
+//                return $q.reject(rejection);
+//            }
+//        }
+//    })
+//})
+//);

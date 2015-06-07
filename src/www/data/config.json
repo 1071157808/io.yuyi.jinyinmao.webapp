@@ -1,0 +1,59 @@
+{
+  "ios": {
+    "sliders": [
+      {
+        "title": "touzi",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      },
+      {
+        "title": "touzi1",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055837417.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      },
+      {
+        "title": "touzi2",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      }
+    ]
+  },
+  "android": {
+    "sliders": [
+      {
+        "title": "touzi",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      },
+      {
+        "title": "touzi1",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055837417.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      },
+      {
+        "title": "touzi2",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      }
+    ]
+  },
+  "web": {
+    "sliders": [
+      {
+        "title": "touzi",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      },
+      {
+        "title": "touzi1",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055837417.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      },
+      {
+        "title": "touzi2",
+        "imageSource": "https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg",
+        "targetUrl": "https://m.jinyinmao.com.cn"
+      }
+    ]
+  }
+}
