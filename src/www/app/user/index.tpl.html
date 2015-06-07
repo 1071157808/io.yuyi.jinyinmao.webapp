@@ -15,66 +15,29 @@
 
 </ion-header-bar>
 <ion-view>
-  <ion-content>
-    <ion-slide-box on-slide-changed="slideHasChanged($index)">
-      <ion-slide>
-        <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </ion-slide>
-
-    </ion-slide-box>
-
-    <div class="jinbaoyin-index-product padding">
-      <h4 class="padding">“金包银”融资项目 第211期</h4>
-      <h5>承兑汇票抵押</h5>
-      <strong class="jinbaoyin-yield">
-        <em>7</em><samp>%</samp>
-      </strong>
-      <div class="clearfix">
-        <span><em>100</em>元起</span>
-        <span>随时存取</span>
-        <span>灵活投资</span>
+  <ion-content id="user-index">
+    <ion-list>
+      <ion-item class="divider">
+      </ion-item>
+      <div class="item">
+        <a href="/jym-account"><span>资金账户</span></a>
       </div>
-    </div>
-    <div class="">
-      <button class="button button-action" href="/zcb/detail">立即抢购</button>
-    </div>
-
-    <div class="ui-gid3" href="/page/safe">
-      <div class="jym-safe-control" id="jym-index-safe">
-        <a class="ui-grid3" href="/page/safe">
-          <div class="ui-block-a">
-            <span class="icon-safe-1"></span>
-            <em>风险趋零</em>
-            <i></i>
-          </div>
-          <div class="ui-block-b">
-            <span class="icon-safe-2"></span>
-            <em>刚性兑付</em>
-            <i></i>
-          </div>
-          <div class="ui-block-c">
-            <span class="icon-safe-3"></span>
-            <em>双重保障</em>
-            <i></i>
-          </div>
-        </a>
+      <div class="item">
+        <a href="/jby-account"><span>金包银账户</span></a>
       </div>
-    </div>
+      <div class="item">
+        <a href="/order-details"><span>我的订单</span></a>
+      </div>
+      <div class="item">
+        <a href="/my-cards"><span>我的银行卡</span></a>
+      </div>
+      <ion-item class="divider">
+      </ion-item>
+      <div class="item">
+        <a href="/password-setting"><span>密码设置</span></a>
+      </div>
 
-    <br>
-
-    <ion-footer-bar class="bar-dark">
-      <div class="icon ion-ios-telephone-outline left"><span>&nbsp;&nbsp;1234588</span></div>
-      <div class="icon ion-ios-contact-outline right"></div>
-    </ion-footer-bar>
+    </ion-list>
+    <button class="button button-grey" href="/logout/" id="logout">登出</button>
   </ion-content>
 </ion-view>

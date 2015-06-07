@@ -1271,7 +1271,7 @@ ion-slide > img {
   color: #e74c3c;
   font-weight: 400;
 }
-.button-action {
+.button {
   display: block;
   width: 90%;
   line-height: 6%;
@@ -1293,10 +1293,14 @@ ion-slide > img {
   background-color: #47b28b;
   border-color: #47b28b;
 }
+.button-grey {
+  background-color: #c3d0d7 ;
+  border-color: #c3d0d7 ;
+}
 
 /*.jym-safe-control start*/
 .ui-grid3 {
- overflow: hidden;
+  overflow: hidden;
   margin-bottom: 5px;
 }
 .ui-grid3>.ui-block-a,.ui-grid3>.ui-block-b,.ui-grid3>.ui-block-c {
@@ -1433,4 +1437,27 @@ ion-item.divider {
   background-color: #FBF7ED;
   height: 2px;
 }
+.item {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.item span{
+  font-size: 16px;
+}
+
+.button-grey {
+  background-color: #c3d0d7 ;
+  border-color: #c3d0d7 ;
+
+}
+
+#logout {
+  margin-top: 50px;
+}
+
+#user-index {
+  background-color:#FBF7ED ;
+}
 /*ion-list ion-item end*/
+

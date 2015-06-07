@@ -7,7 +7,7 @@ angular.module('jym.user', [
                 views: {
                     'content@':{
                         controller: 'UserCtrl as userCtrl',
-                        templateUrl: 'app/yinpiao/index.tpl.html'
+                        templateUrl: 'app/user/index.tpl.html'
                     }
                 }
             })
