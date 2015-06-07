@@ -8,7 +8,7 @@ angular.module('jym.jinbaoyin', [
                 views: {
                     'content@':{
                         controller: 'JinbaoyinIndexCtrl as jinbaoyinIndexCtrl',
-                        templateUrl: 'app/jinbaoyin/jinbaoyin.tpl.html'
+                        templateUrl: 'app/jinbaoyin/index.tpl.html'
                     }
                 }
             })
