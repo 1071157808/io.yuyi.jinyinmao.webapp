@@ -1149,7 +1149,6 @@ ion-header-bar.bar.bar-header > div > a {
   font-size: 40px;
 }
 
-
 .jym-nav-top li {
   position: relative;
   float: left;
@@ -1237,7 +1236,7 @@ ion-header-bar.bar.bar-header > div > a {
 
 
 .slider .slider-slides ion-slide.slider-slide {
-  height: 158px;
+  height: 160px;
   float: left;
 }
 ion-slide > img {
@@ -1254,6 +1253,10 @@ ion-slide > img {
 .jinbaoyin-index-product {
   text-align: center;
   position: relative;
+  margin-top: 4%;
+}
+.jinbaoyin-yield {
+  text-align: center;
 }
 .jinbaoyin-yield > em {
   color: #e74c3c;
@@ -1263,7 +1266,7 @@ ion-slide > img {
   color: #e74c3c;
 }
 .jinbaoyin-index-product span {
-  font-size: 12px;
+  font-size: 14px;
   margin-right: 20px;
   margin-left: 20px;
 }
@@ -1272,25 +1275,27 @@ ion-slide > img {
   color: #e74c3c;
   font-weight: 400;
 }
+
+.jym-index-purchase {
+  margin: 8% auto;
+}
+
 .button-action {
   display: block;
   width: 90%;
-  line-height: 6%;
-  padding: .7em 1em;
-  font-size: 22px;
+  min-height: 38px;
+  height: 38px;
   color: #FFF;
   position: relative;
   text-align: center;
   overflow: hidden;
   white-space: nowrap;
-  margin-left: auto;
-  margin-right: auto;
-  border: 0 solid;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   background-color: #47b28b;
-  border-color: #47b28b;
+  border: 0 solid #47b28b;
+  margin: 8% auto;
 }
 .button-grey {
   display: block;
@@ -1305,12 +1310,11 @@ ion-slide > img {
   white-space: nowrap;
   margin-left: auto;
   margin-right: auto;
-  border: 0 solid;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   background-color: #c3d0d7 ;
-  border-color: #c3d0d7 ;
+  border: 0 solid #c3d0d7;
 }
 
 /*.jym-safe-control start*/
@@ -1325,7 +1329,7 @@ ion-slide > img {
   overflow: hidden;
   border-top: 1px solid #efede8;
   background-color: #FBF9F3;
-  margin-top: 15px;
+  margin-top: 10%;
 }
 .jym-safe-control>.ui-grid3 {
   display: block;
@@ -1343,8 +1347,7 @@ ion-slide > img {
   margin: 0 auto;
   width: 40px;
   height: 40px;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background: no-repeat 50% 50%;
   background-size: auto 100%
 }
 .jym-safe-control>.ui-grid3 em {
@@ -1371,13 +1374,13 @@ ion-slide > img {
 .jym-safe-control>.ui-grid3>div:first-child i {
   display: none
 }
-.jym-safe-control .icon-safe-1 {
+.jym-safe-control>.ui-grid3 span.icon-safe-1 {
   background-image: url(../img/global/safe-yellow-1-cc820dc.png)
 }
-.jym-safe-control .icon-safe-2 {
+.jym-safe-control>.ui-grid3 span.icon-safe-2 {
   background-image: url(../img/global/safe-yellow-2-e628acd.png)
 }
-.jym-safe-control .icon-safe-3 {
+.jym-safe-control>.ui-grid3 span.icon-safe-3 {
   background-image: url(../img/global/safe-yellow-3-0626a52.png)
 }
 .ui-block-a,.ui-block-b,.ui-block-c{
@@ -1394,7 +1397,7 @@ ion-slide > img {
   /*position: relative;*/
 /*}*/
 .bar .title {
-  right: 100px;
+  right: 130px;
 }
 ion-footer-bar button .icon-right {
   right: 20px;

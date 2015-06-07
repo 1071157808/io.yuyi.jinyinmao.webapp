@@ -8,6 +8,8 @@
     "angularjs": "~1.4.0",
     "lodash": "~3.9.3",
     "ngCordova": "~0.1.17-alpha",
-    "angular-cache": "~4.2.0"
+    "angular-cache": "~4.2.0",
+    "angular-bootstrap": "~0.13.0",
+    "bootstrap": "~3.3.4"
   }
 }
