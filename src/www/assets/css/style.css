@@ -1375,20 +1375,30 @@ ion-slide > img {
 /*.jym-safe-control end*/
 
 /*ion-footer-bar start*/
-ion-footer-bar {
-  position: relative;
+/*ion-footer-bar {*/
+  /*position: relative;*/
+/*}*/
+.bar .title {
+  right: 100px;
 }
-ion-footer-bar div {
-  color: white;
-  font-size: 24px;
+ion-footer-bar button .icon-right {
+  right: 20px;
 }
-ion-footer-bar div.left{
-  padding-left: 10px;
-  width: 67%;
-}
-ion-footer-bar div.right{
-  width: 33%;
-}
+/*ion-footer-bar div {*/
+  /*color: white;*/
+  /*font-size: 16px;*/
+/*}*/
+/*ion-footer-bar div {*/
+  /*font-size: 16px;*/
+  /*color: white;*/
+/*}*/
+/*ion-footer-bar div.left{*/
+  /*padding-left: 10px;*/
+  /*width: 67%;*/
+/*}*/
+/*ion-footer-bar div.right{*/
+  /*width: 33%;*/
+/*}*/
 
 /*ion-footer-bar end*/
 
