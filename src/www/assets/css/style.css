@@ -1313,6 +1313,7 @@ ion-slide > img {
   border-color: #c3d0d7 ;
 }
 
+
 /*.jym-safe-control start*/
 .ui-grid3 {
   overflow: hidden;
@@ -1463,8 +1464,8 @@ ion-item.divider {
   height: 2px;
 }
 .item {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .item a {
   padding-top: 6px;
@@ -1519,4 +1520,46 @@ ion-item img {
   text-align: right;
   line-height: 24px;
   padding-right: 10px;
+}
+.order-detail .item > div > i {
+  float: left;
+  color: #FACB3A ;
+  font-size: 14px;
+}
+.order-detail .item > div > span {
+  float: left;
+  color: #FACB3A ;
+  font-size: 14px;
+}
+.order-detail .item > div > p {
+  float: right;
+  font-size: 14px;
+}
+.item-divider > p {
+  font-size: 6px;
+  padding-left: 10px;
+}
+.list.card .item-divider > p > em {
+  color: #e74c3c;;
+}
+.list.card .item-input-inset > label > input {
+  text-align: left;
+}
+.list.card .item-input-inset >label > samp {
+  margin-left: 80px;
+}
+
+.pull-left {
+  float: left;
+  left: 5px
+}
+.pull-right {
+  float: right;
+  padding-left: 110px;
+}
+.item .pull-left {
+  color: #444;
+}
+.item > p > em {
+  color: #e74c3c;
 }
