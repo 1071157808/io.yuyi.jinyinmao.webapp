@@ -1,19 +1,11 @@
-angular.module('jym.services.config', [])
-    .service('ConfigService', function($http, $q, CacheFactory) {
+angular.module('jym.services.config', [
+    'jym.services.cache'
+])
+    .service('JYMConfigService', function($http, JYMCacheService) {
         var service = this;
         var URLS = {
             FETCH: 'data/config.json'
         };
-
-        if(!CacheFactory.get('configCache')){
-            CacheFactory('configCache', {
-                maxAge: 3 * 1000,
-                cacheFlushInterval: 60 * 60 * 1000,
-                deleteOnExpire: 'aggressive',
-                storageMode: 'localStorage'
-            });
-        }
-
 
         function parseConfig(result) {
 
@@ -30,7 +22,7 @@ angular.module('jym.services.config', [])
 
         service.getConfig = function() {
             return $http.get(URLS.FETCH, {
-                cache: CacheFactory.get('configCache')
+                cache: JYMCacheService.get('configCache')
             }).then(parseConfig);
         };
 
