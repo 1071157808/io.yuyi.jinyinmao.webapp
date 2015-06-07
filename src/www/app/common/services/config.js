@@ -1,11 +1,8 @@
 angular.module('jym.services.config', [
     'jym.services.cache'
 ])
-    .service('JYMConfigService', function($http, JYMCacheService) {
+    .service('JYMConfigService', function($http, URLS, JYMCacheService) {
         var service = this;
-        var URLS = {
-            FETCH: 'data/config.json'
-        };
 
         function parseConfig(result) {
 
@@ -21,7 +18,7 @@ angular.module('jym.services.config', [
         }
 
         service.getConfig = function() {
-            return $http.get(URLS.FETCH, {
+            return $http.get(URLS.CONFIG.FETCH, {
                 cache: JYMCacheService.get('configCache')
             }).then(parseConfig);
         };

@@ -7,7 +7,7 @@ angular.module('jym.yinpiao.detail', [
                 views: {
                     'content@':{
                         controller: 'YinpiaoDetailCtrl as yinpiaoDetailCtrl',
-                        templateUrl: 'app/shangpiao/detail/yinpiao-detail.tpl.html'
+                        templateUrl: 'app/yinpiao/detail/yinpiao-detail.tpl.html'
                     }
                 }
             })

@@ -8,6 +8,11 @@ angular.module('JYM', [
     'jym.yinhangzhuanqu',
     'jym.yinpiao'
 ])
+    .constant('URLS', {
+        CONFIG: {
+            FETCH: 'https://jymstoredevlocal.blob.core.chinacloudapi.cn/publicfiles/Configs/AppConfig/3.0.0'
+        }
+    })
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('jym', {
             url: "",

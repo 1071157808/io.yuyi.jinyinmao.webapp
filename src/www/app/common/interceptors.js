@@ -7,14 +7,7 @@ angular.module('jym.interceptors', [
         return {
             'request': function(config) {
                 $log.debug(config);
-                var $ionicPopup = $injector.get('$ionicPopup');
-                var popup = $ionicPopup.alert({
-                    title: '喵喵提示',
-                    template: config.url
-                });
-                $timeout(function () {
-                    popup.close();
-                }, 1000);
+                //var $ionicPopup = $injector.get('$ionicPopup');
 
                 config.headers.JYM = authService.getToken();
 
