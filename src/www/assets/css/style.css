@@ -1234,8 +1234,9 @@ ion-header-bar.bar.bar-header > div > a {
 /*ion-header-bar end*/
 
 /*ion-slide start*/
-ion-slide {
-  width: 375px;
+
+
+.slider .slider-slides ion-slide.slider-slide {
   height: 158px;
   float: left;
 }
