@@ -1246,7 +1246,7 @@ ion-slide > img {
 }
 .slider-pager i {
   font-size: 40%;
-  color:#FE745F ;
+  color:#996A39 ;
 }
 /*ion-slide end*/
 
@@ -1272,7 +1272,7 @@ ion-slide > img {
   color: #e74c3c;
   font-weight: 400;
 }
-.button {
+.button-action {
   display: block;
   width: 90%;
   line-height: 6%;
@@ -1288,13 +1288,27 @@ ion-slide > img {
   border: 0 solid;
   border-radius: 3px;
   -moz-border-radius: 3px;
-  -webkit-border-radius: 3px
-}
-.button-action {
+  -webkit-border-radius: 3px;
   background-color: #47b28b;
   border-color: #47b28b;
 }
 .button-grey {
+  display: block;
+  width: 90%;
+  line-height: 6%;
+  padding: .7em 1em;
+  font-size: 22px;
+  color: #FFF;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0 solid;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
   background-color: #c3d0d7 ;
   border-color: #c3d0d7 ;
 }
@@ -1486,3 +1500,23 @@ ion-item img {
 }
 /*ion-list ion-item end*/
 
+/*order-detail*/
+.order-detail em {
+  padding-left: 8px;
+  font-size: 50px;
+  color: #e74c3c;
+}
+
+.order-detail samp {
+  color: #e74c3c;
+  font-size: 30px;
+}
+
+.order-detail ul {
+  position: relative;
+  float: right;
+  font-size: 14px;
+  text-align: right;
+  line-height: 24px;
+  padding-right: 10px;
+}
