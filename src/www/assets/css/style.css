@@ -1458,9 +1458,6 @@ ion-item.divider, .item-divider {
   margin-top: 50px;
 }
 
-#user-index {
-  background-color:#FBF7ED ;
-}
 ion-item p {
   text-align: left;
   font-size: 6px;
@@ -1554,29 +1551,11 @@ ion-item img {
   padding-right: 8px;
 }
 
-
-/*buttons*/
-.button-action {
+/*buttons start*/
+.btn {
   display: block;
   width: 90%;
-  min-height: 38px;
-  height: 38px;
-  color: #FFF;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  white-space: nowrap;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  background-color: #47b28b;
-  border: 0 solid #47b28b;
-  margin: 8% auto;
-}
-.button-grey {
-  display: block;
-  width: 90%;
-  line-height: 6%;
+  line-height: 20%;
   padding: .7em 1em;
   font-size: 22px;
   color: #FFF;
@@ -1589,8 +1568,23 @@ ion-item img {
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  background-color: #c3d0d7 ;
-  border: 0 solid #c3d0d7;
+}
+
+.button-action {
+  background-color: #47b28b;
+  border: 0 solid #47b28b;
+  /*margin: 8% auto;*/
+}
+.button-yellow {
+  background-color: #FACB3A;
+  border: 0 solid #cead52
+}
+.button-grey {
+  background-color: #c3d0d7;
+  border: 0 solid #a8b6bf;
+}
+.button-grey.activated {
+  background-color: ;
 }
 
 #btn-narrow {
@@ -1604,4 +1598,48 @@ ion-item img {
   border: 0 solid #47b28b;
 }
 
-/*buttons*/
+/*buttons end */
+
+
+.vericoderefresh.disabled {
+  background-image: url("../img/user/icon-count-back-68e8b6d.png");
+  width: 4px;
+  height: 40px;
+  font-size: 12px;
+}
+.vericoderefresh {
+  background-image: url("../img/user/icon-count-send-39e4694.png");
+  width: 40px;
+  height: 40px;
+  font-size: 12px;
+}
+
+/*user-index start*/
+#user-index {
+  background-color:#FBF7ED ;
+}
+#user-index a.item {
+  font-size: 18px;
+  padding-top: 18px;
+  height: 58px;
+}
+#user-index a.item > i.icon {
+  font-size: 24px;
+  color: #FACB3A;
+}
+#user-index ion-item h2 {
+  height: 40px;
+  font-size: 20px;
+  list-style: none;
+  padding-top: 8px;
+}
+#user-index ion-item p {
+  height: 30px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+#user-index ion-item p > strong {
+  font-size: 26px;
+  color: #e74c3c;
+}
+/*user-index end*/
