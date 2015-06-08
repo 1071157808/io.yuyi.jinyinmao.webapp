@@ -1147,6 +1147,7 @@ ion-header-bar.bar.bar-header > div > a {
   background: url(../img/global/logo.png) no-repeat 50% 50%;
   background-size: 60% auto;
   font-size: 40px;
+  margin-left:20px;
 }
 
 .jym-nav-top li {
@@ -1255,6 +1256,7 @@ ion-slide img {
   position: relative;
   margin-top: 4%;
 }
+
 .jinbaoyin-yield {
   text-align: center;
 }
@@ -1262,13 +1264,19 @@ ion-slide img {
   color: #e74c3c;
   font-size: 70px;
 }
-.jinbaoyin-yield > samp, {
+.jinbaoyin-yield > samp{
   color: #e74c3c;
 }
 .jinbaoyin-index-product span {
   font-size: 14px;
   margin-right: 20px;
   margin-left: 20px;
+}
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  .jinbaoyin-index-product span{
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 }
 .jinbaoyin-index-product span > em {
   font-size: 20px;
@@ -1363,6 +1371,11 @@ ion-slide img {
 .bar .title {
   right: 130px;
 }
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  .bar .title {
+    right: 60px;
+  }
+}
 ion-footer-bar button .icon-right {
   right: 20px;
 }
@@ -1385,38 +1398,39 @@ ion-footer-bar button .icon-right {
 /*ion-footer-bar end*/
 
 /*ion-list ion-item start*/
-ion-item .right-40 {
-  width: 40%;
-  float: left;
-  list-style: none;
+ion-item .col
+{list-style: none;
 }
-ion-item .right-40 em {
+ion-item .col-33 em {
   color: #e74c3c;
   font-size: 35px;
 }
 
-ion-item .right-40 > em > samp{
+ion-item .col-33> em > samp{
   color: #e74c3c;
   font-size: 20px;
 }
 
-ion-item .right-40 li{
+ion-item .col-33 li{
   font-size: 14px;
 }
-ion-item .right-40 li > samp{
+ion-item .col-33 li > samp{
   color: #999999;
 }
 
-ion-item .left-60 {
-  width: 60%;
-  float: left;
+ion-item .col-67 {
+
   list-style: none;
-  font-size: 12px;
+  font-size: 13px;
 }
-ion-item .left-60 .detail > li {
+ion-item .col-67 .rongzi{
+  font-size: 14px;
+}
+ion-item .col-67 .detail > li {
   color: #83817c;
-  font-size: 10px;
-  padding-top: 5px;
+  font-size: 14px;
+  padding-top: 3px;
+
 }
 
 ion-item.item {
@@ -1438,6 +1452,7 @@ ion-item.divider, .item-divider {
   padding-bottom: 6px;
   font-size: 16px;
 }
+
 
 #logout {
   margin-top: 50px;
@@ -1478,7 +1493,11 @@ ion-item img {
   color: #e74c3c;
   font-size: 30px;
 }
-
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  .order-detail ul{
+    padding-right: 12px;
+  }
+}
 .order-detail ul {
   position: relative;
   float: right;
