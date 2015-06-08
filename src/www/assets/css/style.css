@@ -1324,6 +1324,8 @@ ion-slide img {
   font-size: 15px;
   color: #F5F5F5;
   font-weight: 600;
+  background-color: #47b28b;
+  border: 0 solid #47b28b;
 }
 
 
@@ -1551,8 +1553,8 @@ ion-item img {
   font-size: 6px;
   padding-left: 10px;
 }
-.list.card .item-divider > p > em {
-  color: #e74c3c;;
+.list.card .item-divider p > em {
+  color: #e74c3c;
 }
 .list.card .item-input-inset > label > input {
   text-align: left;
