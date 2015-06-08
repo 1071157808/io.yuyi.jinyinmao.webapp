@@ -17,15 +17,15 @@ angular.module('jym.jinbaoyin', [
         var jinbaoyinIndexCtrl = this;
 
     })
-    .controller('JinbaoyinIndexSliderCtrl', function(JYMConfigService) {
-        var jinbaoyinIndexSliderCtrl = this;
+    .controller('JinbaoyinIndexSlideBoxCtrl', function($ionicSlideBoxDelegate, JYMConfigService) {
+        var jinbaoyinIndexSlideBoxCtrl = this;
+        jinbaoyinIndexSlideBoxCtrl.slides = [];
 
-        JYMConfigService.getSlidersConfig()
+        JYMConfigService.getSlidesConfig()
             .then(function (result) {
-                jinbaoyinIndexSliderCtrl.sliders = result;
+                jinbaoyinIndexSlideBoxCtrl.slides = result;
+            })
+            .then(function () {
+                $ionicSlideBoxDelegate.update();
             });
-
-        jinbaoyinIndexSliderCtrl.refresh = function(){
-            JYMConfigService.getSlidersConfig();
-        }
     });

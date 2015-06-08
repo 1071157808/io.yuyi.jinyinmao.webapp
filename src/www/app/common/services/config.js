@@ -23,9 +23,9 @@ angular.module('jym.services.config', [
             }).then(parseConfig);
         };
 
-        service.getSlidersConfig = function() {
+        service.getSlidesConfig = function() {
             var extractSlidersConfig = function(result) {
-                return result.sliders;
+                return result.slides;
             };
 
             return service.getConfig().then(extractSlidersConfig);
