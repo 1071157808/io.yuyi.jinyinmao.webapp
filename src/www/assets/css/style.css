@@ -1317,6 +1317,15 @@ ion-slide img {
   border: 0 solid #c3d0d7;
 }
 
+#btn-narrow {
+  min-width: 60px;
+  width: 140px;
+  min-height: 30px;
+  font-size: 15px;
+  color: #F5F5F5;
+  font-weight: 600;
+}
+
 
 /*.jym-safe-control start*/
 .ui-grid3 {
@@ -1462,7 +1471,7 @@ ion-item.item {
   border: none;
 }
 
-ion-item.divider {
+ion-item.divider, .item-divider {
   background-color: #FBF7ED;
   height: 2px;
 }
@@ -1538,7 +1547,7 @@ ion-item img {
   float: right;
   font-size: 14px;
 }
-.item-divider > p {
+.item-divider p {
   font-size: 6px;
   padding-left: 10px;
 }
@@ -1549,7 +1558,7 @@ ion-item img {
   text-align: left;
 }
 .list.card .item-input-inset >label > samp {
-  margin-left: 80px;
+  margin-left: 0px;
 }
 
 .pull-left {
@@ -1558,7 +1567,7 @@ ion-item img {
 }
 .pull-right {
   float: right;
-  padding-left: 110px;
+  padding-right: 6px;
 }
 .item .pull-left {
   color: #444;
@@ -1566,3 +1575,10 @@ ion-item img {
 .item > p > em {
   color: #e74c3c;
 }
+
+#refresh {
+  color: #47b28b;
+  padding-right: 8px;
+}
+
+
