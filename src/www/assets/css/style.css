@@ -1189,90 +1189,48 @@ body,.viewport,.ui-page,.ui-single-page,.ui-header,.ui-header>.ui-wrapper,.ui-fo
 
 /*ion-header-bar start*/
 ion-header-bar.bar.bar-header {
+
   border-bottom: 2px solid #facb3a;
 }
-
-ion-header-bar.bar.bar-header > div > a {
-  display: block;
-  text-indent: -999px;
-  overflow: hidden;
-  background: url(../img/global/logo.png) no-repeat 50% 50%;
-  background-size: 60% auto;
-  font-size: 40px;
-  margin-left:20px;
+ion-header-bar.bar.bar-header div {
+  padding: 0;
+  margin: 2px;
 }
 
+ion-header-bar.bar.bar-header div .col.col-25 {
+  margin-left: 12px;
+}
+
+ion-header-bar.bar.bar-header a {
+  display: block;
+  font-size: 26px;
+  color: #FACB3A;
+  height: 100%;
+}
+ion-header-bar.bar.bar-header div ul > li > a {
+  display: block;
+  font-size: 26px;
+  color: #e3d8c2;
+  text-align: center;
+}
+ion-header-bar.bar.bar-header > div li .active {
+  color: #FACB3A;
+}
 .jym-nav-top li {
   position: relative;
-  float: left;
-  height: 86px;
-  line-height: 86px
+  float: right;
 }
 .jym-nav-top li a {
   display: block;
   width: 100px;
-  height: 86px;
   position: relative;
-  text-indent: -999px;
   overflow: hidden;
-  background: no-repeat 50% 50%;
-  background-size: auto 46%
-}
-.jym-nav-top li a.jym-nav-index {
-  background-image: url(../img/global/icon-nav-index-e6e438d.png)
-}
-.jym-nav-top li a.jym-nav-shangpiao {
-  background-image: url(../img/global/icon-nav-cpl-3cc5066.png)
-}
-.jym-nav-top li a.jym-nav-zhuanqu {
-  background-image: url(../img/global/icon-nav-amp-2c5600c.png)
 }
 
-.jym-nav-top li a.jym-nav-yinpiao {
-  background-image: url(../img/global/icon-nav-amp-2c5600c.png)
-}
-.jym-nav-top li a.jym-nav-login {
-  background-image: url(../img/global/icon-nav-user-b673e4f.png)
-}
-.jym-nav-top a.jym-nav-index.active {
-  background-image: url(../img/global/icon-nav-index-selected-863af5f.png)
-}
-.jym-nav-top a.jym-nav-shangpiao.active {
-  background-image: url(../img/global/icon-nav-cpl-selected-795eabf.png)
-}
-.jym-nav-top a.jym-nav-zhuanqu.active {
-  background-image: url(../img/global/icon-nav-amp-selected-90a6afd.png)
-}
-.jym-nav-top a.jym-nav-yinpiao.active {
-  background-image: url(../img/global/icon-nav-amp-selected-90a6afd.png)
-}
-.jym-nav-top a.jym-nav-login.active {
-  background-image: url(../img/global/icon-nav-user-selected-bbfc996.png)
-}
-.jym-nav-top li.current a:before {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: block;
-  content: '';
-  width: 100px;
-  height: 9px;
-  background: url(../img/global/icon-nav-cat-a9f8810.png) no-repeat 50% 0;
-  background-size: 78% auto
-}
-
-.jym-nav-top li {
-  height: 48px;
-  line-height: 48px
-}
 .jym-nav-top li a {
   width: 46px;
-  height: 48px
 }
-.jym-nav-top li.current a:before {
-  width: 56px;
-  height: 4px
-}
+
 .ui-left,.ui-right {
   position: absolute;
   top: 0
