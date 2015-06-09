@@ -1313,18 +1313,18 @@ ion-slide img {
   background-color: #FBF9F3;
   margin-top: 10%;
 }
-.jym-safe-control>.ui-grid3 {
+.jym-safe-control .col.col-3 {
   display: block;
   padding: 10px 10px
 }
-.jym-safe-control>.ui-grid3>div {
+.jym-safe-control > .col.col-33 > div {
   position: relative
 }
-.jym-safe-control>.ui-grid3 a {
+.jym-safe-control> a {
   display: block;
   height: 100%
 }
-.jym-safe-control>.ui-grid3 span {
+.jym-safe-control span {
   display: block;
   margin: 0 auto;
   width: 40px;
@@ -1332,7 +1332,7 @@ ion-slide img {
   background: no-repeat 50% 50%;
   background-size: auto 100%
 }
-.jym-safe-control>.ui-grid3 em {
+.jym-safe-control em {
   display: block;
   margin: 0 auto;
   height: 40px;
@@ -1341,7 +1341,7 @@ ion-slide img {
   font-size: 16px;
   text-align: center
 }
-.jym-safe-control>.ui-grid3 i {
+.jym-safe-control >.col.col-33 i {
   position: absolute;
   left: 0;
   top: 50%;
@@ -1353,21 +1353,24 @@ ion-slide img {
   border-color: #e6e4df;
   border-width: 0 1px
 }
-.jym-safe-control>.ui-grid3>div:first-child i {
+
+.jym-safe-control>.col.col-33>div:first-child i {
   display: none
 }
-.jym-safe-control>.ui-grid3 span.icon-safe-1 {
+.ui-block-a span.icon-safe-1 {
   background-image: url(../img/global/safe-yellow-1-cc820dc.png)
 }
-.jym-safe-control>.ui-grid3 span.icon-safe-2 {
+.jym-safe-control span.icon-safe-2 {
   background-image: url(../img/global/safe-yellow-2-e628acd.png)
 }
-.jym-safe-control>.ui-grid3 span.icon-safe-3 {
+.jym-safe-control span.icon-safe-3 {
   background-image: url(../img/global/safe-yellow-3-0626a52.png)
 }
 .ui-block-a,.ui-block-b,.ui-block-c{
-  float:left;min-height:1em;
-  white-space:nowrap;
+  float: left;
+  width: 100%;
+  min-height: 1em;
+  white-space: nowrap;
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
@@ -1375,6 +1378,7 @@ ion-slide img {
 /*.jym-safe-control end*/
 
 /*ion-footer-bar start*/
+
 /*ion-footer-bar {*/
   /*position: relative;*/
 /*}*/
