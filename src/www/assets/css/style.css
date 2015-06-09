@@ -1434,7 +1434,7 @@ ion-item.item {
   border: none;
 }
 
-ion-item.divider, .item-divider {
+ion-item .divider, .item.divider {
   background-color: #FBF7ED;
   height: 2px;
 }
@@ -1644,7 +1644,7 @@ ion-item img {
 }
 #zhuanqu i {
   font-size: 20px;
-  color: #999999;
+  color: #e3d8c2;
 }
 #zhuanqu a.item {
   border: none;
@@ -1675,7 +1675,10 @@ ion-item img {
 }
 .myCards i {
   font-size: 18px;
-  color: #999999;
+}
+.myCards .item.divider {
+  line-height: 2px;
+  padding-top: 2px;
 }
 .plusCard a {
   font-size: 24px;
@@ -1687,7 +1690,9 @@ ion-item img {
 }
 /*myCards end*/
 
-
+.ion-chevron-right {
+  color: #e3d8c2;
+}
 /*jbyAccount start*/
 .jbyaccount .list {
   background-color: #e74c3c;
@@ -1709,3 +1714,12 @@ ion-item img {
   height: 10px;
 }
 /*jbyAccount end*/
+
+/*myorders start*/
+.myorders h1 {
+  font-size: 22px;
+}
+.myorders i.icon{
+  font-size: 24px;
+}
+/*myorders end*/
