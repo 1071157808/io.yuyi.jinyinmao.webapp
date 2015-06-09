@@ -1243,9 +1243,8 @@ ion-header-bar.bar.bar-header > div li .active {
 }
 /*ion-header-bar end*/
 
+
 /*ion-slide start*/
-
-
 .slider .slider-slides ion-slide.slider-slide {
   height: 160px;
   float: left;
@@ -1341,7 +1340,7 @@ ion-slide img {
   font-size: 16px;
   text-align: center
 }
-.jym-safe-control >.col.col-33 i {
+.jym-safe-control i {
   position: absolute;
   left: 0;
   top: 50%;
@@ -1353,11 +1352,10 @@ ion-slide img {
   border-color: #e6e4df;
   border-width: 0 1px
 }
-
-.jym-safe-control>.col.col-33>div:first-child i {
+.block-a i {
   display: none
 }
-.ui-block-a span.icon-safe-1 {
+.block-a span.icon-safe-1 {
   background-image: url(../img/global/safe-yellow-1-cc820dc.png)
 }
 .jym-safe-control span.icon-safe-2 {
@@ -1366,7 +1364,8 @@ ion-slide img {
 .jym-safe-control span.icon-safe-3 {
   background-image: url(../img/global/safe-yellow-3-0626a52.png)
 }
-.ui-block-a,.ui-block-b,.ui-block-c{
+.block-a,.block-b,.block-c{
+  position: relative;
   float: left;
   width: 100%;
   min-height: 1em;
@@ -1377,11 +1376,8 @@ ion-slide img {
 }
 /*.jym-safe-control end*/
 
-/*ion-footer-bar start*/
 
-/*ion-footer-bar {*/
-  /*position: relative;*/
-/*}*/
+/*ion-footer-bar start*/
 .bar .title {
   right: 130px;
 }
@@ -1393,23 +1389,9 @@ ion-slide img {
 ion-footer-bar button .icon-right {
   right: 20px;
 }
-/*ion-footer-bar div {*/
-  /*color: white;*/
-  /*font-size: 16px;*/
-/*}*/
-/*ion-footer-bar div {*/
-  /*font-size: 16px;*/
-  /*color: white;*/
-/*}*/
-/*ion-footer-bar div.left{*/
-  /*padding-left: 10px;*/
-  /*width: 67%;*/
-/*}*/
-/*ion-footer-bar div.right{*/
-  /*width: 33%;*/
-/*}*/
 
 /*ion-footer-bar end*/
+
 
 /*ion-list ion-item start*/
 ion-item .col
@@ -1444,7 +1426,6 @@ ion-item .col-67 .detail > li {
   color: #83817c;
   font-size: 14px;
   padding-top: 3px;
-
 }
 
 ion-item.item {
@@ -1492,6 +1473,7 @@ ion-item img {
   color:#416ED0 ;
 }
 /*ion-list ion-item end*/
+
 
 /*order-detail*/
 .order-detail em {
@@ -1591,7 +1573,7 @@ ion-item img {
 }
 .button-yellow {
   background-color: #FACB3A;
-  border: 0 solid #cead52
+  border: 0 solid #cead52;
 }
 .button-grey {
   background-color: #c3d0d7;
@@ -1601,12 +1583,13 @@ ion-item img {
 #btn-narrow {
   min-width: 60px;
   width: 140px;
-  min-height: 30px;
-  font-size: 15px;
+  min-height: 32px;
+  font-size: 16px;
   color: #F5F5F5;
+  padding-bottom: 3px;
   font-weight: 600;
-  background-color: #47b28b;
-  border: 0 solid #47b28b;
+  background-color: #FACB3A;
+  border: 0 solid #cead52;
 }
 
 /*buttons end */
