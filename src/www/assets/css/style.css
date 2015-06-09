@@ -1650,3 +1650,19 @@ ion-item img {
   color: #e74c3c;
 }
 /*user-index end*/
+
+/*zhuanqu start*/
+#zhuanqu h2 {
+  font-size: 22px;
+}
+#zhuanqu i {
+  font-size: 20px;
+  color: #999999;
+}
+#zhuanqu a.item {
+  border: none;
+}
+#zhuanqu a img {
+  width: 100%;
+}
+/*zhuanqu end*/
