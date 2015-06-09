@@ -751,10 +751,10 @@ body,.viewport,.ui-page,.ui-single-page,.ui-header,.ui-header>.ui-wrapper,.ui-fo
   /*background-size: auto 100%*/
 /*}*/
 /*.bank-c01 {*/
-  /*background-image: url(../img/bank/logo01-69550ed.png)*/
+  /*background-image: url(../img/bank/gonghang.png)*/
 /*}*/
 /*.bank-c02 {*/
-  /*background-image: url(../img/bank/logo02-e1b8bd5.png)*/
+  /*background-image: url(../img/bank/zhaoshang.png)*/
 /*}*/
 /*.bank-c03 {*/
   /*background-image: url(../img/bank/logo03-b7cb4ab.png)*/
@@ -775,7 +775,7 @@ body,.viewport,.ui-page,.ui-single-page,.ui-header,.ui-header>.ui-wrapper,.ui-fo
   /*background-image: url(../img/bank/logo08-6f65559.png)*/
 /*}*/
 /*.bank-c09 {*/
-  /*background-image: url(../img/bank/logo09-f160998.png)*/
+  /*background-image: url(../img/bank/pufa.png)*/
 /*}*/
 /*.bank-c10 {*/
   /*background-image: url(../img/bank/logo10-ffa30db.png)*/
@@ -1653,3 +1653,36 @@ ion-item img {
   width: 100%;
 }
 /*zhuanqu end*/
+
+
+/*myCards start*/
+.myCards .item {
+  padding-top: 25px;
+  line-height: 30px;
+}
+.myCards .item img {
+  height: 60px;
+  width: 60px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.myCards h2 {
+  font-size: 20px;
+}
+.myCards p {
+  font-size: 16px;
+  color: #999999;
+}
+.myCards i {
+  font-size: 18px;
+  color: #999999;
+}
+.plusCard a {
+  font-size: 24px;
+  color: #FACB3A;
+  text-align: center;
+}
+.plusCard a i {
+  font-size: 26px;
+}
+/*myCards end*/
