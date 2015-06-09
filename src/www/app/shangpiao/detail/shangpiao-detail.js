@@ -21,7 +21,11 @@ angular.module('jym.shangpiao.detail', [
                 }
             });
     })
-    .controller('ShangpiaoDetailCtrl', function() {
+    .controller('ShangpiaoDetailCtrl', function($state) {
         var shangpiaoDetailCtrl = this;
+
+        shangpiaoDetailCtrl.goBack = function() {
+            $state.go('jym.shangpiaoIndex');
+        }
 
     });
