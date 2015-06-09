@@ -1,4 +1,5 @@
 angular.module('jym.user', [
+    'jym.userInfo'
 ])
     .config(function ($stateProvider) {
         $stateProvider
@@ -10,7 +11,7 @@ angular.module('jym.user', [
                         templateUrl: 'app/user/index.tpl.html'
                     }
                 }
-            })
+            });
     })
     .controller('UserCtrl', function() {
         var userCtrl = this;

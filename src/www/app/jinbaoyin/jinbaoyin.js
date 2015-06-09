@@ -18,9 +18,10 @@ angular.module('jym.jinbaoyin', [
         var jinbaoyinIndexCtrl = this;
 
     })
-    .controller('JinbaoyinIndexSlideBoxCtrl', function($ionicSlideBoxDelegate, JYMConfigService, JYMUtilityService) {
+    .controller('JinbaoyinIndexSlideBoxCtrl', function($ionicSlideBoxDelegate, $timeout, JYMConfigService, JYMUtilityService) {
         var jinbaoyinIndexSlideBoxCtrl = this;
         jinbaoyinIndexSlideBoxCtrl.slides = [];
+        jinbaoyinIndexSlideBoxCtrl.activeSlideIndex = 0;
 
         JYMConfigService.getSlidesConfig()
             .then(function (result) {
@@ -33,4 +34,14 @@ angular.module('jym.jinbaoyin', [
         jinbaoyinIndexSlideBoxCtrl.clickSlide = function(url){
             JYMUtilityService.open(url);
         };
+
+        jinbaoyinIndexSlideBoxCtrl.onSlideChanged = function() {
+            console.log(jinbaoyinIndexSlideBoxCtrl.activeSlideIndex);
+            if(jinbaoyinIndexSlideBoxCtrl.activeSlideIndex === jinbaoyinIndexSlideBoxCtrl.slides.length - 2){
+                $timeout(function() {
+                    $ionicSlideBoxDelegate.update();
+                }, 5000);
+            }
+        }
+
     });
