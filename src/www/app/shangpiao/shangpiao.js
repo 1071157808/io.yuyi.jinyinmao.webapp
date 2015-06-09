@@ -3,10 +3,10 @@ angular.module('jym.shangpiao', [
 ])
     .config(function ($stateProvider) {
         $stateProvider
-            .state('jym.shangpiao', {
-                url: '/shangpiao',
+            .state('jym.shangpiaoIndex', {
+                url: '/shangpiaoIndex',
                 views: {
-                    'content@':{
+                    '@':{
                         controller: 'ShangpiaoIndexCtrl as shangpiaoIndexCtrl',
                         templateUrl: 'app/shangpiao/index.tpl.html'
                     }

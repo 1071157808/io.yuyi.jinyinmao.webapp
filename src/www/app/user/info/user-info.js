@@ -5,7 +5,7 @@ angular.module('jym.userInfo', [
             .state('jym.userInfo', {
                 url: '/userInfo',
                 views: {
-                    'content@':{
+                    '@':{
                         controller: 'UserInfoCtrl as userInfoCtrl',
                         templateUrl: 'app/user/info/user-info.tpl.html'
                     }
@@ -19,6 +19,15 @@ angular.module('jym.userInfo', [
                         templateUrl: 'app/user/info/user-bankCards.tpl.html'
                     }
                 }
+            })
+            .state('jym.userInfo.jbyAccount', {
+                url: '/jbyAccount',
+                views: {
+                    'user-info':{
+                        controller: 'UserInfoJbyAccountCtrl as userInfoJbyAccountCtrl',
+                        templateUrl: 'app/user/info/user-jby-account.tpl.html'
+                    }
+                }
             });
     })
     .controller('UserInfoCtrl', function() {
@@ -27,5 +36,9 @@ angular.module('jym.userInfo', [
     })
     .controller('UserInfoBankCardsCtrl', function() {
         var userInfoBankCardsCtrl = this;
+
+    })
+    .controller('UserInfoJbyAccountCtrl', function() {
+        var userInfoJbyAccountCtrl = this;
 
     });

@@ -6,7 +6,7 @@ angular.module('jym.user', [
             .state('jym.user', {
                 url: '/user',
                 views: {
-                    'content@':{
+                    '@':{
                         controller: 'UserCtrl as userCtrl',
                         templateUrl: 'app/user/index.tpl.html'
                     }

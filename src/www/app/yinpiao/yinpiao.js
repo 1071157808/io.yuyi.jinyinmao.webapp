@@ -6,7 +6,7 @@ angular.module('jym.yinpiao', [
             .state('jym.yinpiao', {
                 url: '/yinpiao',
                 views: {
-                    'content@':{
+                    '@':{
                         controller: 'YinpiaoIndexCtrl as yinpiaoIndexCtrl',
                         templateUrl: 'app/yinpiao/index.tpl.html'
                     }

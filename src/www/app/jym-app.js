@@ -16,8 +16,7 @@ angular.module('JYM', [
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('jym', {
             url: "",
-            abstract: true,
-            templateUrl: 'index.html'
+            abstract: true
         });
 
         $urlRouterProvider.otherwise('/');

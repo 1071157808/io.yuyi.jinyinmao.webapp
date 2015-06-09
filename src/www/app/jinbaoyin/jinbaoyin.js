@@ -7,7 +7,7 @@ angular.module('jym.jinbaoyin', [
             .state('jym.jinbaoyin', {
                 url: '/',
                 views: {
-                    'content@':{
+                    '@':{
                         controller: 'JinbaoyinIndexCtrl as jinbaoyinIndexCtrl',
                         templateUrl: 'app/jinbaoyin/index.tpl.html'
                     }
@@ -36,10 +36,9 @@ angular.module('jym.jinbaoyin', [
         };
 
         jinbaoyinIndexSlideBoxCtrl.onSlideChanged = function() {
-            console.log(jinbaoyinIndexSlideBoxCtrl.activeSlideIndex);
             if(jinbaoyinIndexSlideBoxCtrl.activeSlideIndex === jinbaoyinIndexSlideBoxCtrl.slides.length - 2){
                 $timeout(function() {
-                    $ionicSlideBoxDelegate.update();
+                    jinbaoyinIndexSlideBoxCtrl.activeSlideIndex = 0;
                 }, 5000);
             }
         }
