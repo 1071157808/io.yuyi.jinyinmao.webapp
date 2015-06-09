@@ -21,6 +21,9 @@ angular.module('jym.interceptors', [
 
             'response': function(response) {
                 $log.debug(response);
+                if(response.headers.JYM) {
+                    authService.setToken(response.headers.JYM)
+                }
                 return response;
             },
 

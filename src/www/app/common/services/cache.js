@@ -5,8 +5,7 @@ angular.module('jym.services.cache', [
         var service = this;
 
         CacheFactory('configCache', {
-            //maxAge: 60 * 60 * 1000,
-            maxAge: 1000,
+            maxAge: 60 * 60 * 1000,
             cacheFlushInterval: 60 * 60 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'localStorage'

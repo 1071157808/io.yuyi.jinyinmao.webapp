@@ -1,5 +1,6 @@
 angular.module('jym.jinbaoyin', [
-    'jym.services.config'
+    'jym.services.config',
+    'jym.services.utility'
 ])
     .config(function ($stateProvider) {
         $stateProvider
@@ -17,7 +18,7 @@ angular.module('jym.jinbaoyin', [
         var jinbaoyinIndexCtrl = this;
 
     })
-    .controller('JinbaoyinIndexSlideBoxCtrl', function($ionicSlideBoxDelegate, JYMConfigService) {
+    .controller('JinbaoyinIndexSlideBoxCtrl', function($ionicSlideBoxDelegate, JYMConfigService, JYMUtilityService) {
         var jinbaoyinIndexSlideBoxCtrl = this;
         jinbaoyinIndexSlideBoxCtrl.slides = [];
 
@@ -28,4 +29,8 @@ angular.module('jym.jinbaoyin', [
             .then(function () {
                 $ionicSlideBoxDelegate.update();
             });
+
+        jinbaoyinIndexSlideBoxCtrl.clickSlide = function(url){
+            JYMUtilityService.open(url);
+        };
     });

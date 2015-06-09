@@ -10,7 +10,7 @@ angular.module('JYM', [
 ])
     .constant('URLS', {
         CONFIG: {
-            FETCH: 'https://jymstoredevlocal.blob.core.chinacloudapi.cn/publicfiles/Configs/AppConfig/3.0.0'
+            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn/publicfiles/Configs/AppConfig/3.0.0'
         }
     })
     .config(function($stateProvider, $urlRouterProvider) {
@@ -20,14 +20,6 @@ angular.module('JYM', [
         });
 
         $urlRouterProvider.otherwise('/');
-    })
-    .config(function(CacheFactoryProvider) {
-        angular.extend(CacheFactoryProvider.defaults, {
-            maxAge: 60 * 1000,
-            cacheFlushInterval: 60 * 60 * 1000,
-            deleteOnExpire: 'aggressive',
-            storageMode: 'localStorage'
-        });
     })
     .config(function($httpProvider) {
         $httpProvider.interceptors.push('globalInterceptor');
