@@ -1,6 +1,6 @@
 <ion-header-bar>
   <ion-nav-bar class="bar-light">
-    <ion-nav-back-button class="button-icon">
+    <ion-nav-back-button class="button-clear back-button">
       <i class="icon ion-ios-arrow-back"></i>
     </ion-nav-back-button>
     <ion-nav-title>"商融保盈"融资项目第1234期</ion-nav-title>
@@ -34,14 +34,18 @@
 
     <div class="list card">
       <div class="item-divider">
-        <p>剩余份数：371 份（5000元／份）</p>
+        <a href="/">
+        <p class="pull-left">剩余份数：<em>371</em>份（5000元／份）</p>
+        <p class="pull-right" id="refresh">刷新 &nbsp;<i class="icon ion-refresh"></i></p>
+        </a>
+
       </div>
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
           <input type="number" placeholder="投资金额" value="10">
           <samp>份</samp>
         </label>
-        <button class="button button-small button-assertive">立即抢购</button>
+        <button class="button button-small button-assertive" id="btn-narrow">立&nbsp;即&nbsp;抢&nbsp;购</button>
       </div>
       <div class="item-divider">
         <p class="pull-left">投资金额<em>&nbsp;50000&nbsp;</em>元</p>
@@ -77,16 +81,12 @@
       </div>
       <div class="item">
         <p class="pull-left">结息日期</p>
-        <p class="pull-right"><em>015-12-01</em></p>
+        <p class="pull-right"><em>2015-12-01</em></p>
       </div>
       <div class="item">
         <p class="pull-left">最迟还款日</p>
         <p class="pull-right"><em>2015-12-04</em></p>
       </div>
-
-
-
-
     </div>
 
   </ion-content>

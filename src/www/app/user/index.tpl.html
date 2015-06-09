@@ -17,27 +17,35 @@
 <ion-view>
   <ion-content id="user-index">
     <ion-list>
+      <ion-item>
+        <h2>当前您的赚钱速度为：</h2>
+        <p>每小时 <strong>0.428888888888</strong> 元</p>
+      </ion-item>
       <ion-item class="divider">
       </ion-item>
-      <div class="item">
-        <a href="/jym-account">资金账户</a>
-      </div>
-      <div class="item">
-        <a href="/jby-account">金包银账户</a>
-      </div>
-      <div class="item">
-        <a href="/order-details">我的订单</a>
-      </div>
-      <div class="item">
-        <a href="/my-cards">我的银行卡</a>
-      </div>
+      <ion-item>
+        <p>累计受益：<em>8888.88</em> 元</p>
+      </ion-item>
       <ion-item class="divider">
       </ion-item>
-      <div class="item">
-        <a href="/password-setting"><span>密码设置</span></a>
-      </div>
-
+      <a class="item item-icon-right" href="/jym-account">
+        资金账户<i class="icon ion-chevron-right"></i>
+      </a>
+      <a class="item item-icon-right" href="/jby-account">
+        金包银账户 <i class="icon ion-chevron-right"></i>
+      </a>
+      <a class="item item-icon-right" href="/order-details">
+        我的订单<i class="icon ion-chevron-right"></i>
+      </a>
+      <a class="item item-icon-right" href="/my-cards">
+        我的银行卡<i class="icon ion-chevron-right"></i>
+      </a>
+      <ion-item class="divider">
+      </ion-item>
+      <a class="item item-icon-right" href="/password-setting">
+        密码设置<i class="icon ion-chevron-right"></i>
+      </a>
     </ion-list>
-    <button class="button button-grey" href="/logout/" id="logout">登出</button>
+    <button class="btn button-grey" href="/logout/" id="logout">登出</button>
   </ion-content>
 </ion-view>
