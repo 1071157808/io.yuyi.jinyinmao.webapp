@@ -1533,7 +1533,7 @@ ion-item img {
 }
 .pull-right {
   float: right;
-  padding-right: 6px;
+  padding-right: 5px;
 }
 .item .pull-left {
   color: #444;
@@ -1686,3 +1686,26 @@ ion-item img {
   font-size: 26px;
 }
 /*myCards end*/
+
+
+/*jbyAccount start*/
+.jbyaccount .list {
+  background-color: #e74c3c;
+}
+
+.jbyaccount .list .item {
+  background-color: inherit;
+  margin-top: 5px;
+}
+.jbyaccount .list .item {
+  margin-bottom: 5px ;
+  border: none;
+}
+.jbyaccount p, .jbyaccount h1, .jbyaccount i {
+  color: white;
+}
+.space {
+  width: 100%;
+  height: 10px;
+}
+/*jbyAccount end*/
