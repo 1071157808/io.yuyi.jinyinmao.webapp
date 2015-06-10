@@ -1250,7 +1250,6 @@ ion-slide img {
 }
 /*ion-slide end*/
 
-
 .jinbaoyin-index-product {
   text-align: center;
   position: relative;
@@ -1274,6 +1273,12 @@ ion-slide img {
 }
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .jinbaoyin-index-product span{
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+@media only screen and (max-width: 320px) and (max-height: 480px) {
+  .jinbaoyin-index-product span {
     margin-right: 15px;
     margin-left: 15px;
   }
@@ -1373,7 +1378,13 @@ ion-slide img {
 }
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .bar .title {
-    right: 60px;
+    margin-left: 65px;
+  }
+}
+@media only screen and (max-width: 320px) and (max-height: 480px) {
+  .bar .title {
+    margin-left: 60px;
+    font-size: 15px;
   }
 }
 ion-footer-bar button .icon-right {
@@ -1422,9 +1433,6 @@ ion-item .col-67 {
 
   list-style: none;
   font-size: 13px;
-}
-ion-item .col-67 .rongzi{
-  font-size: 14px;
 }
 ion-item .col-67 .detail > li {
   color: #83817c;
@@ -1573,7 +1581,9 @@ ion-item img {
 .button-action {
   background-color: #47b28b;
   border: 0 solid #47b28b;
+  margin: 0 35%;
   /*margin: 8% auto;*/
+  padding:5px 15px;
 }
 .button-yellow {
   background-color: #FACB3A;
@@ -1640,3 +1650,61 @@ ion-item img {
   color: #e74c3c;
 }
 /*user-index end*/
+@media only screen and (min-width: 1200px){
+  .slider{
+    overflow: initial;
+  }
+  .jinbaoyin-index-product{
+    top:180px;
+    height: 30%;
+    clear: both;
+  }
+  .jym-index-purchase{
+    margin: 10% auto 0 ;
+  }
+  .slider-pager{
+    top: 305px;
+  }
+  .jinbaoyin-index-product h4{
+    font-size:35px;
+    font-weight: 600;
+  }
+  .jinbaoyin-index-product h5{
+    font-size: 28px;
+    color: #83817c;
+  }
+  .jinbaoyin-yield > em{
+    font-size: 180px ;
+  }
+  .jinbaoyin-yield > samp{
+    font-size: 60px;
+  }
+  .jinbaoyin-index-product span > em{
+    font-size: 42px ;
+  }
+  .jinbaoyin-index-product span{
+    font-size: 28px ;
+    margin-left: 60px ;
+    margin-right: 60px ;
+  }
+  .button-action{
+    width: 100%;
+    margin:17% 0 0 ;
+    padding: 18px;
+    font-size: 32px;
+    color: white;
+  }
+  .jym-safe-control{
+    margin-top: 3% ;
+    padding: 15px;
+  }
+  ion-item .col-33 li{
+    font-size:20px ;
+  }
+  ion-item .col-67{
+    font-size: 20px ;
+  }
+  ion-item .col-67 .detail > li{
+    font-size: 20px ;
+  }
+}
