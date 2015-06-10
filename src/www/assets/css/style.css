@@ -1227,7 +1227,7 @@ ion-header-bar.bar.bar-header > div li .active {
     position: absolute;
     right: 7px;
   }
-}
+}/*ipjone4*/
 
   .jym-nav-top li {
   position: relative;
@@ -1298,7 +1298,7 @@ ion-slide img {
     margin-right: 15px;
     margin-left: 15px;
   }
-}
+}/*iphone5*/
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   .jinbaoyin-index-product span {
     margin-right: 15px;
@@ -1403,7 +1403,7 @@ ion-slide img {
   .bar .title {
     margin-left: 65px;
   }
-}
+}/*iphone5*/
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   .bar .title {
     margin-left: 60px;
@@ -1457,8 +1457,8 @@ ion-item.item {
 
 
 .item {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .item a {
   padding-top: 6px;
@@ -1507,7 +1507,7 @@ ion-item img {
   .order-detail ul{
     padding-right: 12px;
   }
-}
+}/*iphone5*/
 .order-detail ul {
   position: relative;
   float: right;
@@ -1549,7 +1549,7 @@ ion-item img {
   display: block;
   width: 90%;
   line-height: 20%;
-  padding: .7em 1em;
+  padding: .9em 1em;
   font-size: 22px;
   color: #FFF;
   position: relative;
@@ -1689,7 +1689,7 @@ ion-item img {
   ion-item .col-67 .detail > li{
     font-size: 20px ;
   }
-}
+}/*大屏设备*/
 
 /*zhuanqu start*/
 #zhuanqu h2 {
@@ -1752,8 +1752,6 @@ ion-item img {
 .jbyaccount .list .item {
   background-color: inherit;
   margin-top: 5px;
-}
-.jbyaccount .list .item {
   margin-bottom: 5px ;
   border: none;
 }
