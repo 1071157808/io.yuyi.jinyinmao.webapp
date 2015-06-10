@@ -846,11 +846,10 @@ img.top {
   padding-left: 10px;
   font-size: 16px;
 }
-.jbyaccountdetails a p {
-  text-align: center;
+.jbyaccountdetails p {
   font-size: 16px;
 }
-.jbyaccountdetails a i {
+.jbyaccountdetails a > span > i {
   position: relative;
   left: 60%;
   font-size: 20px;
@@ -861,6 +860,9 @@ img.top {
 .jbyaccountdetails a > span {
   line-height: 0;
   vertical-align: text-bottom;
+}
+.jbyaccountdetail a > .icon {
+  font-size: 16px;
 }
 /*.jbyaccountdetail end*/
 
