@@ -1547,7 +1547,7 @@ ion-item img {
 .btn {
   display: block;
   width: 90%;
-  line-height: 20%;
+  line-height: 30%;
   padding: .7em 1em;
   font-size: 22px;
   color: #FFF;
@@ -1744,6 +1744,15 @@ img.top {
 }
 .plusCard a i {
   font-size: 26px;
+}
+.myCards.detail img {
+  margin-top:15px;
+}
+.myCards.detail .item {
+  padding-top: 15px;
+}
+.myCards.detail span.default {
+  color: #FACB3A;
 }
 /*myCards end*/
 
