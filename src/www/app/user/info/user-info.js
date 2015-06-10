@@ -20,6 +20,24 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
+            .state('jym.userInfo.bankCards-detail', {
+                url: '/bankCards/detail',
+                views: {
+                    'user-info':{
+                        controller: 'UserInfoBankCardsDetailCtrl as userInfoBankCardsDetailCtrl',
+                        templateUrl: 'app/user/info/user-bankCards-detail.tpl.html'
+                    }
+                }
+            })
+            .state('jym.userInfo.bankCards-add', {
+                url: '/bankCards/add',
+                views: {
+                    'user-info':{
+                        controller: 'UserInfoBankCardsAddCtrl as userInfoBankCardsAddCtrl',
+                        templateUrl: 'app/user/info/user-bankCards-add.tpl.html'
+                    }
+                }
+            })
             .state('jym.userInfo.jbyAccount', {
                 url: '/jbyAccount',
                 views: {
@@ -63,6 +81,14 @@ angular.module('jym.userInfo', [
     })
     .controller('UserInfoBankCardsCtrl', function() {
         var userInfoBankCardsCtrl = this;
+
+    })
+    .controller('UserInfoBankCardsDetailCtrl', function() {
+        var userInfoBankCardsDetailCtrl = this;
+
+    })
+    .controller('UserInfoBankCardsAddCtrl', function() {
+        var userInfoBankCardsAddCtrl = this;
 
     })
     .controller('UserInfoJbyAccountCtrl', function() {

@@ -1,4 +1,5 @@
 angular.module('jym.yinhangzhuanqu', [
+    'jym.yinhangzhuanqu.detail'
 ])
     .config(function ($stateProvider) {
         $stateProvider
