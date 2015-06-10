@@ -838,6 +838,10 @@ img.top {
 .jbyaccountdetails .row {
   line-height: 30px;
 }
+.jbyaccountdetails a > span {
+  line-height: 0;
+  vertical-align: text-bottom;
+}
 /*.jbyaccountdetail end*/
 
 
