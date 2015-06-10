@@ -1450,9 +1450,8 @@ ion-item .col-67 .detail > li {
 }
 
 ion-item.item {
-  padding-top: 5px;
-  padding-bottom: 5px;
   border: none;
+  padding: 5px 4px 5px 2px;
 }
 
 
@@ -1703,6 +1702,11 @@ ion-item img {
   border: none;
 }
 #zhuanqu a img {
+  width: 100%;
+}
+
+img.top {
+  position: relative;
   width: 100%;
 }
 /*zhuanqu end*/
