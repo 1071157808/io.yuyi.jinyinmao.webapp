@@ -1,17 +1,19 @@
 <ion-header-bar class="bar-light">
-  <div class="ui-left">
-    <a class="jym-logo" href="/">金银猫</a>
+  <div class="row">
+    <div class="col col-25">
+      <a class="" ui-sref="jym.jinbaoyin"><i class="jym-icon-qian"></i></a>
+    </div>
+    <div class="col">
+      <ul class="jym-nav-top clearfix">
+        <li><a ui-sref="jym.user"><i class="jym-icon-user"></i></a></li>
+        <li><a ui-sref="jym.shangpiaoIndex"><i class="jym-icon-shang active"></i></a></li>
+        <li><a ui-sref="jym.yinpiao"><i class="jym-icon-yin"></i></a></li>
+        <li><a ui-sref="jym.yinhangzhuanqu"><i class="jym-icon-zhuan"></i></a></li>
+        <li><a ui-sref="jym.jinbaoyin"><i class="jym-icon-home"></i></a></li>
+      </ul>
+    </div>
   </div>
-  <div class="ui-right">
-    <ul class="jym-nav-top">
-      <li><a class="jym-nav-index" ui-sref="jym.jinbaoyin">首页</a></li>
-      <li><a class="jym-nav-zhuanqu" ui-sref="jym.yinhangzhuanqu">银行专区</a></li>
-      <li><a class="jym-nav-yinpiao" ui-sref="jym.yinpiao">银企众盈</a></li>
-      <li><a class="jym-nav-shangpiao active" ui-sref="jym.shangpiao">商融保盈</a></li>
-      <li><a class="jym-nav-login" ui-sref="jym.user">我的金银猫</a></li>
-    </ul>
-  </div>
-</ion-header-bar>
+  </ion-header-bar>
 
 <ion-view>
   <ion-content>

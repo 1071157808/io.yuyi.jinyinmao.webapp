@@ -5,7 +5,7 @@ angular.module('jym.yinhangzhuanqu', [
             .state('jym.yinhangzhuanqu', {
                 url: '/yinhangzhuanqu',
                 views: {
-                    'content@':{
+                    '@':{
                         controller: 'YinhangzhuanquIndexCtrl as yinhangzhuanquIndexCtrl',
                         templateUrl: 'app/yinhangzhuanqu/index.tpl.html'
                     }

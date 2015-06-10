@@ -1,20 +1,9 @@
 <div ng-controller="JinbaoyinIndexSlideBoxCtrl as jinbaoyinIndexSlideBoxCtrl">
-  <ion-slide-box does-continue="true" auto-play="true">
-    <!--<ion-slide ng-repeat="slide in jinbaoyinIndexSlideBoxCtrl.slides">-->
-      <!--<a ng-href="{{ slide.targetUrl }}"><img ng-src="{{ slide.imageSource }}"></a>-->
-    <!--</ion-slide>-->
-    <ion-slide>
-      <a href="#" onclick="window.open('http://www.baidu.com', '_self', 'location=yes')">      <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
+  <ion-slide-box auto-play="true" slide-interval="5000" on-slide-changed="jinbaoyinIndexSlideBoxCtrl.onSlideChanged()" active-slide="jinbaoyinIndexSlideBoxCtrl.activeSlideIndex">
+    <ion-slide ng-repeat="slide in jinbaoyinIndexSlideBoxCtrl.slides">
+      <a ng-href="{{ slide.targetUrl }}" ng-click="jinbaoyinIndexSlideBoxCtrl.clickSlide(slide.targetUrl)">
+        <img ng-src="{{ slide.imageSource }}">
       </a>
     </ion-slide>
-    <ion-slide>
-      <a href="#" onclick="window.open('http://www.baidu.com', '_blank', 'location=yes')">      <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </a>
-    </ion-slide>
-    <ion-slide>
-      <a href="#" onclick="window.open('http://www.baidu.com', '_system', 'location=yes')">      <img src="https://source.jinyinmao.com.cn/uploadfile/2014/0929/20140929055802217.jpg">
-      </a>
-    </ion-slide>
-
   </ion-slide-box>
 </div>

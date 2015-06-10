@@ -5,7 +5,7 @@ angular.module('jym.yinpiao.detail', [
             .state('jym.yinpiao.detail', {
                 url: '/yinpiao/{:productNo}',
                 views: {
-                    'content@':{
+                    '@':{
                         controller: 'YinpiaoDetailCtrl as yinpiaoDetailCtrl',
                         templateUrl: 'app/yinpiao/detail/yinpiao-detail.tpl.html'
                     }
