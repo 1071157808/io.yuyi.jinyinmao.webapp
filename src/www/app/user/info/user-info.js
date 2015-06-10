@@ -48,7 +48,7 @@ angular.module('jym.userInfo', [
                 }
             })
             .state('jym.userInfo.jbyAccount-info', {
-                url: '/info',
+                url: '/jbyAccount/info',
                 views: {
                     'user-info':{
                         controller: 'UserInfoJbyAccountInfoCtrl as userInfoJbyAccountInfoCtrl',
@@ -57,11 +57,29 @@ angular.module('jym.userInfo', [
                 }
             })
             .state('jym.userInfo.jbyAccount-info-list', {
-                url: '/info-list',
+                url: '/jbyAccount/info-list',
                 views: {
                     'user-info':{
                         //controller: 'UserInfoJbyAccountInfoListCtrl as userInfoJbyAccountInfoListCtrl',
                         templateUrl: 'app/user/info/user-jby-account-info-list.tpl.html'
+                    }
+                }
+            })
+            .state('jym.userInfo.jbyAccount-deposit', {
+                url: '/jbyAccount/deposit',
+                views: {
+                    'user-info':{
+                        //controller: 'UserInfoJbyAccountInfoListCtrl as userInfoJbyAccountInfoListCtrl',
+                        templateUrl: 'app/user/info/user-jby-account-deposit.tpl.html'
+                    }
+                }
+            })
+            .state('jym.userInfo.jbyAccount-withdrawal', {
+                url: '/jbyAccount/withdrawal',
+                views: {
+                    'user-info':{
+                        //controller: 'UserInfoJbyAccountInfoListCtrl as userInfoJbyAccountInfoListCtrl',
+                        templateUrl: 'app/user/info/user-jby-account-withdrawal.tpl.html'
                     }
                 }
             })
