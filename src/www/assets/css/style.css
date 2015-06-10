@@ -1529,7 +1529,7 @@ ion-item img {
   text-align: left;
 }
 .list.card .item-input-inset >label > samp {
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 .pull-left {
@@ -1574,9 +1574,6 @@ ion-item img {
 .button-action {
   background-color: #47b28b;
   border: 0 solid #47b28b;
-  margin: 0 35%;
-  /*margin: 8% auto;*/
-  padding:5px 15px;
 }
 .button-yellow {
   background-color: #FACB3A;
@@ -1639,7 +1636,6 @@ ion-item img {
   margin-top: 10px;
 }
 
-}
 /*user-index end*/
 @media only screen and (min-width: 1200px){
   .slider{
@@ -1776,11 +1772,14 @@ ion-item img {
 /*jbyAccount end*/
 
 /*myorders start*/
+.myorders {
+  background-color: #FBF7ED;
+}
 .myorders h1 {
   font-size: 22px;
 }
 .myorders i.icon{
-  font-size: 24px;
+  font-size: 18px;
 }
 /*myorders end*/
 
