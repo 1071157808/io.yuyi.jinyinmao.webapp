@@ -419,10 +419,12 @@ ion-slide img {
 }/*iphone5*/
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   .bar .title {
-    margin-left: 60px;
-    font-size: 13px;
+    margin-left: 12%;
+    font-size: 6px;
+    width: 110px;
+    height:33px;
   }
-}/*iphine4*/
+}/*iphone4*/
 ion-footer-bar button .icon-right {
   right: 20px;
 }
@@ -681,16 +683,14 @@ ion-item img {
   }
   .button-action{
     width: 100%;
-    margin:17% 0 0 ;
     padding: 35px;
     font-size: 32px;
     color: white;
   }
   .jym-safe-control{
-    margin-top: 0;
+    margin-top: 32px;
     padding: 20px;
     position: relative;
-    top: 70px;
   }
   ion-item .col-33 li{
     font-size:20px ;
