@@ -92,6 +92,24 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
+            .state('jym.userInfo.orders-list', {
+                url: '/orders/list',
+                views: {
+                    'user-info':{
+                        //controller: 'UserInfoOrdersCtrl as userInfoOrdersCtrl',
+                        templateUrl: 'app/user/info/user-orders-list.tpl.html'
+                    }
+                }
+            })
+            .state('jym.userInfo.orders-detail', {
+                url: '/orders/detail',
+                views: {
+                    'user-info':{
+                        //controller: 'UserInfoOrdersCtrl as userInfoOrdersCtrl',
+                        templateUrl: 'app/user/info/user-orders-detail.tpl.html'
+                    }
+                }
+            })
             .state('jym.userInfo.security', {
                 url: '/security',
                 views: {
