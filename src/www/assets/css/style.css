@@ -1442,10 +1442,7 @@ ion-item.item {
   border: none;
 }
 
-ion-item .divider, .item.divider {
-  background-color: #FBF7ED;
-  height: 2px;
-}
+
 .item {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -1642,9 +1639,7 @@ ion-item img {
   font-size: 18px;
   margin-top: 10px;
 }
-#user-index ion-item p > strong {
-  font-size: 26px;
-  color: #e74c3c;
+
 }
 /*user-index end*/
 @media only screen and (min-width: 1200px){
@@ -1758,9 +1753,7 @@ ion-item img {
 }
 /*myCards end*/
 
-.ion-chevron-right {
-  color: #e3d8c2;
-}
+
 /*jbyAccount start*/
 .jbyaccount .list {
   background-color: #e74c3c;
@@ -1791,3 +1784,33 @@ ion-item img {
   font-size: 24px;
 }
 /*myorders end*/
+
+
+/*.settleaccount start*/
+.settleaccount {
+  background-color: #FBF7ED;
+}
+.settleaccount p {
+  padding-top: 5px;
+}
+.settleaccount .item i {
+  font-size: 16px;
+}
+.settleaccount .item {
+  border-bottom: 1px;
+}
+/*.settleaccount end*/
+
+
+ion-item p > strong, .item p > strong {
+  font-size: 26px;
+  color: #e74c3c;
+  line-height: 42px;
+}
+ion-item .divider, .item.divider {
+  background-color: #FBF7ED;
+  height: 2px;
+}
+.ion-chevron-right {
+  color: #e3d8c2;
+}
