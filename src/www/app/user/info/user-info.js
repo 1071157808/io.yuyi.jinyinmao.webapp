@@ -56,6 +56,15 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
+            .state('jym.userInfo.jbyAccount-info-list', {
+                url: '/info-list',
+                views: {
+                    'user-info':{
+                        //controller: 'UserInfoJbyAccountInfoListCtrl as userInfoJbyAccountInfoListCtrl',
+                        templateUrl: 'app/user/info/user-jby-account-info-list.tpl.html'
+                    }
+                }
+            })
             .state('jym.userInfo.orders', {
                 url: '/orders',
                 views: {
