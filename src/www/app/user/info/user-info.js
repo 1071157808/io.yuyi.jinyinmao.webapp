@@ -47,6 +47,15 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
+            .state('jym.userInfo.jbyAccount-info', {
+                url: '/info',
+                views: {
+                    'user-info':{
+                        controller: 'UserInfoJbyAccountInfoCtrl as userInfoJbyAccountInfoCtrl',
+                        templateUrl: 'app/user/info/user-jby-account-info.tpl.html'
+                    }
+                }
+            })
             .state('jym.userInfo.orders', {
                 url: '/orders',
                 views: {
@@ -93,6 +102,10 @@ angular.module('jym.userInfo', [
     })
     .controller('UserInfoJbyAccountCtrl', function() {
         var userInfoJbyAccountCtrl = this;
+
+    })
+    .controller('UserInfoJbyAccountInfoCtrl', function() {
+        var userInfoJbyAccountInfoCtrl = this;
 
     })
     .controller('UserInfoOrdersCtrl', function() {
