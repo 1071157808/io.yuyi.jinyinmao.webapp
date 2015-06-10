@@ -1466,7 +1466,6 @@ ion-item.item {
   font-size: 16px;
 }
 
-
 #logout {
   margin-top: 50px;
 }
@@ -1515,7 +1514,6 @@ ion-item img {
   font-size: 14px;
   text-align: right;
   line-height: 24px;
-  padding-right: 10px;
 }
 .order-detail .item > div > i {
   float: left;
@@ -1545,25 +1543,6 @@ ion-item img {
   margin-left: 0;
 }
 
-.pull-left {
-  float: left;
-  left: 5px
-}
-.pull-right {
-  float: right;
-  padding-right: 5px;
-}
-.item .pull-left {
-  color: #444;
-}
-.item > p > em {
-  color: #e74c3c;
-}
-
-#refresh {
-  color: #47b28b;
-  padding-right: 8px;
-}
 
 /*buttons start*/
 .btn {
@@ -1828,3 +1807,23 @@ ion-item .divider, .item.divider {
 #nonbackcolor {
    background-color: white;
  }
+
+.pull-left {
+  float: left;
+  left: 5px
+}
+.pull-right {
+  float: right;
+  padding-right: 5px;
+}
+.item .pull-left {
+  color: #444;
+}
+.item > p > em {
+  color: #e74c3c;
+}
+
+#refresh {
+  color: #47b28b;
+  padding-right: 8px;
+}
