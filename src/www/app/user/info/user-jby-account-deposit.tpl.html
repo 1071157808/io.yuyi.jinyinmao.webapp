@@ -1,5 +1,48 @@
 <ion-view title="金包银认购">
   <ion-content>
-    金包银认购
+    <ion-list>
+      <ion-item>
+        <p>订单金额</p>
+        <p><strong>1000000</strong>元</p>
+        <p>预期收益（30）天：5.83 &nbsp;元</p>
+      </ion-item>
+      <ion-item>
+        <p>提示: <em>邮储银行</em>&nbsp; 每日21:00-24:00 暂停支付服务</p>
+      </ion-item>
+    </ion-list>
+
+    <div class="list deposit">
+      <!--<ion-item class="divider"></ion-item>-->
+      <!--<ion-item class="item-divider">-->
+        <!--<p>支付银行卡</p>-->
+      <!--</ion-item>-->
+      <ion-item class="card">
+        <ion-item class="item item-thumbnail-left item-icon-right">
+          <img src="assets/img/bank/zhaoshang.png">
+          <p>招商银行（尾号<em>3406</em>)</p>
+          <p>限额单笔5万&nbsp;&nbsp;单日50万</p>
+          <a href="/"><i class="icon ion-chevron-right pull-right"></i></a>
+        </ion-item>
+
+        <label class="item item-input">
+          <span class="input-label">输入密码：</span>
+          <input type="number" placeholder="请输入您的支付密码">
+        </label>
+      </ion-item>
+
+      <ion-list>
+           <ion-item class="item item-checkbox">
+            <label class="checkbox">
+              <input type="checkbox">
+            </label>
+             同意 <span><em>《金银猫金包银投资协议》</em></span>
+       </ion-item>
+      </ion-list>
+      <br>
+      <button class="btn button-yellow">同意协议并付款</button>
+      <br>
+      <h4>如有问题，请垂询&nbsp;4008-556-333。</h4>
+
+    </div>
   </ion-content>
 </ion-view>

@@ -468,21 +468,21 @@ ion-item .col-67 .detail > li {
   padding-top: 3px;
 }
 
-ion-item.item {
-  border: none;
-  padding: 5px 4px 5px 2px;
-}
+/*ion-item.item {*/
+  /*border: none;*/
+  /*padding: 5px 4px 5px 2px;*/
+/*}*/
 
 
-.item {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-.item a {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  font-size: 16px;
-}
+/*.item {*/
+  /*padding-top: 15px;*/
+  /*padding-bottom: 15px;*/
+/*}*/
+/*.item a {*/
+  /*padding-top: 6px;*/
+  /*padding-bottom: 6px;*/
+  /*font-size: 16px;*/
+/*}*/
 
 #logout {
   margin-top: 50px;
@@ -796,11 +796,12 @@ img.top {
 .jbyaccount .list {
   background-color: #e74c3c;
 }
+.jbyaccount a.item {
+  padding: 10px 16px;
+}
 
 .jbyaccount .list .item {
   background-color: inherit;
-  margin-top: 5px;
-  margin-bottom: 5px ;
   border: none;
 }
 .jbyaccount p, .jbyaccount h1, .jbyaccount i {
@@ -868,6 +869,33 @@ img.top {
 }
 /*.jbyaccountdetail end*/
 
+/*.deposit start*/
+.deposit .item-thumbnail-left {
+  min-height: 40px;
+}
+.deposit .item > img {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+.deposit .item > p {
+  padding-top: 5px;
+}
+.deposit .item  i {
+  font-size: 20px;
+}
+.deposit .item.divider {
+  width: 100%;
+}
+.deposit h4 {
+  margin-left: 15px;
+  color: #cead52;
+}
+.deposit em {
+  color: #cead52;
+  text-align: center;
+}
+/*.deposit end*/
 
 
 ion-item p > strong, .item p > strong {
@@ -878,6 +906,7 @@ ion-item p > strong, .item p > strong {
 ion-item .divider, .item.divider {
   background-color: #FBF7ED;
   height: 2px;
+  padding: 4px;
 }
 .ion-chevron-right {
   color: #e3d8c2;
@@ -910,4 +939,15 @@ ion-item .divider, .item.divider {
 #refresh {
   color: #47b28b;
   padding-right: 8px;
+}
+
+.notice {
+  font-size: 10px;
+  color: #e74c3c;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.item-checkbox > .row div {
+ font-size: 16px
 }
