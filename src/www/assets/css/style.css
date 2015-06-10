@@ -211,7 +211,7 @@ ion-header-bar.bar.bar-header div {
 }
 @media only screen and (max-width: 320px) and (max-height: 480px){
   ion-header-bar.bar.bar-header div{
-    font-size: 15px;
+    font-size: 15px!important;
   }
 }/*iphone4*/
 
@@ -245,7 +245,7 @@ ion-header-bar.bar.bar-header > div li .active {
     position: absolute;
     right: 7px;
   }
-}/*ipjone4*/
+}/*iphone4*/
 
   .jym-nav-top li {
   position: relative;
@@ -729,6 +729,11 @@ ion-item img {
 #zhuanqu h2 {
   font-size: 22px;
 }
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  #zhuanqu h2 {
+    font-size: 21px;
+  }
+}/*iphone4*/
 #zhuanqu i {
   font-size: 20px;
   color: #e3d8c2;
