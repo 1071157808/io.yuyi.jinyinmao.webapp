@@ -1625,8 +1625,7 @@ ion-item img {
   height: 58px;
 }
 #user-index a.item > i.icon {
-  font-size: 24px;
-  color: #FACB3A;
+  font-size: 18px;
 }
 #user-index ion-item h2 {
   height: 40px;
