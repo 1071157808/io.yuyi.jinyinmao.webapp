@@ -889,16 +889,24 @@ img.top {
 .deposit .item  i {
   font-size: 20px;
 }
-.deposit .item.divider {
-  width: 100%;
-}
 .deposit h4 {
-  margin-left: 15px;
+  position: relative;
+  left: 12%;
   color: #cead52;
 }
-.deposit em {
-  color: #cead52;
+/*.deposit em {*/
+  /*color: #cead52;*/
+  /*text-align: center;*/
+/*}*/
+.col.col-75 p {
+  font-size: 16px;
   text-align: center;
+  margin-top: 12px;
+  color: #cead52;
+}
+.col.col-25 span {
+  font-size: 16px;
+  vertical-align: text-top;
 }
 /*.deposit end*/
 
@@ -955,4 +963,8 @@ ion-item .divider, .item.divider {
 
 .item-checkbox > .row div {
  font-size: 16px
+}
+
+.label {
+  color: yellow;
 }
