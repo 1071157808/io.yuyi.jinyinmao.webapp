@@ -211,7 +211,7 @@ ion-header-bar.bar.bar-header div {
 }
 @media only screen and (max-width: 320px) and (max-height: 480px){
   ion-header-bar.bar.bar-header div{
-    font-size: 17px;
+    font-size: 15px;
   }
 }/*iphone4*/
 
@@ -322,7 +322,7 @@ ion-slide img {
     margin-right: 15px;
     margin-left: 15px;
   }
-}
+}/*iphone4*/
 .jinbaoyin-index-product span > em {
   font-size: 20px;
   color: #e74c3c;
@@ -425,9 +425,8 @@ ion-slide img {
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   .bar .title {
     margin-left: 12%;
-    font-size: 6px;
-    width: 110px;
-    height:33px;
+    font-size: 6px !important;
+
   }
 }/*iphone4*/
 ion-footer-bar button .icon-right {
@@ -709,7 +708,7 @@ ion-item img {
     font-size: 20px ;
   }
   ion-item .col-67 .detail > li{
-    font-size: 20px ;
+    font-size:20px;
   }
   #zhuanqu a img{
     height:240px;
@@ -720,6 +719,9 @@ ion-item img {
     margin-left: 10px;
     color: #989393;
     line-height: 32px;
+  }
+  .jbyaccountdetails a i{
+    left: 85% !important;
   }
 }/*大屏设备*/
 
