@@ -1789,9 +1789,6 @@ ion-item img {
 /*jbyAccount end*/
 
 /*myorders start*/
-.myorders {
-  background-color: #FBF7ED;
-}
 .myorders h1 {
   font-size: 22px;
 }
@@ -1802,9 +1799,6 @@ ion-item img {
 
 
 /*.settleaccount start*/
-.settleaccount {
-  background-color: #FBF7ED;
-}
 .settleaccount p {
   padding-top: 5px;
 }
@@ -1829,3 +1823,9 @@ ion-item .divider, .item.divider {
 .ion-chevron-right {
   color: #e3d8c2;
 }
+ ion-content {
+   background-color: #FBF7ED;
+ }
+#nonbackcolor {
+   background-color: white;
+ }
