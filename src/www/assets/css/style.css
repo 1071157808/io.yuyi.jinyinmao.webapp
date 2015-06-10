@@ -1632,7 +1632,6 @@ ion-item img {
 #user-index a.item {
   font-size: 18px;
   padding-top: 18px;
-  height: 58px;
 }
 #user-index a.item > i.icon {
   font-size: 18px;
@@ -1805,9 +1804,9 @@ ion-item img {
 .settleaccount .item i {
   font-size: 16px;
 }
-.settleaccount .item {
-  border-bottom: 1px;
-}
+/*.settleaccount .item {*/
+  /*border-bottom: 1px;*/
+/*}*/
 /*.settleaccount end*/
 
 
