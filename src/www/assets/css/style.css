@@ -1450,9 +1450,8 @@ ion-item .col-67 .detail > li {
 }
 
 ion-item.item {
-  padding-top: 5px;
-  padding-bottom: 5px;
   border: none;
+  padding: 5px 4px 5px 2px;
 }
 
 
@@ -1548,8 +1547,8 @@ ion-item img {
 .btn {
   display: block;
   width: 90%;
-  line-height: 20%;
-  padding: .9em 1em;
+  line-height: 30%;
+  padding: .7em 1em;
   font-size: 22px;
   color: #FFF;
   position: relative;
@@ -1705,7 +1704,12 @@ ion-item img {
 #zhuanqu a img {
   width: 100%;
 }
-/*zhuanqu end*/
+
+img.top {
+  position: relative;
+  width: 100%;
+}
+/*#zhuanqu end*/
 
 
 /*myCards start*/
@@ -1740,6 +1744,15 @@ ion-item img {
 }
 .plusCard a i {
   font-size: 26px;
+}
+.myCards.detail img {
+  margin-top:15px;
+}
+.myCards.detail .item {
+  padding-top: 15px;
+}
+.myCards.detail span.default {
+  color: #FACB3A;
 }
 /*myCards end*/
 
