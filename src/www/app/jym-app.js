@@ -19,8 +19,9 @@ angular.module('JYM', [
         $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back');
     })
     .config(function($httpProvider) {
-        $httpProvider.interceptors.push('globalInterceptor');
         $httpProvider.defaults.withCredentials = true;
+        $httpProvider.interceptors.push('globalInterceptor');
+        $httpProvider.interceptors.push('loadingInterceptor');
     })
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('jym', {
@@ -39,6 +40,17 @@ angular.module('JYM', [
             if (window.StatusBar) {
                 StatusBar.styleDefault();
             }
+        });
+    })
+    .run(function($rootScope, $ionicLoading) {
+        $rootScope.$on('loading:show', function() {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+        });
+
+        $rootScope.$on('loading:hide', function() {
+            $ionicLoading.hide()
         });
     });
 
