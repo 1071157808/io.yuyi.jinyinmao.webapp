@@ -5,17 +5,17 @@ angular.module('jym.jinbaoyin', [
     .config(function ($stateProvider) {
         $stateProvider
             .state('jym.jinbaoyin', {
-                url: '/',
+                url: '/jinbaoyin',
                 views: {
                     '@':{
-                        controller: 'JinbaoyinIndexCtrl as jinbaoyinIndexCtrl',
+                        controller: 'JinbaoyinCtrl as jinbaoyinCtrl',
                         templateUrl: 'app/jinbaoyin/index.tpl.html'
                     }
                 }
             })
     })
-    .controller('JinbaoyinIndexCtrl', function() {
-        var jinbaoyinIndexCtrl = this;
+    .controller('JinbaoyinCtrl', function() {
+        var jinbaoyinCtrl = this;
 
     })
     .controller('JinbaoyinIndexSlideBoxCtrl', function($ionicSlideBoxDelegate, $timeout, JYMConfigService, JYMUtilityService) {

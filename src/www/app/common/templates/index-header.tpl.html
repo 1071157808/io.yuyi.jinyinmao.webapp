@@ -1,0 +1,19 @@
+<ion-header-bar class="bar-light" ng-controller="SlidesCtrl as slidesCtrl">
+  <div class="row">
+    <div class="col col-25" ui-sref="jym.jinbaoyin">
+      <i class="jym-icon-logo"></i>
+    </div>
+    <div class="col">
+      <ul class="jym-nav-top clearfix">
+        <li ng-repeat="tab in slidesCtrl.indexTabs" ui-sref="{{ tab.sref }}">
+          <i ng-class="tab['class']"></i>
+        </li>
+        <!--<li><a ui-sref="jym.user"><i class="jym-icon-user" ng-class=""></i></a></li>-->
+        <!--<li><a ui-sref="jym.shangpiao"><i class="jym-icon-shang"></i></a></li>-->
+        <!--<li><a ui-sref="jym.yinpiao"><i class="jym-icon-yin"></i></a></li>-->
+        <!--<li><a ui-sref="jym.yinhangzhuanqu"><i class="jym-icon-zhuan"></i></a></li>-->
+        <!--<li><a ui-sref="jym.jinbaoyin"><i class="jym-icon-home"></i></a></li>-->
+      </ul>
+    </div>
+  </div>
+</ion-header-bar>

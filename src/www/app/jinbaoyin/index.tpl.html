@@ -1,65 +1,51 @@
-<ion-header-bar class="bar-light">
-  <div class="row">
-    <div class="col col-25">
-      <a class="" ui-sref="jym.jinbaoyin"><i class="jym-icon-logo"></i></a>
-    </div>
-    <div class="col">
-      <ul class="jym-nav-top clearfix">
-        <li><a ui-sref="jym.user"><i class="jym-icon-user"></i></a></li>
-        <li><a ui-sref="jym.shangpiaoIndex"><i class="jym-icon-shang"></i></a></li>
-        <li><a ui-sref="jym.yinpiao"><i class="jym-icon-yin"></i></a></li>
-        <li><a ui-sref="jym.yinhangzhuanqu"><i class="jym-icon-zhuan"></i></a></li>
-        <li><a ui-sref="jym.jinbaoyin"><i class="jym-icon-home active"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</ion-header-bar>
+<div ng-include="'app/common/templates/index-header.tpl.html'"></div>
 
-<ion-view>
+<ion-view title="金银猫">
   <ion-content id="nonbackcolor">
     <div ng-include="'app/jinbaoyin/templates/slide-box.tpl.html'"></div>
 
-      <div class="jinbaoyin-index-product padding">
-        <h4 class="padding">“金包银”融资项目 第211期</h4>
-        <h5>承兑汇票抵押</h5>
-        <strong class="jinbaoyin-yield">
-          <em>7</em><samp>%</samp>
-        </strong>
-        <div class="clearfix">
-          <span><em>100</em>元起</span>
-          <span>随时存取</span>
-          <span>灵活投资</span>
-        </div>
+    <div class="jinbaoyin-index-product padding">
+      <h4 class="padding">“金包银”融资项目 第211期</h4>
+      <h5>承兑汇票抵押</h5>
+      <strong class="jinbaoyin-yield">
+        <em>7</em><samp>%</samp>
+      </strong>
+
+      <div class="clearfix">
+        <span><em>100</em>元起</span>
+        <span>随时存取</span>
+        <span>灵活投资</span>
       </div>
+    </div>
 
     <div class="jym-index-purchase">
       <button class="btn button-action" href="/zcb/detail">立即抢购</button>
     </div>
 
     <div class="jym-safe-control">
-    <div class="row">
-      <a class="col col-33" href="/">
-        <div class="block-a">
+      <div class="row">
+        <a class="col col-33" href="/">
+          <div class="block-a">
             <span class="icon-safe-1"></span>
             <em>风险趋零</em>
             <i></i>
-        </div>
-      </a>
-      <a class="col col-33">
-        <div class="block-b">
-          <span class="icon-safe-2"></span>
-          <em>刚性兑付</em>
-          <i></i>
-        </div>
-      </a>
-      <a class="col col-33">
-        <div class="block-c">
-          <span class="icon-safe-3"></span>
-          <em>双重保障</em>
-          <i></i>
-        </div>
-      </a>
-    </div>
+          </div>
+        </a>
+        <a class="col col-33">
+          <div class="block-b">
+            <span class="icon-safe-2"></span>
+            <em>刚性兑付</em>
+            <i></i>
+          </div>
+        </a>
+        <a class="col col-33">
+          <div class="block-c">
+            <span class="icon-safe-3"></span>
+            <em>双重保障</em>
+            <i></i>
+          </div>
+        </a>
+      </div>
     </div>
 
   </ion-content>

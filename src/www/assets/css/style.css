@@ -202,7 +202,6 @@ body,.viewport,.ui-page,.ui-single-page,.ui-header,.ui-header>.ui-wrapper,.ui-fo
 
 /*ion-header-bar start*/
 ion-header-bar.bar.bar-header {
-
   border-bottom: 2px solid #facb3a;
 }
 ion-header-bar.bar.bar-header div {
@@ -219,19 +218,19 @@ ion-header-bar.bar.bar-header div .col.col-25 {
   margin-left: 12px;
 }
 
-ion-header-bar.bar.bar-header a {
+ion-header-bar.bar.bar-header .jym-icon-logo {
   display: block;
   font-size: 28px;
   color: #FACB3A;
   height: 100%;
 }
-ion-header-bar.bar.bar-header div ul > li > a {
+ion-header-bar.bar.bar-header ul.jym-nav-top i {
   display: block;
   font-size: 24px;
   color: #e3d8c2;
   text-align: center;
 }
-ion-header-bar.bar.bar-header > div li .active {
+ion-header-bar.bar.bar-header li i.active {
   color: #FACB3A;
 }
 @media only screen and (max-width: 320px) and (min-height: 568px){
@@ -247,19 +246,15 @@ ion-header-bar.bar.bar-header > div li .active {
   }
 }/*iphone4*/
 
-  .jym-nav-top li {
+.jym-nav-top li {
   position: relative;
   float: right;
 }
-.jym-nav-top li a {
+.jym-nav-top li i {
   display: block;
-  width: 100px;
+  width: 46px;
   position: relative;
   overflow: hidden;
-}
-
-.jym-nav-top li a {
-  width: 46px;
 }
 
 .ui-left,.ui-right {
