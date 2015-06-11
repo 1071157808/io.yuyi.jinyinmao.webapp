@@ -4,14 +4,14 @@
     <div ng-include="'app/common/templates/index-slide-box.tpl.html'"></div>
 
     <div class="jinbaoyin-index-product padding">
-      <h4 class="padding">{{ jinbaoyinCtrl.product.productName }} 第{{ jinbaoyinCtrl.product.issueNo }}期</h4>
+      <h4 class="padding">{{ jinbaoyinCtrl.product.title }}</h4>
       <h5>承兑汇票抵押</h5>
       <strong class="jinbaoyin-yield">
-        <em>{{ jinbaoyinCtrl.product['yield'] }}</em><samp>%</samp>
+        <em>{{ jinbaoyinCtrl.product.yield }}</em><samp>%</samp>
       </strong>
 
       <div class="clearfix">
-        <span><em>100</em>元起</span>
+        <span><em>{{ jinbaoyinCtrl.product.unitPrice }}</em>元起</span>
         <span>随时存取</span>
         <span>灵活投资</span>
       </div>
