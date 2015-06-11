@@ -3,7 +3,8 @@
   <div ng-include="'app/common/templates/index-header.tpl.html'"></div>
   <ion-content id="nonbackcolor" class="has-header">
     <ion-refresher
-      pulling-text="下拉刷新"
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
       on-refresh="jinbaoyinCtrl.doRefresh()">
     </ion-refresher>
     <div ng-include="'app/common/templates/index-slide-box.tpl.html'"></div>

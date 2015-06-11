@@ -1174,15 +1174,20 @@ ion-item .divider, .item.divider {
 }
 /*nav-bar-container end*/
 
-/*spinner start*/
+/*loading start*/
 .loading-container .loading{
   background-color: transparent;
 }
 
 .spinner svg {
-  width: 56px;
-  height: 56px;
-  stroke: #444;
-  fill: #444;
+   width: 56px;
+   height: 56px;
+   stroke: #FACB3A;
+   fill: #FACB3A;
+ }
+
+.ionic-refresher-content .icon-refreshing .spinner svg {
+  width: 28px;
+  height: 28px;
 }
-/*spinner end*/
+/*loading end*/
