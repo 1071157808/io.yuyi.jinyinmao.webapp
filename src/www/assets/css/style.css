@@ -314,7 +314,7 @@ ion-slide img {
   .jinbaoyin-index-product{
     margin-top: 0;
   }
-}
+}/*iphone4*/
 .jinbaoyin-yield {
   text-align: center;
 }
@@ -511,6 +511,17 @@ ion-item p {
   text-align: left;
   font-size: 6px;
 }
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  ion-item .hint{
+    font-size: 13px;
+  }
+}/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  ion-item .hint{
+    font-size: 13px;
+  }
+}/*iphone4*/
+
 ion-item img {
   width: 100%;
 }
@@ -889,7 +900,17 @@ img.top {
   font-size: 16px;
   color: #999999;
 }
-.myCards i {
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  .myCards p{
+    font-size: 15px;
+  }
+}/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  .myCards p{
+    font-size: 15px;
+  }
+}/*iphone4*/
+  .myCards i {
   font-size: 18px;
 }
 .myCards .item.divider {
@@ -1005,7 +1026,41 @@ img.top {
 .deposit .item > p {
   padding-top: 5px;
 }
-.deposit .item  i {
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  .deposit .item > img{
+    left:0;
+  }
+  .deposit .item > p {
+    padding-top: 7px;
+    white-space: normal;
+    font-size:13px;
+    width: 145px;
+    right: 20px;
+    position: relative;
+  }
+  .deposit .item  i{
+    right: 0;
+  }
+}/*iphone4*/
+@media only screen and (max-width: 320px) and (min-height: 568px) {
+  .deposit .item > img {
+    left: 0;
+  }
+
+  .deposit .item > p {
+    padding-top: 7px;
+    white-space: normal;
+    width: 145px;
+    right: 20px;
+    position: relative;
+  }
+
+  .deposit .item i {
+    right: 0;
+  }
+}/*iphone5*/
+
+  .deposit .item  i {
   font-size: 20px;
 }
 .deposit h4 {
@@ -1013,7 +1068,22 @@ img.top {
   left: 12%;
   color: #cead52;
 }
-/*.deposit em {*/
+@media only screen and (min-width: 992px){
+  .deposit h4{
+    left: 34%;
+  }
+}/*pad*/
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  .deposit h4{
+    left: 9%;
+  }
+}/*iphone4*/
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  .deposit h4{
+    left: 8%;
+  }
+}/*iphone5*/
+  /*.deposit em {*/
   /*color: #cead52;*/
   /*text-align: center;*/
 /*}*/
