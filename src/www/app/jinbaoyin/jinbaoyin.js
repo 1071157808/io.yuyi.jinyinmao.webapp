@@ -13,7 +13,7 @@ angular.module('jym.jinbaoyin', [
                 }
             })
     })
-    .controller('JinbaoyinCtrl', function(JinbaoyinService) {
+    .controller('JinbaoyinCtrl', function($scope, $timeout, JinbaoyinService) {
         var jinbaoyinCtrl = this;
         jinbaoyinCtrl.product = {};
 
@@ -29,7 +29,15 @@ angular.module('jym.jinbaoyin', [
                 });
         };
 
-        jinbaoyinCtrl.refreshProduct();
+        jinbaoyinCtrl.doRefresh = function(){
+            jinbaoyinCtrl.refreshProduct();
+
+            $timeout(function() {
+                    $scope.$broadcast('scroll.refreshComplete');
+                }, 500);
+        };
+
+        jinbaoyinCtrl.doRefresh();
     })
     .service('JinbaoyinService', function($http, URLS, JYMCacheService) {
         var service = this;

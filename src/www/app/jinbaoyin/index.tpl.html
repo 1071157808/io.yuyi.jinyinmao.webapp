@@ -1,7 +1,12 @@
+<div ng-include="'app/common/templates/index-header.tpl.html'"></div>
 <ion-view title="金银猫">
 
-  <div ng-include="'app/common/templates/index-header.tpl.html'"></div>
   <ion-content id="nonbackcolor" class="has-header">
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="jinbaoyinCtrl.doRefresh()">
+    </ion-refresher>
     <div ng-include="'app/common/templates/index-slide-box.tpl.html'"></div>
     <div class="jinbaoyin-index-product padding">
       <h4 class="padding">{{ jinbaoyinCtrl.product.title }}</h4>
@@ -21,7 +26,7 @@
       <button class="btn button-action" href="/zcb/detail">立即抢购</button>
     </div>
 
-    <div class="jym-safe-control">
+    <div class="jym-safe-control" ui-sref="jym.misc.safe">
       <div class="row">
         <div class="col col-33 block-a">
           <span class="icon-safe-1"></span>
@@ -38,13 +43,16 @@
 
       </div>
     </div>
-
   </ion-content>
 
   <ion-footer-bar class="bar-dark">
-
       <button class="button button-clear"><i class="icon ion-ios-telephone-outline"></i></button>
-      <div class="title"><a href="TEL:4008556333" style="font-size:17px">400-8556-333</a></div>
+
+
+
+      <div class="title"><a href="TEL:4008556333" style="font-size: 24px">400-8556-333</a></div>
+
       <button class="button button-clear"><i class="icon ion-monitor"></i></button>
   </ion-footer-bar>
+
 </ion-view>

@@ -1159,6 +1159,57 @@ ion-item .divider, .item.divider {
 .label {
   color: yellow;
 }
-/*ion-content{*/
-  /*top:44px !important;*/
-/*}*/
+
+
+/*.nav-bar-container start*/
+.nav-bar-container button .ion-ios-arrow-back {
+  color: #FACB3A;
+  font-size: 20px;
+}
+
+.nav-bar-container .title {
+  font-weight: 500;
+  color: #FACB3A;
+  font-size: 20px;
+}
+
+/*nav-bar-container end*/
+
+/*loading start*/
+.loading-container .loading{
+  background-color: transparent;
+}
+
+.spinner svg {
+   width: 56px;
+   height: 56px;
+   stroke: #FACB3A;
+   fill: #FACB3A;
+ }
+
+.ionic-refresher-content .icon-refreshing .spinner svg {
+  width: 28px;
+  height: 28px;
+}
+/*loading end*/
+=======
+
+/*.nav-bar-container end*/
+
+/*.safe-banner start*/
+.safe-banner img {
+  width: 100%;
+  height: auto;
+
+}
+.safe-text h1 {
+  background-image: url("../img/safe/icon-li-1-abcece3.png");
+  background-size: 30px auto;
+  font-size: 36px;
+  background: no-repeat;
+  background-position: 0 100%;
+  /*height: 30px;*/
+  /*width: 30px;*/
+}
+/*.safe-banner end*/
+
