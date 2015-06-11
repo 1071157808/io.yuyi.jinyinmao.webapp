@@ -1,7 +1,7 @@
 window.paceOptions = {
     document: true, // disabled
-    elements: false,
-    eventLag: false,
+    elements: true,
+    eventLag: true,
     restartOnPushState: false,
     restartOnRequestAfter: false,
     ajax: {

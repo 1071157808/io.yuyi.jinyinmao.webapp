@@ -1191,3 +1191,9 @@ ion-item .divider, .item.divider {
   height: 28px;
 }
 /*loading end*/
+
+/*backdrop start*/
+.backdrop {
+  background-color: transparent;
+}
+/*backdrop end*/

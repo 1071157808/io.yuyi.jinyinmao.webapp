@@ -1,9 +1,0 @@
-<div ng-controller="JinbaoyinIndexSlideBoxCtrl as jinbaoyinIndexSlideBoxCtrl">
-  <ion-slide-box auto-play="true" slide-interval="5000" on-slide-changed="jinbaoyinIndexSlideBoxCtrl.onSlideChanged()" active-slide="jinbaoyinIndexSlideBoxCtrl.activeSlideIndex">
-    <ion-slide ng-repeat="slide in jinbaoyinIndexSlideBoxCtrl.slides">
-      <a ng-href="{{ slide.targetUrl }}" ng-click="jinbaoyinIndexSlideBoxCtrl.clickSlide(slide.targetUrl)">
-        <img ng-src="{{ slide.imageSource }}">
-      </a>
-    </ion-slide>
-  </ion-slide-box>
-</div>
