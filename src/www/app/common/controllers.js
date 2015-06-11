@@ -52,7 +52,7 @@ angular.module('jym.controllers', [
             'class': getJinbaoyinTabClass()
         }];
     })
-    .controller('SlidesCtrl', function($state, JYMConfigService,JYMUtilityService) {
+    .controller('SlidesCtrl', function($state, $timeout, $ionicSlideBoxDelegate, JYMConfigService,JYMUtilityService) {
         var slidesCtrl = this;
 
         slidesCtrl.slides = [];

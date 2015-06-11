@@ -1,18 +1,17 @@
-<div ng-include="'app/common/templates/index-header.tpl.html'"></div>
-
 <ion-view title="金银猫">
 
-  <ion-content class="has-header" id="nonbackcolor">
+  <div ng-include="'app/common/templates/index-header.tpl.html'"></div>
+  <ion-content id="nonbackcolor" class="has-header">
     <div ng-include="'app/jinbaoyin/templates/slide-box.tpl.html'"></div>
     <div class="jinbaoyin-index-product padding">
-      <h4 class="padding">“金包银”融资项目 第211期</h4>
+      <h4 class="padding">{{ jinbaoyinCtrl.product.title }}</h4>
       <h5>承兑汇票抵押</h5>
       <strong class="jinbaoyin-yield">
-        <em>7</em><samp>%</samp>
+        <em>{{ jinbaoyinCtrl.product.yield }}</em><samp>%</samp>
       </strong>
 
       <div class="clearfix">
-        <span><em>100</em>元起</span>
+        <span><em>{{ jinbaoyinCtrl.product.unitPrice }}</em>元起</span>
         <span>随时存取</span>
         <span>灵活投资</span>
       </div>
@@ -43,29 +42,10 @@
   </ion-content>
 
   <ion-footer-bar class="bar-dark">
-    <button class="button button-icon icon ion-ios-telephone-outline icon-left"></button>
-    <div class="title"><a href="/" style="font-size: 13px;">4008-888-888</a></div>
-    <button class="button button-icon icon ion-monitor icon-right"></button>
-
-    <!--<div class="icon ion-ios-contact-outline right">Contact</div>-->
-  </ion-footer-bar>
   <div class="bar bar-footer">
     <button class="button button-clear"><i class="icon ion-ios-telephone-outline"></i></button>
     <div class="title"><a href="TEL:02160348375" style="font-size: 13px">400-8888-888</a></div>
     <button class="button button-clear"><i class="icon ion-monitor"></i></button>
   </div>
-  <!--<div class="bar bar-footer">-->
-    <!--<button class="button button-clear">Left</button>-->
-    <!--<div class="title">Title</div>-->
-    <!--<button class="button button-clear">Right</button>-->
-  <!--</div>-->
-  <!--<div class="bar bar-footer bar-dark">-->
-    <!--<div class="col col-80 icon-right">-->
-      <!--<i class="icon ion icon-left"></i>-->
-      <!--<span>4008-888-888</span>-->
-    <!--</div>-->
-    <!--<div class="col">-->
-      <!--<i class="icon ion-monitor"></i>-->
-    <!--</div>-->
-  <!--</div>-->
+  </ion-footer-bar>
 </ion-view>

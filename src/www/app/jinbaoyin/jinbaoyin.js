@@ -13,33 +13,30 @@ angular.module('jym.jinbaoyin', [
                 }
             })
     })
-    .controller('JinbaoyinCtrl', function() {
+    .controller('JinbaoyinCtrl', function(JinbaoyinService) {
         var jinbaoyinCtrl = this;
+        jinbaoyinCtrl.product = {};
 
-    })
-    .controller('JinbaoyinIndexSlideBoxCtrl', function($ionicSlideBoxDelegate, $timeout, JYMConfigService, JYMUtilityService) {
-        var jinbaoyinIndexSlideBoxCtrl = this;
-        jinbaoyinIndexSlideBoxCtrl.slides = [];
-        jinbaoyinIndexSlideBoxCtrl.activeSlideIndex = 0;
-
-        JYMConfigService.getSlidesConfig()
-            .then(function (result) {
-                jinbaoyinIndexSlideBoxCtrl.slides = result;
-            })
-            .then(function () {
-                $ionicSlideBoxDelegate.update();
-            });
-
-        jinbaoyinIndexSlideBoxCtrl.clickSlide = function(url){
-            JYMUtilityService.open(url);
+        jinbaoyinCtrl.refreshProduct = function(){
+            JinbaoyinService.getIndex()
+                .then(function(result) {
+                    return result.data;
+                })
+                .then(function(result) {
+                    jinbaoyinCtrl.product.title = result.productName + ' ' + '第' + result.issueNo + '期';
+                    jinbaoyinCtrl.product.yield = result.yield / 100;
+                    jinbaoyinCtrl.product.unitPrice = result.unitPrice / 100;
+                });
         };
 
-        jinbaoyinIndexSlideBoxCtrl.onSlideChanged = function() {
-            if(jinbaoyinIndexSlideBoxCtrl.activeSlideIndex === jinbaoyinIndexSlideBoxCtrl.slides.length - 2){
-                $timeout(function() {
-                    jinbaoyinIndexSlideBoxCtrl.activeSlideIndex = 0;
-                }, 5000);
-            }
-        }
+        jinbaoyinCtrl.refreshProduct();
+    })
+    .service('JinbaoyinService', function($http, URLS, JYMCacheService) {
+        var service = this;
 
+        service.getIndex = function() {
+            return $http.get(URLS.JINBOAYIN.FETCH, {
+                cache: JYMCacheService.get('productCache')
+            });
+        };
     });
