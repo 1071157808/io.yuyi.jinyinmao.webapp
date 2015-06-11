@@ -65,9 +65,9 @@ html,body {
   margin: 0;
   height: 100%
 }
-html,body,div,p,samp {
-  font-family: 'HiraginoSansGB W3','Microsoft YaHei',\5FAE\8F6F\96C5\9ED1,Helvetica,Arial,sans-serif
-}
+/*html,body,div,p,samp {*/
+  /*font-family: 'HiraginoSansGB W3','Microsoft YaHei',\5FAE\8F6F\96C5\9ED1,Helvetica,Arial,sans-serif*/
+/*}*/
 button,input,select,textarea {
   margin: 0;
   font-family: inherit;
@@ -247,6 +247,20 @@ ion-header-bar.bar.bar-header li i.active {
     right: 7px;
   }
 }/*iphone4*/
+
+.bar .bar-footer .button > i {
+  position: relative;
+  color: white;
+  font-size: 30px;
+  vertical-align: text-top;
+  bottom: 5px;
+}
+ion-footer-bar span {
+  font-size: 10px;
+  color: white;
+  vertical-align: text-top;
+  margin-left: 5px;
+}
 
 .jym-nav-top li {
   position: relative;
