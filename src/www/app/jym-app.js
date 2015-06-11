@@ -49,15 +49,15 @@ angular.module('JYM', [
             }
         });
     })
-    .run(function($rootScope, $ionicLoading, $timeout) {
+    .run(function($rootScope, $ionicLoading) {
         $rootScope.$on('loading:show', function() {
             $ionicLoading.show({
-                template: 'Loading...'
+                template: '<ion-spinner icon="spiral" class="spinner-energized"></ion-spinner>'
             });
         });
 
         $rootScope.$on('loading:hide', function() {
-            $ionicLoading.hide()
+            $ionicLoading.hide();
         });
 
         $rootScope.$on('http:requestError', function() {

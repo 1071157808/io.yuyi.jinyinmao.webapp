@@ -2,6 +2,10 @@
 
   <div ng-include="'app/common/templates/index-header.tpl.html'"></div>
   <ion-content id="nonbackcolor" class="has-header">
+    <ion-refresher
+      pulling-text="下拉刷新"
+      on-refresh="jinbaoyinCtrl.doRefresh()">
+    </ion-refresher>
     <div ng-include="'app/common/templates/index-slide-box.tpl.html'"></div>
     <div class="jinbaoyin-index-product padding">
       <h4 class="padding">{{ jinbaoyinCtrl.product.title }}</h4>

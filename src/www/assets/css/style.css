@@ -1173,3 +1173,16 @@ ion-item .divider, .item.divider {
   font-size: 20px;
 }
 /*nav-bar-container end*/
+
+/*spinner start*/
+.loading-container .loading{
+  background-color: transparent;
+}
+
+.spinner svg {
+  width: 56px;
+  height: 56px;
+  stroke: #444;
+  fill: #444;
+}
+/*spinner end*/
