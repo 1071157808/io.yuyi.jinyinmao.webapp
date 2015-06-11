@@ -65,9 +65,9 @@ html,body {
   margin: 0;
   height: 100%
 }
-/*html,body,div,p,samp {*/
-  /*font-family: 'HiraginoSansGB W3','Microsoft YaHei',\5FAE\8F6F\96C5\9ED1,Helvetica,Arial,sans-serif*/
-/*}*/
+html,body,div,p,samp {
+  font-family: 'HiraginoSansGB W3','Microsoft YaHei',\5FAE\8F6F\96C5\9ED1,Helvetica,Arial,sans-serif
+}
 button,input,select,textarea {
   margin: 0;
   font-family: inherit;
@@ -317,6 +317,12 @@ ion-slide img {
   position: relative;
   margin-top: 4%;
 }
+.jinbaoyin-index-product h4{
+  font-size: 25px;
+}
+.jinbaoyin-index-product h5{
+  font-size: 20px;
+}
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .jinbaoyin-index-product {
     margin-top: 0;
@@ -338,20 +344,20 @@ ion-slide img {
   color: #e74c3c;
 }
 .jinbaoyin-index-product span {
-  font-size: 14px;
+  font-size: 16px;
   margin-right: 20px;
   margin-left: 20px;
 }
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .jinbaoyin-index-product span{
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 12px;
+    margin-left: 12px;
   }
 }/*iphone5*/
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   .jinbaoyin-index-product span {
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 11px;
+    margin-left: 11px;
   }
 }/*iphone4*/
 .jinbaoyin-index-product span > em {
@@ -1134,10 +1140,6 @@ ion-item .divider, .item.divider {
 .item .pull-left {
   color: #444;
 }
-.item > p > em {
-  color: #e74c3c;
-}
-
 #refresh {
   color: #47b28b;
   padding-right: 8px;
