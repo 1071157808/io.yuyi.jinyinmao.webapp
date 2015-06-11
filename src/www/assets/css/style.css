@@ -1160,3 +1160,16 @@ ion-item .divider, .item.divider {
 /*ion-content{*/
   /*top:44px !important;*/
 /*}*/
+
+/*nav-bar-container start*/
+.nav-bar-container button .ion-ios-arrow-back {
+  color: #FACB3A;
+  font-size: 20px;
+}
+
+.nav-bar-container .title {
+  font-weight: 500;
+  color: #FACB3A;
+  font-size: 20px;
+}
+/*nav-bar-container end*/

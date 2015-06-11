@@ -3,16 +3,3 @@
   background-size: auto 100%
 }
 
-.nav-bar-container button .ion-ios-arrow-back {
-  color: #FACB3A;
-  font-size: 20px;
-}
-
-.nav-bar-container button .back-text .default-title {
-  display: none;
-}
-
-.nav-bar-container .title {
-  font-weight: 500;
-  top: -2px;
-}

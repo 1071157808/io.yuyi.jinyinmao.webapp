@@ -7,7 +7,8 @@ angular.module('JYM', [
     'jym.shangpiao',
     'jym.user',
     'jym.yinhangzhuanqu',
-    'jym.yinpiao'
+    'jym.yinpiao',
+    'jym.misc'
 ])
     .constant('URLS', {
         CONFIG: {
