@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/*noinspection CssUnknownTarget*/
 @font-face {
   font-family: 'jym-icon';
   src: url('fonts/jym-icon.eot');
@@ -12,8 +13,7 @@
 }
 
 [class^="jym-icon-"], [class*=" jym-icon-"] {
-  font-family: 'jym-icon';
-  speak: none;
+  font-family: 'jym-icon', serif;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
