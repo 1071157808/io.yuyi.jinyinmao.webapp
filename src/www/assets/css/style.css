@@ -288,14 +288,33 @@ ion-slide img {
   font-size: 40%;
   color:#996A39 ;
 }
-/*ion-slide end*/
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  .slider-pager{
+    bottom: 44px;
+  }
+}/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  .slider-pager{
+    bottom: 43px;
+  }
+}/*iphone4*/
+  /*ion-slide end*/
 
 .jinbaoyin-index-product {
   text-align: center;
   position: relative;
   margin-top: 4%;
 }
-
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  .jinbaoyin-index-product {
+    margin-top: 0;
+  }
+}/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  .jinbaoyin-index-product{
+    margin-top: 0;
+  }
+}
 .jinbaoyin-yield {
   text-align: center;
 }
@@ -724,8 +743,108 @@ ion-item img {
     left: 85% !important;
   }
 }/*大屏设备*/
+@media only screen and (min-width: 992px){
+  ion-header-bar.bar.bar-header div ul > li > a{
+    font-size: 26px;
+  }
+  .slider{
+    overflow: initial;
+  }
+  .jinbaoyin-index-product{
+    top: 340px;
+    margin-top: 0;
+    /* height: 260px; */
+    position: absolute;
+    width: 100%;
+  }
+  .slider-pager{
+    top: 300px;
+  }
+  .jinbaoyin-index-product h4{
+    font-size: 26px;
+  }
+  .jinbaoyin-index-product h5{
+    font-size: 19px;
+  }
+  .jinbaoyin-index-product span{
+    font-size: 16px;
+  }
+  .jym-index-purchase{
+    margin: 0;
+  }
+  .button-action{
+    top: 400px;
+    width: 100%;
+    padding: 25px;
+  }
+  .jym-safe-control{
+    top: 350px;
+    position: relative;
+  }
+  #zhuanqu h2{
+    font-size: 24px !important;
+  }
+  #zhuanqu i{
+    font-size: 22px;
+  }
+  #zhuanqu a img{
+    height:200px;
+  }
+  #zhuanqu p{
+    font-size: 17px;
+  }
+  ion-item .col-33 em{
+    font-size: 37px;
+  }
+  ion-item .col-33 li{
+    font-size: 16px;
+  }
+  ion-item .col-67{
+    font-size: 15px;
+  }
+  ion-item .col-67 .detail > li{
+    font-size: 15px;
+  }
+}/*中等屏幕设备，pad*/
+@media only screen and (max-width: 414px) and (min-height: 700px){
+  ion-header-bar.bar.bar-header div ul > li > a{
+    font-size: 25px;
+  }
+  .slider{
+    overflow: initial;
+  }
+  .slider-pager{
+    top: 130px;
+  }
+  .jinbaoyin-index-product{
+    margin-top: 0;
+    top: 20px;
+  }
+  .jinbaoyin-index-product h4{
+    font-size: 24px;
+    line-height: 50px;
+  }
+  .jinbaoyin-index-product h5{
+    font-size: 20px;
+    line-height: 34px;
+  }
+  .jinbaoyin-yield > em{
+    font-size: 73px;
+    line-height: 120px;
+  }
+  .jinbaoyin-index-product span{
+    font-size: 18px;
+  }
+  .jinbaoyin-index-product span > em{
+    font-size: 25px;
+  }
+  .button-action{
+    font-size: 23px;
+    padding: 18px;
+  }
+}/*iphone6 plus*/
 
-/*zhuanqu start*/
+  /*zhuanqu start*/
 #zhuanqu h2 {
   font-size: 22px;
 }
