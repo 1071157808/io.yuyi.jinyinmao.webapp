@@ -41,6 +41,7 @@
         <feature name="InAppBrowser">
             <param name="android-package" value="org.apache.cordova.InAppBrowser"/>
         </feature>
+        <access origin="*"/>
     </platform>
     <platform name="ios">
         <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
@@ -72,5 +73,6 @@
         <feature name="InAppBrowser">
             <param name="ios-package" value="CDVInAppBrowser"/>
         </feature>
+        <access origin="*"/>
     </platform>
 </widget>

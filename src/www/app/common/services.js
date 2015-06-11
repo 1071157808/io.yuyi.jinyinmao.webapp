@@ -36,6 +36,13 @@ angular.module('jym.services', [
             storageMode: 'localStorage'
         });
 
+        CacheFactory('productCache', {
+            maxAge: 60 * 1000,
+            cacheFlushInterval: 60 * 1000,
+            deleteOnExpire: 'aggressive',
+            storageMode: 'localStorage'
+        });
+
         service.get = function(cacheName, maxAge) {
             maxAge = maxAge || 60 * 1000;
 

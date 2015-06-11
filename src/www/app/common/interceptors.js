@@ -1,7 +1,7 @@
 angular.module('jym.interceptors', [
     'jym.services'
 ])
-    .factory('globalInterceptor', function($q, $log, $timeout, $injector) {
+    .factory('globalInterceptor', function($q, $log, $rootScope, $timeout, $injector) {
         var authService = $injector.get('JYMAuthService');
 
         return {
@@ -12,6 +12,7 @@ angular.module('jym.interceptors', [
             },
 
             'requestError': function(rejection) {
+                $rootScope.$broadcast('http:requestError');
                 return $q.reject(rejection);
             },
 
@@ -31,6 +32,10 @@ angular.module('jym.interceptors', [
 
                 if (rejection.status == 400) {
 
+                }
+
+                if(rejection.status >= 500){
+                    $rootScope.$broadcast('http:responseError-500');
                 }
 
                 return $q.reject(rejection);
