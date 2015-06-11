@@ -1,5 +1,5 @@
 angular.module('jym.interceptors', [
-    'jym.services.auth'
+    'jym.services'
 ])
     .factory('globalInterceptor', function($q, $log, $timeout, $injector) {
         var authService = $injector.get('JYMAuthService');

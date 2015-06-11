@@ -1,6 +1,5 @@
 angular.module('jym.jinbaoyin', [
-    'jym.services.config',
-    'jym.services.utility'
+    'jym.services'
 ])
     .config(function ($stateProvider) {
         $stateProvider

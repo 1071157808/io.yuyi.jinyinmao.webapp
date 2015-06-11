@@ -40,29 +40,5 @@ angular.module('JYM', [
                 StatusBar.styleDefault();
             }
         });
-    })
-    .controller('JYMCtrl', function($rootScope, $state) {
-        $rootScope.isJinbaoyin = $state.includes('jym.jinbaoyin');
-        $rootScope.isYinhangzhuanqu = $state.includes('jym.yinhangzhuanqu');
-        $rootScope.isYinpiao = $state.includes('jym.yinpiao');
-        $rootScope.isShangpiao = $state.includes('jym.shangpiao');
-        $rootScope.isUser = $state.includes('jym.user');
-
-        $rootScope.indexTabs = [{
-            sref: 'jym.user',
-            'class': 'jym-icon-user'
-        },{
-            sref: 'jym.shangpiao',
-            'class': 'jym-icon-shang'
-        },{
-            sref: 'jym.yinpiao',
-            'class': 'jym-icon-yin'
-        },{
-            sref: 'jym.yinhangzhuanqu',
-            'class': 'jym-icon-zhuan'
-        },{
-            sref: 'jym.jinbaoyin',
-            'class': 'jym-icon-home'
-        }]
     });
 
