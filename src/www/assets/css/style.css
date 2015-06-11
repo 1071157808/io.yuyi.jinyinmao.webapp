@@ -224,13 +224,14 @@ ion-header-bar.bar.bar-header .jym-icon-logo {
   font-size: 28px;
   color: #FACB3A;
   height: 100%;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 ion-header-bar.bar.bar-header ul.jym-nav-top i {
   display: block;
   font-size: 24px;
   color: #e3d8c2;
   text-align: center;
+  margin-top: 5px;
 }
 ion-header-bar.bar.bar-header li i.active {
   color: #FACB3A;
@@ -436,16 +437,18 @@ ion-slide img {
 }
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .bar .title {
-    margin-left: 65px;
+    margin-left: 14%;
   }
 }/*iphone5*/
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   .bar .title {
     margin-left: 12%;
-    font-size: 6px !important;
 
   }
 }/*iphone4*/
+.bar .title a{
+  font-size: 16px;
+}
 ion-footer-bar button .icon-right {
   right: 20px;
 }
@@ -454,8 +457,8 @@ ion-footer-bar button .icon-right {
 
 
 /*ion-list ion-item start*/
-ion-item .col
-{list-style: none;
+ion-item .col {
+  list-style: none;
 }
 ion-item .col-33 em {
   color: #e74c3c;
@@ -678,22 +681,7 @@ ion-item img {
   ion-header-bar.bar.bar-header div ul > li > a{
     font-size: 28px;
   }
-  .slider {
-    overflow: initial;
-  }
-  .jinbaoyin-index-product{
-    top:180px;
-    height: 30%;
-    clear: both;
-  }
-  .jym-index-purchase{
-    margin: 10% auto 0 ;
-    position: relative;
-    top:45px;
-  }
-  .slider-pager{
-    top: 305px;
-  }
+
   .jinbaoyin-index-product h4{
     font-size:35px;
     font-weight: 600;
@@ -785,12 +773,12 @@ ion-item img {
     margin: 0;
   }
   .button-action{
-    top: 400px;
+    top: 420px;
     width: 100%;
     padding: 25px;
   }
   .jym-safe-control{
-    top: 350px;
+    top: 360px;
     position: relative;
   }
   #zhuanqu h2{
@@ -822,16 +810,13 @@ ion-item img {
   ion-header-bar.bar.bar-header div ul > li > a{
     font-size: 25px;
   }
-  .slider{
-    overflow: initial;
-  }
   .slider-pager{
     top: 130px;
   }
   .jinbaoyin-index-product{
-    margin-top: 0;
+    /*margin-top: 0;*/
     top: 20px;
-  }
+}
   .jinbaoyin-index-product h4{
     font-size: 24px;
     line-height: 50px;
@@ -1158,3 +1143,6 @@ ion-item .divider, .item.divider {
 .label {
   color: yellow;
 }
+/*ion-content{*/
+  /*top:44px !important;*/
+/*}*/

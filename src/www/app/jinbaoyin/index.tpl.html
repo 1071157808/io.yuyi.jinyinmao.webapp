@@ -1,7 +1,7 @@
 <div ng-include="'app/common/templates/index-header.tpl.html'"></div>
 
 <ion-view title="金银猫">
-  <ion-content id="nonbackcolor">
+  <ion-content class="has-header" id="nonbackcolor">
     <div ng-include="'app/jinbaoyin/templates/slide-box.tpl.html'"></div>
 
     <div class="jinbaoyin-index-product padding">
@@ -24,27 +24,19 @@
 
     <div class="jym-safe-control">
       <div class="row">
-        <a class="col col-33" href="/">
-          <div class="block-a">
+          <div class="col col-33 block-a">
             <span class="icon-safe-1"></span>
             <em>风险趋零</em>
-            <i></i>
           </div>
-        </a>
-        <a class="col col-33">
-          <div class="block-b">
+          <div class="col col-33 block-b">
             <span class="icon-safe-2"></span>
             <em>刚性兑付</em>
-            <i></i>
           </div>
-        </a>
-        <a class="col col-33">
-          <div class="block-c">
+        <div class="col col-33 block-c">
             <span class="icon-safe-3"></span>
             <em>双重保障</em>
-            <i></i>
           </div>
-        </a>
+
       </div>
     </div>
 
@@ -52,7 +44,7 @@
 
   <ion-footer-bar class="bar-dark">
     <button class="button button-icon icon ion-ios-telephone-outline icon-left"></button>
-    <div class="title">4008-888-888</div>
+    <div class="title"><a href="/" style="font-size: 13px;">4008-888-888</a></div>
     <button class="button button-icon icon ion-monitor icon-right"></button>
 
     <!--<div class="icon ion-ios-contact-outline right">Contact</div>-->
