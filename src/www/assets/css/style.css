@@ -216,7 +216,7 @@ ion-header-bar.bar.bar-header {
 ion-header-bar.bar.bar-header div {
   padding: 0;
   margin: 2px;
-}
+}。
 
 ion-header-bar.bar.bar-header .title {
   color: #FFFFFF;
@@ -247,9 +247,6 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
   text-align: center;
   margin-top: 5px;
 }
-ion-header-bar.bar.bar-header li i.active {
-  color: #FACB3A;
-}
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .jym-nav-top{
     position: absolute;
@@ -262,19 +259,18 @@ ion-header-bar.bar.bar-header li i.active {
     right: 7px;
   }
 }/*iphone4*/
-
+.tab-item .icon{
+  color: rgb(181,181,182);
+}
+.tab-item-active i{
+  color:rgb(250,190,0) !important;
+}
 .bar .bar-footer .button > i {
   position: relative;
   color: white;
   font-size: 30px;
   vertical-align: text-top;
   bottom: 5px;
-}
-ion-footer-bar span {
-  font-size: 10px;
-  color: white;
-  vertical-align: text-top;
-  margin-left: 5px;
 }
 
 .jym-nav-top li {
