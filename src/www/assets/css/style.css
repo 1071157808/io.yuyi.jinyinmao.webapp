@@ -109,7 +109,8 @@ table {
 }
 img {
   border: 0;
-  vertical-align: middle
+  vertical-align: middle;
+  width: 100%;
 }
 a,img {
   display: block
@@ -592,7 +593,7 @@ ion-item img {
 }/*iphone5*/
 .order-detail ul {
   position: relative;
-  float: right;
+  /*float: right;*/
   font-size: 14px;
   text-align: right;
   line-height: 24px;
@@ -690,11 +691,11 @@ ion-item img {
 #user-index {
   background-color:#FBF7ED ;
 }
-#user-index a.item {
+#user-index .item {
   font-size: 18px;
   padding-top: 18px;
 }
-#user-index a.item > i.icon {
+#user-index .item > i.icon {
   font-size: 18px;
 }
 #user-index ion-item h2 {
@@ -929,7 +930,7 @@ img.top {
     font-size: 15px;
   }
 }/*iphone4*/
-  .myCards i {
+  .myCards .item i {
   font-size: 18px;
 }
 .myCards .item.divider {
@@ -1020,6 +1021,7 @@ img.top {
   position: relative;
   left: 60%;
   font-size: 20px;
+  bottom: 10px;
 }
 .jbyaccountdetails .row {
   line-height: 30px;
@@ -1144,7 +1146,7 @@ ion-item .divider, .item.divider {
 
 .pull-left {
   float: left;
-  left: 5px
+  margin-left: 5px;
 }
 .pull-right {
   float: right;
@@ -1182,7 +1184,7 @@ ion-item .divider, .item.divider {
 
 .nav-bar-container .title {
   font-weight: 500;
-  color: #FACB3A;
+  color: #FACB3A !important;
   font-size: 20px;
 }
 
@@ -1236,3 +1238,14 @@ ion-tabs.tabs-jym {
 
 }
 /* ion-tabs end */
+
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  ion-item .date{
+    padding-right: 11px;
+  }
+}/*iphone4*/
+@media only screen and (max-width: 320px) and (min-height: 568px) {
+  ion-item .date{
+    padding-right: 10px;
+  }
+}/*iphone5*/
