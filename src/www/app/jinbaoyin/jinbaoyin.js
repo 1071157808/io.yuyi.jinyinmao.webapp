@@ -6,7 +6,7 @@ angular.module('jym.jinbaoyin', [
             .state('jym.jinbaoyin', {
                 url: '/jinbaoyin',
                 views: {
-                    '@':{
+                    'jinbaoyin':{
                         controller: 'JinbaoyinCtrl as jinbaoyinCtrl',
                         templateUrl: 'app/jinbaoyin/index.tpl.html'
                     }

@@ -9,7 +9,7 @@
     </ion-refresher>
     <div ng-include="'app/common/templates/index-slide-box.tpl.html'"></div>
     <div class="jinbaoyin-index-product padding">
-      <h4 class="padding">{{ jinbaoyinCtrl.product.title }}</h4>
+      <h4 class="padding" ng-bind="jinbaoyinCtrl.product.title"></h4>
       <h5>承兑汇票抵押</h5>
       <strong class="jinbaoyin-yield">
         <em>{{ jinbaoyinCtrl.product.yield }}</em><samp>%</samp>
