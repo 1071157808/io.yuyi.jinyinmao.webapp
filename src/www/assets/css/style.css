@@ -221,6 +221,7 @@ ion-header-bar.bar.bar-header div {
 ion-header-bar.bar.bar-header .title {
   color: #FFFFFF;
   font-weight: bold;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 320px) and (max-height: 480px){
@@ -1179,12 +1180,6 @@ ion-item .divider, .item.divider {
 /*.nav-bar-container start*/
 .nav-bar-container button .ion-ios-arrow-back {
   color: #FACB3A;
-  font-size: 20px;
-}
-
-.nav-bar-container .title {
-  font-weight: 500;
-  color: #FACB3A !important;
   font-size: 20px;
 }
 
