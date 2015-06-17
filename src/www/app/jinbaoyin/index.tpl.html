@@ -8,21 +8,21 @@
     </ion-refresher>
     <div ng-include="'app/common/templates/index-slide-box.tpl.html'"></div>
     <div class="jinbaoyin-index-product padding">
-      <h4 class="padding" ng-bind="jinbaoyinCtrl.product.title"></h4>
+      <h4 class="padding" ng-bind="product.viewModel.title"></h4>
       <h5>承兑汇票抵押</h5>
       <strong class="jinbaoyin-yield">
-        <em>{{ jinbaoyinCtrl.product.yield }}</em><samp>%</samp>
+        <em ng-bind="product.viewModel.yield"></em><samp>%</samp>
       </strong>
 
       <div class="clearfix">
-        <span><em>{{ jinbaoyinCtrl.product.unitPrice }}</em>元起</span>
+        <span><em ng-bind="product.viewModel.unitPrice"></em>元起</span>
         <span>随时存取</span>
         <span>灵活投资</span>
       </div>
     </div>
 
     <div class="jym-index-purchase">
-      <button class="btn button-action" href="/zcb/detail">立即抢购</button>
+      <button class="btn button-action" ui-sref="jym.jinbaoyin-detail">立即抢购</button>
     </div>
 
     <div class="jym-safe-control" ui-sref="jym.misc.safe">

@@ -1,10 +1,9 @@
-angular.module('jym.yinhangzhuanqu', [
-    'jym.yinhangzhuanqu.detail'
+angular.module('jym.yinhangzhuanqu.list', [
 ])
     .config(function ($stateProvider) {
         $stateProvider
-            .state('jym.yinhangzhuanqu', {
-                url: '/yinhangzhuanqu',
+            .state('jym.yinhangzhuanqu.list', {
+                url: '/list/{bankName}',
                 views: {
                     'zhuanqu':{
                         controller: 'YinhangzhuanquIndexCtrl as yinhangzhuanquIndexCtrl',
@@ -13,7 +12,7 @@ angular.module('jym.yinhangzhuanqu', [
                 }
             })
     })
-    .controller('YinhangzhuanquIndexCtrl', function() {
+    .controller('YinhangzhuanquIndexCtrl', function($stateParams) {
         var yinhangzhuanquIndexCtrl = this;
 
     });

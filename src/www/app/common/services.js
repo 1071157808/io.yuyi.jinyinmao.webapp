@@ -89,6 +89,48 @@ angular.module('jym.services', [
             return service.getConfig().then(extractSlidersConfig);
         }
     })
+    .service('JYMProductService', function() {
+        var service = this;
+
+        function getSaleProgress(paidAmount, financingSumAmount) {
+            if (paidAmount >= financingSumAmount) {
+                return 100;
+            }
+
+            if (paidAmount >= financingSumAmount * 0.991) {
+                return 99;
+            }
+
+            return (paidAmount / financingSumAmount).toFixed(0);
+        }
+
+        function getSaleStatus(soldOut, startSellTime, endSellTime) {
+            // 售罄
+            if (soldOut === true || moment(endSellTime) < moment()) {
+                return 30;
+            }
+
+            // 在售
+            if (moment(startSellTime) < moment()) {
+                return 20;
+            }
+
+            // 待售
+            return 10;
+        }
+
+        function getInterest(pricipal, _yield, duration) {
+            // 返回的金额以 分 为单位
+            // 本金的单位为 分
+            // 收益率的单位为 万分之一
+            return Math.floor(pricipal * _yield * duration / 3600000);
+        }
+
+        service.getInterest = getInterest;
+        service.getSaleProgress = getSaleProgress;
+        service.getSaleStatus = getSaleStatus;
+
+    })
     .service('JYMUtilityService', function($state, $cordovaInAppBrowser) {
         var service = this;
 

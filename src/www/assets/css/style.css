@@ -1244,3 +1244,9 @@ ion-tabs.tabs-jym {
     padding-right: 10px;
   }
 }/*iphone5*/
+
+/* circle-progress start */
+.circle-progress circle {
+  stroke-linecap: round;
+}
+/* circle-progress end */

@@ -1,6 +1,7 @@
 angular.module('JYM', [
     'ionic',
     'ngCordova',
+    'angular-progress-arc',
     'jym.controllers',
     'jym.interceptors',
     'jym.jinbaoyin',
