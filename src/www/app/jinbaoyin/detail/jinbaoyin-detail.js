@@ -1,6 +1,9 @@
 angular.module('jym.jinbaoyin.detail', [
     'jym.services',
-    'jym.services.jinbaoyin'
+    'jym.services.jinbaoyin',
+    'jym.services.product',
+    'jym.services.purchase',
+    'jym.services.user'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -18,7 +21,7 @@ angular.module('jym.jinbaoyin.detail', [
         var product = this;
 
         var getSaleProgress = function(product) {
-            return JYMProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
         };
 
         var getSaleStatus = function(product) {
@@ -53,7 +56,7 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         var getValueDateModeText = function(valueDateMode) {
-            return JYMProductService.getValueDateModeText(valueDateMode);
+            return ProductService.getValueDateModeText(valueDateMode);
         };
 
         product.model = {};
@@ -103,7 +106,7 @@ angular.module('jym.jinbaoyin.detail', [
                 product.viewModel.investAmount = 0;
             }
 
-            product.viewModel.expectedInterest = (JYMProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, 30) / 100).toFixed(2);
+            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, 30) / 100).toFixed(2);
         };
 
         product.refreshProduct = function() {
