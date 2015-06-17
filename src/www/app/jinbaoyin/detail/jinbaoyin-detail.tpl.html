@@ -1,5 +1,10 @@
 <ion-view title="金包银">
   <ion-content>
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="product.doRefresh()">
+    </ion-refresher>
     <div class="list order-detail">
       <ion-item class="item">
         <div class="row">
@@ -34,7 +39,6 @@
 
           <!--<p>已售出 <span ng-bind="product.viewModel.sellProgress"></span>%</p>-->
         <!--</div>-->
-      </div>
     </div>
 
     <div class="list card">
