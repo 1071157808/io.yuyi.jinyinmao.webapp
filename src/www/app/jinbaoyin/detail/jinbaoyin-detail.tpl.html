@@ -1,4 +1,4 @@
-<ion-view title="{{ product.viewModel.title }}">
+<ion-view title="金包银">
   <ion-content>
     <div class="list order-detail">
       <ion-item class="item">
@@ -46,6 +46,7 @@
       </div>
       <div class="item-divider">
         <p class="pull-left">投资金额<span>&nbsp;</span><span ng-bind="product.viewModel.investAmount"></span><span>&nbsp;</span>元</p>
+        <p class="pull-right">预计收益（30天）：<span>&nbsp;</span><span ng-bind="product.viewModel.expectedInterest"></span><span>&nbsp; </span>元</p>
       </div>
     </div>
 
@@ -54,37 +55,27 @@
       <div class="item">
         <p class="pull-left">项目状态</p>
 
-        <p class="pull-right"><em>抢购</em></p>
+        <p class="pull-right"><span ng-bind="product.viewModel.status.text"></span></p>
+      </div>
+      <div class="item">
+        <p class="pull-left">项目名称</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.productName"></span></p>
+      </div>
+      <div class="item">
+        <p class="pull-left">项目期数</p>
+
+        <p class="pull-right"><span>第&nbsp;</span><span ng-bind="product.viewModel.issueNo"></span><span>&nbsp;期</span></p>
       </div>
       <div class="item">
         <p class="pull-left">投资单位</p>
 
-        <p class="pull-right">5000元</p>
-      </div>
-      <div class="item">
-        <p class="pull-left">最小投资分数</p>
-
-        <p class="pull-right">1份</p>
-      </div>
-      <div class="item">
-        <p class="pull-left">最大投资分数</p>
-
-        <p class="pull-right">959份</p>
+        <p class="pull-right"><span ng-bind="product.viewModel.unitPrice"></span>元</p>
       </div>
       <div class="item">
         <p class="pull-left">起息日期</p>
 
-        <p class="pull-right">购买成功立刻起息</p>
-      </div>
-      <div class="item">
-        <p class="pull-left">结息日期</p>
-
-        <p class="pull-right"><em style="font-size: 14px;color: #e74c3c;">2015-12-01</em></p>
-      </div>
-      <div class="item">
-        <p class="pull-left">最迟还款日</p>
-
-        <p class="pull-right"><em style="font-size: 14px;color:#e74c3c;">2015-12-04</em></p>
+        <p class="pull-right"><span ng-bind="product.viewModel.valueDateMode"></span></p>
       </div>
     </div>
 
