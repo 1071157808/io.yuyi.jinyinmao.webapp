@@ -92,6 +92,13 @@ angular.module('jym.services', [
     .service('JYMProductService', function() {
         var service = this;
 
+        function getInterest(pricipal, _yield, duration) {
+            // 返回的金额以 分 为单位
+            // 本金的单位为 分
+            // 收益率的单位为 万分之一
+            return Math.floor(pricipal * _yield * duration / 3600000);
+        }
+
         function getSaleProgress(paidAmount, financingSumAmount) {
             if (paidAmount >= financingSumAmount) {
                 return 100;
@@ -119,16 +126,18 @@ angular.module('jym.services', [
             return 10;
         }
 
-        function getInterest(pricipal, _yield, duration) {
-            // 返回的金额以 分 为单位
-            // 本金的单位为 分
-            // 收益率的单位为 万分之一
-            return Math.floor(pricipal * _yield * duration / 3600000);
-        }
+        function getValueDateModeText(valueDateMode) {
+            if(valueDateMode <= 0) {
+                return '购买成功立刻起息';
+            }
+
+            return '购买成功T+' + valueDateMode + '工作日起息';
+        };
 
         service.getInterest = getInterest;
         service.getSaleProgress = getSaleProgress;
         service.getSaleStatus = getSaleStatus;
+        service.getValueDateModeText = getValueDateModeText;
 
     })
     .service('JYMUtilityService', function($state, $cordovaInAppBrowser) {
@@ -157,6 +166,10 @@ angular.module('jym.services', [
             } else {
                 $state.go(url);
             }
+        }
+
+        function showAlert(text) {
+
         }
 
         service.isUrl = isUrl;

@@ -9,4 +9,8 @@ angular.module('jym.services.jinbaoyin', [
                 cache: JYMCacheService.get('productCache')
             });
         };
+
+        service.buildOrder = function(data) {
+            return $http.post(URLS.INVESTING.JBY, data)
+        };
     });

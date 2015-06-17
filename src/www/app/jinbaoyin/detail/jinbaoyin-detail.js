@@ -52,12 +52,8 @@ angular.module('jym.jinbaoyin.detail', [
             }
         };
 
-        var getValueDateMode = function(valueDateMode) {
-            if(valueDateMode <= 0) {
-                return '购买成功立刻起息';
-            }
-
-            return '购买成功T+' + valueDateMode + '工作日起息';
+        var getValueDateModeText = function(valueDateMode) {
+            return JYMProductService.getValueDateModeText(valueDateMode);
         };
 
         product.model = {};
@@ -85,6 +81,15 @@ angular.module('jym.jinbaoyin.detail', [
             
             product.refreshInvestViewModel();
         };
+
+        product.goPurchase = function() {
+            product.refreshProduct();
+
+            if(product.viewModel.status.status === 10) {
+
+            }
+        };
+
 
         product.refreshInvestViewModel = function() {
             if (isFinite(product.viewModel.investCount)) {
@@ -118,9 +123,10 @@ angular.module('jym.jinbaoyin.detail', [
             this.viewModel.sellProgressInCircleProgress = this.viewModel.sellProgress / 100;
             this.viewModel.status = getSaleStatus(this.model);
             this.viewModel.unitPrice = (this.model.unitPrice / 100).toFixed(0);
-            this.viewModel.valueDateMode = getValueDateMode(this.model.valueDateMode);
+            this.viewModel.valueDateMode = getValueDateModeText(this.model.valueDateMode);
             this.viewModel.yield = (this.model.yield / 100).toFixed(2);
         };
 
         product.doRefresh();
+
     });

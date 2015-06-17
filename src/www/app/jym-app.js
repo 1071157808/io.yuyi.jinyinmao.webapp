@@ -17,6 +17,9 @@ angular.module('JYM', [
         },
         JINBOAYIN: {
             FETCH: 'https://jym-dev-api.jinyinmao.com.cn/Product/Current/JBY'
+        },
+        INVESTING: {
+            JBY: 'https://jym-dev-api.jinyinmao.com.cn/Investing/JBY'
         }
     })
     .config(function($ionicConfigProvider) {
