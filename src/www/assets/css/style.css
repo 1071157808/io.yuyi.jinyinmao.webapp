@@ -15,7 +15,6 @@
 
 [class^="jym-icon-"], [class*=" jym-icon-"] {
   font-family: 'jym-icon';
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -371,11 +370,21 @@ ion-header-bar.bar.bar-header div {
   margin: 2px;
 }
 
-/*ion-header-bar.bar.bar-header .title {*/
-  /*color: #FFFFFF;*/
-  /*font-weight: bold;*/
-  /*font-size: 20px;*/
-/*}*/
+ion-header-bar.bar.bar-header .title {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+ion-header-bar.bar.bar-header .previous-title {
+  display: none;
+}
+
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  ion-header-bar.bar.bar-header div{
+    font-size: 15px!important;
+  }
+}/*iphone4*/
 
 /*@media only screen and (max-width: 320px) and (max-height: 480px){*/
   /*ion-header-bar.bar.bar-header div{*/
