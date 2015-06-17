@@ -1,17 +1,17 @@
-<ion-view>
+<ion-view title="登录">
   <ion-content>
     <div class="card">
       <label class="item item-input">
         <span class="input-label">账号</span>
-        <input type="number" placeholder="手机号码">
+        <input type="number" placeholder="手机号码" ng-bind="user.viewModel.cellphone">
       </label>
       <label class="item item-input">
         <span class="input-label">密码</span>
-        <input type="text" placeholder="6-18位数字或字母">
+        <input type="password" placeholder="6-18位数字或字母"  ng-bind="user.viewModel.password">
       </label>
       <a class="pull-right"><i class="icon ion-ios-help-outline"> 忘记密码</i></a>
     </div>
-    <button class="btn button-yellow">登&nbsp;录</button>
+    <button class="btn button-yellow" ng-click="user.viewModel.login()">登 录</button>
     <button class="btn button-grey">创建金银猫账户</button>
   </ion-content>
 </ion-view>

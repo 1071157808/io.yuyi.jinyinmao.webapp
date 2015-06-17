@@ -1,17 +1,22 @@
 <ion-view title="我的金银猫">
   <ion-content id="user-index">
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="user.doRefresh()">
+    </ion-refresher>
     <ion-list>
       <div class="item">
-        <p class="pull-left">账户</p>
-        <p class="pull-right" style="font-size: 14px">1234567896</p>
+        <p class="pull-left">手机号</p>
+        <p class="pull-right" ng-bind="user.viewModel.cellphone"></p>
       </div>
       <div class="item">
         <p class="pull-left">真实姓名</p>
-        <p class="pull-right">张某某</p>
+        <p class="pull-right" ng-bind="user.viewModel.realName"></p>
       </div>
       <div class="item">
         <p class="pull-left">身份证</p>
-        <p class="pull-right" style="font-size: 14px">123456789612346</p>
+        <p class="pull-right" ng-bind="user.viewModel.credentialNo"></p>
       </div>
       <ion-item class="divider"></ion-item>
       <div class="item item-icon-right" ui-sref="jym.userInfo.settleAccount">
@@ -39,5 +44,6 @@
     </ion-list>
     <br>
     <button class="btn button-grey">登出</button>
+    <div ng-bind=""></div>
   </ion-content>
 </ion-view>

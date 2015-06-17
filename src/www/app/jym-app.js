@@ -22,7 +22,8 @@ angular.module('JYM', [
             JBY: 'https://jym-dev-api.jinyinmao.com.cn/Investing/JBY'
         },
         USER: {
-            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn/User'
+            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn/User',
+            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn/User/Auth/SignIn'
         }
     })
     .constant('RESOURCES', {
@@ -44,6 +45,7 @@ angular.module('JYM', [
     })
     .config(function($ionicConfigProvider) {
         $ionicConfigProvider.views.transition('ios');
+        $ionicConfigProvider.tabs.position('bottom');
         $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back');
     })
     .config(function($httpProvider) {
