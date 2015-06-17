@@ -415,6 +415,7 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
 }/*iphone4*/
 .tab-item .icon{
   color: rgb(181,181,182);
+  font-size: 29px;
 }
 .tab-item-active i{
   color:rgb(250,190,0) !important;
@@ -784,12 +785,15 @@ ion-item img {
 }/*iphone5*/
 .order-detail ul {
   position: relative;
-  /*float: right;*/
+  float: right;
   font-size: 14px;
   text-align: right;
   line-height: 24px;
 }
-.order-detail .item > div > i {
+@media only screen and (max-width: 320px) and (min-height: 568px){
+
+}
+  .order-detail .item > div > i {
   float: left;
   color: #FACB3A ;
   font-size: 14px;
@@ -804,7 +808,7 @@ ion-item img {
   font-size: 14px;
 }
 .item-divider p {
-  font-size: 10px;
+  font-size: 12px;
   padding-left: 10px;
 }
 .list.card .item-divider p > em {
@@ -1369,7 +1373,7 @@ ion-item .divider, .item.divider {
 
 /*.nav-bar-container start*/
 .nav-bar-container button .ion-ios-arrow-back {
-  color: #FACB3A;
+  color: #F5F0F0;
   font-size: 20px;
 }
 
