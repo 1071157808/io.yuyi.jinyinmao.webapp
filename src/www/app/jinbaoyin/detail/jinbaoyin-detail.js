@@ -14,7 +14,7 @@ angular.module('jym.jinbaoyin.detail', [
                 }
             })
     })
-    .controller('JinbaoyinDetailCtrl', function($scope, $timeout, JYMProductService, JinbaoyinService) {
+    .controller('JinbaoyinDetailCtrl', function($scope, $timeout, $q, $state, RESOURCES, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
         var getSaleProgress = function(product) {
@@ -22,7 +22,7 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         var getSaleStatus = function(product) {
-            var status = JYMProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
+            var status = ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
 
             switch (status) {
                 case 10:
@@ -83,13 +83,18 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.goPurchase = function() {
-            product.refreshProduct();
+            var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
+            var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), product.viewModel.investAmount);
+            $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
+                .then(function(result) {
+                    PurchaseService.buildNewJBYOrder(result[0].productIdentifier, product.viewModel.investAmount);
 
-            if(product.viewModel.status.status === 10) {
-
-            }
+                    $state.go('jym.purchase-jby');
+                })
+                .catch(function(result) {
+                    JYMUtilityService.alert(result);
+                });
         };
-
 
         product.refreshInvestViewModel = function() {
             if (isFinite(product.viewModel.investCount)) {
@@ -110,6 +115,7 @@ angular.module('jym.jinbaoyin.detail', [
                     product.model = result;
                     product.refreshViewModel();
                     product.refreshInvestViewModel();
+                    return result;
                 });
         };
 

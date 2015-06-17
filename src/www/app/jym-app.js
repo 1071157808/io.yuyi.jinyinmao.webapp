@@ -20,6 +20,26 @@ angular.module('JYM', [
         },
         INVESTING: {
             JBY: 'https://jym-dev-api.jinyinmao.com.cn/Investing/JBY'
+        },
+        USER: {
+            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn/User'
+        }
+    })
+    .constant('RESOURCES', {
+        ALERT: {
+            PRODUCT: {
+                NOT_ON_SALE: '该产品未开售，请耐心等待',
+                SOLD_OUT: '该产品已经售罄，请期待下一期',
+                SHARE_INSUFFICIENT: '产品剩余份额不足',
+                AMOUNT_INCORRECT: '购买金额错误'
+
+            },
+            USER: {
+                CLOSED: '账户被禁用，如需帮助，请联系金银猫客服',
+                HAS_NOT_SET_PAYMENT_PASSWORD: '请先设置支付密码',
+                PAYMENT_PASSWORD_NEED_RESET: '支付密码被锁定，请先重置'
+
+            }
         }
     })
     .config(function($ionicConfigProvider) {
