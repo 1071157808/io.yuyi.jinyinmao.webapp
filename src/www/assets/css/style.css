@@ -15,7 +15,6 @@
 
 [class^="jym-icon-"], [class*=" jym-icon-"] {
   font-family: 'jym-icon';
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -387,17 +386,23 @@ ion-header-bar.bar.bar-header .previous-title {
   }
 }/*iphone4*/
 
-ion-header-bar.bar.bar-header div .col.col-25 {
-  margin-left: 12px;
-}
+/*@media only screen and (max-width: 320px) and (max-height: 480px){*/
+  /*ion-header-bar.bar.bar-header div{*/
+    /*font-size: 15px!important;*/
+  /*}*/
+/*}/!*iphone4*!/*/
 
-ion-header-bar.bar.bar-header .jym-icon-logo {
-  display: block;
-  font-size: 28px;
-  color: #FACB3A;
-  height: 100%;
-  margin-top: 5px;
-}
+/*ion-header-bar.bar.bar-header div .col.col-25 {*/
+  /*margin-left: 12px;*/
+/*}*/
+
+/*ion-header-bar.bar.bar-header .jym-icon-logo {*/
+  /*display: block;*/
+  /*font-size: 28px;*/
+  /*color: #FACB3A;*/
+  /*height: 100%;*/
+  /*margin-top: 5px;*/
+/*}*/
 ion-header-bar.bar.bar-header ul.jym-nav-top i {
   display: block;
   font-size: 24px;
@@ -405,20 +410,21 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
   text-align: center;
   margin-top: 5px;
 }
-@media only screen and (max-width: 320px) and (min-height: 568px){
-  .jym-nav-top{
-    position: absolute;
-    right: 10px;
-  }
-}/*iphone5*/
-@media only screen and (max-width: 320px) and (max-height: 480px){
-  .jym-nav-top{
-    position: absolute;
-    right: 7px;
-  }
-}/*iphone4*/
+/*@media only screen and (max-width: 320px) and (min-height: 568px){*/
+  /*.jym-nav-top{*/
+    /*position: absolute;*/
+    /*right: 10px;*/
+  /*}*/
+/*}/!*iphone5*!/*/
+/*@media only screen and (max-width: 320px) and (max-height: 480px){*/
+  /*.jym-nav-top{*/
+    /*position: absolute;*/
+    /*right: 7px;*/
+  /*}*/
+/*}/!*iphone4*!/*/
 .tab-item .icon{
-  color: rgb(181,181,182);
+  color: rgb(181,181,182) ;
+  font-size: 29px;
 }
 .tab-item-active i{
   color:rgb(250,190,0) !important;
@@ -518,18 +524,18 @@ ion-slide img {
 }
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .jinbaoyin-index-product span{
-    margin-right: 12px;
-    margin-left: 12px;
+    margin-right: 11px;
+    margin-left: 11px;
   }
 }/*iphone5*/
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   .jinbaoyin-index-product span {
-    margin-right: 11px;
-    margin-left: 11px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }/*iphone4*/
 .jinbaoyin-index-product span > em {
-  font-size: 20px;
+  font-size: 22px;
   color: #e74c3c;
   font-weight: 400;
 }
@@ -788,12 +794,18 @@ ion-item img {
 }/*iphone5*/
 .order-detail ul {
   position: relative;
-  /*float: right;*/
+  float: right;
   font-size: 14px;
   text-align: right;
-  line-height: 24px;
+  line-height: 32px;
 }
-.order-detail .item > div > i {
+.list .item-divider p>span{
+  color: #e74c3c;
+}
+@media only screen and (max-width: 320px) and (min-height: 568px){
+
+}
+  .order-detail .item > div > i {
   float: left;
   color: #FACB3A ;
   font-size: 14px;
@@ -808,8 +820,11 @@ ion-item img {
   font-size: 14px;
 }
 .item-divider p {
-  font-size: 10px;
+  font-size: 12px;
   padding-left: 10px;
+}
+.item-divider .JBY{
+  padding-left: 22px;
 }
 .list.card .item-divider p > em {
   color: #e74c3c;
@@ -1373,7 +1388,7 @@ ion-item .divider, .item.divider {
 
 /*.nav-bar-container start*/
 .nav-bar-container button .ion-ios-arrow-back {
-  color: #FACB3A;
+  color: #F5F0F0;
   font-size: 20px;
 }
 
