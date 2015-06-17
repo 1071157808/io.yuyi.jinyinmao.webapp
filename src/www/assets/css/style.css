@@ -649,9 +649,14 @@ ion-item .col-33 em {
   font-size: 35px;
 }
 
-ion-item .col-33> em > samp{
+ion-item .col-33 > em > samp{
   color: #e74c3c;
   font-size: 20px;
+}
+
+ion-item .col-50 samp {
+  color: #e74c3c;
+  font-size: 18px;
 }
 
 ion-item .col-33 li{
@@ -734,8 +739,44 @@ ion-item img {
 
 .order-detail samp {
   color: #e74c3c;
-  font-size: 30px;
+  font-size: 18px;
 }
+.order-detail #center {
+  width: 106px;
+}
+.order-detail > .item .col-50 {
+  padding-top: 25px;
+}
+.order-detail > .item .col-50 p {
+  margin: auto;
+  font-size: 14px;
+  padding-top: 3px;
+  text-align: center;
+  padding-left: 7px;
+}
+
+.order-detail > .item .col-50 p > span {
+  font-size: 28px;
+  color: #e74c3c;
+  text-align: center;
+}
+.order-detail > .item .col-50 p > samp {
+  font-size: 14px;
+  color: inherit;
+}
+
+.order-detail > .item .col ul > span {
+  font-size: 35px;
+  color: #e74c3c;
+  padding-top: 30px;
+  margin-left: 20px;
+}
+
+.order-detail > .item .col ul > samp {
+  color: inherit;
+  font-size: 16px;
+}
+
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .order-detail ul{
     padding-right: 12px;
@@ -1397,5 +1438,11 @@ ion-tabs.tabs-jym {
 /* circle-progress start */
 .circle-progress circle {
   stroke-linecap: round;
+}
+
+.item .col svg {
+  position: absolute;
+  top: 25px;
+  left: 30px;
 }
 /* circle-progress end */
