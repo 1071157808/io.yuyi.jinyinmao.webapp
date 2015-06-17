@@ -24,21 +24,24 @@ angular.module('jym.services', [
 
         CacheFactory('configCache', {
             maxAge: 60 * 60 * 1000,
-            cacheFlushInterval: 60 * 60 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'localStorage'
         });
 
         CacheFactory('authTokenCache', {
             maxAge: 365 * 24 * 60 * 60 * 1000,
-            cacheFlushInterval: 365 * 24 * 60 * 60 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'localStorage'
         });
 
         CacheFactory('productCache', {
             maxAge: 60 * 1000,
-            cacheFlushInterval: 60 * 1000,
+            deleteOnExpire: 'aggressive',
+            storageMode: 'localStorage'
+        });
+
+        CacheFactory('userCache', {
+            maxAge: 10 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'localStorage'
         });
@@ -49,7 +52,6 @@ angular.module('jym.services', [
             if (!CacheFactory.get(cacheName)) {
                 CacheFactory(cacheName, {
                     maxAge: maxAge,
-                    cacheFlushInterval: 60 * 60 * 1000,
                     deleteOnExpire: 'aggressive',
                     storageMode: 'localStorage'
                 });
@@ -89,58 +91,7 @@ angular.module('jym.services', [
             return service.getConfig().then(extractSlidersConfig);
         }
     })
-    .service('JYMProductService', function() {
-        var service = this;
-
-        function getInterest(pricipal, _yield, duration) {
-            // 返回的金额以 分 为单位
-            // 本金的单位为 分
-            // 收益率的单位为 万分之一
-            return Math.floor(pricipal * _yield * duration / 3600000);
-        }
-
-        function getSaleProgress(paidAmount, financingSumAmount) {
-            if (paidAmount >= financingSumAmount) {
-                return 100;
-            }
-
-            if (paidAmount >= financingSumAmount * 0.991) {
-                return 99;
-            }
-
-            return (paidAmount / financingSumAmount).toFixed(0);
-        }
-
-        function getSaleStatus(soldOut, startSellTime, endSellTime) {
-            // 售罄
-            if (soldOut === true || moment(endSellTime) < moment()) {
-                return 30;
-            }
-
-            // 在售
-            if (moment(startSellTime) < moment()) {
-                return 20;
-            }
-
-            // 待售
-            return 10;
-        }
-
-        function getValueDateModeText(valueDateMode) {
-            if(valueDateMode <= 0) {
-                return '购买成功立刻起息';
-            }
-
-            return '购买成功T+' + valueDateMode + '工作日起息';
-        };
-
-        service.getInterest = getInterest;
-        service.getSaleProgress = getSaleProgress;
-        service.getSaleStatus = getSaleStatus;
-        service.getValueDateModeText = getValueDateModeText;
-
-    })
-    .service('JYMUtilityService', function($state, $cordovaInAppBrowser) {
+    .service('JYMUtilityService', function($state, $ionicPopup, $timeout, $cordovaInAppBrowser) {
         var service = this;
 
         /**
@@ -169,9 +120,17 @@ angular.module('jym.services', [
         }
 
         function showAlert(text) {
+            var alertPopup = $ionicPopup.alert({
+                title: '提示信息',
+                template: text
+            });
 
+            $timeout(function() {
+                alertPopup.close();
+            }, 1000);
         }
 
         service.isUrl = isUrl;
         service.open = open;
+        service.showAlert = showAlert;
     });

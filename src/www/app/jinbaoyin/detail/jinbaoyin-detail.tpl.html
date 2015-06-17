@@ -20,7 +20,6 @@
             <ul>
               <span ng-bind="product.viewModel.yield"></span><samp>%</samp>
               <li>下一工作日起息</li>
-              <li>融资金额： <span ng-bind="product.viewModel.financingSumAmount"></span> 万</li>
               <li>随存随取 承兑汇票抵押</li>
 
               <!--<li>担保方式 承兑汇票抵押</li>-->
@@ -74,6 +73,11 @@
         <p class="pull-left">项目期数</p>
 
         <p class="pull-right"><span>第&nbsp;</span><span ng-bind="product.viewModel.issueNo"></span><span>&nbsp;期</span></p>
+      </div>
+      <div class="item">
+        <p class="pull-left">融资总额</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.financingSumAmount"></span> 万元</p>
       </div>
       <div class="item">
         <p class="pull-left">投资单位</p>

@@ -1,6 +1,9 @@
 angular.module('jym.jinbaoyin.detail', [
     'jym.services',
-    'jym.services.jinbaoyin'
+    'jym.services.jinbaoyin',
+    'jym.services.product',
+    'jym.services.purchase',
+    'jym.services.user'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -14,15 +17,15 @@ angular.module('jym.jinbaoyin.detail', [
                 }
             })
     })
-    .controller('JinbaoyinDetailCtrl', function($scope, $timeout, JYMProductService, JinbaoyinService) {
+    .controller('JinbaoyinDetailCtrl', function($scope, $timeout, $q, $state, RESOURCES, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
         var getSaleProgress = function(product) {
-            return JYMProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
         };
 
         var getSaleStatus = function(product) {
-            var status = JYMProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
+            var status = ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
 
             switch (status) {
                 case 10:
@@ -53,7 +56,7 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         var getValueDateModeText = function(valueDateMode) {
-            return JYMProductService.getValueDateModeText(valueDateMode);
+            return ProductService.getValueDateModeText(valueDateMode);
         };
 
         product.model = {};
@@ -83,13 +86,18 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.goPurchase = function() {
-            product.refreshProduct();
+            var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
+            var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), product.viewModel.investAmount);
+            $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
+                .then(function(result) {
+                    PurchaseService.buildNewJBYOrder(result[0].productIdentifier, product.viewModel.investAmount);
 
-            if(product.viewModel.status.status === 10) {
-
-            }
+                    $state.go('jym.purchase-jby');
+                })
+                .catch(function(result) {
+                    JYMUtilityService.alert(result);
+                });
         };
-
 
         product.refreshInvestViewModel = function() {
             if (isFinite(product.viewModel.investCount)) {
@@ -98,7 +106,7 @@ angular.module('jym.jinbaoyin.detail', [
                 product.viewModel.investAmount = 0;
             }
 
-            product.viewModel.expectedInterest = (JYMProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, 30) / 100).toFixed(2);
+            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, 30) / 100).toFixed(2);
         };
 
         product.refreshProduct = function() {
@@ -110,6 +118,7 @@ angular.module('jym.jinbaoyin.detail', [
                     product.model = result;
                     product.refreshViewModel();
                     product.refreshInvestViewModel();
+                    return result;
                 });
         };
 
