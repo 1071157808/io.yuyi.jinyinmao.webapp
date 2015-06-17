@@ -1,0 +1,49 @@
+<ion-view title="金包银认购">
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <p>订单金额</p>
+
+        <p><strong></strong>元</p>
+      </ion-item>
+    </ion-list>
+
+    <div class="list deposit">
+      <ion-item class="divider"></ion-item>
+      <ion-item class="item-divider">
+        <p>支付方式</p>
+      </ion-item>
+      <ion-item class="card">
+        <ion-item class="item">
+          <p>金银猫账户余额：<span ng-bind="purchase.viewModel.userBalance"></span> 元</p>
+
+          <a href="/"><i class="icon ion-chevron-right pull-right"></i></a>
+        </ion-item>
+
+        <label class="item item-input">
+          <span class="input-label">输入密码：</span>
+          <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.userPaymentPassword">
+        </label>
+      </ion-item>
+
+      <ion-list>
+        <ion-item class="item row">
+          <div class="col col-25">
+            <label class="checkbox checkbox-assertive">
+              <input type="checkbox" checked>
+            </label>
+            <span>同意</span>
+          </div>
+          <div class="col col-75">
+            <p href="/">《金银猫金包银投资协议》</p>
+          </div>
+        </ion-item>
+      </ion-list>
+      <br>
+      <button class="btn button-yellow">同意协议并付款</button>
+      <br>
+      <h4>如有问题，请垂询&nbsp;4008-556-333。</h4>
+
+    </div>
+  </ion-content>
+</ion-view>

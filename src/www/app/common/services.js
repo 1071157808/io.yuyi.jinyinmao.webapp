@@ -6,7 +6,7 @@ angular.module('jym.services', [
         var tokenStorage = JYMCacheService.get('authTokenCache');
 
         service.clearToken = function() {
-            tokenStorage.set('auth', '');
+            tokenStorage.put('auth', '');
         };
 
         service.getToken = function() {

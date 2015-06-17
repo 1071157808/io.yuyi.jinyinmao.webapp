@@ -21,7 +21,7 @@ angular.module('jym.services.user', [
         };
 
         service.checkUserPurchaseStatus = function() {
-            service.getUserInfo()
+            return service.getUserInfo()
                 .then(function(user) {
                     if(user.closed === true) {
                         throw RESOURCES.USER.CLOSED;

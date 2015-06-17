@@ -92,10 +92,10 @@ angular.module('jym.jinbaoyin.detail', [
                 .then(function(result) {
                     PurchaseService.buildNewJBYOrder(result[0].productIdentifier, product.viewModel.investAmount);
 
-                    $state.go('jym.purchase-jby');
+                    $state.go('jym.jinbaoyin-purchase');
                 })
                 .catch(function(result) {
-                    JYMUtilityService.alert(result);
+                    JYMUtilityService.showAlert(result);
                 });
         };
 
@@ -110,7 +110,7 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.refreshProduct = function() {
-            JinbaoyinService.getIndex()
+            return JinbaoyinService.getIndex()
                 .then(function(result) {
                     return result.data;
                 })

@@ -5,7 +5,7 @@ angular.module('jym.services.product', [
         var service = this;
 
         function checkProductPurchaseStatus(getProductInfo, amount) {
-            getProductInfo.then(function(product) {
+            return getProductInfo.then(function(product) {
 
                 var status = getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
                 if(status === 10) {
