@@ -9,15 +9,15 @@ angular.module('jym.services.user', [
         service.checkUserPurchaseStatus = function() {
             return service.getUserInfo()
                 .then(function(user) {
-                    if(user.closed === true) {
+                    if (user.closed === true) {
                         throw RESOURCES.USER.CLOSED;
                     }
 
-                    if(user.hasSetPaymentPassword === false) {
+                    if (user.hasSetPaymentPassword === false) {
                         throw RESOURCES.USER.PAYMENT_PASSWORD_NEED_RESET;
                     }
 
-                    if(user.hasSetPaymentPassword >= 5) {
+                    if (user.hasSetPaymentPassword >= 5) {
                         throw RESOURCES.USER.PAYMENT_PASSWORD_NEED_RESET
                     }
 
@@ -39,10 +39,13 @@ angular.module('jym.services.user', [
             });
         };
 
-        service.login = function(loginName, password){
+        service.login = function(loginName, password) {
             return $http.post(URLS.USER.SIGNIN, {
                 loginName: loginName,
                 password: password
-            });
+            })
+                .then(function(result) {
+                    return result.data;
+                });
         };
     });

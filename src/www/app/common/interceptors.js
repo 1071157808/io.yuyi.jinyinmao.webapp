@@ -6,8 +6,8 @@ angular.module('jym.interceptors', [
 
         return {
             'request': function(config) {
-                config.headers.JYM = authService.getToken();
-
+                config.headers['x-jym'] = authService.getToken();
+                //config.headers['Access-Control-Allow-Origin'] = 'JYM,Set-Cookie,Date';
                 return config;
             },
 
@@ -17,8 +17,8 @@ angular.module('jym.interceptors', [
             },
 
             'response': function(response) {
-                if(response.headers.JYM) {
-                    authService.setToken(response.headers.JYM)
+                if(response.headers['x-jym']) {
+                    authService.setToken(response.headers['x-jym'])
                 }
                 return response;
             },
@@ -31,7 +31,7 @@ angular.module('jym.interceptors', [
                     $ionicHistory.nextViewOptions({
                         disableBack: true
                     });
-                    $state.go('jym.user-login');
+                    $state.go('jym.user-login', { backState: $state.current.name });
                 }
 
                 if (rejection.status == 400) {

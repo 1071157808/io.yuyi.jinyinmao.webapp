@@ -38,8 +38,11 @@ angular.module('JYM', [
             USER: {
                 CLOSED: '账户被禁用，如需帮助，请联系金银猫客服',
                 HAS_NOT_SET_PAYMENT_PASSWORD: '请先设置支付密码',
-                PAYMENT_PASSWORD_NEED_RESET: '支付密码被锁定，请先重置'
-
+                PAYMENT_PASSWORD_NEED_RESET: '支付密码被锁定，请重置后使用',
+                USER_LOGIN_PASSWORD_LOCK: '登录密码被锁定，请重置后使用',
+                USER_NOT_EXIST: '用户名或者密码错误，请确认后再试',
+                USER_LOGIN_FAIL: '用户名或者密码错误，请确认后再试',
+                USER_LOGIN_PASSWORD_REMIAN_LESS: '用户名或者密码错误次数过多，请核实后再试'
             }
         }
     })
