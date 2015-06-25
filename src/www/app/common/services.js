@@ -1,5 +1,7 @@
 angular.module('jym.services', [
-    'angular-cache'
+    'ngAnimate',
+    'angular-cache',
+    'toastr'
 ])
     .service('JYMAuthService', function(JYMCacheService) {
         var service = this;
@@ -31,7 +33,7 @@ angular.module('jym.services', [
         CacheFactory('authTokenCache', {
             maxAge: 365 * 24 * 60 * 60 * 1000,
             deleteOnExpire: 'aggressive',
-            storageMode: 'memory'
+            storageMode: 'localStorage'
         });
 
         CacheFactory('productCache', {
@@ -46,14 +48,15 @@ angular.module('jym.services', [
             storageMode: 'memory'
         });
 
-        service.get = function(cacheName, maxAge) {
+        service.get = function(cacheName, maxAge, storageMode) {
             maxAge = maxAge || 60 * 1000;
+            storageMode = storageMode || 'memory';
 
             if (!CacheFactory.get(cacheName)) {
                 CacheFactory(cacheName, {
                     maxAge: maxAge,
                     deleteOnExpire: 'aggressive',
-                    storageMode: 'memory'
+                    storageMode: storageMode
                 });
             }
 
@@ -91,7 +94,7 @@ angular.module('jym.services', [
             return service.getConfig().then(extractSlidersConfig);
         }
     })
-    .service('JYMUtilityService', function($state, $ionicPopup, $timeout, $cordovaInAppBrowser) {
+    .service('JYMUtilityService', function($state, $timeout, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX, toastr) {
         var service = this;
 
         function goWithDisableBack(to, params, options) {
@@ -102,8 +105,7 @@ angular.module('jym.services', [
         }
 
         function isUrl(string) {
-            var matcher = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/;
-            return matcher.test(string);
+            return REGEX.URL.test(string);
         }
 
         function open(url) {
@@ -115,14 +117,11 @@ angular.module('jym.services', [
         }
 
         function showAlert(text) {
-            var alertPopup = $ionicPopup.alert({
-                title: '提示信息',
-                template: text
-            });
-
-            $timeout(function() {
-                alertPopup.close();
-            }, 1000);
+            if (window.plugins && window.plugins.toast) {
+                $cordovaToast.showShortBottom(text);
+            } else {
+                toastr.info(text);
+            }
         }
 
         service.goWithDisableBack = goWithDisableBack;

@@ -13,6 +13,7 @@
     "bootstrap": "~3.3.4",
     "angular-sanitize": "~1.4.0",
     "moment": "~2.10.3",
-    "angular-progress-arc": "~1.0.0"
+    "angular-progress-arc": "~1.0.0",
+    "angular-toastr": "~1.4.1"
   }
 }

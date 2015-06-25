@@ -1,6 +1,5 @@
 angular.module('jym.user', [
     'jym.services.user',
-    'jym.userInfo',
     'jym.user.login'
 ])
     .config(function($stateProvider) {
@@ -22,20 +21,20 @@ angular.module('jym.user', [
         user.viewModel = {};
 
         user.doRefresh = function() {
-            user.refreshUser();
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
-        };
-
-        user.refreshUser = function() {
-            return UserService.getUserInfo()
+            user.refreshUser()
                 .then(function(result) {
                     user.model = result;
                     user.refreshViewModel();
                     return result;
                 });
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
+
+        user.refreshUser = function() {
+            return UserService.getUserInfo();
         };
 
         user.refreshViewModel = function() {

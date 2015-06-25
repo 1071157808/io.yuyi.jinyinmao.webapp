@@ -32,10 +32,17 @@ angular.module('jym.constants', [])
                 USER_LOGIN_FAIL: '用户名或者密码错误，请确认后再试',
                 USER_LOGIN_PASSWORD_REMIAN_LESS: '用户名或者密码错误次数过多，请核实后再试'
             }
+        },
+        TIP: {
+            USER: {
+                INVALID_CELLPHONE: '请填写正确的手机号',
+                INVALID_PASSWORD: '请输入正确的密码'
+            }
         }
     })
     .constant('REGEX', {
         CELLPHONE: /^(13|14|15|17|18)\d{9}$/,
-        PASSWORD: /^[a-zA-Z\d~!@#$%^&*_]{6,18}$/
+        PASSWORD: /^[a-zA-Z\d~!@#$%^&*_]{6,18}$/,
+        URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     });
 

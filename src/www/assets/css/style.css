@@ -1465,3 +1465,23 @@ ion-tabs.tabs-jym {
   left: 30px;
 }
 /* circle-progress end */
+
+/* toast start */
+
+#toast-container {
+
+}
+
+#toast-container > .toast > button.toast-close-button {
+
+}
+
+#toast-container > .toast .toast-title {
+
+}
+
+#toast-container > .toast .toast-message {
+
+}
+
+/* toast end */
