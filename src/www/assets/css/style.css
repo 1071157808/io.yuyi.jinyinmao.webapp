@@ -864,6 +864,10 @@ ion-item img {
   background-color: #FACB3A;
   border: 0 solid #cead52;
 }
+.button-yellow:disabled {
+  background-color: rgba(250, 203, 58, 0.6);
+}
+
 .button-grey {
   background-color: #c3d0d7;
   border: 0 solid #a8b6bf;
@@ -921,6 +925,16 @@ ion-item img {
 }
 
 /*user-index end*/
+/*login start*/
+label.item-input > span {
+  width: 20%;
+}
+
+.ion-ios-help-outline {
+  font-size: 12px;
+}
+/*login end*/
+
 @media only screen and (min-width: 1200px){
   ion-header-bar.bar.bar-header div ul > li > a{
     font-size: 28px;
@@ -1468,9 +1482,10 @@ ion-tabs.tabs-jym {
 
 /* toast start */
 
-#toast-container {
+/*#toast-container {*/
+  /*background-color: rgba(105, 105, 105, .7)*/
 
-}
+/*}*/
 
 #toast-container > .toast > button.toast-close-button {
 
@@ -1481,7 +1496,18 @@ ion-tabs.tabs-jym {
 }
 
 #toast-container > .toast .toast-message {
-
+  font-size: 14px;
+  color: white;
 }
 
+
+#toast-container.toast-bottom-center > div, #toast-container >.toast-info {
+  background-color: rgba(105, 105, 105, .7);
+  position: relative;
+  bottom: 120px;
+  left: 50%;
+  margin-left: -25%;
+  width: 50%;
+  box-shadow: none;
+}
 /* toast end */

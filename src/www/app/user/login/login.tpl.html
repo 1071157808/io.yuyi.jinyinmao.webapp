@@ -9,9 +9,11 @@
         <span class="input-label">密码</span>
         <input type="password" placeholder="6-18位数字或字母" ng-model="user.viewModel.password" required minlength="5" maxlength="18">
       </label>
-      <a class="pull-right"><i class="icon ion-ios-help-outline"> 忘记密码</i></a>
+      <a class="pull-right"><i class="icon ion-ios-help-outline"> &nbsp;忘记密码</i></a>
     </div>
     <button class="btn button-yellow" ng-click="user.login()" ng-disabled="!user.checkInput()">登 录</button>
+    <div class="space"></div>
+    <div class="space"></div>
     <button class="btn button-grey">创建金银猫账户</button>
   </ion-content>
 </ion-view>
