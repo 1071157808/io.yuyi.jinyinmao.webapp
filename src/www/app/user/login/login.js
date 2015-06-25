@@ -62,7 +62,12 @@ angular.module('jym.user.login', [
                             return;
                         }
 
-                        JYMUtilityService.goWithDisableBack($stateParams.backState);
+                        var backState = 'jym.user';
+                        if($stateParams.backState) {
+                            backState = $stateParams.backState;
+                        }
+
+                        JYMUtilityService.goWithDisableBack(backState);
                     });
 
             }

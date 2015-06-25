@@ -1,17 +1,17 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         CONFIG: {
-            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn/publicfiles/Configs/AppConfig/3.0.0'
+            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.0.0'
         },
         JINBOAYIN: {
-            FETCH: 'https://jym-dev-api.jinyinmao.com.cn/Product/Current/JBY'
+            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY'
         },
         INVESTING: {
-            JBY: 'https://jym-dev-api.jinyinmao.com.cn/Investing/JBY'
+            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY'
         },
         USER: {
-            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn/User',
-            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn/User/Auth/SignIn'
+            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
+            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn'
         }
     })
     .constant('RESOURCES', {
