@@ -1,13 +1,14 @@
 angular.module('jym.user', [
     'jym.services.user',
+    'jym.userInfo',
     'jym.user.login'
 ])
-    .config(function ($stateProvider) {
+    .config(function($stateProvider) {
         $stateProvider
             .state('jym.user', {
                 url: '/user',
                 views: {
-                    'user':{
+                    'user': {
                         controller: 'UserCtrl as user',
                         templateUrl: 'app/user/index.tpl.html'
                     }
@@ -41,7 +42,6 @@ angular.module('jym.user', [
             this.viewModel.cellphone = this.model.cellphone;
             this.viewModel.realName = this.model.realName || '未实名认证';
             this.viewModel.credentialNo = this.model.credentialNo || '未实名认证';
-
         };
 
         user.doRefresh();

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.jym730647" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>jym</name>
+    <name>金银猫</name>
     <description>
-        io.yuyi.jinyinmao.webapp
+        金银猫
     </description>
     <author email="lu.siqi@yuyidev.com" href="http://www.yuyidev.com/">
         Shanghai Yuyi Mdt InfoTech Ltd.

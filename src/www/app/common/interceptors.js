@@ -7,7 +7,6 @@ angular.module('jym.interceptors', [
         return {
             'request': function(config) {
                 config.headers['x-jym'] = authService.getToken();
-                //config.headers['Access-Control-Allow-Origin'] = 'JYM,Set-Cookie,Date';
                 return config;
             },
 
@@ -17,8 +16,8 @@ angular.module('jym.interceptors', [
             },
 
             'response': function(response) {
-                if(response.headers['x-jym']) {
-                    authService.setToken(response.headers['x-jym'])
+                if(response.headers()['x-jym']) {
+                    authService.setToken(response.headers()['x-jym'])
                 }
                 return response;
             },
@@ -26,6 +25,7 @@ angular.module('jym.interceptors', [
             'responseError': function(rejection) {
                 var $state = $injector.get('$state');
                 var $ionicHistory = $injector.get('$ionicHistory');
+                var $ionicLoading = $injector.get('$ionicLoading');
                 if (rejection.status == 401 || rejection.status == 403) {
                     authService.clearToken();
                     $ionicHistory.nextViewOptions({
@@ -34,8 +34,10 @@ angular.module('jym.interceptors', [
                     $state.go('jym.user-login', { backState: $state.current.name });
                 }
 
-                if (rejection.status == 400) {
-
+                if (rejection.status > 400 && rejection.status < 500) {
+                    var message = rejection.data.message.split(':');
+                    var errorMessage = message[message.length - 1];
+                    $ionicLoading.show(errorMessage);
                 }
 
                 if(rejection.status >= 500){

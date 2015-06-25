@@ -1,17 +1,17 @@
-angular.module('jym.userInfo', [
+angular.module('jym.user-info', [
 ])
     .config(function ($stateProvider) {
         $stateProvider
-            .state('jym.userInfo', {
+            .state('jym.user-info', {
                 url: '/userInfo',
                 views: {
-                    '@':{
+                    'user':{
                         controller: 'UserInfoCtrl as userInfoCtrl',
                         templateUrl: 'app/user/info/user-info.tpl.html'
                     }
                 }
             })
-            .state('jym.userInfo.bankCards', {
+            .state('jym.user-bankCards', {
                 url: '/bankCards',
                 views: {
                     'user-info':{
@@ -20,7 +20,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.bankCards-detail', {
+            .state('jym.user-bankCards-detail', {
                 url: '/bankCards/detail',
                 views: {
                     'user-info':{
@@ -29,7 +29,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.bankCards-add', {
+            .state('jym.user-bankCards-add', {
                 url: '/bankCards/add',
                 views: {
                     'user-info':{
@@ -38,7 +38,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.jbyAccount', {
+            .state('jym.user-jbyAccount', {
                 url: '/jbyAccount',
                 views: {
                     'user-info':{
@@ -47,7 +47,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.jbyAccount-info', {
+            .state('jym.user-jbyAccount-info', {
                 url: '/jbyAccount/info',
                 views: {
                     'user-info':{
@@ -56,7 +56,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.jbyAccount-info-list', {
+            .state('jym.user-jbyAccount-info-list', {
                 url: '/jbyAccount/info-list',
                 views: {
                     'user-info':{
@@ -65,7 +65,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.jbyAccount-deposit', {
+            .state('jym.user-jbyAccount-deposit', {
                 url: '/jbyAccount/deposit',
                 views: {
                     'user-info':{
@@ -74,7 +74,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.jbyAccount-withdrawal', {
+            .state('jym.user-jbyAccount-withdrawal', {
                 url: '/jbyAccount/withdrawal',
                 views: {
                     'user-info':{
@@ -83,7 +83,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.orders', {
+            .state('jym.user-orders', {
                 url: '/orders',
                 views: {
                     'user-info':{
@@ -92,7 +92,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.orders-list', {
+            .state('jym.user-orders-list', {
                 url: '/orders/list',
                 views: {
                     'user-info':{
@@ -101,7 +101,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.orders-detail', {
+            .state('jym.user-orders-detail', {
                 url: '/orders/detail',
                 views: {
                     'user-info':{
@@ -110,7 +110,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.security', {
+            .state('jym.user-security', {
                 url: '/security',
                 views: {
                     'user-info':{
@@ -119,7 +119,7 @@ angular.module('jym.userInfo', [
                     }
                 }
             })
-            .state('jym.userInfo.settleAccount', {
+            .state('jym.user-settleAccount', {
                 url: '/settleAccount',
                 views: {
                     'user-info':{

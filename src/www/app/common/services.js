@@ -15,7 +15,7 @@ angular.module('jym.services', [
 
         service.setToken = function(newToken) {
             if (newToken) {
-                tokenStorage.set('auth', newToken);
+                tokenStorage.put('auth', newToken);
             }
         };
     })
@@ -31,19 +31,19 @@ angular.module('jym.services', [
         CacheFactory('authTokenCache', {
             maxAge: 365 * 24 * 60 * 60 * 1000,
             deleteOnExpire: 'aggressive',
-            storageMode: 'localStorage'
+            storageMode: 'memory'
         });
 
         CacheFactory('productCache', {
             maxAge: 60 * 1000,
             deleteOnExpire: 'aggressive',
-            storageMode: 'localStorage'
+            storageMode: 'memory'
         });
 
         CacheFactory('userCache', {
             maxAge: 10 * 1000,
             deleteOnExpire: 'aggressive',
-            storageMode: 'localStorage'
+            storageMode: 'memory'
         });
 
         service.get = function(cacheName, maxAge) {
@@ -53,7 +53,7 @@ angular.module('jym.services', [
                 CacheFactory(cacheName, {
                     maxAge: maxAge,
                     deleteOnExpire: 'aggressive',
-                    storageMode: 'localStorage'
+                    storageMode: 'memory'
                 });
             }
 
@@ -94,20 +94,15 @@ angular.module('jym.services', [
     .service('JYMUtilityService', function($state, $ionicPopup, $timeout, $cordovaInAppBrowser) {
         var service = this;
 
-        /**
-         * Matcher.
-         */
-
-        var matcher = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/;
-
-        /**
-         * Loosely validate a URL `string`.
-         *
-         * @param {String} string
-         * @return {Boolean}
-         */
+        function goWithDisableBack(to, params, options) {
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $state.go(to, params, options);
+        }
 
         function isUrl(string) {
+            var matcher = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/;
             return matcher.test(string);
         }
 
@@ -130,6 +125,7 @@ angular.module('jym.services', [
             }, 1000);
         }
 
+        service.goWithDisableBack = goWithDisableBack;
         service.isUrl = isUrl;
         service.open = open;
         service.showAlert = showAlert;
