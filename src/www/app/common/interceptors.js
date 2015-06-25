@@ -1,9 +1,8 @@
 angular.module('jym.interceptors', [
     'jym.services'
 ])
-    .factory('globalInterceptor', function($q, $log, $rootScope, $timeout, $injector) {
+    .factory('globalInterceptor', function($q, $rootScope, $timeout, $injector) {
         var authService = $injector.get('JYMAuthService');
-
         return {
             'request': function(config) {
                 config.headers['x-jym'] = authService.getToken();
@@ -16,7 +15,7 @@ angular.module('jym.interceptors', [
             },
 
             'response': function(response) {
-                if(response.headers()['x-jym']) {
+                if (response.headers()['x-jym']) {
                     authService.setToken(response.headers()['x-jym'])
                 }
                 return response;
@@ -26,21 +25,30 @@ angular.module('jym.interceptors', [
                 var $state = $injector.get('$state');
                 var $ionicHistory = $injector.get('$ionicHistory');
                 var $ionicLoading = $injector.get('$ionicLoading');
-                if (rejection.status == 401 || rejection.status == 403) {
-                    authService.clearToken();
-                    $ionicHistory.nextViewOptions({
-                        disableBack: true
-                    });
-                    $state.go('jym.user-login', { backState: $state.current.name });
-                }
 
                 if (rejection.status > 400 && rejection.status < 500) {
-                    var message = rejection.data.message.split(':');
-                    var errorMessage = message[message.length - 1];
-                    $ionicLoading.show(errorMessage);
+                    if (rejection.data.message) {
+                        var message = rejection.data.message.split(':');
+                        var errorMessage = message[message.length - 1];
+                        $ionicLoading.show({
+                            template: errorMessage,
+                            duration: 3000
+                        });
+                    }
                 }
 
-                if(rejection.status >= 500){
+                if (rejection.status == 401 || rejection.status == 403) {
+                    authService.clearToken();
+
+                    $timeout(function() {
+                        $ionicHistory.nextViewOptions({
+                            disableBack: true
+                        });
+                        $state.go('jym.user-login', {backState: $state.current.name});
+                    }, 1000);
+                }
+
+                if (rejection.status >= 500) {
                     $rootScope.$broadcast('http:responseError-500');
                 }
 

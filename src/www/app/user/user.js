@@ -14,7 +14,7 @@ angular.module('jym.user', [
                 }
             });
     })
-    .controller('UserCtrl', function($scope, $timeout, UserService) {
+    .controller('UserCtrl', function($scope, $state, $timeout, $ionicHistory, RESOURCES, UserService, JYMAuthService, JYMUtilityService) {
         var user = this;
 
         user.model = {};
@@ -41,6 +41,17 @@ angular.module('jym.user', [
             this.viewModel.cellphone = this.model.cellphone;
             this.viewModel.realName = this.model.realName || '未实名认证';
             this.viewModel.credentialNo = this.model.credentialNo || '未实名认证';
+        };
+
+        user.loginOut = function() {
+            JYMAuthService.clearToken();
+            JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_OUT);
+            $timeout(function() {
+                $ionicHistory.nextViewOptions({
+                    disableBack: true
+                });
+                $state.go('jym.user-login', {}, {reload: true});
+            }, 500);
         };
 
         user.doRefresh();

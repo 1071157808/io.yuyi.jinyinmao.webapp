@@ -38,7 +38,6 @@ angular.module('jym.user.login', [
             return false;
         };
 
-
         user.login = function() {
             if (user.checkInput(true)) {
                 UserService.login(user.viewModel.cellphone, user.viewModel.password)

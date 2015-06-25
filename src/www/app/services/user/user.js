@@ -1,7 +1,7 @@
 angular.module('jym.services.user', [
     'jym.services'
 ])
-    .service('UserService', function($http, URLS, RESOURCES, JYMCacheService) {
+    .service('UserService', function($http, URLS, RESOURCES, JYMAuthService, JYMCacheService) {
         var service = this;
 
         var currentUser = {};
@@ -48,4 +48,8 @@ angular.module('jym.services.user', [
                     return result.data;
                 });
         };
+
+        service.loginOut = function() {
+            JYMAuthService
+        }
     });

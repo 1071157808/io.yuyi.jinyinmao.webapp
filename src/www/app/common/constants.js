@@ -36,7 +36,8 @@ angular.module('jym.constants', [])
         TIP: {
             USER: {
                 INVALID_CELLPHONE: '请填写正确的手机号',
-                INVALID_PASSWORD: '请输入正确的密码'
+                INVALID_PASSWORD: '请输入正确的密码',
+                LOGIN_OUT: '退出成功'
             }
         }
     })
