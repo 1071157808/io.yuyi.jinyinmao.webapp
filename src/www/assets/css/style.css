@@ -1439,8 +1439,8 @@ ion-item .divider, .item.divider {
 /*.safe-banner end*/
 
 /* ion-tabs start */
-ion-tabs.tabs-jym {
-
+.tabs-striped .tab-item.activated, .tabs-striped .tab-item.active, .tabs-striped .tab-item.tab-item-active {
+  border: none;
 }
 /*ion-tabs end*/
 
