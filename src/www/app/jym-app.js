@@ -40,7 +40,7 @@ angular.module('JYM', [
                 success: 'toast-success',
                 warning: 'toast-warning'
             },
-            maxOpened: 0,
+            maxOpened: 1,
             messageClass: 'toast-message',
             newestOnTop: true,
             onHidden: null,
@@ -55,7 +55,7 @@ angular.module('JYM', [
                 toast: 'directives/toast/toast.html',
                 progressbar: 'directives/progressbar/progressbar.html'
             },
-            timeOut: 3000,
+            timeOut: 0,
             titleClass: 'toast-title',
             toastClass: 'toast'
         });

@@ -126,7 +126,7 @@ angular.module('jym.services.user', [
                 });
         };
 
-        service.verifyVeriCode = function(cellphone, type, code) {
+        service.verifyVeriCode = function(cellphone, code, type) {
             var url = URLS.USER.VERIFYVERICODE;
 
             return $http.post(url, {

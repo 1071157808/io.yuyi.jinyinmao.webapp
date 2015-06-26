@@ -36,9 +36,9 @@ angular.module('jym.user.security-password', [])
                 UserService.resetLoginPassword(ctrl.viewModel.password, $stateParams.token)
                     .then(function(result) {
                         if(result) {
-                            JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
-
-                            $timeout(JYMUtilityService.goWithDisableBack('jym.user'), 1000);
+                            JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PASSWORD);
+                            UserService.loginOut();
+                            $timeout(JYMUtilityService.goWithDisableBack('jym.user'), 3000);
                         }
                     });
             }
@@ -88,7 +88,7 @@ angular.module('jym.user.security-password', [])
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
-                            $timeout(JYMUtilityService.go('jym.user-security-password', {token: result.token}), 1000);
+                            $timeout(JYMUtilityService.go('jym.user-security-password', {token: result.token}), 3000);
                         }
                     });
             }
