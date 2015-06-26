@@ -922,9 +922,9 @@ label.item-input > span {
 
 #forget-password {
   position: relative;
-  top: 0;
   right: 15px;
-  line-height: 10px;
+  font-size: 14px;
+  line-height: 20px;
   margin-bottom: 20px;
 }
 /*login end*/
@@ -1120,12 +1120,17 @@ img.top {
 
 /*bank-card start*/
 .bank-card .item {
-  padding-top: 25px;
-  line-height: 30px;
+  /*padding-top: 25px;*/
+  /*line-height: 30px;*/
 }
-.bank-card .item img {
-  height: 60px;
-  width: 60px;
+.bank-card .item-thumbnail-left {
+  min-height: 80px;
+}
+.bank-card .item-thumbnail-left .item-content > img {
+  height: 40px;
+  width: 40px;
+  max-width: 40px;
+  max-height: 40px;
   margin-top: 10px;
   margin-left: 5px;
 }
