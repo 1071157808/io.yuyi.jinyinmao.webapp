@@ -6,24 +6,31 @@
       on-refresh="account.doRefresh()">
     </ion-refresher>
     <ion-list class="settle-account-list">
-      <ion-item ng-repeat="item in account.viewModel.items" class="item-icon-right">
-        <p>
-          <span class="pull-left" ng-bind="item.tradeCode | tradeCodeForSettle"></span>
+      <div ng-repeat="item in account.viewModel.items">
+
+        <ion-item class="item-icon-right">
+          <p>
+            <span class="pull-left" ng-bind="item.tradeCode | tradeCodeForSettle"></span>
           <span class="pull-right">
-            <span ng-if="item.trade === 0"> + </span>
-            <span ng-if="item.trade === 1"> - </span>
+            <span class="plus" ng-if="item.trade === 0"> + </span>
+            <span class="minus" ng-if="item.trade === 1"> - </span>
             <span ng-bind="item.amount"></span>
           </span>
-        </p>
+          </p>
 
-        <p>
-          <span class="pull-left" ng-bind="item.resultCode | resultText"></span>
+          <p>
+            <span class="pull-left" ng-bind="item.resultCode | resultText"></span>
           <span class="pull-right">
             <span ng-bind="item.resultTime | time"></span>
           </span>
-        </p>
-        <i class="icon ion-chevron-right icon-accessory" ></i>
-      </ion-item>
+          </p>
+          <i class="icon ion-chevron-right icon-accessory" ></i>
+        </ion-item>
+        <ion-item class="divider"></ion-item>
+      </div>
+
+
+
     </ion-list>
     <ion-infinite-scroll
       ng-if="account.moreDataCanBeLoaded()"
