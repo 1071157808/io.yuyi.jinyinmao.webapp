@@ -11,6 +11,7 @@
           <div class="col col-50">
             <div id="center">
               <p>已售出</p>
+
               <p><span ng-bind="product.viewModel.sellProgress"></span><samp>%</samp></p>
 
               <progress-arc class="circle-progress" stroke="#e74c3c" size="100" stroke-width="5"
@@ -23,40 +24,30 @@
 
           <div class="col">
             <ul>
-              <span ng-bind="product.viewModel.yield"></span><samp>%</samp>
+              <li><span ng-bind="product.viewModel.yield"></span><samp>%</samp></li>
               <li>下一工作日起息</li>
               <li>随存随取 承兑汇票抵押</li>
-
-              <!--<li>担保方式 承兑汇票抵押</li>-->
-
             </ul>
           </div>
         </div>
       </ion-item>
-      <!--<div class="item">-->
-        <!--<div>-->
-          <!--<i class="{{ product.viewModel.status.icon }}"></i><span>&nbsp;&nbsp;&nbsp;</span><span ng-bind="product.viewModel.status.text"></span>-->
-
-          <!--<p>已售出 <span ng-bind="product.viewModel.sellProgress"></span>%</p>-->
-        <!--</div>-->
     </div>
 
     <div class="list card">
       <div class="item-divider">
-        <a href="#">
-          <p class="pull-left">剩余份数：<span ng-bind="product.viewModel.remainCount"></span> 份（<span ng-bind="product.viewModel.unitPrice"></span>元／份）</p>
-        </a>
+        <p class="pull-left">剩余份数：<span ng-bind="product.viewModel.remainCount"></span> 份（<span ng-bind="product.viewModel.unitPrice"></span>元／份）</p>
       </div>
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
-          <input type="number" placeholder="投资金额" ng-model="product.viewModel.investCount"
-            ng-change="product.investCountChange()">
+          <input type="number" placeholder="投资金额" ng-model="product.viewModel.investCount" required min="1" max="100000000"
+                 ng-change="product.investCountChange()">
           <samp>份</samp>
         </label>
         <button class="button button-small button-assertive" ng-class="product.viewModel.status.buttonClass" id="btn-narrow" ng-bind="product.viewModel.status.buttonText" ng-click="product.goPurchase()"></button>
       </div>
       <div class="item-divider">
         <p class="pull-left">投资金额<span>&nbsp;</span><span ng-bind="product.viewModel.investAmount"></span><span>&nbsp;</span>元</p>
+
         <p class="pull-right">预计收益（30天）：<span>&nbsp;</span><span ng-bind="product.viewModel.expectedInterest"></span><span>&nbsp; </span>元</p>
       </div>
     </div>

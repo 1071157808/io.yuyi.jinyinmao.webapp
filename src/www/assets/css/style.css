@@ -775,14 +775,14 @@ ion-item img {
   color: inherit;
 }
 
-.order-detail > .item .col ul > span {
+.order-detail > .item .col ul > li > span {
   font-size: 35px;
   color: #e74c3c;
   padding-top: 30px;
   margin-left: 20px;
 }
 
-.order-detail > .item .col ul > samp {
+.order-detail > .item .col ul > li > samp {
   color: inherit;
   font-size: 16px;
 }

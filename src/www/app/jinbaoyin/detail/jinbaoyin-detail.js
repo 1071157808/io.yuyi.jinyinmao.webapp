@@ -86,17 +86,23 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.goPurchase = function() {
-            var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
-            var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), product.viewModel.investAmount);
-            $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
-                .then(function(result) {
-                    PurchaseService.buildNewJBYOrder(result[0].productIdentifier, product.viewModel.investAmount);
+            if (product.goPurchaseButtonEnable()) {
+                var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
+                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), product.viewModel.investAmount);
+                $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
+                    .then(function(result) {
+                        PurchaseService.buildNewJBYOrder(result[0].productIdentifier, product.viewModel.investAmount);
 
-                    $state.go('jym.jinbaoyin-purchase');
-                })
-                .catch(function(result) {
-                    JYMUtilityService.showAlert(result);
-                });
+                        $state.go('jym.jinbaoyin-purchase');
+                    })
+                    .catch(function(result) {
+                        JYMUtilityService.showAlert(result);
+                    });
+            }
+        };
+
+        product.goPurchaseButtonEnable = function() {
+            return product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
         };
 
         product.refreshInvestViewModel = function() {
@@ -112,9 +118,6 @@ angular.module('jym.jinbaoyin.detail', [
         product.refreshProduct = function() {
             return JinbaoyinService.getIndex()
                 .then(function(result) {
-                    return result.data;
-                })
-                .then(function(result) {
                     product.model = result;
                     product.refreshViewModel();
                     product.refreshInvestViewModel();
@@ -123,17 +126,17 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.refreshViewModel = function() {
-            this.viewModel.issueNo = parseInt(this.model.issueNo);
-            this.viewModel.financingSumAmount = (this.model.financingSumAmount / 1000000).toFixed(0);
-            this.viewModel.productName = this.model.productName + ' ' + '第' + this.model.issueNo + '期';
-            this.viewModel.productNo = this.model.productNo;
-            this.viewModel.remainCount = ((this.model.financingSumAmount - this.model.paidAmount) / this.model.unitPrice).toFixed(0);
-            this.viewModel.sellProgress = getSaleProgress(this.model);
-            this.viewModel.sellProgressInCircleProgress = this.viewModel.sellProgress / 100;
-            this.viewModel.status = getSaleStatus(this.model);
-            this.viewModel.unitPrice = (this.model.unitPrice / 100).toFixed(0);
-            this.viewModel.valueDateMode = getValueDateModeText(this.model.valueDateMode);
-            this.viewModel.yield = (this.model.yield / 100).toFixed(2);
+            product.viewModel.issueNo = parseInt(product.model.issueNo);
+            product.viewModel.financingSumAmount = (product.model.financingSumAmount / 1000000).toFixed(0);
+            product.viewModel.productName = product.model.productName + ' ' + '第' + product.model.issueNo + '期';
+            product.viewModel.productNo = product.model.productNo;
+            product.viewModel.remainCount = ((product.model.financingSumAmount - product.model.paidAmount) / product.model.unitPrice).toFixed(0);
+            product.viewModel.sellProgress = getSaleProgress(product.model);
+            product.viewModel.sellProgressInCircleProgress = product.viewModel.sellProgress / 100;
+            product.viewModel.status = getSaleStatus(product.model);
+            product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
+            product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
+            product.viewModel.yield = (product.model.yield / 100).toFixed(2);
         };
 
         product.doRefresh();
