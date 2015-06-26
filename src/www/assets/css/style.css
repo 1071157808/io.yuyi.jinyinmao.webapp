@@ -1518,3 +1518,14 @@ ion-tabs.tabs-jym {
   box-shadow: none;
 }
 /* toast end */
+
+
+/*.safe start*/
+.safe p > em {
+  color: #b38252;
+}
+.safe > ion-list > h1 {
+  background-color: #b38252;
+  border-radius: 5px;
+}
+/*.safe end*/
