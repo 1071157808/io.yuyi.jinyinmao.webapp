@@ -889,18 +889,19 @@ ion-item img {
 
 
 .veri-code-refresh.disabled {
-  background-image: url("../img/user/icon-count-back-68e8b6d.png");
-  width: 4px;
-  height: 40px;
-  font-size: 12px;
+
 }
 .veri-code-refresh {
-  background-image: url("../img/user/icon-count-send-39e4694.png");
-  width: 40px;
-  height: 40px;
-  font-size: 12px;
+  height: 44px;
+  color: inherit;
 }
+.veri-code-refresh button {
+  height: 44px;
+  border: none;
+  border-left: 1px solid;
+  border-left-color: inherit;
 
+}
 /*user-index start*/
 #user-index {
   background-color:#FBF7ED ;
