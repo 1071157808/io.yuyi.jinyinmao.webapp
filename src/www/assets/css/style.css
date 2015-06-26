@@ -799,10 +799,7 @@ ion-item img {
 .list .item-divider p>span{
   color: #e74c3c;
 }
-@media only screen and (max-width: 320px) and (min-height: 568px){
-
-}
-  .order-detail .item > div > i {
+.order-detail .item > div > i {
   float: left;
   color: #FACB3A ;
   font-size: 14px;
@@ -833,7 +830,10 @@ ion-item img {
   margin-left: 0;
 }
 .card {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+}
+#login-card {
+  margin-bottom: 5px;
 }
 
 /*buttons start*/
@@ -1482,6 +1482,16 @@ ion-tabs.tabs-jym {
   position: relative;
   padding-right: 8px;
 }
+@media only screen and (max-width: 320px) and (max-height: 480px) {
+  #toast-container > .toast > button.toast-close-button {
+    display: none;
+  }
+}
+@media only screen and (max-width: 320px) and (min-height: 568px) {
+  #toast-container > .toast > button.toast-close-button {
+    display: none;
+  }
+}
 
 #toast-container > .toast .toast-title {
 
@@ -1503,6 +1513,11 @@ ion-tabs.tabs-jym {
   box-shadow: none;
   text-align: center;
   vertical-align: text-bottom;
+}
+@media only screen and (max-width: 320px) and (max-height: 480px) {
+  #toast-container.toast-bottom-center > div, #toast-container >.toast-info {
+    bottom: 80px;
+  }
 }
 /* toast end */
 
