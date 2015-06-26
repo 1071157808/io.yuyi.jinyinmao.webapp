@@ -25,6 +25,26 @@ angular.module('jym.services.user', [
                 });
         };
 
+        service.getBankCard = function(bankCardNo) {
+            var url = URLS.BANKCARD.INFO + bankCardNo;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getBankCards = function() {
+            var url = URLS.BANKCARD.LIST;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
         service.getCurrentUser = function() {
             service.getUserInfo();
             return currentUser;
@@ -39,7 +59,6 @@ angular.module('jym.services.user', [
                 return result.data;
             });
         };
-
 
         service.getUserInfo = function() {
             return $http.get(URLS.USER.GETINFO, {

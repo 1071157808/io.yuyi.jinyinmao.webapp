@@ -43,7 +43,7 @@ angular.module('jym.services', [
         });
 
         CacheFactory('userCache', {
-            maxAge: 10 * 1000,
+            maxAge: 30 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'memory'
         });

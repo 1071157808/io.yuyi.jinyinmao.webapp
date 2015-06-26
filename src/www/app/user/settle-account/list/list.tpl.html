@@ -11,24 +11,23 @@
         <ion-item class="item-icon-right">
           <p>
             <span class="pull-left" ng-bind="item.tradeCode | tradeCodeForSettle"></span>
-          <span class="pull-right">
-            <span class="plus" ng-if="item.trade === 0"> + </span>
-            <span class="minus" ng-if="item.trade === 1"> - </span>
+            <span class="pull-right">
+              <span class="plus" ng-if="item.trade === 0"> + </span>
+              <span class="minus" ng-if="item.trade === 1"> - </span>
             <span ng-bind="item.amount"></span>
           </span>
           </p>
 
           <p>
             <span class="pull-left" ng-bind="item.resultCode | resultText"></span>
-          <span class="pull-right">
-            <span ng-bind="item.resultTime | time"></span>
-          </span>
+            <span class="pull-right">
+              <span ng-bind="item.resultTime | time"></span>
+            </span>
           </p>
-          <i class="icon ion-chevron-right icon-accessory" ></i>
+          <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
         <ion-item class="divider"></ion-item>
       </div>
-
 
 
     </ion-list>

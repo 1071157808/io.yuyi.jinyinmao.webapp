@@ -1,4 +1,24 @@
 angular.module('jym.filters', [])
+    .filter('bankImg', function() {
+        return function(bankName) {
+            return 'assets/img/bank/gonghang.png';
+        };
+    })
+    .filter('bankCardStatus', function() {
+        return function(card) {
+            if(card){
+                if(card.verifiedByYilian) {
+                    return '签约支付';
+                }
+
+                if(card.verified) {
+                    return '短信验证支付';
+                }
+            }
+
+            return '';
+        };
+    })
     .filter('colorName', function() {
         return function(colorId) {
             if (!isFinite(colorId)) {

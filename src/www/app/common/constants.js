@@ -15,6 +15,10 @@ angular.module('jym.constants', [])
         },
         SETTLEACCOUNT: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcations/'
+        },
+        BANKCARD: {
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/'
         }
     })
     .constant('RESOURCES', {
