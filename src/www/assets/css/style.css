@@ -1157,7 +1157,7 @@ img.top {
 }/*iphone4*/
 .bank-card .item i {
   font-size: 18px;
-  top: 8px;
+  height: 80px;
 }
 .bank-card .item.divider {
   line-height: 2px;
