@@ -663,6 +663,9 @@ ion-footer-bar button .icon-right {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+.item .ion-chevron-right {
+  font-size: 18px;
+}
 ion-item .col {
   list-style: none;
 }
@@ -1127,7 +1130,7 @@ img.top {
   height: 80px;
   min-height: 60px;
 }
-.bank-card .item-thumbnail-left .item-content > img {
+.bank-card .item-thumbnail-left .item-content img, .bank-card .item-thumbnail-left img {
   height: 40px;
   width: 40px;
   max-width: 40px;
