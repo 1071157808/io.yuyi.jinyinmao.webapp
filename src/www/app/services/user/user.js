@@ -1,7 +1,7 @@
 angular.module('jym.services.user', [
     'jym.services'
 ])
-    .service('UserService', function($http, URLS, RESOURCES, JYMAuthService, JYMCacheService) {
+    .service('UserService', function($http, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
         var service = this;
 
         var currentUser = {};
@@ -94,4 +94,56 @@ angular.module('jym.services.user', [
                 });
         };
 
+        service.resetLoginPassword = function(password, token) {
+            var url = URLS.USER.RESETLOGINPASSWORD;
+
+            return $http.post(url, {
+                password: password,
+                token: token
+            })
+                .then(function(result) {
+                    return result.status === 200;
+                });
+        };
+
+        service.sendVeriCode = function(cellphone, type) {
+            var url = URLS.USER.SENDVERICODE;
+
+            return $http.post(url, {
+                cellphone: cellphone,
+                type: parseInt(type)
+            })
+                .then(function(result) {
+                    return result.data;
+                })
+                .then(function(result) {
+                    if (!result.success || result.remainCount < 0) {
+                        JYMUtilityService.showAlert(RESOURCES.ALERT.USER.TOO_MANY_VERI_CODE);
+                        return false;
+                    }
+
+                    return true;
+                });
+        };
+
+        service.verifyVeriCode = function(cellphone, type, code) {
+            var url = URLS.USER.VERIFYVERICODE;
+
+            return $http.post(url, {
+                cellphone: cellphone,
+                type: parseInt(type),
+                code: code
+            })
+                .then(function(result) {
+                    return result.data;
+                })
+                .then(function(result) {
+                    if (!result.success || result.remainCount < 0) {
+                        JYMUtilityService.showAlert(RESOURCES.ALERT.USER.VERI_CODE_FAIL);
+                        return false;
+                    }
+
+                    return result;
+                });
+        };
     });

@@ -1,0 +1,15 @@
+<ion-view title="设置新登录密码">
+  <ion-content>
+    请输入您的注册手机号
+    <div class="card">
+      <label class="item item-input">
+        <input type="text" placeholder="手机号码" ng-model="ctrl.viewModel.cellphone" required minlength="11" maxlength="11" ng-pattern="/^(13|14|15|17|18)\d{9}$/" ng-trim="true">
+        <button>发送验证码</button>
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="请输入验证码" ng-model="ctrl.viewModel.veriCode" required minlength="6" maxlength="6" ng-trim="true">
+        <button>校验验证码</button>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

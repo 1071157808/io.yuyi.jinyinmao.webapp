@@ -11,7 +11,10 @@ angular.module('jym.constants', [])
         },
         USER: {
             GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
-            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn'
+            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            SENDVERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
+            VERIFYVERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            RESETLOGINPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword'
         },
         SETTLEACCOUNT: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcations/'
@@ -38,7 +41,10 @@ angular.module('jym.constants', [])
                 USER_LOGIN_PASSWORD_LOCK: '登录密码被锁定，请重置后使用',
                 USER_NOT_EXIST: '用户名或者密码错误，请确认后再试',
                 USER_LOGIN_FAIL: '用户名或者密码错误，请确认后再试',
-                USER_LOGIN_PASSWORD_REMIAN_LESS: '用户名或者密码错误次数过多，请核实后再试'
+                USER_LOGIN_PASSWORD_REMIAN_LESS: '用户名或者密码错误次数过多，请核实后再试',
+                TOO_MANY_VERI_CODE: '验证码发送次数过多，请稍后再试',
+                VERI_CODE_FAIL: '验证码错误，请确认后重试',
+                VERI_CODE_EXPIRE: '验证码过期，请重新获取验证码'
             }
         },
         TIP: {
@@ -49,6 +55,13 @@ angular.module('jym.constants', [])
             },
             BANKCARD: {
                 REMOVE_SUCCESS: '删除银行卡成功'
+            },
+            MISC: {
+                SEND_VERI_CODE: '发送成功',
+                VERIFY_VERI_CODE: '验证通过'
+            },
+            SECURITY: {
+                RESET_PASSWORD: '登录密码修改成功,请用新密码登录'
             }
         }
     })

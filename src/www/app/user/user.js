@@ -2,6 +2,7 @@ angular.module('jym.user', [
     'jym.services.user',
     'jym.user.bank-card',
     'jym.user.login',
+    'jym.user.security',
     'jym.user.settle-account'
 ])
     .config(function($stateProvider) {
@@ -16,7 +17,7 @@ angular.module('jym.user', [
                 }
             });
     })
-    .controller('UserCtrl', function($scope, $state, $timeout, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var user = this;
 
         user.model = {};
@@ -48,12 +49,7 @@ angular.module('jym.user', [
         user.loginOut = function() {
             UserService.loginOut();
             JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_OUT);
-            $timeout(function() {
-                $ionicHistory.nextViewOptions({
-                    disableBack: true
-                });
-                $state.go('jym.user-login', {}, {reload: true});
-            }, 500);
+            $timeout(JYMUtilityService.goWithDisableBack('jym.user-login', {}, {reload: true}), 1000);
         };
 
         user.doRefresh();

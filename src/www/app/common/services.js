@@ -97,12 +97,18 @@ angular.module('jym.services', [
     .service('JYMUtilityService', function($state, $timeout, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX, toastr) {
         var service = this;
 
+        function go(to, params, options) {
+            $state.go(to, params, options);
+        }
+
         function goWithDisableBack(to, params, options) {
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
             $state.go(to, params, options);
         }
+
+
 
         function isUrl(string) {
             return REGEX.URL.test(string);
@@ -124,6 +130,7 @@ angular.module('jym.services', [
             }
         }
 
+        service.go = go;
         service.goWithDisableBack = goWithDisableBack;
         service.isUrl = isUrl;
         service.open = open;

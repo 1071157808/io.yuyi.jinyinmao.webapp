@@ -1,3 +1,90 @@
-/**
- * Created by Siqi on 6/26/2015.
- */
+angular.module('jym.user.security-password', [])
+    .config(function($stateProvider) {
+        $stateProvider
+            .state('jym.user-security-password', {
+                url: '/user/security-password/{token}',
+                views: {
+                    'user': {
+                        controller: 'UserSecurityPasswordCtrl as ctrl',
+                        templateUrl: 'app/user/security/password/password.tpl.html'
+                    }
+                }
+            })
+            .state('jym.user-security-password-send-veri-code', {
+                url: '/user/security-password-send-veri-code',
+                views: {
+                    'user': {
+                        controller: 'UserSecurityPasswordSendVeriCodeCtrl as ctrl',
+                        templateUrl: 'app/user/security/password/sendVeriCode.tpl.html'
+                    }
+                }
+            });
+    })
+    .controller('UserSecurityPasswordCtrl', function($timeout, $stateParams, RESOURCES, UserService, JYMUtilityService) {
+        var ctrl = this;
+
+        ctrl.viewModel = {};
+        ctrl.viewModel.password = undefined;
+        ctrl.viewModel.confirmPassword = undefined;
+
+        ctrl.enableButton = function() {
+            return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
+        };
+
+        ctrl.resetPassword = function() {
+            if (ctrl.enableButton()) {
+                UserService.resetLoginPassword(ctrl.viewModel.password, $stateParams.token)
+                    .then(function(result) {
+                        if(result) {
+                            JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
+
+                            $timeout(JYMUtilityService.goWithDisableBack('jym.user'), 1000);
+                        }
+                    });
+            }
+        };
+    })
+    .controller('UserSecurityPasswordSendVeriCodeCtrl', function($timeout, RESOURCES, UserService, JYMUtilityService) {
+        var ctrl = this;
+
+        ctrl.viewModel = {};
+        ctrl.viewModel.cellphone = '';
+        ctrl.viewModel.veriCode = '';
+
+        ctrl.viewModel.sendButtonEnable = true;
+        ctrl.viewModel.remainSeconds = 60;
+
+        ctrl.sendVeriCode = function() {
+            if (ctrl.viewModel.cellphone && ctrl.viewModel.sendButtonEnable) {
+                ctrl.viewModel.sendButtonEnable = false;
+                ctrl.viewModel.remainSeconds = 60;
+                UserService.sendVeriCode(ctrl.viewModel.cellphone, 20)
+                    .then(function(result) {
+                        if (result) {
+                            JYMUtilityService.showAlert(RESOURCES.TIP.MISC.SEND_VERI_CODE);
+                        }
+                    });
+                ctrl.startTimer();
+            }
+        };
+
+        ctrl.startTimer = function() {
+            if (ctrl.viewModel.remainSeconds > 0) {
+                ctrl.viewModel.remainSeconds = ctrl.viewModel.remainSeconds - 1;
+                $timeout(ctrl.startTimer, 1000);
+            }
+        };
+
+        ctrl.VerifyVeriCode = function() {
+            if (ctrl.viewModel.cellphone && ctrl.viewModel.veriCode) {
+                UserService.verifyVeriCode(ctrl.viewModel.cellphone, ctrl.viewModel.veriCode, 20)
+                    .then(function(result) {
+                        if (result) {
+                            JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
+
+                            $timeout(JYMUtilityService.go('jym.user-security-password', {token: result.token}), 1000);
+                        }
+                    });
+            }
+        };
+    });
