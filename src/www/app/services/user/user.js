@@ -83,4 +83,15 @@ angular.module('jym.services.user', [
             JYMAuthService.clearToken();
         };
 
+        service.removeCard = function(bankCardNo) {
+            var url = URLS.BANKCARD.REMOVE;
+
+            return $http.post(url, {
+                bankCardNo: bankCardNo
+            })
+                .then(function(result) {
+                    return result.status === 200;
+                });
+        };
+
     });

@@ -1,4 +1,5 @@
 angular.module('jym.user.bank-card-detail', [
+    'jym.services',
     'jym.services.user',
     'jym.user.bank-card-upgrade'
 ])
@@ -14,7 +15,7 @@ angular.module('jym.user.bank-card-detail', [
                 }
             });
     })
-    .controller('UserBankCardDetailCtrl', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService) {
+    .controller('UserBankCardDetailCtrl', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var card = this;
 
         card.model = {};
@@ -42,7 +43,16 @@ angular.module('jym.user.bank-card-detail', [
         };
 
         card.removeCard = function() {
+            if (card.model.bankCardNo) {
+                UserService.removeCard(card.model.bankCardNo)
+                    .then(function() {
+                        JYMUtilityService.showAlert(RESOURCES.BANKCARD.REMOVE_SUCCESS);
 
+                        $timeout(function() {
+                            JYMUtilityService.goWithDisableBack('jym.user-bank-card');
+                        }, 3000);
+                    });
+            }
         };
 
         card.doRefresh();

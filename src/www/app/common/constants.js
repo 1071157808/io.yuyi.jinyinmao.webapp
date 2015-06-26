@@ -18,7 +18,8 @@ angular.module('jym.constants', [])
         },
         BANKCARD: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/'
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove'
         }
     })
     .constant('RESOURCES', {
@@ -45,6 +46,9 @@ angular.module('jym.constants', [])
                 INVALID_CELLPHONE: '请填写正确的手机号',
                 INVALID_PASSWORD: '请输入正确的密码',
                 LOGIN_OUT: '退出成功'
+            },
+            BANKCARD: {
+                REMOVE_SUCCESS: '删除银行卡成功'
             }
         }
     })
