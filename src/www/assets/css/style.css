@@ -888,13 +888,13 @@ ion-item img {
 /*buttons end */
 
 
-.vericoderefresh.disabled {
+.veri-code-refresh.disabled {
   background-image: url("../img/user/icon-count-back-68e8b6d.png");
   width: 4px;
   height: 40px;
   font-size: 12px;
 }
-.vericoderefresh {
+.veri-code-refresh {
   background-image: url("../img/user/icon-count-send-39e4694.png");
   width: 40px;
   height: 40px;
@@ -1417,7 +1417,7 @@ ion-item .divider, .item.divider {
 }
 
 .loading-container .loading{
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /*loading end*/

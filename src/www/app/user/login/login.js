@@ -44,7 +44,7 @@ angular.module('jym.user.login', [
                             JYMUtilityService.showAlert(RESOURCES.ALERT.USER.USER_LOGIN_FAIL);
                             return;
                         }
-                        
+
                         var backState = 'jym.user';
                         if ($stateParams.backState) {
                             backState = $stateParams.backState;

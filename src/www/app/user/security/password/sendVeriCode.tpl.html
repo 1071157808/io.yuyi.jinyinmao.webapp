@@ -2,14 +2,23 @@
   <ion-content>
     请输入您的注册手机号
     <div class="card">
-      <label class="item item-input">
-        <input type="text" placeholder="手机号码" ng-model="ctrl.viewModel.cellphone" required minlength="11" maxlength="11" ng-pattern="/^(13|14|15|17|18)\d{9}$/" ng-trim="true">
-        <button ng-click="ctrl.sendVeriCode()" ng-disabled="!ctrl.sendVeriCodeButtonEnable()">发送验证码</button>
-      </label>
+      <span>
+        <label class="item item-input">
+          <input type="text" placeholder="手机号码" ng-model="ctrl.viewModel.cellphone" required minlength="11" maxlength="11" ng-pattern="/^(13|14|15|17|18)\d{9}$/" ng-trim="true">
+        </label>
+      </span>
+      <span class="veri-code-refresh" ng-bind="ctrl.viewModel.remainSeconds" ng-if="!ctrl.sendVeriCodeButtonEnable()"></span>
+
       <label class="item item-input">
         <input type="text" placeholder="请输入验证码" ng-model="ctrl.viewModel.veriCode" required minlength="6" maxlength="6" ng-trim="true">
-        <button ng-click="ctrl.verifyVeriCode()" ng-disabled="!ctrl.verifyVeriCodeButtonEnable()">校验验证码</button>
       </label>
+
+      <div class="space"></div>
+      <div class="space"></div>
+      <button ng-click="ctrl.verifyVeriCode()" ng-disabled="!ctrl.verifyVeriCodeButtonEnable()">校验验证码</button>
+      <div class="space"></div>
+      <div class="space"></div>
+      <button ng-click="ctrl.sendVeriCode()" ng-disabled="!ctrl.sendVeriCodeButtonEnable()">发送验证码</button>
     </div>
   </ion-content>
 </ion-view>
