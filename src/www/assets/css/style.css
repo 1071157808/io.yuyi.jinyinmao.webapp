@@ -659,10 +659,10 @@ ion-footer-bar button .icon-right {
 .item p {
   line-height: 20px;
 }
-.item {
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
+/*.item {*/
+  /*padding-bottom: 10px;*/
+  /*padding-top: 10px;*/
+/*}*/
 .item .ion-chevron-right {
   font-size: 18px;
 }
