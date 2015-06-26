@@ -7,7 +7,7 @@
         <input type="text" placeholder="请输入手机号码" ng-model="ctrl.viewModel.cellphone" required minlength="11" maxlength="11" ng-pattern="/^(13|14|15|17|18)\d{9}$/" ng-trim="true">
 
         <button class="button button-small" ng-click="ctrl.sendVeriCode()" ng-if="ctrl.showVeriCodeButton()" ng-disabled="!ctrl.sendVeriCodeButtonEnable()">&nbsp;&nbsp;点击发送验证码</button>
-        <button class="button button-small" style="display: none" ng-click="ctrl.sendVeriCode()" ng-if="ctrl.showVeriCodeButton()" ng-disabled="!ctrl.sendVeriCodeButtonEnable()">重新发送验证码</button>
+        <button class="button button-small" ng-click="ctrl.sendVeriCode()" ng-if="!ctrl.showVeriCodeButton()" ng-disabled="!ctrl.sendVeriCodeButtonEnable()">&nbsp;&nbsp;重新发送（<span ng-bind="ctrl.viewModel.remainSeconds">）</span></button>
       </label>
       <label class="item item-input-inset veri-code-refresh">
         <input type="text" placeholder="请输入验证码" ng-model="ctrl.viewModel.veriCode" required minlength="6" maxlength="6" ng-trim="true">

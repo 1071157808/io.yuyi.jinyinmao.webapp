@@ -1,4 +1,4 @@
-angular.module('jym.jinbaoyin.detail', [
+angular.module('jym.jinbaoyin.purchase', [
     'jym.services',
     'jym.services.jinbaoyin',
     'jym.services.product',
@@ -12,7 +12,7 @@ angular.module('jym.jinbaoyin.detail', [
                 views: {
                     'jinbaoyin': {
                         controller: 'JinbaoyinPurchaseCtrl as purchase',
-                        templateUrl: 'app/jinbaoyin/detail/jinbaoyin-detail.tpl.html'
+                        templateUrl: 'app/jinbaoyin/purchase/jinbaoyin-purchase.tpl.html'
                     }
                 }
             })
@@ -23,9 +23,17 @@ angular.module('jym.jinbaoyin.detail', [
         purchase.viewModel = {};
         purchase.currentUser = {};
 
+        purchase.doRefresh = function() {
+            purchase.refreshUserInfo();
+        };
+
+        purchase.refreshUserInfo = function() {
+            purchase.viewModel.userBalance = (result.balance / 100).toFixed(2);
+        };
+
         UserService.getUserInfo()
             .then(function(result) {
-                purchase.currentUser = result.data;
+                purchase.currentUser = result;
                 return currentUser;
             })
             .then(function(result) {

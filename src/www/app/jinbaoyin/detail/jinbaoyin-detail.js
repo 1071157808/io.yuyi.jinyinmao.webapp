@@ -3,7 +3,8 @@ angular.module('jym.jinbaoyin.detail', [
     'jym.services.jinbaoyin',
     'jym.services.product',
     'jym.services.purchase',
-    'jym.services.user'
+    'jym.services.user',
+    'jym.jinbaoyin.purchase'
 ])
     .config(function($stateProvider) {
         $stateProvider
