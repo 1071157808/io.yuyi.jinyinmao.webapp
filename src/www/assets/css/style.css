@@ -799,10 +799,7 @@ ion-item img {
 .list .item-divider p>span{
   color: #e74c3c;
 }
-@media only screen and (max-width: 320px) and (min-height: 568px){
-
-}
-  .order-detail .item > div > i {
+.order-detail .item > div > i {
   float: left;
   color: #FACB3A ;
   font-size: 14px;
@@ -833,12 +830,14 @@ ion-item img {
   margin-left: 0;
 }
 .card {
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+}
+#login-card {
   margin-bottom: 5px;
 }
 
 /*buttons start*/
 .btn {
-  display: block;
   width: 90%;
   line-height: 30%;
   padding: .7em 1em;
@@ -848,8 +847,7 @@ ion-item img {
   text-align: center;
   overflow: hidden;
   white-space: nowrap;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 5%;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -904,10 +902,6 @@ ion-item img {
 #user-index {
   background-color:#FBF7ED ;
 }
-#user-index .item {
-  font-size: 18px;
-  padding-top: 18px;
-}
 #user-index .item > i.icon {
   font-size: 18px;
 }
@@ -917,14 +911,7 @@ ion-item img {
   list-style: none;
   padding-top: 8px;
 }
-#user-index ion-item p {
-  height: 30px;
-  font-size: 18px;
-  margin-top: 10px;
-}
 
-/*user-index end*/
-/*login start*/
 label.item-input > span {
   width: 20%;
 }
@@ -1375,7 +1362,7 @@ ion-item .divider, .item.divider {
 
 .pull-left {
   float: left;
-  margin-left: 5px;
+  margin-left: 0;
 }
 .pull-right {
   float: right;
@@ -1488,7 +1475,18 @@ ion-tabs.tabs-jym {
 /*}*/
 
 #toast-container > .toast > button.toast-close-button {
-
+  position: relative;
+  padding-right: 8px;
+}
+@media only screen and (max-width: 320px) and (max-height: 480px) {
+  #toast-container > .toast > button.toast-close-button {
+    display: none;
+  }
+}
+@media only screen and (max-width: 320px) and (min-height: 568px) {
+  #toast-container > .toast > button.toast-close-button {
+    display: none;
+  }
 }
 
 #toast-container > .toast .toast-title {
@@ -1506,9 +1504,16 @@ ion-tabs.tabs-jym {
   position: relative;
   bottom: 120px;
   left: 50%;
-  margin-left: -25%;
-  width: 50%;
+  margin-left: -27.5%;
+  width: 55%;
   box-shadow: none;
+  text-align: center;
+  vertical-align: text-bottom;
+}
+@media only screen and (max-width: 320px) and (max-height: 480px) {
+  #toast-container.toast-bottom-center > div, #toast-container >.toast-info {
+    bottom: 80px;
+  }
 }
 /*toast end*/
 
