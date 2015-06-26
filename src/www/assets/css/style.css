@@ -828,6 +828,7 @@ ion-item img {
 }
 .list.card .item-input-inset > label > input {
   text-align: left;
+  width: 90%;
 }
 .list.card .item-input-inset >label > samp {
   margin-left: 0;
@@ -880,7 +881,7 @@ ion-item img {
   font-size: 16px;
   color: #F5F5F5;
   padding-bottom: 3px;
-  font-weight: 600;
+  font-weight: 400;
   background-color: #FACB3A;
   border: 0 solid #cead52;
 }
@@ -892,15 +893,15 @@ ion-item img {
 
 }
 .veri-code-refresh {
-  height: 44px;
+  height: 49px;
   color: inherit;
 }
 .veri-code-refresh button {
-  height: 44px;
+  height: 49px;
   border: none;
   border-left: 1px solid;
   border-left-color: inherit;
-
+  z-index: 99;
 }
 /*user-index start*/
 #user-index {
@@ -1515,10 +1516,10 @@ ion-item .divider, .item.divider {
   position: relative;
   bottom: 120px;
   left: 50%;
-  margin-left: -27.5%;
-  width: 55%;
+  margin-left: -25%;
+  width: 50%;
   box-shadow: none;
-  text-align: center;
+  /*text-align: center;*/
   vertical-align: text-bottom;
 }
 @media only screen and (max-width: 320px) and (max-height: 480px) {
