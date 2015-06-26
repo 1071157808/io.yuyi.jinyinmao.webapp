@@ -16,19 +16,15 @@ angular.module('jym.jinbaoyin', [
     })
     .controller('JinbaoyinCtrl', function($scope, $timeout, JinbaoyinService) {
         var product = this;
+
         product.model = {};
         product.viewModel = {};
 
         product.refreshProduct = function(){
             JinbaoyinService.getIndex()
                 .then(function(result) {
-                    return result.data;
-                })
-                .then(function(result) {
                     product.model = result;
-                    return product.model;
-                })
-                .then(function(result) {
+
                     product.viewModel.title = result.productName + ' ' + '第' + result.issueNo + '期';
                     product.viewModel.yield = result.yield / 100;
                     product.viewModel.unitPrice = result.unitPrice / 100;

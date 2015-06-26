@@ -7,6 +7,8 @@ angular.module('jym.services.jinbaoyin', [
         service.getIndex = function() {
             return $http.get(URLS.JINBOAYIN.FETCH, {
                 cache: JYMCacheService.get('productCache')
+            }).then(function(result) {
+                return result.data;
             });
         };
 

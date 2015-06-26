@@ -2,27 +2,27 @@ angular.module('jym.controllers', [
     'jym.services'
 ])
     .controller('SlidesCtrl', function($state, $timeout, $ionicSlideBoxDelegate, JYMConfigService,JYMUtilityService) {
-        var slidesCtrl = this;
+        var ctrl = this;
 
-        slidesCtrl.slides = [];
-        slidesCtrl.activeSlideIndex = 0;
+        ctrl.slides = [];
+        ctrl.activeSlideIndex = 0;
 
         JYMConfigService.getSlidesConfig()
             .then(function (result) {
-                slidesCtrl.slides = result;
+                ctrl.slides = result;
             })
             .then(function () {
                 $ionicSlideBoxDelegate.update();
             });
 
-        slidesCtrl.clickSlide = function(url){
+        ctrl.clickSlide = function(url){
             JYMUtilityService.open(url);
         };
 
-        slidesCtrl.onSlideChanged = function() {
-            if(slidesCtrl.activeSlideIndex === slidesCtrl.slides.length - 2){
+        ctrl.onSlideChanged = function() {
+            if(ctrl.activeSlideIndex === ctrl.slides.length - 2){
                 $timeout(function() {
-                    slidesCtrl.activeSlideIndex = 0;
+                    ctrl.activeSlideIndex = 0;
                 }, 5000);
             }
         }
