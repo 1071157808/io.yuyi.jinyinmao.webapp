@@ -7,14 +7,12 @@
         <p><strong ng-bind="purchase.viewModel.investAmount"></strong>元</p>
       </ion-item>
     </ion-list>
-
-    <div class="list deposit">
-      <ion-item class="divider"></ion-item>
+    <ion-list class="deposit">
       <ion-item class="card">
         <ion-item class="item">
-          <p>金银猫账户余额：<span ng-bind="purchase.viewModel.userBalance"></span> 元</p>
+          <span>账户余额：<span ng-bind="purchase.viewModel.userBalance"></span> 元</span>
+          <span class="pull-right">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
 
-          <a href="/">去充值<i class="icon ion-chevron-right pull-right"></i></a>
         </ion-item>
 
         <label class="item item-input">
@@ -36,11 +34,12 @@
           </div>
         </ion-item>
       </ion-list>
-      <br>
+      <div class="space"></div>
       <button class="btn button-yellow">同意协议并付款</button>
+      <br>
       <br>
       <h4>如有问题，请垂询&nbsp;4008-556-333。</h4>
 
-    </div>
+    </ion-list>
   </ion-content>
 </ion-view>

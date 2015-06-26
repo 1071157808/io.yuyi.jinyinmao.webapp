@@ -668,6 +668,7 @@ ion-footer-bar button .icon-right {
 }
 ion-item .col {
   list-style: none;
+  padding-bottom: 0;
 }
 ion-item .col-33 em {
   color: #e74c3c;
@@ -1272,8 +1273,9 @@ img.top {
   height: 50px;
   margin-left: 10px;
 }
-.deposit .item > p {
-  padding-top: 5px;
+.deposit .item .pull-right {
+  color: #cead52;
+  font-size: 14px;
 }
 @media only screen and (max-width: 320px) and (max-height: 480px){
   .deposit .item > img{
@@ -1309,9 +1311,6 @@ img.top {
   }
 }/*iphone5*/
 
-  .deposit .item  i {
-  font-size: 20px;
-}
 .deposit h4 {
   position: relative;
   left: 12%;
