@@ -41,5 +41,9 @@ angular.module('jym.user.bank-card-detail', [
             card.viewModel = card.model;
         };
 
+        card.removeCard = function() {
+
+        };
+
         card.doRefresh();
     });

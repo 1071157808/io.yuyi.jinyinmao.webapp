@@ -8,7 +8,7 @@ angular.module('jym.user.bank-card-upgrade', [
                 views: {
                     'user': {
                         controller: 'UserBankCardUpgradeCtrl as card',
-                        templateUrl: 'app/user/bank-card/detail/detail.tpl.html'
+                        templateUrl: 'app/user/bank-card/upgrade/upgrade.tpl.html'
                     }
                 }
             });

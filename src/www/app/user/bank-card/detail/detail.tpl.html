@@ -17,6 +17,6 @@
     <button class="btn button-yellow" ng-if="!card.viewModel.verifiedByYilian" ui-sref="jym.user-bank-card-upgrade({ bankCardNo: card.viewModel.bankCardNo })">升级签约支付</button>
     <div class="space"></div>
     <div class="space"></div>
-    <button class="btn button-yellow" href="/">删除银行卡</button>
+    <button class="btn button-yellow" ng-click="card.removeCard()">删除银行卡</button>
   </ion-content>
 </ion-view>
