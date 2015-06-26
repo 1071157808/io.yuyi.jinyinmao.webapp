@@ -828,6 +828,7 @@ ion-item img {
 }
 .list.card .item-input-inset > label > input {
   text-align: left;
+  width: 90%;
 }
 .list.card .item-input-inset >label > samp {
   margin-left: 0;
@@ -880,7 +881,7 @@ ion-item img {
   font-size: 16px;
   color: #F5F5F5;
   padding-bottom: 3px;
-  font-weight: 600;
+  font-weight: 400;
   background-color: #FACB3A;
   border: 0 solid #cead52;
 }
