@@ -1,22 +1,34 @@
 angular.module('jym.services.purchase', [
-    'jym.services'
+    'jym.services',
+    'jym.services.jinbaoyin'
 ])
-    .service('PurchaseService', function($http) {
+    .service('PurchaseService', function($http, JinbaoyinService, JYMUtilityService) {
         var service = this;
 
         var jbyOrder = {};
         var regularOrder = {};
 
-        function buildNewJBYOrder(amount, productIdentifier) {
+        service.buildNewJBYOrder = function(amount, productIdentifier) {
             jbyOrder.amount = amount;
             jbyOrder.productIdentifier = productIdentifier;
-        }
+        };
 
-        function buildRegularJBYOrder(amount, productIdentifier) {
+        service.buildRegularJBYOrder = function(amount, productIdentifier, productCategory) {
             regularOrder.amount = amount;
             regularOrder.productIdentifier = productIdentifier;
-        }
+            regularOrder.productCategory = productCategory;
+        };
 
-        service.buildNewJBYOrder = buildNewJBYOrder;
-        service.buildRegularJBYOrder = buildRegularJBYOrder;
+        service.getNewJBYOrder = function() {
+            if(!jbyOrder.amount || !jbyOrder.productIdentifier) {
+                JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
+            }
+
+            return jbyOrder;
+
+        };
+
+        service.getRegularJBYOrder = function() {
+            return regularOrder;
+        };
     });

@@ -18,7 +18,7 @@ angular.module('jym.jinbaoyin.detail', [
                 }
             })
     })
-    .controller('JinbaoyinDetailCtrl', function($scope, $timeout, $q, $state, RESOURCES, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinDetailCtrl', function($scope, $timeout, $q, $state, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
         var getSaleProgress = function(product) {
@@ -88,11 +88,12 @@ angular.module('jym.jinbaoyin.detail', [
 
         product.goPurchase = function() {
             if (product.goPurchaseButtonEnable()) {
+                var amount = product.viewModel.investCount * product.model.unitPrice;
                 var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
-                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), product.viewModel.investAmount);
+                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), amount);
                 $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
                     .then(function(result) {
-                        PurchaseService.buildNewJBYOrder(result[0].productIdentifier, product.viewModel.investAmount);
+                        PurchaseService.buildNewJBYOrder(amount, result[1].productIdentifier);
 
                         $state.go('jym.jinbaoyin-purchase');
                     })
@@ -137,6 +138,7 @@ angular.module('jym.jinbaoyin.detail', [
             product.viewModel.status = getSaleStatus(product.model);
             product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
             product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
+            product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
             product.viewModel.yield = (product.model.yield / 100).toFixed(2);
         };
 

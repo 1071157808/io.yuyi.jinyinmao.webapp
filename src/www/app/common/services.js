@@ -97,42 +97,34 @@ angular.module('jym.services', [
     .service('JYMUtilityService', function($state, $timeout, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX, toastr) {
         var service = this;
 
-        function go(to, params, options) {
+        service.go = function(to, params, options) {
             $state.go(to, params, options);
-        }
+        };
 
-        function goWithDisableBack(to, params, options) {
+        service.goWithDisableBack = function(to, params, options) {
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
             $state.go(to, params, options);
-        }
+        };
 
-
-
-        function isUrl(string) {
+        service.isUrl = function(string) {
             return REGEX.URL.test(string);
-        }
+        };
 
-        function open(url) {
+        service.open = function(url) {
             if (service.isUrl(url)) {
                 $cordovaInAppBrowser.open(url, '_blank');
             } else {
                 $state.go(url);
             }
-        }
+        };
 
-        function showAlert(text) {
+        service.showAlert = function(text) {
             if (window.plugins && window.plugins.toast) {
                 $cordovaToast.showShortBottom(text);
             } else {
                 toastr.info(text);
             }
-        }
-
-        service.go = go;
-        service.goWithDisableBack = goWithDisableBack;
-        service.isUrl = isUrl;
-        service.open = open;
-        service.showAlert = showAlert;
+        };
     });

@@ -17,26 +17,36 @@ angular.module('jym.jinbaoyin.purchase', [
                 }
             })
     })
-    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, $q, $state, RESOURCES, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
         var purchase = this;
 
+        purchase.model = {};
         purchase.viewModel = {};
-        purchase.currentUser = {};
+        purchase.model.currentUser = {};
+        purchase.model.order = {};
 
         purchase.doRefresh = function() {
             purchase.refreshUserInfo();
         };
 
         purchase.refreshUserInfo = function() {
-            purchase.viewModel.userBalance = (result.balance / 100).toFixed(2);
+            UserService.getUserInfo()
+                .then(function(result) {
+                    purchase.model.currentUser = result;
+                    purchase.model.order = PurchaseService.getNewJBYOrder();
+                    purchase.refreshViewModel();
+                    return result;
+                });
         };
 
-        UserService.getUserInfo()
-            .then(function(result) {
-                purchase.currentUser = result;
-                return currentUser;
-            })
-            .then(function(result) {
-                purchase.viewModel.userBalance = result.balance;
-            });
+        purchase.refreshViewModel = function() {
+            purchase.viewModel.userBalance = (purchase.model.currentUser.balance / 100).toFixed(2);
+            purchase.viewModel.investAmount = (purchase.model.order.amount / 100).toFixed(2);
+        };
+
+        purchase.doRefresh();
+
+        $scope.$on('$ionicView.enter', function() {
+            purchase.doRefresh();
+        });
     });

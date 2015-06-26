@@ -4,10 +4,10 @@ angular.module('jym.services.product', [
     .service('ProductService', function(RESOURCES) {
         var service = this;
 
-        function checkProductPurchaseStatus(getProductInfo, amount) {
+        service.checkProductPurchaseStatus = function(getProductInfo, amount) {
             return getProductInfo.then(function(product) {
 
-                var status = getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
+                var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
                 if(status === 10) {
                     throw RESOURCES.ALERT.PRODUCT.NOT_ON_SALE;
                 }
@@ -20,22 +20,22 @@ angular.module('jym.services.product', [
                     throw RESOURCES.ALERT.PRODUCT.SHARE_INSUFFICIENT;
                 }
 
-                if(amount % product.unitPrice === 0) {
+                if(amount % product.unitPrice !== 0) {
                     throw RESOURCES.ALERT.PRODUCT.AMOUNT_INCORRECT;
                 }
 
                 return product;
             })
-        }
+        };
 
-        function getInterest(pricipal, _yield, duration) {
+        service.getInterest = function(pricipal, _yield, duration) {
             // 返回的金额以 分 为单位
             // 本金的单位为 分
             // 收益率的单位为 万分之一
             return Math.floor(pricipal * _yield * duration / 3600000);
-        }
+        };
 
-        function getSaleProgress(paidAmount, financingSumAmount) {
+        service.getSaleProgress = function(paidAmount, financingSumAmount) {
             if (paidAmount >= financingSumAmount) {
                 return 100;
             }
@@ -45,9 +45,9 @@ angular.module('jym.services.product', [
             }
 
             return (paidAmount / financingSumAmount).toFixed(0);
-        }
+        };
 
-        function getSaleStatus(soldOut, startSellTime, endSellTime) {
+        service.getSaleStatus = function(soldOut, startSellTime, endSellTime) {
             // 售罄
             if (soldOut === true || moment(endSellTime) < moment()) {
                 return 30;
@@ -60,19 +60,13 @@ angular.module('jym.services.product', [
 
             // 待售
             return 10;
-        }
+        };
 
-        function getValueDateModeText(valueDateMode) {
+         service.getValueDateModeText = function(valueDateMode) {
             if(valueDateMode <= 0) {
                 return '购买成功立刻起息';
             }
 
             return '购买成功T+' + valueDateMode + '工作日起息';
-        }
-
-        service.checkProductPurchaseStatus = checkProductPurchaseStatus;
-        service.getInterest = getInterest;
-        service.getSaleProgress = getSaleProgress;
-        service.getSaleStatus = getSaleStatus;
-        service.getValueDateModeText = getValueDateModeText;
+        };
     });
