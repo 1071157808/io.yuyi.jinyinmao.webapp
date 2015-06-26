@@ -904,10 +904,6 @@ ion-item img {
 #user-index {
   background-color:#FBF7ED ;
 }
-#user-index .item {
-  font-size: 18px;
-  padding-top: 18px;
-}
 #user-index .item > i.icon {
   font-size: 18px;
 }
@@ -917,14 +913,7 @@ ion-item img {
   list-style: none;
   padding-top: 8px;
 }
-#user-index ion-item p {
-  height: 30px;
-  font-size: 18px;
-  margin-top: 10px;
-}
 
-/*user-index end*/
-/*login start*/
 label.item-input > span {
   width: 20%;
 }
@@ -1375,7 +1364,7 @@ ion-item .divider, .item.divider {
 
 .pull-left {
   float: left;
-  margin-left: 5px;
+  margin-left: 0;
 }
 .pull-right {
   float: right;
@@ -1490,7 +1479,8 @@ ion-tabs.tabs-jym {
 /*}*/
 
 #toast-container > .toast > button.toast-close-button {
-
+  position: relative;
+  padding-right: 8px;
 }
 
 #toast-container > .toast .toast-title {
@@ -1508,9 +1498,11 @@ ion-tabs.tabs-jym {
   position: relative;
   bottom: 120px;
   left: 50%;
-  margin-left: -25%;
-  width: 50%;
+  margin-left: -27.5%;
+  width: 55%;
   box-shadow: none;
+  text-align: center;
+  vertical-align: text-bottom;
 }
 /* toast end */
 
