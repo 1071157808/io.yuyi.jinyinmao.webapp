@@ -1,7 +1,47 @@
 angular.module('jym.filters', [])
     .filter('bankImg', function() {
         return function(bankName) {
-            return 'assets/img/bank/gonghang.png';
+
+            switch (bankName) {
+                case '浦发银行':
+                    return 'assets/img/bank/pufa.png';
+                case '深发银行':
+                    return 'assets/img/bank/shenfazhan.png';
+                case '平安银行':
+                    return 'assets/img/bank/pingan.png';
+                case '民生银行':
+                    return 'assets/img/bank/minsheng.png';
+                case '工商银行':
+                    return 'assets/img/bank/gonghang.png';
+                case '农业银行':
+                    return 'assets/img/bank/nonghang.png';
+                case '建设银行':
+                    return 'assets/img/bank/jianhang.png';
+                case '招商银行':
+                    return 'assets/img/bank/zhaoshang.png';
+                case '广发银行':
+                    return 'assets/img/bank/guangfa.png';
+                case '广州银行':
+                    return 'assets/img/bank/guangzhou.png';
+                case '邮储银行':
+                    return 'assets/img/bank/youzheng.png';
+                case '兴业银行':
+                    return 'assets/img/bank/xingye.png';
+                case '光大银行':
+                    return 'assets/img/bank/guangda.png';
+                case '华夏银行':
+                    return 'assets/img/bank/huaxia.png';
+                case '中信银行':
+                    return 'assets/img/bank/zhongxin.png';
+                case '广州农商行':
+                    return 'assets/img/bank/guangzhounongshang.png';
+                case '中国银行':
+                    return 'assets/img/bank/zhonghang.png';
+                case '富滇银行':
+                    return 'assets/img/bank/fudian.png';
+                default:
+                    return 'zhonghang.png';
+            }
         };
     })
     .filter('bankCardStatus', function() {

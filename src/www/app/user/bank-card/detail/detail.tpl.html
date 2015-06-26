@@ -7,17 +7,14 @@
     </ion-refresher>
     <ion-list class="bank-card detail">
       <ion-item class="item-thumbnail-left">
-        <img ng-src="card.viewModel.bankName | bankImg">
+        <img ng-src="{{ card.viewModel.bankName | bankImg }}">
         <h2 ng-bind="card.viewModel.bankName">工商银行</h2>
         <span class="pull-right" ng-bind="card.viewModel | bankCardStatus"></span>
         <p>尾号 <em ng-bind="card.viewModel.bankCardNo.substr(-4)">0738</em></p>
       </ion-item>
     </ion-list>
     <br>
-    <button class="btn button-yellow" href="/">升级签约支付</button>
-    <div class="space"></div>
-    <div class="space"></div>
-    <button class="btn button-grey" href="/">设为默认银行卡</button>
+    <button class="btn button-yellow" ng-if="!card.viewModel.verifiedByYilian" href="/">升级签约支付</button>
     <div class="space"></div>
     <div class="space"></div>
     <button class="btn button-yellow" href="/">删除银行卡</button>
