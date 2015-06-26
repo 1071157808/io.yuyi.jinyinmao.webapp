@@ -1,4 +1,6 @@
-angular.module('jym.user.security', [])
+angular.module('jym.user.security', [
+    'jym.user.security-password'
+])
     .config(function($stateProvider) {
         $stateProvider
             .state('jym.user-security', {

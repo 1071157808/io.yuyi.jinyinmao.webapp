@@ -51,7 +51,7 @@ angular.module('jym.user.security-password', [])
         ctrl.viewModel.cellphone = undefined;
         ctrl.viewModel.veriCode = undefined;
 
-        ctrl.viewModel.remainSeconds = 60;
+        ctrl.viewModel.remainSeconds = 0;
 
         ctrl.sendVeriCode = function() {
             if (ctrl.sendVeriCodeButtonEnable()) {
@@ -68,6 +68,10 @@ angular.module('jym.user.security-password', [])
 
         ctrl.sendVeriCodeButtonEnable = function() {
             return ctrl.viewModel.cellphone && ctrl.viewModel.remainSeconds <= 0;
+        };
+
+        ctrl.showVeriCodeButton = function() {
+            return ctrl.viewModel.remainSeconds <= 0;
         };
 
         ctrl.startTimer = function() {
