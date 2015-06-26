@@ -4,7 +4,7 @@ angular.module('jym.user.bank-card-upgrade', [
     .config(function($stateProvider) {
         $stateProvider
             .state('jym.user-bank-card-upgrade', {
-                url: '/user/bank-card-upgrade',
+                url: '/user/bank-card-upgrade/{bankCardNo}',
                 views: {
                     'user': {
                         controller: 'UserBankCardUpgradeCtrl as card',
