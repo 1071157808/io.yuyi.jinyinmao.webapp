@@ -1418,23 +1418,20 @@ ion-item .divider, .item.divider {
 
 /*nav-bar-container end*/
 
-/*loading start*/
+/* loading start */
+.spinner svg {
+  stroke: #FACB3A;
+  fill: #FACB3A;
+}
+
 .loading-container .loading{
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.spinner svg {
-   width: 56px;
-   height: 56px;
-   stroke: #FACB3A;
-   fill: #FACB3A;
- }
+/* loading end */
 
-.ionic-refresher-content .icon-refreshing .spinner svg {
-  width: 28px;
-  height: 28px;
-}
-/*loading end*/
+
+
 
 /*backdrop start*/
 .backdrop {

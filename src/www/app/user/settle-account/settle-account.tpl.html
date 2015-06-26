@@ -1,13 +1,17 @@
 <ion-view title="资金账户">
   <ion-content class="settleaccount">
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="user.doRefresh()">
+    </ion-refresher>
     <ion-list>
-      <ion-item class="item divider"></ion-item>
-      <div class="item item-icon-right" href="/">
-        <p><strong>1000.00</strong> 元</p>
+      <div class="item item-icon-right" ui-sref="jym.user-settle-account-list">
+        <p><strong ng-bind="user.viewModel.balance"></strong> 元</p>
         <i class="icon ion-chevron-right"></i>
       </div>
       <div class="item">
-        <p>投资中金额（元）：<em>234567.00</em></p>
+        <p>投资中金额（元）：<em ng-bind="user.viewModel.investingPrincipal"></em></p>
       </div>
       <ion-item class="item divider"></ion-item>
       <div class="item item-icon-right" href="/">

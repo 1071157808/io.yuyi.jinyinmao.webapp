@@ -30,6 +30,17 @@ angular.module('jym.services.user', [
             return currentUser;
         };
 
+        service.getSettelAccountList = function(pageIndex) {
+            var url = URLS.SETTLEACCOUNT.LIST + pageIndex;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+
         service.getUserInfo = function() {
             return $http.get(URLS.USER.GETINFO, {
                 cache: JYMCacheService.get('userCache')
@@ -50,6 +61,7 @@ angular.module('jym.services.user', [
         };
 
         service.loginOut = function() {
-            JYMAuthService
-        }
+            JYMAuthService.clearToken();
+        };
+
     });

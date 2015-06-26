@@ -1,24 +1,35 @@
 <ion-view title="资金账户明细">
   <ion-content>
-    <ion-list>
-      <ion-item class="item divider"></ion-item>
-      <div class="item item-icon-right" href="/">
-        <p><strong>1000.00</strong> 元</p>
-        <i class="icon ion-chevron-right"></i>
-      </div>
-      <div class="item">
-        <p>投资中金额（元）：<em>234567.00</em></p>
-      </div>
-      <ion-item class="item divider"></ion-item>
-      <div class="item item-icon-right" href="/">
-        <h2>充值</h2>
-        <i class="icon ion-chevron-right"></i>
-      </div>
-      <ion-item class="item divider"></ion-item>
-      <div class="item item-icon-right" href="/">
-        <h2>提现</h2>
-        <i class="icon ion-chevron-right"></i>
-      </div>
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="account.doRefresh()">
+    </ion-refresher>
+    <ion-list class="settle-account-list">
+      <ion-item ng-repeat="item in account.viewModel.items" class="item-icon-right">
+        <p>
+          <span class="pull-left" ng-bind="item.tradeCode | tradeCodeForSettle"></span>
+          <span class="pull-right">
+            <span ng-if="item.trade === 0"> + </span>
+            <span ng-if="item.trade === 1"> - </span>
+            <span ng-bind="item.amount"></span>
+          </span>
+        </p>
+
+        <p>
+          <span class="pull-left" ng-bind="item.resultCode | resultText"></span>
+          <span class="pull-right">
+            <span ng-bind="item.resultTime | time"></span>
+          </span>
+        </p>
+        <i class="icon ion-chevron-right icon-accessory" ></i>
+      </ion-item>
     </ion-list>
+    <ion-infinite-scroll
+      ng-if="account.moreDataCanBeLoaded()"
+      on-infinite="account.loadMoreData()"
+      distance="1%"
+      spinner="spiral">
+    </ion-infinite-scroll>
   </ion-content>
 </ion-view>

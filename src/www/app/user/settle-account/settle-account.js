@@ -1,5 +1,6 @@
 angular.module('jym.user.settle-account', [
-    'jym.services.user'
+    'jym.services.user',
+    'jym.user.settle-account-list'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -13,7 +14,7 @@ angular.module('jym.user.settle-account', [
                 }
             });
     })
-    .controller('UserSettleAccountCtrl', function($scope, $state, $timeout, RESOURCES, UserService, JYMAuthService, JYMUtilityService) {
+    .controller('UserSettleAccountCtrl', function($scope, $state, $timeout, RESOURCES, UserService) {
         var user = this;
 
         user.model = {};
@@ -37,8 +38,8 @@ angular.module('jym.user.settle-account', [
         };
 
         user.refreshViewModel = function() {
-            this.viewModel.balance = this.model.balance / 100;
-            this.viewModel.investingPrincipal = this.model.investingPrincipal / 100;
+            user.viewModel.balance = (user.model.balance / 100).toFixed(2);
+            user.viewModel.investingPrincipal = (user.model.investingPrincipal / 100).toFixed(2);
         };
 
         user.doRefresh();

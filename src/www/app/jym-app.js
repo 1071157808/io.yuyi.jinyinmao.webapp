@@ -5,6 +5,7 @@ angular.module('JYM', [
     'angular-progress-arc',
     'jym.controllers',
     'jym.interceptors',
+    'jym.filters',
     'jym.jinbaoyin',
     'jym.shangpiao',
     'jym.yinhangzhuanqu',

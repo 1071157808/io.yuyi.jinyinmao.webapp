@@ -12,6 +12,9 @@ angular.module('jym.constants', [])
         USER: {
             GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
             SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn'
+        },
+        SETTLEACCOUNT: {
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcations/'
         }
     })
     .constant('RESOURCES', {

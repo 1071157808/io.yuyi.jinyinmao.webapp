@@ -1,6 +1,7 @@
 angular.module('jym.user', [
     'jym.services.user',
-    'jym.user.login'
+    'jym.user.login',
+    'jym.user.settle-account'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -14,7 +15,7 @@ angular.module('jym.user', [
                 }
             });
     })
-    .controller('UserCtrl', function($scope, $state, $timeout, $ionicHistory, RESOURCES, UserService, JYMAuthService, JYMUtilityService) {
+    .controller('UserCtrl', function($scope, $state, $timeout, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
         var user = this;
 
         user.model = {};
@@ -38,13 +39,13 @@ angular.module('jym.user', [
         };
 
         user.refreshViewModel = function() {
-            this.viewModel.cellphone = this.model.cellphone;
-            this.viewModel.realName = this.model.realName || '未实名认证';
-            this.viewModel.credentialNo = this.model.credentialNo || '未实名认证';
+            user.viewModel.cellphone = user.model.cellphone;
+            user.viewModel.realName = user.model.realName || '未实名认证';
+            user.viewModel.credentialNo = user.model.credentialNo || '未实名认证';
         };
 
         user.loginOut = function() {
-            JYMAuthService.clearToken();
+            UserService.loginOut();
             JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_OUT);
             $timeout(function() {
                 $ionicHistory.nextViewOptions({
