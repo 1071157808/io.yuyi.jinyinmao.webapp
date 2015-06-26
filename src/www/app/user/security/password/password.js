@@ -48,15 +48,13 @@ angular.module('jym.user.security-password', [])
         var ctrl = this;
 
         ctrl.viewModel = {};
-        ctrl.viewModel.cellphone = '';
-        ctrl.viewModel.veriCode = '';
+        ctrl.viewModel.cellphone = undefined;
+        ctrl.viewModel.veriCode = undefined;
 
-        ctrl.viewModel.sendButtonEnable = true;
         ctrl.viewModel.remainSeconds = 60;
 
         ctrl.sendVeriCode = function() {
-            if (ctrl.viewModel.cellphone && ctrl.viewModel.sendButtonEnable) {
-                ctrl.viewModel.sendButtonEnable = false;
+            if (ctrl.sendVeriCodeButtonEnable()) {
                 ctrl.viewModel.remainSeconds = 60;
                 UserService.sendVeriCode(ctrl.viewModel.cellphone, 20)
                     .then(function(result) {
@@ -68,6 +66,10 @@ angular.module('jym.user.security-password', [])
             }
         };
 
+        ctrl.sendVeriCodeButtonEnable = function() {
+            return ctrl.viewModel.cellphone && ctrl.viewModel.remainSeconds <= 0;
+        };
+
         ctrl.startTimer = function() {
             if (ctrl.viewModel.remainSeconds > 0) {
                 ctrl.viewModel.remainSeconds = ctrl.viewModel.remainSeconds - 1;
@@ -75,8 +77,8 @@ angular.module('jym.user.security-password', [])
             }
         };
 
-        ctrl.VerifyVeriCode = function() {
-            if (ctrl.viewModel.cellphone && ctrl.viewModel.veriCode) {
+        ctrl.verifyVeriCode = function() {
+            if (ctrl.verifyVeriCodeButtonEnable()) {
                 UserService.verifyVeriCode(ctrl.viewModel.cellphone, ctrl.viewModel.veriCode, 20)
                     .then(function(result) {
                         if (result) {
@@ -86,5 +88,9 @@ angular.module('jym.user.security-password', [])
                         }
                     });
             }
+        };
+
+        ctrl.verifyVeriCodeButtonEnable = function() {
+            return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
     });

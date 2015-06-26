@@ -16,30 +16,13 @@ angular.module('jym.user.login', [
     .controller('UserLoginCtrl', function($stateParams, RESOURCES, REGEX, UserService, JYMUtilityService) {
         var user = this;
 
-        user.model = {};
         user.viewModel = {};
+        user.viewModel.cellphone = undefined;
+        user.viewModel.password = undefined;
 
-        user.checkInput = function(showAlert) {
-            showAlert = showAlert || false;
-            var message = '';
-
-            if (!user.viewModel.cellphone || !REGEX.CELLPHONE.test(user.viewModel.cellphone)) {
-                message = RESOURCES.TIP.INVALID_CELLPHONE;
-            } else if (!user.viewModel.password || !REGEX.PASSWORD.test(user.viewModel.password)) {
-                message = RESOURCES.TIP.INVALID_PASSWORD;
-            } else {
-                return true;
-            }
-
-            if(showAlert) {
-                JYMUtilityService.showAlert(message);
-            }
-
-            return false;
-        };
 
         user.login = function() {
-            if (user.checkInput(true)) {
+            if (user.loginButtonEnable()) {
                 UserService.login(user.viewModel.cellphone, user.viewModel.password)
                     .then(function(result) {
                         if (!result.userExist) {
@@ -61,9 +44,9 @@ angular.module('jym.user.login', [
                             JYMUtilityService.showAlert(RESOURCES.ALERT.USER.USER_LOGIN_FAIL);
                             return;
                         }
-
+                        
                         var backState = 'jym.user';
-                        if($stateParams.backState) {
+                        if ($stateParams.backState) {
                             backState = $stateParams.backState;
                         }
 
@@ -71,5 +54,9 @@ angular.module('jym.user.login', [
                     });
 
             }
+        };
+
+        user.loginButtonEnable = function() {
+            return user.viewModel.cellphone && user.viewModel.password;
         };
     });

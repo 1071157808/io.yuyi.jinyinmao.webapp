@@ -7,7 +7,7 @@
       </label>
       <label class="item item-input">
         <span class="input-label">密码</span>
-        <input type="password" placeholder="6-18位数字或字母" ng-model="user.viewModel.password" required minlength="5" maxlength="18">
+        <input type="password" placeholder="6-18位数字或字母" ng-model="user.viewModel.password" required minlength="5" maxlength="18" ng-pattern="/^[a-zA-Z\d~!@#$%^&*_]{6,18}$/">
       </label>
     </div>
     <p id="forget-password"  class="pull-right">
