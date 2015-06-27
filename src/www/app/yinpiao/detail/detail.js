@@ -1,23 +1,23 @@
-angular.module('jym.shangpiao.detail', [
+angular.module('jym.yinpiao.detail', [
     'jym.services',
     'jym.services.product',
     'jym.services.purchase',
     'jym.services.user',
-    'jym.shangpiao.purchase'
+    'jym.yinpiao.purchase'
 ])
     .config(function ($stateProvider) {
         $stateProvider
-            .state('jym.shangpiao-detail', {
-                url: '/shangpiao/detail/{productIdentifier}',
+            .state('jym.yinpiao-detail', {
+                url: '/yinpiao/detail/{productIdentifier}',
                 views: {
-                    'shangpiao':{
-                        controller: 'ShangpiaoDetailCtrl as product',
-                        templateUrl: 'app/shangpiao/detail/detail.tpl.html'
+                    'yinpiao':{
+                        controller: 'YinpiaoDetailCtrl as product',
+                        templateUrl: 'app/yinpiao/detail/detail.tpl.html'
                     }
                 }
             });
     })
-    .controller('ShangpiaoDetailCtrl', function($scope, $state, $stateParams, $timeout, $q, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('YinpiaoDetailCtrl', function($scope, $state, $stateParams, $timeout, $q, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
         var getSaleProgress = function(product) {
@@ -94,9 +94,9 @@ angular.module('jym.shangpiao.detail', [
                 var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), amount);
                 $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
                     .then(function(result) {
-                        PurchaseService.buildRegularOrder(amount, result[1].productIdentifier, 100000020);
+                        PurchaseService.buildRegularOrder(amount, result[1].productIdentifier, 100000010);
 
-                        $state.go('jym.shangpiao-purchase');
+                        $state.go('jym.yinpiao-purchase');
                     })
                     .catch(function(result) {
                         JYMUtilityService.showAlert(result);

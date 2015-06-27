@@ -1,13 +1,13 @@
 <ion-view title="银行专区">
   <ion-content id="zhuanqu">
     <ion-list>
-      <div class="item item-icon-right" ui-sref="jym.yinhangzhuanqu.detail">
+      <ion-item class="item-icon-right" ui-sref="jym.zhuanqu-list({ bank: 'fudan' })">
         <h2 id="fudian">富滇银行</h2>
         <i class="icon ion-chevron-right"></i>
-      </div>
-      <div class="item" ui-sref="jym.yinhangzhuanqu.detail">
+      </ion-item>
+      <ion-item ui-sref="jym.zhuanqu-list({ bank: 'fudan' })">
         <img src="assets/img/yinhangzhuanqu/fudian-ff6b317.gif">
-      </div>
+      </ion-item>
       <ion-item>
         <p>票据由富滇银行代为保管和托收</p>
         <p>到期由承兑银行无条件兑付</p>
@@ -15,13 +15,13 @@
       </ion-item>
       <ion-item class="divider">
       </ion-item>
-      <div class="item item-icon-right" ui-sref="jym.yinhangzhuanqu.detail">
+      <ion-item class="item-icon-right" ui-sref="jym.zhuanqu-list({ bank: 'fuxin' })">
         <h2 id="fuxin">阜新银行</h2>
         <i class="icon ion-chevron-right"></i>
-      </div>
-      <div class="item" ui-sref="jym.yinhangzhuanqu.detail">
-        <img src="assets/img/yinhangzhuanqu/fuxin-73f47c5.gif" href="/fuxing">
-      </div>
+      </ion-item>
+      <ion-item ui-sref="jym.zhuanqu-list({ bank: 'fuxin' })">
+        <img src="assets/img/yinhangzhuanqu/fuxin-73f47c5.gif">
+      </ion-item>
       <ion-item>
         <p>票据由阜新银行代为保管和托收</p>
         <p>到期由承兑银行无条件兑付</p>
@@ -29,25 +29,25 @@
       </ion-item>
       <ion-item class="divider">
       </ion-item>
-      <div class="item item-icon-right" ui-sref="jym.yinhangzhuanqu.detail">
+      <ion-item class="item-icon-right" ui-sref="jym.zhuanqu-list({ bank: 'shibing' })">
         <h2 id="shibingcunzhen">施秉金鼎村镇银行</h2>
         <i class="icon ion-chevron-right"></i>
-      </div>
-      <div class="item" ui-sref="jym.yinhangzhuanqu.detail">
-          <img src="assets/img/yinhangzhuanqu/sbjd-04c7a44.gif" href="shibingcunzhen">
-      </div>
+      </ion-item>
+      <ion-item ui-sref="jym.zhuanqu-list({ bank: 'shibing' })">
+          <img src="assets/img/yinhangzhuanqu/sbjd-04c7a44.gif">
+      </ion-item>
       <ion-item>
         <p>募集资金由施秉金鼎村镇银行进行资金监管</p>
       </ion-item>
       <ion-item class="divider">
       </ion-item>
-      <div class="item item-icon-right" ui-sref="jym.yinhangzhuanqu.detail">
+      <ion-item class="item item-icon-right">
         <h2 id="xingye">兴业银行</h2>
-        <i class="icon ion-chevron-right"></i>
-      </div>
-      <div class="item" ui-sref="jym.yinhangzhuanqu.detail">
-        <img src="assets/img/yinhangzhuanqu/cib-6bb205d.gif">
-      </div>
+        <a href="https://piao.cib.com.cn/"><i class="icon ion-chevron-right"></i></a>
+      </ion-item>
+      <ion-item class="item" ui-sref="jym.yinhangzhuanqu.detail">
+        <a href="https://piao.cib.com.cn/"><img src="assets/img/yinhangzhuanqu/cib-6bb205d.gif"></a>
+      </ion-item>
       <ion-item>
         <p>到期由兴业银行无条件兑付</p>
         <p>本息安全  风险趋零</p>

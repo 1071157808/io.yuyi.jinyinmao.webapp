@@ -1,0 +1,104 @@
+<ion-view title="银企众盈">
+  <ion-content>
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="products.doRefresh()">
+    </ion-refresher>
+    <ion-list class="order-detail">
+      <ion-item>
+        <div class="row">
+          <div class="col col-50">
+            <div class="center">
+              <p>已售出</p>
+
+              <p><span ng-bind="product.viewModel.sellProgress"></span><samp>%</samp></p>
+
+              <progress-arc class="circle-progress" stroke="#e74c3c" size="100" stroke-width="5"
+                            complete="product.viewModel.sellProgressInCircleProgress" background="#eee">
+
+              </progress-arc>
+            </div>
+          </div>
+          <div class="col">
+            <ul>
+              <li><samp ng-bind="product.viewModel.yield"></samp><span>%</span></li>
+              <li><span ng-bind="product.viewModel.unitPrice"></span>元起投</li>
+              <li><span ng-bind="product.viewModel.period"></span>天</li>
+              <li><span ng-bind="product.viewModel.financingSumAmount"></span>万元</li>
+            </ul>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="card">
+      <ion-item class="item-divider">
+        <p class="pull-left">剩余份数：<span ng-bind="product.viewModel.remainCount"></span>份（<span ng-bind="product.viewModel.unitPrice"></span>元／份）</p>
+      </ion-item>
+      <ion-item class="item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="number" placeholder="投资份数" ng-model="product.viewModel.investCount" required min="1" max="100000000"
+                 ng-change="product.investCountChange()">
+          <samp>份</samp>
+        </label>
+        <button class="button button-small button-assertive" id="btn-narrow" ng-bind="product.viewModel.status.buttonText" ng-click="product.goPurchase()"></button>
+      </ion-item>
+      <ion-item class="item-divider">
+        <p class="pull-left">投资金额<span>&nbsp;</span><span ng-bind="product.viewModel.investAmount"></span><span>&nbsp;</span>元</p>
+
+        <p class="pull-right">预计收益：<span>&nbsp;</span><span ng-bind="product.viewModel.expectedInterest"></span><span>&nbsp; </span>元</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item class="item-divider"><p ng-bind="product.viewModel.productNo" class="product-no"></p></ion-item>
+      <ion-item>
+        <p class="pull-left">项目状态</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.status.text"></span></p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">项目名称</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.productName"></span></p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">项目期数</p>
+
+        <p class="pull-right"><span>第&nbsp;</span><span ng-bind="product.viewModel.issueNo"></span><span>&nbsp;期</span></p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">项目类型</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.riskManagementMode"></span></p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">融资总额</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.financingSumAmount"></span> 万元</p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">投资单位</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.unitPrice"></span>元</p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">起息日期</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.valueDateText"></span></p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">结息日期</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.settleDate | time"></span></p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">最迟还款日</p>
+
+        <p class="pull-right"><span ng-bind="product.viewModel.repaymentDeadline | time"></span></p>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

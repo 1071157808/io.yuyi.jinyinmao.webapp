@@ -62,7 +62,7 @@ angular.module('jym.services.product', [
             return 10;
         };
 
-        service.getShangpiao = function(productIdentifier) {
+        service.getRegularProductInfo = function(productIdentifier) {
             var url = URLS.REGULARPRDUCT.INFO + productIdentifier;
 
             return $http.get(url, {
@@ -72,7 +72,7 @@ angular.module('jym.services.product', [
             });
         };
 
-        service.getShangpiaoSold = function(productIdentifier) {
+        service.getSold = function(productIdentifier) {
             var url = URLS.REGULARPRDUCT.SOLD + productIdentifier;
 
             return $http.get(url).then(function(result) {
@@ -82,6 +82,16 @@ angular.module('jym.services.product', [
 
         service.getShangpiaoPage = function(pageIndex) {
             var url = URLS.REGULARPRDUCT.PAGE + pageIndex + '?categories=100000020';
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('productCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getYinpiaoPage = function(pageIndex) {
+            var url = URLS.REGULARPRDUCT.PAGE + pageIndex + '?categories=100000010';
 
             return $http.get(url, {
                 cache: JYMCacheService.get('productCache')

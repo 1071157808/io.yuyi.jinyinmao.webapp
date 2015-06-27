@@ -8,7 +8,7 @@ angular.module('JYM', [
     'jym.filters',
     'jym.jinbaoyin',
     'jym.shangpiao',
-    'jym.yinhangzhuanqu',
+    'jym.zhuanqu',
     'jym.yinpiao',
     'jym.misc',
     'jym.constants'

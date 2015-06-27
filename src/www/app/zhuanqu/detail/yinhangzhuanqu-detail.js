@@ -1,4 +1,4 @@
-angular.module('jym.yinhangzhuanqu.detail', [
+angular.module('jym.zhuanqu.detail', [
 ])
     .config(function ($stateProvider) {
         $stateProvider

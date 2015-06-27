@@ -1,203 +1,38 @@
-<ion-header-bar class="bar-light">
-  <div class="row">
-    <div class="col col-25">
-      <a ui-sref="jym.jinbaoyin"><i class="jym-icon-logo"></i></a>
-    </div>
-    <div class="col">
-      <ul class="jym-nav-top clearfix">
-        <li><a ui-sref="jym.user"><i class="jym-icon-user"></i></a></li>
-        <li><a ui-sref="jym.shangpiaoIndex"><i class="jym-icon-shang"></i></a></li>
-        <li><a ui-sref="jym.yinpiao"><i class="jym-icon-yin active"></i></a></li>
-        <li><a ui-sref="jym.yinhangzhuanqu"><i class="jym-icon-zhuan"></i></a></li>
-        <li><a ui-sref="jym.jinbaoyin"><i class="jym-icon-home"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</ion-header-bar>
-<ion-view>
+<ion-view title="银企众盈">
   <ion-content>
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="products.doRefresh()">
+    </ion-refresher>
     <ion-list>
-      <ion-item>
-        <a ui-sref="jym.yinpiao.detail">
-          <div class="row">
-            <div class="col col-33">
-              <em>7.1<samp>%</samp></em>
-              <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
-              <li class="jqm-min-price">1<samp>&nbsp;元起</samp></li>
-              <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
-            </div>
-            <div class="col col-67">
-              <li>"银企众盈"融资项目第1278900期</li>
-              <div class="detail">
-                <li class="saleStatus">已售罄</li>
-                <li>最迟还款日 2015-12-04</li>
-                <li>无条件承兑行</li>
-                <li>交行铁东支行</li>
-              </div>
+      <ion-item ng-repeat="item in products.viewModel.items" ui-sref="jym.yinpiao-detail({ productIdentifier: item.productIdentifier })">
+        <div class="row">
+          <div class="col col-33">
+            <em ng-bind="item.yield"></em><samp>%</samp>
+            <li class="jqm-prd-period"><span ng-bind="item.period"></span><samp>&nbsp;天</samp></li>
+            <li class="jqm-min-price"><span ng-bind="item.unitPrice"></span><samp>&nbsp;元起</samp></li>
+            <li class="jqm-prd-price"><span ng-bind="item.financingSumAmount"></span><samp>&nbsp;万</samp></li>
           </div>
+          <div class="col col-67">
+            <li ng-bind="item.productName"></li>
+            <div class="detail">
+              <li class="saleStatus" ng-bind="item.statusText" ng-class="item.statusTextClass "></li>
+              <li ng-bind="item.timeText"></li>
+              <li ng-bind="item.riskManagement"></li>
+            </div>
+          </div>
+        </div>
 
-         </div>
-        </a>
       </ion-item>
-      </ion-list>
       <ion-item class="divider">
       </ion-item>
-    <ion-list>
-      <ion-item>
-        <a ui-sref="jym.yinpiao.detail">
-          <div class="row">
-            <div class="col col-33">
-              <em>7.1<samp>%</samp></em>
-              <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
-              <li class="jqm-min-price">1<samp>&nbsp;元起</samp></li>
-              <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
-            </div>
-            <div class="col col-67">
-              <li>"银企众盈"融资项目第1278900期</li>
-              <div class="detail">
-                <li class="saleStatus">已售罄</li>
-                <li>最迟还款日 2015-12-04</li>
-                <li>无条件承兑行</li>
-                <li>交行铁东支行</li>
-              </div>
-            </div>
-
-          </div>
-        </a>
-      </ion-item>
     </ion-list>
-    <ion-item class="divider">
-    </ion-item>
-    <ion-list>
-      <ion-item>
-        <a ui-sref="jym.yinpiao.detail">
-          <div class="row">
-            <div class="col col-33">
-              <em>7.1<samp>%</samp></em>
-              <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
-              <li class="jqm-min-price">1<samp>&nbsp;元起</samp></li>
-              <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
-            </div>
-            <div class="col col-67">
-              <li>"银企众盈"融资项目第1278900期</li>
-              <div class="detail">
-                <li class="saleStatus">已售罄</li>
-                <li>最迟还款日 2015-12-04</li>
-                <li>无条件承兑行</li>
-                <li>交行铁东支行</li>
-              </div>
-            </div>
-
-          </div>
-        </a>
-      </ion-item>
-    </ion-list>
-    <ion-item class="divider">
-    </ion-item>
-    <ion-list>
-      <ion-item>
-        <a ui-sref="jym.yinpiao.detail">
-          <div class="row">
-            <div class="col col-33">
-              <em>7.1<samp>%</samp></em>
-              <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
-              <li class="jqm-min-price">1<samp>&nbsp;元起</samp></li>
-              <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
-            </div>
-            <div class="col col-67">
-              <li>"银企众盈"融资项目第1278900期</li>
-              <div class="detail">
-                <li class="saleStatus">已售罄</li>
-                <li>最迟还款日 2015-12-04</li>
-                <li>无条件承兑行</li>
-                <li>交行铁东支行</li>
-              </div>
-            </div>
-
-          </div>
-        </a>
-      </ion-item>
-    </ion-list>
-    <ion-item class="divider">
-    </ion-item>
-    <ion-list>
-      <ion-item>
-        <a ui-sref="jym.yinpiao.detail">
-          <div class="row">
-            <div class="col col-33">
-              <em>7.1<samp>%</samp></em>
-              <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
-              <li class="jqm-min-price">1<samp>&nbsp;元起</samp></li>
-              <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
-            </div>
-            <div class="col col-67">
-              <li>"银企众盈"融资项目第1278900期</li>
-              <div class="detail">
-                <li class="saleStatus">已售罄</li>
-                <li>最迟还款日 2015-12-04</li>
-                <li>无条件承兑行</li>
-                <li>交行铁东支行</li>
-              </div>
-            </div>
-
-          </div>
-        </a>
-      </ion-item>
-    </ion-list>
-    <ion-item class="divider">
-    </ion-item>
-    <ion-list>
-      <ion-item>
-        <a ui-sref="jym.yinpiao.detail">
-          <div class="row">
-            <div class="col col-33">
-              <em>7.1<samp>%</samp></em>
-              <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
-              <li class="jqm-min-price">1<samp>&nbsp;元起</samp></li>
-              <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
-            </div>
-            <div class="col col-67">
-              <li>"银企众盈"融资项目第1278900期</li>
-              <div class="detail">
-                <li class="saleStatus">已售罄</li>
-                <li>最迟还款日 2015-12-04</li>
-                <li>无条件承兑行</li>
-                <li>交行铁东支行</li>
-              </div>
-            </div>
-
-          </div>
-        </a>
-      </ion-item>
-    </ion-list>
-    <ion-item class="divider">
-    </ion-item>
-    <ion-list>
-      <ion-item>
-        <a ui-sref="jym.yinpiao.detail">
-          <div class="row">
-            <div class="col col-33">
-              <em>7.1<samp>%</samp></em>
-              <li class="jqm-prd-period">179<samp>&nbsp;天</samp></li>
-              <li class="jqm-min-price">1<samp>&nbsp;元起</samp></li>
-              <li class="jqm-prd-price">479.5<samp>&nbsp;万</samp></li>
-            </div>
-            <div class="col col-67">
-              <li>"银企众盈"融资项目第1278900期</li>
-              <div class="detail">
-                <li class="saleStatus">已售罄</li>
-                <li>最迟还款日 2015-12-04</li>
-                <li>无条件承兑行</li>
-                <li>交行铁东支行</li>
-              </div>
-            </div>
-
-          </div>
-        </a>
-      </ion-item>
-    </ion-list>
-    <ion-item class="divider">
-    </ion-item>
-
+    <ion-infinite-scroll
+      ng-if="products.moreDataCanBeLoaded()"
+      on-infinite="products.loadMoreData()"
+      distance="1%"
+      spinner="spiral">
+    </ion-infinite-scroll>
   </ion-content>
 </ion-view>
