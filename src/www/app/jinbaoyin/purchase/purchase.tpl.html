@@ -1,10 +1,9 @@
 <ion-view title="金包银认购">
   <ion-content>
-    <ion-list>
+    <ion-list class="deposit">
       <ion-item>
-        <p>订单金额</p>
-
-        <p><strong ng-bind="purchase.viewModel.investAmount"></strong>元</p>
+        <span class="pull-left">订单金额</span>
+        <span class="pull-right"><strong ng-bind="purchase.viewModel.investAmount"></strong> &nbsp;元</span>
       </ion-item>
     </ion-list>
     <ion-list class="deposit">
@@ -12,7 +11,6 @@
         <ion-item class="item">
           <span>账户余额：<span ng-bind="purchase.viewModel.userBalance"></span> 元</span>
           <span class="pull-right">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
-
         </ion-item>
 
         <label class="item item-input">
@@ -21,8 +19,8 @@
         </label>
       </ion-item>
 
-      <ion-list>
-        <ion-item class="item row">
+
+        <div class="row">
           <div class="col col-25">
             <label class="checkbox checkbox-assertive">
               <input type="checkbox" checked>
@@ -32,14 +30,13 @@
           <div class="col col-75">
             <p href="/">《金银猫金包银投资协议》</p>
           </div>
-        </ion-item>
-      </ion-list>
-      <div class="space"></div>
+        </div>
+    </ion-list>
       <button class="btn button-yellow">同意协议并付款</button>
       <br>
       <br>
-      <h4>如有问题，请垂询&nbsp;4008-556-333。</h4>
+      <h4 id="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>
 
-    </ion-list>
+
   </ion-content>
 </ion-view>
