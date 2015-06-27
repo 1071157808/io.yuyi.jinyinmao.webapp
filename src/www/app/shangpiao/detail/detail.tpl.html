@@ -9,7 +9,7 @@
       <ion-item>
         <div class="row">
           <div class="col col-50">
-            <div id="center">
+            <div class="center">
               <p>已售出</p>
 
               <p><span ng-bind="product.viewModel.sellProgress"></span><samp>%</samp></p>
@@ -22,7 +22,7 @@
           </div>
           <div class="col">
             <ul>
-              <li><span ng-bind="product.viewModel.yield"></span><samp>%</samp></li>
+              <li><samp ng-bind="product.viewModel.yield"></samp><span>%</span></li>
               <li><span ng-bind="product.viewModel.unitPrice"></span>元起投</li>
               <li><span ng-bind="product.viewModel.period"></span>天</li>
               <li><span ng-bind="product.viewModel.financingSumAmount"></span>万元</li>
