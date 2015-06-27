@@ -1,23 +1,22 @@
-angular.module('jym.jinbaoyin.purchase', [
+angular.module('jym.shangpiao.purchase', [
     'jym.services',
-    'jym.services.jinbaoyin',
     'jym.services.product',
     'jym.services.purchase',
     'jym.services.user'
 ])
     .config(function($stateProvider) {
         $stateProvider
-            .state('jym.jinbaoyin-purchase', {
-                url: '/jinbaoyin/purchase',
+            .state('jym.shangpiao-purchase', {
+                url: '/shangpiao/purchase',
                 views: {
-                    'jinbaoyin': {
-                        controller: 'JinbaoyinPurchaseCtrl as purchase',
-                        templateUrl: 'app/jinbaoyin/purchase/jinbaoyin-purchase.tpl.html'
+                    'shangpiao': {
+                        controller: 'ShangpiaoPurchaseCtrl as purchase',
+                        templateUrl: 'app/shangpiao/purchase/purchase.tpl.html'
                     }
                 }
             })
     })
-    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ShangpiaoPurchaseCtrl', function($scope, $timeout, ProductService, PurchaseService, UserService) {
         var purchase = this;
 
         purchase.model = {};
@@ -26,14 +25,14 @@ angular.module('jym.jinbaoyin.purchase', [
         purchase.model.order = {};
 
         purchase.doRefresh = function() {
-            purchase.refreshUserInfo();
+            purchase.refreshInfo();
         };
 
-        purchase.refreshUserInfo = function() {
+        purchase.refreshInfo = function() {
             UserService.getUserInfo()
                 .then(function(result) {
                     purchase.model.currentUser = result;
-                    purchase.model.order = PurchaseService.getNewJBYOrder();
+                    purchase.model.order = PurchaseService.getRegularOrder(100000020);
                     purchase.refreshViewModel();
                     return result;
                 });

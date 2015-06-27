@@ -1,24 +1,22 @@
-angular.module('jym.jinbaoyin.detail', [
+angular.module('jym.shangpiao.detail', [
     'jym.services',
-    'jym.services.jinbaoyin',
     'jym.services.product',
     'jym.services.purchase',
-    'jym.services.user',
-    'jym.jinbaoyin.purchase'
+    'jym.services.user'
 ])
-    .config(function($stateProvider) {
+    .config(function ($stateProvider) {
         $stateProvider
-            .state('jym.jinbaoyin-detail', {
-                url: '/jinbaoyin/detail',
+            .state('jym.shangpiao-detail', {
+                url: '/shangpiao/detail/{productIdentifier}',
                 views: {
-                    'jinbaoyin': {
-                        controller: 'JinbaoyinDetailCtrl as product',
-                        templateUrl: 'app/jinbaoyin/detail/jinbaoyin-detail.tpl.html'
+                    'shangpiao':{
+                        controller: 'ShangpiaoDetailCtrl as product',
+                        templateUrl: 'app/shangpiao/detail/detail.tpl.html'
                     }
                 }
-            })
+            });
     })
-    .controller('JinbaoyinDetailCtrl', function($scope, $timeout, $q, $state, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ShangpiaoDetailCtrl', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
         var getSaleProgress = function(product) {
@@ -82,7 +80,7 @@ angular.module('jym.jinbaoyin.detail', [
             if (product.viewModel.investCount > product.viewModel.remainCount) {
                 product.viewModel.investCount = parseInt(product.viewModel.remainCount);
             }
-            
+
             product.refreshInvestViewModel();
         };
 
@@ -93,9 +91,9 @@ angular.module('jym.jinbaoyin.detail', [
                 var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), amount);
                 $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
                     .then(function(result) {
-                        PurchaseService.buildNewJBYOrder(amount, result[1].productIdentifier);
+                        PurchaseService.buildRegularOrder(amount, result[1].productIdentifier, 100000020);
 
-                        $state.go('jym.jinbaoyin-purchase');
+                        $state.go('jym.shangpiao-purchase');
                     })
                     .catch(function(result) {
                         JYMUtilityService.showAlert(result);
@@ -104,7 +102,7 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.goPurchaseButtonEnable = function() {
-            return product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
+            return product.viewModel.status.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
         };
 
         product.refreshInvestViewModel = function() {
@@ -118,28 +116,60 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.refreshProduct = function() {
-            return JinbaoyinService.getIndex()
+            return ProductService.getShangpiao($stateParams.productIdentifier)
                 .then(function(result) {
                     product.model = result;
-                    product.refreshViewModel();
-                    product.refreshInvestViewModel();
                     return result;
+                })
+                .then(function(result) {
+                    ProductService.getShangpiaoSold(result.productIdentifier).
+                        then(function(result) {
+                            product.model.paidAmount = result.paid;
+                            product.refreshViewModel();
+                            product.refreshInvestViewModel();
+                        });
                 });
         };
 
         product.refreshViewModel = function() {
-            product.viewModel.issueNo = parseInt(product.model.issueNo);
-            product.viewModel.financingSumAmount = (product.model.financingSumAmount / 1000000).toFixed(0);
+            product.viewModel.bankName = product.model.bankName;
+            product.viewModel.drawee = product.model.drawee;
+            product.viewModel.draweeInfo = product.model.draweeInfo;
+            product.viewModel.endorseImageLink = product.model.endorseImageLink;
+            product.viewModel.endSellTime = product.model.endSellTime;
+            product.viewModel.enterpriseInfo = product.model.enterpriseInfo;
+            product.viewModel.enterpriseLicense = product.model.enterpriseLicense;
+            product.viewModel.enterpriseName = product.model.enterpriseName;
+            product.viewModel.financingSumAmount = product.model.financingSumAmount / 1000000;
+            product.viewModel.issueNo = product.model.issueNo;
+            product.viewModel.issueTime = product.model.issueTime;
+            product.viewModel.paidAmount = product.model.paidAmount;
+            product.viewModel.period = product.model.period;
+            product.viewModel.productCategory = product.model.productCategory;
+            product.viewModel.productIdentifier = product.model.productIdentifier;
             product.viewModel.productName = product.model.productName + ' ' + '第' + product.model.issueNo + '期';
             product.viewModel.productNo = product.model.productNo;
             product.viewModel.remainCount = ((product.model.financingSumAmount - product.model.paidAmount) / product.model.unitPrice).toFixed(0);
+            product.viewModel.repaid = product.model.repaid;
+            product.viewModel.repaidTime = product.model.repaidTime;
+            product.viewModel.repaymentDeadline = product.model.repaymentDeadline;
+            product.viewModel.riskManagement = product.model.riskManagement;
+            product.viewModel.riskManagementInfo = product.model.riskManagementInfo;
+            product.viewModel.riskManagementMode = product.model.riskManagementMode;
             product.viewModel.sellProgress = getSaleProgress(product.model);
             product.viewModel.sellProgressInCircleProgress = product.viewModel.sellProgress / 100;
+            product.viewModel.settleDate = product.model.settleDate;
+            product.viewModel.soldOut = product.model.soldOut;
+            product.viewModel.soldOutTime = product.model.soldOutTime;
+            product.viewModel.specifyValueDate = product.model.specifyValueDate;
+            product.viewModel.startSellTime = product.model.startSellTime;
             product.viewModel.status = getSaleStatus(product.model);
             product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
-            product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
-            product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
-            product.viewModel.yield = (product.model.yield / 100).toFixed(2);
+            product.viewModel.usage = product.model.usage;
+            product.viewModel.valueDate = product.model.valueDate;
+            product.viewModel.valueDateMode = product.model.valueDateMode;
+            product.viewModel.valueDateText = getValueDateModeText(product.model.valueDateMode, product.model.valueData, product.model.specifyValueDate);
+            product.viewModel.yield = product.model.yield / 100;
         };
 
         product.doRefresh();

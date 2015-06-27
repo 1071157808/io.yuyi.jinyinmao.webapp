@@ -1,26 +1,26 @@
 angular.module('jym.services.product', [
     'jym.services'
 ])
-    .service('ProductService', function(RESOURCES) {
+    .service('ProductService', function($http, RESOURCES, URLS, JYMCacheService) {
         var service = this;
 
         service.checkProductPurchaseStatus = function(getProductInfo, amount) {
             return getProductInfo.then(function(product) {
 
                 var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
-                if(status === 10) {
+                if (status === 10) {
                     throw RESOURCES.ALERT.PRODUCT.NOT_ON_SALE;
                 }
 
-                if(status === 30) {
+                if (status === 30) {
                     throw RESOURCES.ALERT.PRODUCT.SOLD_OUT;
                 }
 
-                if(product.financingSumAmount - product.paidAmount < amount) {
+                if (product.financingSumAmount - product.paidAmount < amount) {
                     throw RESOURCES.ALERT.PRODUCT.SHARE_INSUFFICIENT;
                 }
 
-                if(amount % product.unitPrice !== 0) {
+                if (amount % product.unitPrice !== 0) {
                     throw RESOURCES.ALERT.PRODUCT.AMOUNT_INCORRECT;
                 }
 
@@ -62,8 +62,40 @@ angular.module('jym.services.product', [
             return 10;
         };
 
-         service.getValueDateModeText = function(valueDateMode) {
-            if(valueDateMode <= 0) {
+        service.getShangpiao = function(productIdentifier) {
+            var url = URLS.REGULARPRDUCT.INFO + productIdentifier;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('productCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getShangpiaoSold = function(productIdentifier) {
+            var url = URLS.REGULARPRDUCT.SOLD + productIdentifier;
+
+            return $http.get(url).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getShangpiaoPage = function(pageIndex) {
+            var url = URLS.REGULARPRDUCT.PAGE + pageIndex + '?categories=100000020';
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('productCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {
+            if (specifyValueDate) {
+                return moment(valueDate).format('LL');
+            }
+
+            if (valueDateMode <= 0) {
                 return '购买成功立刻起息';
             }
 

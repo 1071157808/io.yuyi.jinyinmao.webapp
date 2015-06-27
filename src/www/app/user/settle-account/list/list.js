@@ -56,7 +56,7 @@ angular.module('jym.user.settle-account-list', [
         };
 
         account.moreDataCanBeLoaded = function() {
-            return true;
+            return account.viewModel.nextPageIndex < account.viewModel.totalPageCount;
         };
 
         account.doRefresh = function() {

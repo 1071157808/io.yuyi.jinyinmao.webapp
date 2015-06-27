@@ -23,6 +23,11 @@ angular.module('jym.constants', [])
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
             REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove'
+        },
+        REGULARPRDUCT: {
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/'
         }
     })
     .constant('RESOURCES', {
