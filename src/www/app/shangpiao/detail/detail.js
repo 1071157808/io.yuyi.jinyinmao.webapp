@@ -82,6 +82,11 @@ angular.module('jym.shangpiao.detail', [
             product.refreshInvestViewModel();
         };
 
+        product.getAccrualDuration = function() {
+            var diff = (moment(product.model.settleDate) - moment(product.model.valueDate)) / (1000 * 60 * 60 * 24);
+            return parseInt(diff);
+        };
+
         product.goPurchase = function() {
             if (product.goPurchaseButtonEnable()) {
                 var amount = product.viewModel.investCount * product.model.unitPrice;
@@ -110,7 +115,7 @@ angular.module('jym.shangpiao.detail', [
                 product.viewModel.investAmount = 0;
             }
 
-            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, 30) / 100).toFixed(2);
+            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, product.getAccrualDuration()) / 100).toFixed(2);
         };
 
         product.refreshProduct = function() {
