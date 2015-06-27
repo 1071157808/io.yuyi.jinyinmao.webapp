@@ -5,12 +5,12 @@ angular.module('jym.zhuanqu.detail', [
     'jym.services.user',
     'jym.zhuanqu.purchase'
 ])
-    .config(function ($stateProvider) {
+    .config(function($stateProvider) {
         $stateProvider
             .state('jym.zhuanqu-detail', {
-                url: '/zhuanqu/detail/{productIdentifier}',
+                url: '/zhuanqu/detail/{bankName}/{productIdentifier}',
                 views: {
-                    'zhuanqu':{
+                    'zhuanqu': {
                         controller: 'ZhuanquDetailCtrl as product',
                         templateUrl: 'app/zhuanqu/detail/detail.tpl.html'
                     }
@@ -89,16 +89,16 @@ angular.module('jym.zhuanqu.detail', [
 
         product.goPurchase = function() {
             var productCategory;
-            if($stateParams.bankName === 'fudian') {
+            if ($stateParams.bankName === 'fudian') {
                 productCategory = 210001010;
-            }else if($stateParams.bankName === 'fuxin') {
+            } else if ($stateParams.bankName === 'fuxin') {
                 productCategory = 210003010;
-            }else if($stateParams.bankName === 'shibing') {
+            } else if ($stateParams.bankName === 'shibing') {
                 productCategory = 210002020;
-            }else {
+            } else {
                 productCategory = 100000010;
             }
-
+            
             if (product.goPurchaseButtonEnable()) {
                 var amount = product.viewModel.investCount * product.model.unitPrice;
                 var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
@@ -180,19 +180,19 @@ angular.module('jym.zhuanqu.detail', [
             product.viewModel.yield = product.model.yield / 100;
 
 
-            if($stateParams.bankName === 'fudian') {
+            if ($stateParams.bankName === 'fudian') {
                 product.viewModel.isYinpiao = true;
                 product.viewModel.isShangpiao = false;
                 product.viewModel.riskManagementText = product.viewModel.bankName;
-            }else if($stateParams.bankName === 'fuxin') {
+            } else if ($stateParams.bankName === 'fuxin') {
                 product.viewModel.isYinpiao = true;
                 product.viewModel.isShangpiao = false;
                 product.viewModel.riskManagementText = product.viewModel.bankName;
-            }else if($stateParams.bankName === 'shibing') {
+            } else if ($stateParams.bankName === 'shibing') {
                 product.viewModel.isYinpiao = false;
                 product.viewModel.isShangpiao = true;
                 product.viewModel.riskManagementText = product.viewModel.riskManagement;
-            }else {
+            } else {
                 product.viewModel.isYinpiao = false;
                 product.viewModel.isShangpiao = false;
                 product.viewModel.riskManagementText = product.viewModel.riskManagement;

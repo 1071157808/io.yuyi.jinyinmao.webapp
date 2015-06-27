@@ -7,7 +7,7 @@ angular.module('jym.zhuanqu.purchase', [
     .config(function($stateProvider) {
         $stateProvider
             .state('jym.zhuanqu-purchase', {
-                url: '/zhuanqu/purchase',
+                url: '/zhuanqu/purchase/{bankName}',
                 views: {
                     'zhuanqu': {
                         controller: 'ZhuanquPurchaseCtrl as purchase',
@@ -16,7 +16,7 @@ angular.module('jym.zhuanqu.purchase', [
                 }
             })
     })
-    .controller('ZhuanquPurchaseCtrl', function($scope, $timeout, ProductService, PurchaseService, UserService) {
+    .controller('ZhuanquPurchaseCtrl', function($scope, $stateParams, $timeout, ProductService, PurchaseService, UserService) {
         var purchase = this;
 
         purchase.model = {};
@@ -29,10 +29,21 @@ angular.module('jym.zhuanqu.purchase', [
         };
 
         purchase.refreshInfo = function() {
+            var productCategory;
+            if ($stateParams.bankName === 'fudian') {
+                productCategory = 210001010;
+            } else if ($stateParams.bankName === 'fuxin') {
+                productCategory = 210003010;
+            } else if ($stateParams.bankName === 'shibing') {
+                productCategory = 210002020;
+            } else {
+                productCategory = 100000010;
+            }
+
             UserService.getUserInfo()
                 .then(function(result) {
                     purchase.model.currentUser = result;
-                    purchase.model.order = PurchaseService.getRegularOrder(100000020);
+                    purchase.model.order = PurchaseService.getRegularOrder(productCategory);
                     purchase.refreshViewModel();
                     return result;
                 });
