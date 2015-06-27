@@ -825,7 +825,7 @@ ion-item img {
   text-align: right;
   line-height: 26px;
 }
-.list .item-divider p>span{
+.list .item-divider p > span{
   color: #e74c3c;
 }
 .order-detail .item > div > i {
@@ -862,6 +862,9 @@ ion-item img {
 }
 .card .list {
   box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+.card .item label > input {
+  width: 90%;
 }
 #login-card {
   margin-bottom: 5px;
@@ -1298,6 +1301,8 @@ img.top {
 }
 /*.jbyaccountdetail end*/
 
+
+
 /*.deposit start*/
 .deposit .item-thumbnail-left {
   min-height: 40px;
@@ -1307,9 +1312,10 @@ img.top {
   height: 50px;
   margin-left: 10px;
 }
-.deposit .item .pull-right {
+.deposit.item .pull-right {
   color: #cead52;
   font-size: inherit;
+  padding-top: 7px;
 }
 .deposit .pull-left {
   margin-top: 11px;
@@ -1317,8 +1323,12 @@ img.top {
 .deposit .row {
   height: 44px;
 }
+.narrow {
+  height: 40px;
+}
+
 @media only screen and (max-width: 320px) and (max-height: 480px){
-  .deposit .item > img{
+  .deposit .item > img {
     left:0;
   }
   .deposit .item > p {
@@ -1329,7 +1339,7 @@ img.top {
     right: 20px;
     position: relative;
   }
-  .deposit .item  i{
+  .deposit .item i {
     right: 0;
   }
 
@@ -1349,6 +1359,9 @@ img.top {
 
   .deposit .item i {
     right: 0;
+  }
+  .deposit .item, .deposit span {
+    font-size: 14px;
   }
 }/*iphone5*/
 #tel {
@@ -1448,6 +1461,18 @@ ion-item .divider, .item.divider {
   /*color: yellow;*/
   /*font-weight: 800;*/
 /*}*/
+
+label.checkbox {
+  width: 85px;
+}
+label.checkbox input {
+  display: inline-block;
+  float: left;
+  margin-right: 3px;
+}
+label.checkbox span {
+  float: left;
+}
 .checkbox {
   padding-left: 20px;
   padding-right: 0;

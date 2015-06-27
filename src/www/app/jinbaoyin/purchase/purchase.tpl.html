@@ -6,10 +6,11 @@
         <span class="pull-right"><strong ng-bind="purchase.viewModel.investAmount"></strong> &nbsp;元</span>
       </ion-item>
     </ion-list>
-    <ion-list class="deposit">
-      <ion-item class="card">
+    <ion-list>
+      <ion-item class="card deposit">
         <ion-item class="item">
-          <span>账户余额：<span ng-bind="purchase.viewModel.userBalance"></span> 元</span>
+          <span class="pull-left">账户余额：</span>
+          <span class="pull-left" ng-bind="purchase.viewModel.userBalance"> 元</span>
           <span class="pull-right">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
         </ion-item>
 
@@ -19,12 +20,12 @@
         </label>
       </ion-item>
 
-      <div class="row">
+      <div class="row narrow">
         <div class="col col-25">
           <label class="checkbox checkbox-assertive">
             <input type="checkbox" checked>
+            <span>同意</span>
           </label>
-          <span>同意</span>
         </div>
         <div class="col col-75">
           <p>《金银猫金包银投资协议》</p>
