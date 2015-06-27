@@ -1130,6 +1130,10 @@ label.item-input > span {
   /*zhuanqu start*/
 #zhuanqu h2 {
   font-size: 22px;
+  padding-left: 5px;
+}
+#zhuanqu .item a {
+  padding: 16px;
 }
 @media only screen and (max-width: 320px) and (max-height: 480px){
   #zhuanqu h2 {
