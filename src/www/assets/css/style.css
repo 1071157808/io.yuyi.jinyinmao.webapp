@@ -860,8 +860,8 @@ ion-item img {
 .list.card .item-input-inset >label > samp {
   margin-left: 0;
 }
-.card {
-  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+.card .list {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
 }
 #login-card {
   margin-bottom: 5px;
