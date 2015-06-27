@@ -1,10 +1,10 @@
-<ion-view title="金包银认购">
+<ion-view title="购买理财产品">
   <ion-content>
-    <ion-list>
+    <ion-list class="deposit">
       <ion-item>
-        <p>订单金额</p>
+        <span class="pull-left">订单金额</span>
 
-        <p><strong ng-bind="purchase.viewModel.investAmount"></strong>元</p>
+        <span class="pull-right"><strong ng-bind="purchase.viewModel.investAmount"></strong> &nbsp;元</span>
       </ion-item>
     </ion-list>
     <ion-list class="deposit">
@@ -17,29 +17,27 @@
 
         <label class="item item-input">
           <span class="input-label">输入密码：</span>
-          <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.userPaymentPassword">
+          <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.userPaymentPassword" required minlength="8" maxlength="18" ng-pattern="^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$">
         </label>
       </ion-item>
 
-      <ion-list>
-        <ion-item class="item row">
-          <div class="col col-25">
-            <label class="checkbox checkbox-assertive">
-              <input type="checkbox" checked>
-            </label>
-            <span>同意</span>
-          </div>
-          <div class="col col-75">
-            <p> <span>《借款协议》</span> <span>《委托协议》</span></p>
-          </div>
-        </ion-item>
-      </ion-list>
-      <div class="space"></div>
-      <button class="btn button-yellow">同意协议并付款</button>
-      <br>
-      <br>
-      <h4>如有问题，请垂询&nbsp;4008-556-333。</h4>
-
+      <div class="row">
+        <div class="col col-25">
+          <label class="checkbox checkbox-assertive">
+            <input type="checkbox" checked>
+          </label>
+          <span>同意</span>
+        </div>
+        <div class="col col-75">
+          <p><span>《借款协议》</span> <span>《委托协议》</span></p>
+        </div>
+      </div>
     </ion-list>
+    <button class="btn button-yellow">同意协议并付款</button>
+    <br>
+    <br>
+    <h4 id="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>
+
+
   </ion-content>
 </ion-view>

@@ -4,7 +4,8 @@ angular.module('jym.constants', [])
             FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.0.0'
         },
         JINBOAYIN: {
-            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY'
+            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         INVESTING: {
             JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY'
@@ -73,6 +74,7 @@ angular.module('jym.constants', [])
     .constant('REGEX', {
         CELLPHONE: /^(13|14|15|17|18)\d{9}$/,
         PASSWORD: /^[a-zA-Z\d~!@#$%^&*_]{6,18}$/,
+        PAYMENT_PASSWORD: /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/,
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     });
 

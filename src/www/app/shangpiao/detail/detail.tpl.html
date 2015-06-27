@@ -42,7 +42,7 @@
                  ng-change="product.investCountChange()">
           <samp>份</samp>
         </label>
-        <button class="button button-small button-assertive" ng-class="product.viewModel.status.buttonClass" id="btn-narrow" ng-bind="product.viewModel.status.buttonText" ng-click="product.goPurchase()"></button>
+        <button class="button button-small button-assertive" id="btn-narrow" ng-bind="product.viewModel.status.buttonText" ng-click="product.goPurchase()"></button>
       </ion-item>
       <ion-item class="item-divider">
         <p class="pull-left">投资金额<span>&nbsp;</span><span ng-bind="product.viewModel.investAmount"></span><span>&nbsp;</span>元</p>

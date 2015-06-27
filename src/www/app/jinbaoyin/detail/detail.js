@@ -34,7 +34,6 @@ angular.module('jym.jinbaoyin.detail', [
                         status: 10,
                         text: '待售',
                         icon: 'jym-icon-waiting',
-                        buttonClass: '',
                         buttonText: '待 售'
                     };
                 case 20:
@@ -42,7 +41,6 @@ angular.module('jym.jinbaoyin.detail', [
                         status: 20,
                         text: '抢购',
                         icon: 'jym-icon-selling',
-                        buttonClass: '',
                         buttonText: '立 即 抢 购'
                     };
                 case 30:
@@ -50,7 +48,6 @@ angular.module('jym.jinbaoyin.detail', [
                         status: 30,
                         text: '售罄',
                         icon: 'jym-icon-soldout',
-                        buttonClass: '',
                         buttonText: '售 罄'
                     };
             }

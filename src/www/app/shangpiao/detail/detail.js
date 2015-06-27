@@ -2,7 +2,8 @@ angular.module('jym.shangpiao.detail', [
     'jym.services',
     'jym.services.product',
     'jym.services.purchase',
-    'jym.services.user'
+    'jym.services.user',
+    'jym.shangpiao.purchase'
 ])
     .config(function ($stateProvider) {
         $stateProvider
@@ -16,7 +17,7 @@ angular.module('jym.shangpiao.detail', [
                 }
             });
     })
-    .controller('ShangpiaoDetailCtrl', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ShangpiaoDetailCtrl', function($scope, $state, $stateParams, $timeout, $q, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
         var getSaleProgress = function(product) {
@@ -32,7 +33,6 @@ angular.module('jym.shangpiao.detail', [
                         status: 10,
                         text: '待售',
                         icon: 'jym-icon-waiting',
-                        buttonClass: '',
                         buttonText: '待 售'
                     };
                 case 20:
@@ -40,7 +40,6 @@ angular.module('jym.shangpiao.detail', [
                         status: 20,
                         text: '抢购',
                         icon: 'jym-icon-selling',
-                        buttonClass: '',
                         buttonText: '立 即 抢 购'
                     };
                 case 30:
@@ -48,7 +47,6 @@ angular.module('jym.shangpiao.detail', [
                         status: 30,
                         text: '售罄',
                         icon: 'jym-icon-soldout',
-                        buttonClass: '',
                         buttonText: '售 罄'
                     };
             }
@@ -119,15 +117,9 @@ angular.module('jym.shangpiao.detail', [
             return ProductService.getShangpiao($stateParams.productIdentifier)
                 .then(function(result) {
                     product.model = result;
+                    product.refreshViewModel();
+                    product.refreshInvestViewModel();
                     return result;
-                })
-                .then(function(result) {
-                    ProductService.getShangpiaoSold(result.productIdentifier).
-                        then(function(result) {
-                            product.model.paidAmount = result.paid;
-                            product.refreshViewModel();
-                            product.refreshInvestViewModel();
-                        });
                 });
         };
 
