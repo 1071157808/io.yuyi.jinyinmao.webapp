@@ -1,6 +1,8 @@
 angular.module('jym.user.settle-account', [
     'jym.services.user',
-    'jym.user.settle-account-list'
+    'jym.user.settle-account-deposit',
+    'jym.user.settle-account-list',
+    'jym.user.settle-account-withdrawal'
 ])
     .config(function($stateProvider) {
         $stateProvider

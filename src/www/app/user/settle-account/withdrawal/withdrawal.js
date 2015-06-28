@@ -8,7 +8,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                 views: {
                     'user': {
                         controller: 'UserSettleAccountWithdrawalCtrl as account',
-                        templateUrl: 'app/user/settle-account/withdrawal/detail.tpl.html'
+                        templateUrl: 'app/user/settle-account/withdrawal/withdrawal.tpl.html'
                     }
                 }
             });
