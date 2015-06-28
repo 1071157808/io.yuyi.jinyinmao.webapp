@@ -1185,6 +1185,10 @@ img.top {
 
 
 /*bank-card start*/
+.bank-card.item-thumbnail-left, .bank-card.item-thumbnail-left a {
+  min-height: 80px;
+  height: 80px;
+}
 .bank-card .item-content {
   padding-top: 15px;
   padding-bottom: 0;
@@ -1193,7 +1197,7 @@ img.top {
   height: 80px;
   min-height: 60px;
 }
-.bank-card .item-thumbnail-left .item-content img, .bank-card .item-thumbnail-left img, .list .item-thumbnail-left img {
+.bank-card .item-thumbnail-left .item-content img, .bank-card.item-thumbnail-left .item-content>img:first-child, .bank-card .item-thumbnail-left img, .list .item-thumbnail-left img {
   height: 40px;
   width: 40px;
   max-width: 40px;
@@ -1218,6 +1222,11 @@ img.top {
 .bank-card p {
   font-size: 15px;
   color: #999999;
+}
+.bank-card h1 {
+  font-size: 22px;
+  text-align: center;
+  padding-top: 20px;
 }
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .bank-card p{
