@@ -1,5 +1,24 @@
 <ion-view title="提现">
   <ion-content>
-    提现
+    <ion-list class="bank-card">
+      <ion-item class="item-thumbnail-left item-icon-right">
+        <img src="assets/img/bank/gonghang.png"/>
+        <h2>中国工商银行<span>&nbsp;尾号0738</span></h2>
+        <p>限取额度（元）：50000.00</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="item-input max-withdrawal">
+        <span class="input-label">金额</span>
+        <input type="number" placeholder="100.00">
+        <button class="button button-small">全部</button>
+      </ion-item>
+      <ion-item class="item-input">
+        <span class="input-label">密码</span>
+        <input type="password" placeholder="请填写支付密码">
+      </ion-item>
+    </ion-list>
+    <div class="space"></div>
+    <div class="space"></div>
+    <button class="btn button-grey">提现</button>
   </ion-content>
 </ion-view>
