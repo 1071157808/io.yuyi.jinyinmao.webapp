@@ -1201,6 +1201,12 @@ img.top {
   margin-top: 10px;
   margin-left: 5px;
 }
+.bank-card .pull-right {
+  position: absolute;
+  top: 30px;
+  right: 45px;
+  color: #facb3a;
+}
 .bank-card h2 {
   font-size: 18px;
   padding-top: 5px;
@@ -1213,24 +1219,19 @@ img.top {
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .bank-card p{
     font-size: 13px;
-    margin-left: -10px;
   }
   .bank-card h2 {
     padding-top: 8px;
     font-size: 16px;
-    margin-left: -10px;
   }
 }/*iphone5*/
 @media only screen and (max-width: 320px) and (max-height: 480px){
   .bank-card p{
     font-size: 13px;
-    margin-left: -10px;
   }
   .bank-card h2 {
     padding-top: 8px;
-
     font-size: 16px;
-    margin-left: -10px;
   }
 }/*iphone4*/
 .bank-card .item i {
