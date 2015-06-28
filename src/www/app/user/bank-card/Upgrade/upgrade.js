@@ -13,11 +13,16 @@ angular.module('jym.user.bank-card-upgrade', [
                 }
             });
     })
-    .controller('UserBankCardUpgradeCtrl', function($scope, $state, $stateParams, UserService) {
+    .controller('UserBankCardUpgradeCtrl', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var card = this;
 
         card.model = {};
         card.viewModel = {};
+
+        card.buttonEnable = function() {
+            return card.viewModel.cellphone && card.viewModel.realName && card.model.user.realName
+                && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
+        };
 
         card.doRefresh = function() {
             card.refreshUser()
@@ -43,14 +48,49 @@ angular.module('jym.user.bank-card-upgrade', [
         };
 
         card.refreshViewModel = function() {
-            user.viewModel.cellphone = user.model.cellphone;
-            user.viewModel.realName = user.model.realName || '未实名认证';
-            user.viewModel.credentialNo = user.model.credentialNo || '未实名认证';
+            card.viewModel.verified = card.model.user.verified;
+            card.viewModel.cellphone = card.model.user.cellphone;
+
+            if (card.viewModel.verified) {
+                card.viewModel.realName = card.model.user.realName;
+                card.viewModel.credentialNo = card.model.user.credentialNo;
+            } else {
+                card.viewModel.realName = '';
+                card.viewModel.credentialNo = '';
+            }
+
+            card.viewModel.bankCardNo = card.model.card.bankCardNo;
+            card.viewModel.bankName = card.model.card.bankName;
+        };
+
+        card.verify = function() {
+            if (card.buttonEnable()) {
+
+                if (card.viewModel.verified) {
+                    UserService.verifyBankCardByYilian(card.viewModel.bankCardNo)
+                        .then(function(result) {
+                            if (result) {
+                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+                                $timeout(function() {
+                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice')
+                                }, 1000);
+                            }
+                        });
+                } else {
+                    UserService.authenticate(card.viewModel.bankCardNo, card.viewModel.bankName, card.viewModel.credentialNo, card.viewModel.realName)
+                        .then(function(result) {
+                            if (result) {
+                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+                                $timeout(function() {
+                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice')
+                                }, 1000);
+                            }
+                        });
+                }
+            }
         };
 
         $scope.$on('$ionicView.enter', function() {
-            user.doRefresh();
+            card.doRefresh();
         });
-
-        card.doRefresh();
     });

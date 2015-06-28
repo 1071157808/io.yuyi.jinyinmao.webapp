@@ -40,7 +40,7 @@ angular.module('jym.filters', [])
                 case '富滇银行':
                     return 'assets/img/bank/fudian.png';
                 default:
-                    return 'zhonghang.png';
+                    return 'assets/img/bank/zhonghang.png';
             }
         };
     })

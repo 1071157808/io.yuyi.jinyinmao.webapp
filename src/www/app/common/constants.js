@@ -18,7 +18,8 @@ angular.module('jym.constants', [])
             RESETLOGINPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
             RESETPAYMENTPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
             SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SETPAYMENTPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword'
+            SETPAYMENTPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate'
         },
         SETTLEACCOUNT: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcations/',
@@ -28,7 +29,9 @@ angular.module('jym.constants', [])
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
             REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable'
+            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFYBANKCARDBYYILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+
         },
         REGULARPRDUCT: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
@@ -65,7 +68,8 @@ angular.module('jym.constants', [])
                 LOGIN_OUT: '退出成功'
             },
             BANKCARD: {
-                REMOVE_SUCCESS: '删除银行卡成功'
+                REMOVE_SUCCESS: '删除银行卡成功',
+                SIGN: '认证申请已经提交<br>请耐心等待'
             },
             MISC: {
                 SEND_VERI_CODE: '发送成功',

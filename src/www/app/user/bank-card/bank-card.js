@@ -13,6 +13,14 @@ angular.module('jym.user.bank-card', [
                         templateUrl: 'app/user/bank-card/bank-card.tpl.html'
                     }
                 }
+            })
+            .state('jym.user-bank-card-yilian-notice', {
+                url: '/user/bank-card/yilian-notice',
+                views: {
+                    'user': {
+                        templateUrl: 'app/user/bank-card/yilianNotice.tpl.html'
+                    }
+                }
             });
     })
     .controller('UserBankCardCtrl', function($scope, $state, $timeout, RESOURCES, UserService) {

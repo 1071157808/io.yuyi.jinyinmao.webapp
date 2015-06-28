@@ -5,7 +5,67 @@ angular.module('jym.services.user', [
     .service('UserService', function($http, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
         var service = this;
 
+        var getCityName = function(bankName) {
+            switch (bankName) {
+                case '浦发银行':
+                    return '上海|上海';
+                case '深发银行':
+                    return '广东|深圳';
+                case '平安银行':
+                    return '上海|上海';
+                case '民生银行':
+                    return '上海|上海';
+                case '工商银行':
+                    return '上海|上海';
+                case '农业银行':
+                    return '上海|上海';
+                case '建设银行':
+                    return '上海|上海';
+                case '招商银行':
+                    return '上海|上海';
+                case '广发银行':
+                    return '广东|广州';
+                case '广州银行':
+                    return '广东|广州';
+                case '邮储银行':
+                    return '上海|上海';
+                case '兴业银行':
+                    return '上海|上海';
+                case '光大银行':
+                    return '上海|上海';
+                case '华夏银行':
+                    return '上海|上海';
+                case '中信银行':
+                    return '上海|上海';
+                case '广州农商行':
+                    return '广东|广州';
+                case '中国银行':
+                    return '上海|上海';
+                case '富滇银行':
+                    return '上海|上海';
+                default:
+                    return '上海|上海';
+            }
+        };
+
         var currentUser = {};
+
+        service.authenticate = function(bankCardNo, bankName, credentialNo, realName) {
+            var url = URLS.USER.AUTHENTICATE;
+            var cityName = getCityName(bankName);
+
+            return $http.post(url, {
+                bankCardNo: bankCardNo,
+                bankName: bankName,
+                cityName: cityName,
+                credential: 10,
+                credentialNo: credentialNo,
+                realName: realName
+            })
+                .then(function(result) {
+                    return result.status === 200;
+                });
+        };
 
         service.checkUserPurchaseStatus = function() {
             return service.getUserInfo()
@@ -193,6 +253,17 @@ angular.module('jym.services.user', [
             })
                 .then(function(result) {
                     return result.data;
+                });
+        };
+
+        service.verifyBankCardByYilian = function(bankCardNo) {
+            var url = URLS.BANKCARD.VERIFYBANKCARDBYYILIAN;
+
+            return $http.post(url, {
+                bankCardNo: bankCardNo
+            })
+                .then(function(result) {
+                    return result.status === 200;
                 });
         };
 
