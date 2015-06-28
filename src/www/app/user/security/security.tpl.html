@@ -6,8 +6,12 @@
         <p>重置登录密码</p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
-      <ion-item class="item-icon-right" ui-sref="jym.userInfo.jbyAccount">
+      <ion-item class="item-icon-right" ng-if="ctrl.viewModel.hasSetPaymentPassword" ui-sref="jym.user-security-payment-password-send-veri-code">
         <p>重置支付密码</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="item-icon-right" ng-if="!ctrl.viewModel.hasSetPaymentPassword" ui-sref="jym.user-security-set-payment-password">
+        <p>设置支付密码</p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
     </ion-list>

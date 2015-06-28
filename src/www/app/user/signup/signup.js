@@ -1,26 +1,26 @@
-angular.module('jym.user.security-password', [])
+angular.module('jym.user.signup', [])
     .config(function($stateProvider) {
         $stateProvider
-            .state('jym.user-security-password', {
-                url: '/user/security-password/{token}',
+            .state('jym.user-signup', {
+                url: '/user/signup/{token}',
                 views: {
                     'user': {
-                        controller: 'UserSecurityPasswordCtrl as ctrl',
-                        templateUrl: 'app/user/security/password/password.tpl.html'
+                        controller: 'UserSignUpCtrl as ctrl',
+                        templateUrl: 'app/user/signup/signup.tpl.html'
                     }
                 }
             })
-            .state('jym.user-security-password-send-veri-code', {
-                url: '/user/security-password-send-veri-code',
+            .state('jym.user-signup-send-veri-code', {
+                url: '/user/signup-send-veri-code',
                 views: {
                     'user': {
-                        controller: 'UserSecurityPasswordSendVeriCodeCtrl as ctrl',
-                        templateUrl: 'app/user/security/password/sendVeriCode.tpl.html'
+                        controller: 'UserSignUpSendVeriCodeCtrl as ctrl',
+                        templateUrl: 'app/user/signup/sendVeriCode.tpl.html'
                     }
                 }
             });
     })
-    .controller('UserSecurityPasswordCtrl', function($timeout, $stateParams, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSignUpCtrl', function($timeout, $stateParams, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
@@ -33,10 +33,10 @@ angular.module('jym.user.security-password', [])
 
         ctrl.resetPassword = function() {
             if (ctrl.enableButton()) {
-                UserService.resetLoginPassword(ctrl.viewModel.password, $stateParams.token)
+                UserService.signUp(ctrl.viewModel.password, $stateParams.token)
                     .then(function(result) {
                         if (result) {
-                            JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PASSWORD);
+                            JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_SUCCESS);
                             UserService.loginOut();
                             $timeout(function() {
                                 JYMUtilityService.goWithDisableBack('jym.user-login')
@@ -46,7 +46,7 @@ angular.module('jym.user.security-password', [])
             }
         };
     })
-    .controller('UserSecurityPasswordSendVeriCodeCtrl', function($timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSignUpSendVeriCodeCtrl', function($timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
@@ -58,7 +58,7 @@ angular.module('jym.user.security-password', [])
         ctrl.sendVeriCode = function() {
             if (ctrl.sendVeriCodeButtonEnable()) {
                 ctrl.viewModel.remainSeconds = 60;
-                UserService.sendVeriCode(ctrl.viewModel.cellphone, 20)
+                UserService.sendVeriCode(ctrl.viewModel.cellphone, 10)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.SEND_VERI_CODE);
@@ -85,7 +85,7 @@ angular.module('jym.user.security-password', [])
 
         ctrl.verifyVeriCode = function() {
             if (ctrl.verifyVeriCodeButtonEnable()) {
-                UserService.verifyVeriCode(ctrl.viewModel.cellphone, ctrl.viewModel.veriCode, 20)
+                UserService.verifyVeriCode(ctrl.viewModel.cellphone, ctrl.viewModel.veriCode, 10)
                     .then(function(result) {
                         if (result) {
                             ctrl.viewModel.remainSeconds = 0;
@@ -93,7 +93,7 @@ angular.module('jym.user.security-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-security-password', {token: result.token})
+                                JYMUtilityService.go('jym.user-signup', {token: result.token})
                             }, 1000);
                         }
                     });

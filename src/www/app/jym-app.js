@@ -28,7 +28,7 @@ angular.module('JYM', [
     })
     .config(function(toastrConfig) {
         angular.extend(toastrConfig, {
-            allowHtml: false,
+            allowHtml: true,
             autoDismiss: true,
             closeButton: false,
             closeHtml: '<button>&times;</button>',
@@ -55,7 +55,7 @@ angular.module('JYM', [
                 toast: 'directives/toast/toast.html',
                 progressbar: 'directives/progressbar/progressbar.html'
             },
-            timeOut: 5000,
+            timeOut: 3000,
             titleClass: 'toast-title',
             toastClass: 'toast'
         });

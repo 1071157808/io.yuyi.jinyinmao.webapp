@@ -1,4 +1,5 @@
 angular.module('jym.services.user', [
+    'ionic',
     'jym.services'
 ])
     .service('UserService', function($http, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
@@ -34,7 +35,7 @@ angular.module('jym.services.user', [
                 return result.data;
             });
         };
-
+        
         service.getBankCards = function() {
             var url = URLS.BANKCARD.LIST;
 
@@ -124,6 +125,20 @@ angular.module('jym.services.user', [
                 });
         };
 
+        service.resetPaymentPassword = function(credentialNo, password, token, userRealName) {
+            var url = URLS.USER.RESETLOGINPASSWORD;
+
+            return $http.post(url, {
+                credentialNo: credentialNo,
+                password: password,
+                token: token,
+                userRealName: userRealName
+            })
+                .then(function(result) {
+                    return result.status === 200;
+                });
+        };
+
         service.sendVeriCode = function(cellphone, type) {
             var url = URLS.USER.SENDVERICODE;
 
@@ -141,6 +156,43 @@ angular.module('jym.services.user', [
                     }
 
                     return true;
+                });
+        };
+
+        service.setPaymentPassword = function(password) {
+            var url = URLS.USER.SETPAYMENTPASSWORD;
+
+            return $http.post(url, {
+                password: password
+            })
+                .then(function(result) {
+                    return result.status === 200;
+                });
+        };
+
+        service.signUp = function(password, token) {
+            var url = URLS.USER.SINGUP;
+
+            var clientType;
+
+            if (ionic.Platform.isIOS()) {
+                clientType = 901;
+            } else if (ionic.Platform.isAndroid()) {
+                clientType = 902;
+            } else {
+                clientType = 903;
+            }
+
+            return $http.post(url, {
+                clientType: clientType,
+                contractId: 0,
+                inviteBy: "jinyinmao",
+                outletCode: "jinyinmao",
+                password: password,
+                token: token
+            })
+                .then(function(result) {
+                    return result.data;
                 });
         };
 

@@ -1,0 +1,19 @@
+<ion-view title="设置登录密码">
+  <ion-content>
+    <ion-list>
+      <ion-item class="divider"></ion-item>
+      <label class="item item-input">
+        <span class="input-label">输入登录密码</span>
+        <input type="password" placeholder="6-18位字符、数字或字母" ng-model="ctrl.viewModel.password" required minlength="6" maxlength="18" ng-pattern="/^[a-zA-Z\d~!@#$%^&*_]{6,18}$/">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">确认登录密码</span>
+        <input type="password" placeholder="再次输入登录密码" ng-model="ctrl.viewModel.confirmPassword" required minlength="6" maxlength="18" ng-pattern="/^[a-zA-Z\d~!@#$%^&*_]{6,18}$/">
+      </label>
+    </ion-list>
+
+    <div class="space"></div>
+    <div class="space"></div>
+    <button class="btn button-yellow" ng-click="ctrl.resetPassword()" ng-disabled="!ctrl.enableButton()">确 认</button>
+  </ion-content>
+</ion-view>

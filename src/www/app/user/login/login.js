@@ -1,5 +1,6 @@
 angular.module('jym.user.login', [
-    'jym.services.user'
+    'jym.services.user',
+    'jym.user.signup'
 ])
     .config(function($stateProvider) {
         $stateProvider

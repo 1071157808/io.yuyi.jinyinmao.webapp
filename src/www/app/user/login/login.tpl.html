@@ -12,14 +12,15 @@
       </label>
     </ion-list>
     <div class="space"></div>
-    <p id="forget-password"  class="pull-right" ui-sref="jym.user-security-password-send-veri-code">
+    <p id="forget-password" class="pull-right" ui-sref="jym.user-security-password-send-veri-code">
       <i class="icon ion-ios-help-outline"></i>&nbsp;忘记密码
     </p>
+
     <div class="space"></div>
     <div class="space"></div>
     <button class="btn button-yellow" ng-click="user.login()" ng-disabled="!user.loginButtonEnable()">登 录</button>
     <div class="space"></div>
     <div class="space"></div>
-    <button class="btn button-grey">创建金银猫账户</button>
+    <button class="btn button-grey" ui-sref="jym.user-signup-send-veri-code">创建金银猫账户</button>
   </ion-content>
 </ion-view>
