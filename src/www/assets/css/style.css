@@ -1243,12 +1243,11 @@ img.top {
   padding-top: 2px;
 }
 .plus-card a {
-  font-size: 24px;
   color: #FACB3A;
   text-align: center;
 }
-.plus-card a i {
-  font-size: 26px;
+.plus-card a i, .plus-card a span {
+  font-size: 20px;
 }
 .bank-card.detail img {
   margin-top:15px;
