@@ -1207,10 +1207,13 @@ img.top {
   right: 45px;
   color: #facb3a;
 }
-.bank-card h2 {
+.bank-card .item-thumbnail-left h2,  {
   font-size: 18px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+.bank-card.item-thumbnail-left h2 {
+  padding-top: 15px;
 }
 .bank-card p {
   font-size: 15px;
@@ -1665,6 +1668,9 @@ label.checkbox span {
 .input-label {
   font-size: 90%;
 }
+input[readonly]:not(.cloned-text-input) {
+  background-color: white;
+}
 #attention {
   color: #e74c3c;
   font-size: 14px;
@@ -1672,3 +1678,30 @@ label.checkbox span {
   padding-top: 10px;
   line-height: 1.5em;
 }
+
+/*#addcard start*/
+#addcard {
+  background: url("../img/payment/icon-auth-receive-0885d71.png") no-repeat 50% 30px;
+  background-size: 85px auto;
+}
+#addcard h2 {
+  position: relative;
+  padding-top: 130px;
+  text-align: center;
+  font-size: inherit;
+}
+#addcard p {
+  margin: 8px 20px 8px 25px;
+  font-size: 16px;
+}
+#addcard span {
+  font-size: 16px;
+  margin: 0;
+}
+#addcard i {
+  color: #facb3a;
+  font-size: 20px;
+  margin-left: 25px;
+}
+
+/*#addcard end*/
