@@ -85,5 +85,8 @@ angular.module('jym.constants', [])
         PASSWORD: /^[a-zA-Z\d~!@#$%^&*_]{6,18}$/,
         PAYMENT_PASSWORD: /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/,
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
+    })
+    .constant('APP', {
+        VERSION: '13.0.0'
     });
 

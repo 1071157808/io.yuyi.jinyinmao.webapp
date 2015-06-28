@@ -1,5 +1,6 @@
 angular.module('jym.user', [
     'jym.services.user',
+    'jym.user.about',
     'jym.user.bank-card',
     'jym.user.login',
     'jym.user.security',
