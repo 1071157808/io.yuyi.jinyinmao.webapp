@@ -40,12 +40,10 @@ angular.module('jym.interceptors', [
                 if (rejection.status == 401 || rejection.status == 403) {
                     authService.clearToken();
 
-                    $timeout(function() {
-                        $ionicHistory.nextViewOptions({
-                            disableBack: true
-                        });
-                        $state.go('jym.user-login', {backState: $state.current.name});
-                    }, 500);
+                    $ionicHistory.nextViewOptions({
+                        disableBack: true
+                    });
+                    $state.go('jym.user-login', {backState: $state.current.name});
                 }
 
                 if (rejection.status >= 500) {

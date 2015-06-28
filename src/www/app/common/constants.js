@@ -24,7 +24,8 @@ angular.module('jym.constants', [])
         BANKCARD: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove'
+            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable'
         },
         REGULARPRDUCT: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',

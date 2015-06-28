@@ -8,9 +8,9 @@
     <ion-list class="bank-card detail">
       <ion-item class="item-thumbnail-left">
         <img ng-src="{{ card.viewModel.bankName | bankImg }}">
-        <h2 ng-bind="card.viewModel.bankName">工商银行</h2>
+        <h2 ng-bind="card.viewModel.bankName"></h2>
         <span class="pull-right" ng-bind="card.viewModel | bankCardStatus"></span>
-        <p>尾号 <em ng-bind="card.viewModel.bankCardNo.substr(-4)">0738</em></p>
+        <p>尾号 <em ng-bind="card.viewModel.bankCardNo.substr(-4)"></em></p>
       </ion-item>
     </ion-list>
     <br>

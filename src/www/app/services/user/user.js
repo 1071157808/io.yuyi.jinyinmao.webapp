@@ -79,6 +79,14 @@ angular.module('jym.services.user', [
             });
         };
 
+        service.getWithdrawalableBankCards = function() {
+            return $http.get(URLS.BANKCARD.WITHDRAWALABLE, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
         service.login = function(loginName, password) {
             return $http.post(URLS.USER.SIGNIN, {
                 loginName: loginName,

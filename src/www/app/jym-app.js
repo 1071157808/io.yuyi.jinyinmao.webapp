@@ -55,7 +55,7 @@ angular.module('JYM', [
                 toast: 'directives/toast/toast.html',
                 progressbar: 'directives/progressbar/progressbar.html'
             },
-            timeOut: 0,
+            timeOut: 5000,
             titleClass: 'toast-title',
             toastClass: 'toast'
         });

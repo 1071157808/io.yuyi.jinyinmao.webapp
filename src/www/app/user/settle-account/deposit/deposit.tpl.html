@@ -1,11 +1,15 @@
 <ion-view title="充值">
   <ion-content>
     <ion-list class="bank-card">
-      <ion-item class="item-thumbnail-left item-icon-right">
-        <img src="assets/img/bank/gonghang.png"/>
-        <h2>中国工商银行<span>&nbsp;尾号0738</span></h2>
-        <p>单笔限额1万，日限额100万。</p>
+      <ion-item class="item-thumbnail-left item-icon-right" ng-if="!account.viewModel.noCardSelected">
+        <img ng-src="{{ account.viewModel.bankName | bankImg }}">
+        <h2 ng-bind="account.viewModel.bankName"></h2>
+        <p>尾号 <em ng-bind="account.viewModel.bankCardNo.substr(-4)"></em></p>
         <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item ng-if="account.viewModel.noCardSelected">
+        <i class="icon ion-ios-plus-outline"></i>
+        <span> 添加新银行卡</span>
       </ion-item>
       <ion-item class="item-input">
         <span class="input-label">金额</span>
