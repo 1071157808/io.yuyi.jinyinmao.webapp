@@ -5,6 +5,8 @@ angular.module('jym.services.user', [
     .service('UserService', function($http, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
         var service = this;
 
+        service.sharedData = {};
+
         var getCityName = function(bankName) {
             switch (bankName) {
                 case '浦发银行':
@@ -61,6 +63,20 @@ angular.module('jym.services.user', [
                 credential: 10,
                 credentialNo: credentialNo,
                 realName: realName
+            })
+                .then(function(result) {
+                    return result.status === 200;
+                });
+        };
+
+        service.addBankCard = function(bankCardNo, bankName) {
+            var url = URLS.BANKCARD.ADDBANKCARD;
+            var cityName = getCityName(bankName);
+
+            return $http.post(url, {
+                bankCardNo: bankCardNo,
+                bankName: bankName,
+                cityName: cityName
             })
                 .then(function(result) {
                     return result.status === 200;

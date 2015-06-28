@@ -58,4 +58,6 @@ angular.module('jym.user.bank-card-detail', [
         $scope.$on('$ionicView.enter', function() {
             card.doRefresh();
         });
+
+        card.doRefresh();
     });

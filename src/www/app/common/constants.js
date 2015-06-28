@@ -31,7 +31,7 @@ angular.module('jym.constants', [])
             REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
             WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
             VERIFYBANKCARDBYYILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-
+            ADDBANKCARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard'
         },
         REGULARPRDUCT: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
