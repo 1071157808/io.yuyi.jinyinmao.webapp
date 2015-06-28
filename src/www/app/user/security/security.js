@@ -27,10 +27,6 @@ angular.module('jym.user.security', [
                     ctrl.refreshViewModel();
                     return result;
                 });
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
         };
 
         ctrl.refreshUser = function() {

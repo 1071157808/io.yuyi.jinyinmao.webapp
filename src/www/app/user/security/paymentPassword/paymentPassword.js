@@ -46,10 +46,6 @@ angular.module('jym.user.security-payment-password', [])
                     ctrl.refreshViewModel();
                     return result;
                 });
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
         };
 
         ctrl.refreshUser = function() {
@@ -129,10 +125,6 @@ angular.module('jym.user.security-payment-password', [])
                     ctrl.refreshViewModel();
                     return result;
                 });
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
         };
 
         ctrl.refreshUser = function() {

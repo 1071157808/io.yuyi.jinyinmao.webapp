@@ -1,5 +1,6 @@
 angular.module('jym.user.bank-card', [
     'jym.services.user',
+    'jym.user.bank-card-add',
     'jym.user.bank-card-detail'
 ])
     .config(function($stateProvider) {
