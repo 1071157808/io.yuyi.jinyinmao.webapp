@@ -58,4 +58,6 @@ angular.module('jym.user', [
         $scope.$on('$ionicView.enter', function() {
             user.doRefresh();
         });
+
+        user.doRefresh();
     });

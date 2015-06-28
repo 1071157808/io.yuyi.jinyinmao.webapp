@@ -93,4 +93,6 @@ angular.module('jym.user.bank-card-upgrade', [
         $scope.$on('$ionicView.enter', function() {
             card.doRefresh();
         });
+
+        card.doRefresh();
     });

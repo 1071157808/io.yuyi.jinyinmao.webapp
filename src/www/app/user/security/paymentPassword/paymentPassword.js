@@ -188,4 +188,6 @@ angular.module('jym.user.security-payment-password', [])
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
+
+        ctrl.doRefresh();
     });

@@ -40,4 +40,6 @@ angular.module('jym.user.security', [
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
+
+        ctrl.doRefresh();
     });
