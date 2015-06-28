@@ -1,5 +1,23 @@
 <ion-view title="充值">
   <ion-content>
-    充值
+    <ion-list class="bank-card">
+      <ion-item class="item-thumbnail-left item-icon-right">
+        <img src="assets/img/bank/gonghang.png"/>
+        <h2>中国工商银行<span>&nbsp;尾号0738</span></h2>
+        <p>单笔限额1万，日限额100万。</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="item-input">
+        <span class="input-label">金额</span>
+        <input type="text" placeholder="请填写提现金额">
+      </ion-item>
+      <ion-item class="item-input">
+        <span class="input-label">密码</span>
+        <input type="text" placeholder="请填写支付密码">
+      </ion-item>
+    </ion-list>
+    <div class="space"></div>
+    <div class="space"></div>
+    <button class="btn button-grey">付款</button>
   </ion-content>
 </ion-view>

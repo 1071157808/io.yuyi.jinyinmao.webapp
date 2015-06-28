@@ -1174,7 +1174,7 @@ img.top {
   height: 80px;
   min-height: 60px;
 }
-.bank-card .item-thumbnail-left .item-content img, .bank-card .item-thumbnail-left img {
+.bank-card .item-thumbnail-left .item-content img, .bank-card .item-thumbnail-left img, .list .item-thumbnail-left img {
   height: 40px;
   width: 40px;
   max-width: 40px;
@@ -1183,7 +1183,8 @@ img.top {
   margin-left: 5px;
 }
 .bank-card h2 {
-  font-size: 20px;
+  font-size: 18px;
+  padding-top: 5px;
 }
 .bank-card p {
   font-size: 16px;
@@ -1191,12 +1192,24 @@ img.top {
 }
 @media only screen and (max-width: 320px) and (min-height: 568px){
   .bank-card p{
-    font-size: 15px;
+    font-size: 14px;
+    margin-left: -10px;
+  }
+  .bank-card h2 {
+    padding-top: 8px;
+    font-size: 16px;
+    margin-left: -10px;
   }
 }/*iphone5*/
 @media only screen and (max-width: 320px) and (max-height: 480px){
   .bank-card p{
-    font-size: 15px;
+    font-size: 14px;
+    margin-left: -10px;
+  }
+  .bank-card h2 {
+    padding-top: 8px;
+    font-size: 16px;
+    margin-left: -10px;
   }
 }/*iphone4*/
 .bank-card .item i {
