@@ -29,7 +29,7 @@ angular.module('jym.user.bank-card-upgrade', [
                         .then(function(result) {
                             card.model.card = result;
                             card.refreshViewModel();
-                            
+
                         });
                 });
         };
