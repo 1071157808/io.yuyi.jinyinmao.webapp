@@ -45,7 +45,7 @@ angular.module('jym.interceptors', [
                             disableBack: true
                         });
                         $state.go('jym.user-login', {backState: $state.current.name});
-                    }, 1000);
+                    }, 500);
                 }
 
                 if (rejection.status >= 500) {

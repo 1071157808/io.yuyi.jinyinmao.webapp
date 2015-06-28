@@ -98,7 +98,7 @@ angular.module('jym.zhuanqu.detail', [
             } else {
                 productCategory = 100000010;
             }
-            
+
             if (product.goPurchaseButtonEnable()) {
                 var amount = product.viewModel.investCount * product.model.unitPrice;
                 var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
