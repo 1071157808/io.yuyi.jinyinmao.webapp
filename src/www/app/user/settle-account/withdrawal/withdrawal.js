@@ -7,13 +7,13 @@ angular.module('jym.user.settle-account-withdrawal', [
                 url: '/user/settle-account/withdrawal/{bankCardNo}',
                 views: {
                     'user': {
-                        controller: 'UserSettleAccountWithdrawalCtrl as transcation',
+                        controller: 'UserSettleAccountWithdrawalCtrl as account',
                         templateUrl: 'app/user/settle-account/withdrawal/detail.tpl.html'
                     }
                 }
             });
     })
-    .controller('UserSettleAccountDetailCtrl', function() {
-        var transcation = this;
+    .controller('UserSettleAccountWithdrawalCtrl', function() {
+        var account = this;
 
     });
