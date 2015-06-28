@@ -13,29 +13,44 @@ angular.module('jym.user.bank-card-upgrade', [
                 }
             });
     })
-    .controller('UserBankCardUpgradeCtrl', function($scope, $state, $timeout, RESOURCES, UserService) {
+    .controller('UserBankCardUpgradeCtrl', function($scope, $state, $stateParams, UserService) {
         var card = this;
 
         card.model = {};
         card.viewModel = {};
-        card.viewModel.items = [];
 
         card.doRefresh = function() {
-            card.refreshBankCards()
+            card.refreshUser()
                 .then(function(result) {
-                    card.model = result;
-                    card.refreshViewModel();
+                    card.model.user = result;
                     return result;
+                }).then(function() {
+                    card.refreshBankCard()
+                        .then(function(result) {
+                            card.model.card = result;
+                            card.refreshViewModel();
+                            
+                        });
                 });
         };
 
-        card.refreshBankCards = function() {
-            return UserService.getBankCards();
+        card.refreshBankCard = function() {
+            return UserService.getBankCard($stateParams.bankCardNo);
+        };
+
+        card.refreshUser = function() {
+            return UserService.getUserInfo();
         };
 
         card.refreshViewModel = function() {
-            card.viewModel.items = card.model;
+            user.viewModel.cellphone = user.model.cellphone;
+            user.viewModel.realName = user.model.realName || '未实名认证';
+            user.viewModel.credentialNo = user.model.credentialNo || '未实名认证';
         };
+
+        $scope.$on('$ionicView.enter', function() {
+            user.doRefresh();
+        });
 
         card.doRefresh();
     });
