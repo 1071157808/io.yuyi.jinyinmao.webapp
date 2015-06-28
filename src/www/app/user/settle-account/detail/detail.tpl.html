@@ -1,17 +1,34 @@
 <ion-view title="交易记录">
+  <ion-refresher
+    pulling-icon="ion-arrow-down-c"
+    spinner="spiral"
+    on-refresh="transaction.doRefresh()">
+  </ion-refresher>
   <ion-content>
     <ion-list class="reorder">
       <ion-item>
-        <p class="pull-left" >交易时间：</p>
-        <p class="pull-right">2015年4月30日</p>
+        <p class="pull-left">交易时间：</p>
+
+        <p class="pull-right" ng-bind="transaction.viewModel.transactionTime | longTime"></p>
+      </ion-item>
+      <ion-item ng-if="transaction.viewModel.resultCode === 1">
+        <p class="pull-left">完成时间：</p>
+
+        <p class="pull-right" ng-bind="transaction.viewModel.resultTime | longTime"></p>
       </ion-item>
       <ion-item class="nonborder">
         <p class="pull-left">交易类型：</p>
-        <p class="pull-right">金包银购买</p>
+
+        <p class="pull-right" ng-bind="transaction.viewModel.tradeCode | tradeCodeForSettle"></p>
       </ion-item>
       <ion-item>
         <p class="pull-left">金额（元）：</p>
-        <p class="pull-right">－23457543.00</p>
+
+        <p class="pull-right">
+          <span class="plus" ng-if="transaction.viewModel.trade === 0"> + </span>
+          <span class="minus" ng-if="transaction.viewModel.trade === 1"> - </span>
+          <span ng-bind="transaction.viewModel.amount"></span>
+        </p>
       </ion-item>
       <ion-item class="divider"></ion-item>
       <ion-item class="item-icon-right">
@@ -21,7 +38,8 @@
       <ion-item class="divider"></ion-item>
       <ion-item>
         <p class="pull-left">状态</p>
-        <p class="pull-right">成功</p>
+
+        <p class="pull-right" ng-bind="transaction.viewModel.resultCode | resultText" ng-style="transaction.viewModel.resultStyle"></p>
       </ion-item>
     </ion-list>
   </ion-content>

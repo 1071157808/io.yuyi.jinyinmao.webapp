@@ -60,6 +60,16 @@ angular.module('jym.services.user', [
             });
         };
 
+        service.getSettelAccountTranscation = function(transactionIdentifier) {
+            var url = URLS.SETTLEACCOUNT.INFO + transactionIdentifier;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
         service.getUserInfo = function() {
             return $http.get(URLS.USER.GETINFO, {
                 cache: JYMCacheService.get('userCache')

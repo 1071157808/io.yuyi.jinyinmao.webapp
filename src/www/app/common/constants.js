@@ -18,7 +18,8 @@ angular.module('jym.constants', [])
             RESETLOGINPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword'
         },
         SETTLEACCOUNT: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcations/'
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcations/',
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcation/'
         },
         BANKCARD: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',

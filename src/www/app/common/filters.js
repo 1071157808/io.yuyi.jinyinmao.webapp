@@ -551,6 +551,15 @@ angular.module('jym.filters', [])
             return moment(time).format('LL');
         };
     })
+    .filter('longTime', function() {
+        return function(time) {
+            if (time === undefined || time === null || time === '') {
+                return '';
+            }
+
+            return moment(time).format('YYYY-MM-D HH:mm');
+        };
+    })
     .filter('tradeForSettle', function() {
         return function(trade) {
             if (!isFinite(trade)) {
