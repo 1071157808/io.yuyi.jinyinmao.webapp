@@ -1,5 +1,6 @@
 angular.module('jym.user.settle-account-list', [
-    'jym.services.user'
+    'jym.services.user',
+    'jym.user.settle-account-detail'
 ])
     .config(function($stateProvider) {
         $stateProvider
