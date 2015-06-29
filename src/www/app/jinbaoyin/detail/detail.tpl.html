@@ -34,7 +34,7 @@
       </ion-item>
     </ion-list>
 
-    <ion-list class="card">
+    <div class="card">
       <ion-item class="item-divider">
         <p class="pull-left">剩余份数：<span ng-bind="product.viewModel.remainCount"></span> 份（<span ng-bind="product.viewModel.unitPrice"></span>元／份）</p>
       </ion-item>
@@ -51,7 +51,7 @@
 
         <p class="pull-right">预计收益（30天）：<span>&nbsp;</span><span ng-bind="product.viewModel.expectedInterest"></span><span>&nbsp; </span>元</p>
       </ion-item>
-    </ion-list>
+    </div>
 
     <ion-list>
       <ion-item class="item-divider"><p ng-bind="product.viewModel.productNo" class="product-no"></p></ion-item>
