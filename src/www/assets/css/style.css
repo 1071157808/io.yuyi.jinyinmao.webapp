@@ -1337,9 +1337,13 @@ img.top {
 
 
 /*jbyAccount start*/
-.jbyaccount .item-content {
+.jbyaccount .list .item {
   background-color: #e74c3c;
 }
+/*.jbyaccount .list .item.activated {*/
+  /*background-color: #e42012;*/
+  /*border: none;*/
+/*}*/
 .jbyaccount a.item {
   padding: 10px 16px;
 }
