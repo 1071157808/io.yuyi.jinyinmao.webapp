@@ -17,17 +17,30 @@ angular.module('jym.user.settle-account-deposit', [
                 views: {
                     'user': {
                         controller: 'UserSettleAccountDepositBankCardSeletorCtrl as account',
-                        templateUrl: 'app/user/settle-account/deposit/bankCardSelector.tpl.html'
+                        templateUrl: 'app/user/settle-account/deposit/bank-card-selector.tpl.html'
+                    }
+                }
+            })
+            .state('jym.user-settle-account-deposit-success', {
+                url: '/user/settle-account/deposit/success',
+                views: {
+                    'user': {
+                        templateUrl: 'app/user/settle-account/deposit/deposit-success.tpl.html'
                     }
                 }
             });
     })
-    .controller('UserSettleAccountDepositCtrl', function($scope, $stateParams, $timeout, UserService) {
+    .controller('UserSettleAccountDepositCtrl', function($scope, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var account = this;
 
         account.model = {};
         account.viewModel = {};
+        account.viewModel.amount = undefined;
+        account.viewModel.password = undefined;
 
+        account.buttonEnable = function() {
+            return account.viewModel.bankCardNo && account.viewModel.amount && account.viewModel.password;
+        };
 
         account.doRefresh = function() {
             account.refresh()
@@ -38,11 +51,27 @@ angular.module('jym.user.settle-account-deposit', [
                 });
         };
 
+        account.deposit = function() {
+            var amount = parseInt(account.viewModel.amount * 100);
+            if(account.buttonEnable()) {
+                UserService.deposit(amount, account.viewModel.bankCardNo, account.viewModel.password)
+                    .then(function(result) {
+                        if(result) {
+                            JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.DEPOSIT_SUCCESS);
+
+                            $timeout(function() {
+                                JYMUtilityService.go('jym.user-settle-account-deposit-success');
+                            }, 1000);
+                        }
+                    });
+            }
+        };
+
         account.refresh = function() {
             if ($stateParams.bankCardNo) {
                 return UserService.getBankCard($stateParams.bankCardNo);
             } else {
-                return UserService.getWithdrawalableBankCards($stateParams.bankCardNo)
+                return UserService.getWithdrawalableBankCards()
                     .then(function(result) {
                         if (result.length > 0) {
                             return result[0];
@@ -55,7 +84,6 @@ angular.module('jym.user.settle-account-deposit', [
 
         account.refreshViewModel = function() {
             if (account.model === null) {
-                account.viewModel = {};
                 account.viewModel.noCard = true;
             } else {
                 account.viewModel.bankCardNo = account.model.bankCardNo;
@@ -65,7 +93,7 @@ angular.module('jym.user.settle-account-deposit', [
                 account.viewModel.verified = account.model.verified;
                 account.viewModel.verifiedByYilian = account.model.verifiedByYilian;
                 account.viewModel.verifiedTime = account.model.verifiedTime;
-                account.viewModel.withdrawAmount = account.model.withdrawAmount;
+                account.viewModel.withdrawAmount = (account.model.withdrawAmount / 100).toFixed(2);
                 account.viewModel.noCard = false;
             }
         };

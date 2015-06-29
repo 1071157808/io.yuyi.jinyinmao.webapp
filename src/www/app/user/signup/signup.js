@@ -93,7 +93,7 @@ angular.module('jym.user.signup', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-signup', {token: result.token})
+                                JYMUtilityService.go('jym.user-signup', {token: result.token});
                             }, 1000);
                         }
                     });

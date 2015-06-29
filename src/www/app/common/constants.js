@@ -23,7 +23,8 @@ angular.module('jym.constants', [])
         },
         SETTLEACCOUNT: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcations/',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcation/'
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcation/',
+            DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian'
         },
         BANKCARD: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
@@ -81,6 +82,9 @@ angular.module('jym.constants', [])
             },
             SIGNUP: {
                 SIGNUP_SUCCESS: '注册成功<br>请登录使用'
+            },
+            SETTLEACCOUNT: {
+                DEPOSIT_SUCCESS: '重置申请已经提交<br>请耐心等待支付结果'
             }
         }
     })

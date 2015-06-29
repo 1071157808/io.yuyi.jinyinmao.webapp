@@ -102,6 +102,18 @@ angular.module('jym.services.user', [
                 });
         };
 
+        service.depositByYilian = function(amount, bankCardNo, paymentPassword) {
+            var url = URLS.SETTLEACCOUNT.DEPOSIT;
+
+            return $http.post(url, {
+                amount: amount,
+                bankCardNo: bankCardNo,
+                paymentPassword: paymentPassword
+            }).then(function(result) {
+                return result.status === 200;
+            });
+        };
+
         service.getBankCard = function(bankCardNo) {
             var url = URLS.BANKCARD.INFO + bankCardNo;
 
