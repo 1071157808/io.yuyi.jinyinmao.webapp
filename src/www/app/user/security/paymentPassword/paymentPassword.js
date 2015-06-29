@@ -83,7 +83,7 @@ angular.module('jym.user.security-payment-password', [])
             ctrl.doRefresh();
         });
     })
-    .controller('UserSecuritySetPaymentPasswordCtrl', function($timeout, $stateParams, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSecuritySetPaymentPasswordCtrl', function($timeout, $stateParams, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
@@ -99,9 +99,14 @@ angular.module('jym.user.security-payment-password', [])
                 UserService.setPaymentPassword(ctrl.viewModel.password)
                     .then(function(result) {
                         if (result) {
-                            JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PASSWORD);
+                            JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SETPAYMENTPASSWORD);
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user')
+                                if($ionicHistory.backView()){
+                                    $ionicHistory.goBack();
+                                }else{
+                                    JYMUtilityService.goWithDisableBack('jym.user');
+                                }
+
                             }, 1000);
                         }
                     });

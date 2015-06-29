@@ -26,13 +26,14 @@ angular.module('jym.interceptors', [
                 var $ionicHistory = $injector.get('$ionicHistory');
                 var $ionicLoading = $injector.get('$ionicLoading');
 
-                if (rejection.status > 400 && rejection.status < 500) {
+                if (rejection.status >= 400 && rejection.status < 500) {
                     if (rejection.data.message) {
                         var message = rejection.data.message.split(':');
                         var errorMessage = message[message.length - 1];
                         $ionicLoading.show({
                             template: errorMessage,
-                            duration: 3000
+                            duration: 3000,
+                            hideOnStateChange: true
                         });
                     }
                 }

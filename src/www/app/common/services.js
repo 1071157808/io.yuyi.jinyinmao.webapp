@@ -94,7 +94,7 @@ angular.module('jym.services', [
             return service.getConfig().then(extractSlidersConfig);
         }
     })
-    .service('JYMUtilityService', function($state, $timeout, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX, toastr) {
+    .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX, toastr) {
         var service = this;
 
         service.go = function(to, params, options) {
@@ -121,10 +121,15 @@ angular.module('jym.services', [
         };
 
         service.showAlert = function(text) {
-            if (window.plugins && window.plugins.toast) {
-                $cordovaToast.showShortBottom(text);
-            } else {
-                toastr.info(text);
-            }
+            $ionicLoading.show({
+                template: text,
+                duration: 3000,
+                hideOnStateChange: true
+            });
+            //if (window.plugins && window.plugins.toast) {
+            //    $cordovaToast.showShortBottom(text);
+            //} else {
+            //    toastr.info(text);
+            //}
         };
     });

@@ -26,7 +26,9 @@
     </ion-list>
     <div class="space"></div>
     <div class="space"></div>
-    <button class="btn button-yellow" ng-disabled="!card.buttonEnable()" ng-click="card.verify()">认证银行卡</button>
-    <p class="attention">认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p>
+    <button class="btn button-yellow" ng-disabled="!card.buttonEnable()" ng-click="card.verify()" ng-if="card.viewModel.hasSetPaymentPassword">认证银行卡</button>
+    <button class="btn button-yellow" ui-sref="jym.user-security-set-payment-password" ng-if="!card.viewModel.hasSetPaymentPassword">设置支付密码</button>
+    <p class="attention" ng-if="card.viewModel.hasSetPaymentPassword">认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p>
+    <p class="attention" ng-if="!card.viewModel.hasSetPaymentPassword">为保证您能够正常使用支付功能，请先设置支付密码。</p>
   </ion-content>
 </ion-view>

@@ -37,8 +37,7 @@ angular.module('jym.user.bank-card-add', [
         card.viewModel = {};
 
         card.buttonEnable = function() {
-            return card.viewModel.cellphone && card.viewModel.realName && card.model.user.realName
-                && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
+            return card.viewModel.cellphone && card.viewModel.realName && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
         };
 
         card.doRefresh = function() {
@@ -57,16 +56,17 @@ angular.module('jym.user.bank-card-add', [
         card.refreshViewModel = function() {
             card.viewModel.verified = card.model.user.verified;
             card.viewModel.cellphone = card.model.user.cellphone;
+            card.viewModel.hasSetPaymentPassword = card.model.user.hasSetPaymentPassword;
 
             if (card.viewModel.verified) {
                 card.viewModel.realName = card.model.user.realName;
                 card.viewModel.credentialNo = card.model.user.credentialNo;
             } else {
-                card.viewModel.realName = '';
-                card.viewModel.credentialNo = '';
+                card.viewModel.realName = card.viewModel.realName || '';
+                card.viewModel.credentialNo = card.viewModel.credentialNo || '';
             }
 
-            card.viewModel.bankCardNo = '';
+            card.viewModel.bankCardNo = card.viewModel.bankCardNo || '';
             card.viewModel.bankName = UserService.sharedData.addBankName || '工商银行';
         };
 
