@@ -1337,7 +1337,7 @@ img.top {
 
 
 /*jbyAccount start*/
-.jbyaccount .list {
+.jbyaccount .item-content {
   background-color: #e74c3c;
 }
 .jbyaccount a.item {
@@ -1345,7 +1345,6 @@ img.top {
 }
 
 .jbyaccount .list .item {
-  background-color: inherit;
   border: none;
 }
 .jbyaccount p, .jbyaccount h1, .jbyaccount i {
