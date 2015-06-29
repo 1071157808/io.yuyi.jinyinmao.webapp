@@ -62,11 +62,11 @@ angular.module('jym.user.bank-card', [
 
         cards.doRefresh();
     })
-    .controller('UserBankCardCtrl', function(JYMUtilityService) {
+    .controller('UserBankCardYilianNoticeCtrl', function(JYMUtilityService) {
         var ctrl = this;
 
         ctrl.go = function(toState, params) {
             params = params || {};
-            JYMUtilityService.goWithDisableBack(toState);
+            JYMUtilityService.goWithDisableBack(toState, params);
         };
     });

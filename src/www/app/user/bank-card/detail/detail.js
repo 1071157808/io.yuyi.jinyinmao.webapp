@@ -46,11 +46,11 @@ angular.module('jym.user.bank-card-detail', [
             if (card.model.bankCardNo) {
                 UserService.removeCard(card.model.bankCardNo)
                     .then(function() {
-                        JYMUtilityService.showAlert(RESOURCES.BANKCARD.REMOVE_SUCCESS);
+                        JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.REMOVE_SUCCESS);
 
                         $timeout(function() {
                             JYMUtilityService.goWithDisableBack('jym.user-bank-card');
-                        }, 3000);
+                        }, 1000);
                     });
             }
         };

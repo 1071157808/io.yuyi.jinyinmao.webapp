@@ -25,7 +25,7 @@ angular.module('jym.services', [
         var service = this;
 
         CacheFactory('configCache', {
-            maxAge: 60 * 60 * 1000,
+            maxAge: 15 * 60 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'localStorage'
         });

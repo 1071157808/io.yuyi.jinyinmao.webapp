@@ -3,6 +3,7 @@ angular.module('jym.user', [
     'jym.user.about',
     'jym.user.bank-card',
     'jym.user.login',
+    'jym.user.jinbaoyin',
     'jym.user.security',
     'jym.user.settle-account'
 ])
