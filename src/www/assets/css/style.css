@@ -1680,7 +1680,7 @@ label.checkbox span {
 input[readonly]:not(.cloned-text-input) {
   background-color: white;
 }
-#attention {
+.attention {
   color: #e74c3c;
   font-size: 14px;
   margin: 0 20px;

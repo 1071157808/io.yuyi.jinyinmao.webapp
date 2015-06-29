@@ -23,8 +23,9 @@
         <h2 ng-bind="card.viewModel.bankName"></h2>
       </ion-item>
     </ion-list>
-
+    <div class="space"></div>
+    <div class="space"></div>
     <button class="btn button-yellow" ng-disabled="!card.buttonEnable()" ng-click="card.verify()">认证银行卡</button>
-
+    <p class="attention">认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p>
   </ion-content>
 </ion-view>
