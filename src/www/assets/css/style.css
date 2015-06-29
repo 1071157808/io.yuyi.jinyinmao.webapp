@@ -1192,7 +1192,7 @@ img.top {
 }
 .bank-card .item-content {
   padding-top: 15px;
-  padding-bottom: 0;
+  /*padding-bottom: 0;*/
 }
 .bank-card .item-thumbnail-left {
   height: 80px;
@@ -1715,3 +1715,4 @@ input[readonly]:not(.cloned-text-input) {
 }
 
 /*#addcard end*/
+
