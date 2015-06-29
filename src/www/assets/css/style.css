@@ -282,7 +282,8 @@ h1,h2,h3,h4,h5,h6,strong,em,p {
   font-weight: 400;
   font-style: normal;
   margin: 0;
-  padding: 0
+  padding: 0;
+  color: #444;
 }
 ul,ol {
   list-style: none;
@@ -498,16 +499,7 @@ ion-slide img {
 .jinbaoyin-index-product h5{
   font-size: 20px;
 }
-@media only screen and (max-width: 320px) and (min-height: 568px){
-  .jinbaoyin-index-product {
-    margin-top: 0;
-  }
-}/*iphone5*/
-@media only screen and (max-width: 320px) and (max-height: 480px){
-  .jinbaoyin-index-product{
-    margin-top: 0;
-  }
-}/*iphone4*/
+
 .jinbaoyin-yield {
   text-align: center;
 }
@@ -545,14 +537,13 @@ ion-slide img {
   margin: 5% auto;
 }
 
-
 /*.jym-safe-control start*/
 .ui-grid3 {
   overflow: hidden;
   margin-bottom: 5px;
 }
 .ui-grid3>.ui-block-a,.ui-grid3>.ui-block-b,.ui-grid3>.ui-block-c {
- width: 33.333%
+  width: 33.333%
 }
 .jym-safe-control {
   overflow: hidden;
@@ -625,6 +616,55 @@ ion-slide img {
 /*.jym-safe-control end*/
 
 
+@media only screen and (max-width: 320px) and (min-height: 568px){
+  .jinbaoyin-index-product {
+    margin-top: 0;
+  }
+}/*iphone5*/
+
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  .jinbaoyin-index-product{
+    margin-top: 0;
+  }
+}/*iphone4*/
+
+@media only screen and (min-width: 768px) {
+  .jinbaoyin-index-product h4 {
+    font-size: 40px;
+    margin: 0 auto 10px ;
+  }
+  .jinbaoyin-index-product h5 {
+    font-size: 30px;
+    margin: 20px;
+  }
+  .jinbaoyin-index-product em {
+    font-size: 90px;
+
+  }
+  .jinbaoyin-index-product span {
+    font-size: 22px;
+    margin: 10px 20px;
+  }
+  .btn.button-action {
+    line-height: 80%;
+    font-size: 26px;
+  }
+  .jym-safe-control em {
+    font-size: 20px;
+  }
+  .tab-nav.tabs {
+    height: 70px;
+
+  }
+  .tab-item .icon {
+    font-size: 40px;
+    padding-top: 10px;
+  }
+}
+/*pad 竖屏*/
+
+
+
 /*ion-footer-bar start*/
 .bar.bar-footer .title {
   right: 130px;
@@ -680,6 +720,9 @@ ion-item .col-33 em {
 ion-item .col-33 > em > samp{
   color: #e74c3c;
   font-size: 20px;
+}
+ion-item .col-33 > samp {
+  font-size: 16px;
 }
 
 ion-item .col-50 samp {
@@ -955,12 +998,12 @@ ion-item img {
   font-size: 14px;
   text-align: left;
 }
-.max-withdrawal input {
-  text-align: center;
-}
-.max-withdrawal .input-label {
-  width: 20%;
-}
+/*.max-withdrawal input {*/
+  /*text-align: center;*/
+/*}*/
+/*.max-withdrawal .input-label {*/
+  /*width: 20%;*/
+/*}*/
   /*user-index start*/
 #user-index {
   background-color:#FBF7ED ;
@@ -991,6 +1034,28 @@ label.item-input > span {
   margin-bottom: 20px;
 }
 /*login end*/
+/*zhuanqu start*/
+#zhuanqu h2 {
+  font-size: 22px;
+  padding-left: 5px;
+}
+#zhuanqu .item a {
+  padding: 16px;
+}
+#zhuanqu i {
+  font-size: 20px;
+  color: #e3d8c2;
+}
+#zhuanqu a.item {
+  border: none;
+}
+#zhuanqu a img {
+  width: 100%;
+}
+img.top {
+  position: relative;
+  width: 100%;
+}
 
 @media only screen and (min-width: 1200px){
   ion-header-bar.bar.bar-header div ul > li > a{
@@ -1053,6 +1118,7 @@ label.item-input > span {
     left: 85% !important;
   }
 }/*大屏设备*/
+
 @media only screen and (min-width: 992px){
   ion-header-bar.bar.bar-header div ul > li > a{
     font-size: 26px;
@@ -1118,7 +1184,25 @@ label.item-input > span {
   ion-item .col-67 .detail > li{
     font-size: 15px;
   }
-}/*中等屏幕设备，pad*/
+}/*中等屏幕设备，pad 横屏*/
+
+@media only screen and (min-width: 768px){
+  #zhuanqu h2{
+    font-size: 34px !important;
+  }
+  #zhuanqu i{
+    font-size: 24px;
+  }
+  #zhuanqu a img{
+    height:200px;
+  }
+  #zhuanqu p{
+    font-size: 22px;
+    margin: 10px auto;
+  }
+}/*中等屏幕设备，pad 竖屏*/
+
+
 @media only screen and (max-width: 414px) and (min-height: 700px){
   ion-header-bar.bar.bar-header div ul > li > a{
     font-size: 25px;
@@ -1154,34 +1238,12 @@ label.item-input > span {
   }
 }/*iphone6 plus*/
 
-  /*zhuanqu start*/
-#zhuanqu h2 {
-  font-size: 22px;
-  padding-left: 5px;
-}
-#zhuanqu .item a {
-  padding: 16px;
-}
+
 @media only screen and (max-width: 320px) and (max-height: 480px){
   #zhuanqu h2 {
     font-size: 21px;
   }
 }/*iphone4*/
-#zhuanqu i {
-  font-size: 20px;
-  color: #e3d8c2;
-}
-#zhuanqu a.item {
-  border: none;
-}
-#zhuanqu a img {
-  width: 100%;
-}
-
-img.top {
-  position: relative;
-  width: 100%;
-}
 /*#zhuanqu end*/
 
 
@@ -1677,6 +1739,9 @@ label.checkbox span {
 
 .input-label {
   font-size: 90%;
+  width: 25%;
+  /*text-align: center;*/
+
 }
 input[readonly]:not(.cloned-text-input) {
   background-color: white;
@@ -1716,6 +1781,14 @@ input[readonly]:not(.cloned-text-input) {
 
 /*#addcard end*/
 
+@media only screen and (min-width: 768px) {
+  .item-content .col.col-33 {
+    padding-left: 80px;
+  }
+  .item-content .col.col-67 {
+    padding-left: 50px;
+  }
+}
 
 /*.item {*/
   /*border: none;*/
@@ -1751,4 +1824,4 @@ input[readonly]:not(.cloned-text-input) {
 
 /*.item.divider {*/
   /*border-bottom: solid thin #e3d8c2;*/
-/*}*/
+/*}*//*noinspection CssUnknownTarget*/
