@@ -6,22 +6,22 @@
       on-refresh="user.doRefresh()">
     </ion-refresher>
     <ion-list>
-      <div class="item item-icon-right" ui-sref="jym.user-settle-account-list">
+      <ion-item class="item-icon-right" ui-sref="jym.user-settle-account-list">
         <p><strong ng-bind="user.viewModel.balance"></strong> 元</p>
         <i class="icon ion-chevron-right"></i>
-      </div>
-      <div class="item">
+      </ion-item>
+      <ion-item>
         <p>投资中金额（元）：<em ng-bind="user.viewModel.investingPrincipal"></em></p>
-      </div>
-      <ion-item class="item divider"></ion-item>
-      <div class="item item-icon-right" ui-sref="jym.user-settle-account-deposit">
+      </ion-item>
+      <ion-item class="divider"></ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-settle-account-deposit">
         <h2>充值</h2>
         <i class="icon ion-chevron-right"></i>
-      </div>
-      <div class="item item-icon-right" ui-sref="jym.user-settle-account-withdrawal">
+      </ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-settle-account-withdrawal">
         <h2>提现</h2>
         <i class="icon ion-chevron-right"></i>
-      </div>
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

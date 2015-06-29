@@ -35,10 +35,6 @@ angular.module('jym.user.settle-account-deposit', [
                     account.refreshViewModel();
                     return result;
                 });
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
         };
 
         account.refresh = function() {
@@ -58,8 +54,13 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         account.refreshViewModel = function() {
-            account.viewModel = account.model;
-            account.viewModel.noCardSelected = account.model === null;
+            if(account.model === null) {
+                account.viewModel = {};
+                account.viewModel.noCard = true;
+            }else{
+                account.viewModel = account.model;
+                account.viewModel.noCard = false;
+            }
         };
 
         $scope.$on('$ionicView.enter', function() {
