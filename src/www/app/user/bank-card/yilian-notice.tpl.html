@@ -1,6 +1,6 @@
 <ion-view title="添加银行卡">
   <ion-content>
-    <div id="addcard">
+    <div id="yilian-notice">
       <h2>请求已受理</h2>
       <p>在十分钟之内您可能会接到银联（广州）来电。号码为020-96585.</p>
       <p>请您配合语音提示进行操作</p>
@@ -10,9 +10,9 @@
       <div class="space"></div>
     </div>
     <div class="space"></div>
-    <button ui-sref="jym.user" class="btn button-yellow">返回个人中心</button>
+    <button class="btn button-yellow" ng-click="ctrl.go('jym.user')">返回个人中心</button>
     <div class="space"></div>
     <div class="space"></div>
-    <button ui-sref="jym.user-bank-card" class="btn button-yellow">返回银行卡列表</button>
+    <button class="btn button-yellow" ng-click="ctrl.go('jym.user-bank-card')">返回银行卡列表</button>
   </ion-content>
 </ion-view>

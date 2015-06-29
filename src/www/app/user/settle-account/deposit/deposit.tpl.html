@@ -13,9 +13,10 @@
         <i class="icon ion-ios-plus-outline"></i>
         <span> 添加新银行卡</span>
       </ion-item>
+      <ion-item class="divider"></ion-item>
       <ion-item class="item-input">
         <span class="input-label">金额</span>
-        <input type="number" placeholder="请填写提现金额（元）" required min="1" max="1000000" ng-model="account.viewModel.amount">
+        <input type="number" placeholder="请填写充值金额（元）" required min="1" max="1000000" ng-model="account.viewModel.amount">
       </ion-item>
       <ion-item class="item-input">
         <span class="input-label">密码</span>
@@ -24,6 +25,6 @@
     </ion-list>
     <div class="space"></div>
     <div class="space"></div>
-    <button class="btn button-grey" ng-disabled="!account.buttonEnable()" ng-click="account.deposit()">付款</button>
+    <button class="btn button-yellow" ng-disabled="!account.buttonEnable()" ng-click="account.deposit()">付款</button>
   </ion-content>
 </ion-view>

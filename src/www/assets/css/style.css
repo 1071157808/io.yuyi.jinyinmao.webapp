@@ -1689,26 +1689,26 @@ input[readonly]:not(.cloned-text-input) {
   line-height: 1.5em;
 }
 
-/*#addcard start*/
-#addcard {
+/*# yilian-notice start*/
+#yilian-notice {
   background: url("../img/payment/icon-auth-receive-0885d71.png") no-repeat 50% 30px;
   background-size: 85px auto;
 }
-#addcard h2 {
+#yilian-notice h2 {
   position: relative;
   padding-top: 130px;
   text-align: center;
   font-size: inherit;
 }
-#addcard p {
+#yilian-notice p {
   margin: 8px 20px 8px 25px;
   font-size: 16px;
 }
-#addcard span {
+#yilian-notice span {
   font-size: 16px;
   margin: 0;
 }
-#addcard i {
+#yilian-notice i {
   color: #facb3a;
   font-size: 20px;
   margin-left: 25px;

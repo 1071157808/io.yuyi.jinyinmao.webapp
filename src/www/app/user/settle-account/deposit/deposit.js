@@ -4,7 +4,7 @@ angular.module('jym.user.settle-account-deposit', [
     .config(function($stateProvider) {
         $stateProvider
             .state('jym.user-settle-account-deposit', {
-                url: '/user/settle-account/deposit/{bankCardNo}',
+                url: '/user/settle-account/deposit',
                 views: {
                     'user': {
                         controller: 'UserSettleAccountDepositCtrl as account',
@@ -13,7 +13,7 @@ angular.module('jym.user.settle-account-deposit', [
                 }
             })
             .state('jym.user-settle-account-deposit-bank-card-selector', {
-                url: '/user/settle-account/deposit/selectBankCard',
+                url: '/user/settle-account/deposit/select-bank-card',
                 views: {
                     'user': {
                         controller: 'UserSettleAccountDepositBankCardSeletorCtrl as account',
@@ -22,15 +22,16 @@ angular.module('jym.user.settle-account-deposit', [
                 }
             })
             .state('jym.user-settle-account-deposit-success', {
-                url: '/user/settle-account/deposit/success',
+                url: '/user/settle-account/deposit/success/{transactionIdentifier}',
                 views: {
                     'user': {
+                        controller: 'UserSettleAccountDepositSuccessCtrl as ctrl',
                         templateUrl: 'app/user/settle-account/deposit/deposit-success.tpl.html'
                     }
                 }
             });
     })
-    .controller('UserSettleAccountDepositCtrl', function($scope, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSettleAccountDepositCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var account = this;
 
         account.model = {};
@@ -54,13 +55,13 @@ angular.module('jym.user.settle-account-deposit', [
         account.deposit = function() {
             var amount = parseInt(account.viewModel.amount * 100);
             if(account.buttonEnable()) {
-                UserService.deposit(amount, account.viewModel.bankCardNo, account.viewModel.password)
+                UserService.depositByYilian(amount, account.viewModel.bankCardNo, account.viewModel.password)
                     .then(function(result) {
                         if(result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.DEPOSIT_SUCCESS);
-
+                            UserService.sharedData.depositBankCardNo = undefined;
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-settle-account-deposit-success');
+                                JYMUtilityService.goWithDisableBack('jym.user-settle-account-deposit-success');
                             }, 1000);
                         }
                     });
@@ -68,12 +69,17 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         account.refresh = function() {
-            if ($stateParams.bankCardNo) {
-                return UserService.getBankCard($stateParams.bankCardNo);
+            if (UserService.sharedData.depositBankCardNo) {
+                return UserService.getBankCard(UserService.sharedData.depositBankCardNo);
             } else {
-                return UserService.getWithdrawalableBankCards()
+                return UserService.getBankCards()
                     .then(function(result) {
+                        result = _.filter(result, function(r) {
+                            return r.verifiedByYilian && r.verified;
+                        });
+
                         if (result.length > 0) {
+                            UserService.sharedData.depositBankCardNo = result[0].bankCardNo;
                             return result[0];
                         } else {
                             return null;
@@ -105,7 +111,7 @@ angular.module('jym.user.settle-account-deposit', [
         account.doRefresh();
 
     })
-    .controller('UserSettleAccountDepositBankCardSeletorCtrl', function($scope, $timeout, UserService) {
+    .controller('UserSettleAccountDepositBankCardSeletorCtrl', function($scope, $timeout, $ionicHistory, UserService) {
         var account = this;
 
         account.model = {};
@@ -130,7 +136,30 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         account.refreshViewModel = function() {
-            account.viewModel.items = account.model;
+            account.viewModel.items = [];
+
+            _.forEach(account.model, function(c) {
+                var card = {};
+
+                card.bankCardNo = c.bankCardNo;
+                card.bankName = c.bankName;
+                card.cellphone = c.cellphone;
+                card.cityName = c.cityName;
+                card.verified = c.verified;
+                card.verifiedByYilian = c.verifiedByYilian;
+                card.verifiedTime = c.verifiedTime;
+                card.withdrawAmount = (c.withdrawAmount / 100).toFixed(2);
+                account.viewModel.items.push(c);
+            });
+        };
+
+        account.select = function(bankCardNo) {
+            UserService.sharedData.depositBankCardNo = bankCardNo;
+            $ionicHistory.goBack();
+        };
+
+        account.selected = function(bankCardNo) {
+            return UserService.sharedData.depositBankCardNo === bankCardNo;
         };
 
         $scope.$on('$ionicView.enter', function() {
@@ -138,4 +167,15 @@ angular.module('jym.user.settle-account-deposit', [
         });
 
         account.doRefresh();
+    })
+    .controller('UserSettleAccountDepositSuccessCtrl', function($stateParams, JYMUtilityService) {
+        var ctrl = this;
+
+        ctrl.transactionIdentifier = $stateParams.transactionIdentifier;
+
+        ctrl.go = function(toState, params) {
+            params = params || {};
+            JYMUtilityService.goWithDisableBack(toState, params);
+        };
+
     });

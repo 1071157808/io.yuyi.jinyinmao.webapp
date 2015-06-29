@@ -54,9 +54,8 @@ angular.module('jym.user.bank-card-add', [
         };
 
         card.refreshViewModel = function() {
-            card.viewModel.verified = card.model.user.verified;
-            card.viewModel.cellphone = card.model.user.cellphone;
-            card.viewModel.hasSetPaymentPassword = card.model.user.hasSetPaymentPassword;
+            card.viewModel.bankCardsCount = card.model.user.bankCardsCount;
+            card.viewModel.shouldAddBankCard = card.viewModel.bankCardsCount <= 0;
 
             if (card.viewModel.verified) {
                 card.viewModel.realName = card.model.user.realName;

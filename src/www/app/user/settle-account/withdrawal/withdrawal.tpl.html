@@ -1,24 +1,39 @@
 <ion-view title="提现">
   <ion-content>
-    <ion-list class="bank-card">
-      <ion-item class="item-thumbnail-left item-icon-right">
-        <img src="assets/img/bank/gonghang.png"/>
-        <h2>中国工商银行<span>&nbsp;尾号0738</span></h2>
-        <p>限取额度（元）：50000.00</p>
-        <i class="icon ion-chevron-right"></i>
-      </ion-item>
-      <ion-item class="item-input max-withdrawal">
-        <span class="input-label">金额</span>
-        <input type="number" placeholder="100.00">
-        <button class="button button-small">全部</button>
-      </ion-item>
-      <ion-item class="item-input">
-        <span class="input-label">密码</span>
-        <input type="password" placeholder="请填写支付密码">
-      </ion-item>
-    </ion-list>
-    <div class="space"></div>
-    <div class="space"></div>
-    <button class="btn button-grey">提现</button>
+    <div ng-if="!account.viewModel.noCard">
+      <ion-list class="bank-card">
+        <ion-item class="item-thumbnail-left item-icon-right" ui-sref="">
+          <img ng-src="{{ account.viewModel.bankName | bankImg }}">
+
+          <h2>
+            <span ng-bind="account.viewModel.bankName"></span>
+            <span>&nbsp;尾号 <em ng-bind="account.viewModel.bankCardNo.substr(-4)"></em></span>
+          </h2>
+
+          <p>限取额度（元）：<span ng-bind="account.viewModel.withdrawAmount"></span></p>
+          <i class="icon ion-chevron-right"></i>
+        </ion-item>
+        <ion-item class="divider"></ion-item>
+        <ion-item class="item-input max-withdrawal">
+          <span class="input-label">金额</span>
+          <input type="number" placeholder="请填写取现金额（元）" required min="0.01" max="1000000" ng-model="account.viewModel.amount">
+          <button class="button button-small" ng-click="account.selectAll()">全部</button>
+        </ion-item>
+        <ion-item class="item-input">
+          <span class="input-label">密码</span>
+          <input type="password" placeholder="请填写支付密码" required minlength="8" maxlength="18" ng-model="account.viewModel.password">
+        </ion-item>
+      </ion-list>
+      <div class="space"></div>
+      <div class="space"></div>
+      <button class="btn button-yellow" ng-disabled="!account.buttonEnable()" ng-click="account.withdraw()">提现</button>
+    </div>
+    <div ng-if="account.viewModel.noCard">
+      <div id="yilian-notice">
+        <h2>为了您的资金安全，您必须先签约绑定银行卡，才能进行取现操作！</h2>
+      </div>
+      <div class="space"></div>
+      <button class="btn button-yellow" ui-sref="jym.user-bank-card-add">绑定银行卡</button>
+    </div>
   </ion-content>
 </ion-view>

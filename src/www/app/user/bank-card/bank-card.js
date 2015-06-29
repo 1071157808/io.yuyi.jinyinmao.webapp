@@ -18,7 +18,8 @@ angular.module('jym.user.bank-card', [
                 url: '/user/bank-card/yilian-notice',
                 views: {
                     'user': {
-                        templateUrl: 'app/user/bank-card/yilianNotice.tpl.html'
+                        controller: 'UserBankCardYilianNoticeCtrl as ctrl',
+                        templateUrl: 'app/user/bank-card/yilian-notice.tpl.html'
                     }
                 }
             });
@@ -51,9 +52,21 @@ angular.module('jym.user.bank-card', [
             cards.viewModel.items = cards.model;
         };
 
+        cards.showAddButton = function() {
+            return cards.viewModel.items.length < 10;
+        };
+
         $scope.$on('$ionicView.enter', function() {
             cards.doRefresh();
         });
 
         cards.doRefresh();
+    })
+    .controller('UserBankCardCtrl', function(JYMUtilityService) {
+        var ctrl = this;
+
+        ctrl.go = function(toState, params) {
+            params = params || {};
+            JYMUtilityService.goWithDisableBack(toState);
+        };
     });

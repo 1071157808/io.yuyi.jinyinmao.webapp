@@ -317,4 +317,16 @@ angular.module('jym.services.user', [
                     return result;
                 });
         };
+
+        service.withdrawal = function(amount, bankCardNo, paymentPassword) {
+            var url = URLS.SETTLEACCOUNT.WITHDRAWAL;
+
+            return $http.post(url, {
+                amount: amount,
+                bankCardNo: bankCardNo,
+                paymentPassword: paymentPassword
+            }).then(function(result) {
+                return result.data;
+            });
+        };
     });
