@@ -28,6 +28,7 @@ angular.module('jym.user.settle-account-deposit', [
         account.model = {};
         account.viewModel = {};
 
+
         account.doRefresh = function() {
             account.refresh()
                 .then(function(result) {
@@ -50,15 +51,21 @@ angular.module('jym.user.settle-account-deposit', [
                         }
                     });
             }
-
         };
 
         account.refreshViewModel = function() {
-            if(account.model === null) {
+            if (account.model === null) {
                 account.viewModel = {};
                 account.viewModel.noCard = true;
-            }else{
-                account.viewModel = account.model;
+            } else {
+                account.viewModel.bankCardNo = account.model.bankCardNo;
+                account.viewModel.bankName = account.model.bankName;
+                account.viewModel.cellphone = account.model.cellphone;
+                account.viewModel.cityName = account.model.cityName;
+                account.viewModel.verified = account.model.verified;
+                account.viewModel.verifiedByYilian = account.model.verifiedByYilian;
+                account.viewModel.verifiedTime = account.model.verifiedTime;
+                account.viewModel.withdrawAmount = account.model.withdrawAmount;
                 account.viewModel.noCard = false;
             }
         };
@@ -70,7 +77,37 @@ angular.module('jym.user.settle-account-deposit', [
         account.doRefresh();
 
     })
-    .controller('UserSettleAccountDepositBankCardSeletorCtrl', function() {
+    .controller('UserSettleAccountDepositBankCardSeletorCtrl', function($scope, $timeout, UserService) {
         var account = this;
 
+        account.model = {};
+        account.viewModel = {};
+        account.viewModel.items = [];
+
+        account.doRefresh = function() {
+            account.refreshBankCards()
+                .then(function(result) {
+                    account.model = result;
+                    account.refreshViewModel();
+                    return result;
+                });
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
+
+        account.refreshBankCards = function() {
+            return UserService.getBankCards();
+        };
+
+        account.refreshViewModel = function() {
+            account.viewModel.items = account.model;
+        };
+
+        $scope.$on('$ionicView.enter', function() {
+            account.doRefresh();
+        });
+
+        account.doRefresh();
     });

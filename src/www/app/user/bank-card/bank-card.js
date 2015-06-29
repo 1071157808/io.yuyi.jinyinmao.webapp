@@ -51,5 +51,9 @@ angular.module('jym.user.bank-card', [
             cards.viewModel.items = cards.model;
         };
 
+        $scope.$on('$ionicView.enter', function() {
+            cards.doRefresh();
+        });
+
         cards.doRefresh();
     });

@@ -157,7 +157,9 @@ angular.module('jym.services.user', [
         };
 
         service.getWithdrawalableBankCards = function() {
-            return $http.get(URLS.BANKCARD.WITHDRAWALABLE, {
+            var url = URLS.BANKCARD.WITHDRAWALABLE;
+
+            return $http.get(url, {
                 cache: JYMCacheService.get('userCache')
             }).then(function(result) {
                 return result.data;
