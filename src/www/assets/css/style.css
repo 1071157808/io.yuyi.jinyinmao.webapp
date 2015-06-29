@@ -1716,3 +1716,39 @@ input[readonly]:not(.cloned-text-input) {
 
 /*#addcard end*/
 
+
+/*.item {*/
+  /*border: none;*/
+/*}*/
+/*.list:first-child {*/
+  /*border: none;*/
+  /*border-top: solid thin #e3d8c2;*/
+/*}*/
+/*.list:last-child {*/
+  /*border: none;*/
+  /*border-bottom: solid thin #e3d8c2;*/
+/*}*/
+/*.item.divider {*/
+  /*border-top: solid thin #e3d8c2;*/
+  /*border-bottom: solid thin #e3d8c2;*/
+  /*border-right: none;*/
+  /*border-left: none;*/
+/*}*/
+
+/*.border-less {*/
+  /*border-left: none;*/
+  /*border-right: none;*/
+  /*border-top: solid thin;*/
+  /*border-bottom: solid thin;*/
+  /*width: 90%;*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 5%;*/
+  /*height: 100%;*/
+  /*border-color: #e3d8c2;*/
+/*}*/
+
+
+/*.item.divider {*/
+  /*border-bottom: solid thin #e3d8c2;*/
+/*}*/
