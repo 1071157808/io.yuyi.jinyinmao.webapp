@@ -139,6 +139,26 @@ angular.module('jym.services.user', [
             return currentUser;
         };
 
+        service.getJBYAccountList = function(pageIndex) {
+            var url = URLS.USERJINBAOYIN.LIST + pageIndex;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getJBYAccountTransaction = function(transactionIdentifier) {
+            var url = URLS.USERJINBAOYIN.INFO + transactionIdentifier;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
         service.getSettelAccountList = function(pageIndex) {
             var url = URLS.SETTLEACCOUNT.LIST + pageIndex;
 
@@ -149,7 +169,7 @@ angular.module('jym.services.user', [
             });
         };
 
-        service.getSettelAccountTranscation = function(transactionIdentifier) {
+        service.getSettelAccountTransaction = function(transactionIdentifier) {
             var url = URLS.SETTLEACCOUNT.INFO + transactionIdentifier;
 
             return $http.get(url, {

@@ -1,4 +1,4 @@
-<ion-view title="账户流水记录">
+<ion-view title="金包银流水记录">
   <ion-refresher
     pulling-icon="ion-arrow-down-c"
     spinner="spiral"
@@ -10,6 +10,11 @@
         <p class="pull-left">交易时间：</p>
 
         <p class="pull-right" ng-bind="transaction.viewModel.transactionTime | longTime"></p>
+      </ion-item>
+      <ion-item ng-if="transaction.viewModel.resultCode === 0">
+        <p class="pull-left">预计完成日期：</p>
+
+        <p class="pull-right" ng-bind="transaction.viewModel.predeterminedResultDate | time"></p>
       </ion-item>
       <ion-item ng-if="transaction.viewModel.resultCode === 1">
         <p class="pull-left">完成时间：</p>

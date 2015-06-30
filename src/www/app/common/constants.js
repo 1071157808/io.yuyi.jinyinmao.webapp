@@ -3,7 +3,7 @@ angular.module('jym.constants', [])
         CONFIG: {
             FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.0.0'
         },
-        JINBOAYIN: {
+        JINBAOYIN: {
             FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
             SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
@@ -21,9 +21,13 @@ angular.module('jym.constants', [])
             SETPAYMENTPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
             AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate'
         },
+        USERJINBAOYIN: {
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/'
+        },
         SETTLEACCOUNT: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcations/',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transcation/',
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
             DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
             WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },

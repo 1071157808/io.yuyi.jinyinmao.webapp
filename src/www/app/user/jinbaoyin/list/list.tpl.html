@@ -1,16 +1,16 @@
-<ion-view title="资金账户明细">
+<ion-view title="金包银明细">
   <ion-content>
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
       on-refresh="account.doRefresh()">
     </ion-refresher>
-    <ion-list class="settle-account-list">
+    <ion-list class="jinbaoyin-list">
       <div ng-repeat="item in account.viewModel.items">
-        <ion-item class="item-icon-right" ui-sref="jym.user-settle-account-detail({
+        <ion-item class="item-icon-right" ui-sref="jym.user-jinbaoyin-detail({
         transactionIdentifier: item.transactionIdentifier})">
           <p>
-            <span class="pull-left" ng-bind="item.tradeCode | tradeCodeForSettle"></span>
+            <span class="pull-left" ng-bind="item.tradeCode | tradeCodeForJBY"></span>
             <span class="pull-right">
               <span class="plus" ng-if="item.trade === 0"> + </span>
               <span class="minus" ng-if="item.trade === 1"> - </span>

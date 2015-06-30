@@ -9,7 +9,7 @@ angular.module('jym.services.jinbaoyin', [
         };
 
         service.getIndex = function() {
-            return $http.get(URLS.JINBOAYIN.FETCH, {
+            return $http.get(URLS.JINBAOYIN.FETCH, {
                 cache: JYMCacheService.get('productCache')
             }).then(function(result) {
                 return result.data;
@@ -17,7 +17,7 @@ angular.module('jym.services.jinbaoyin', [
         };
 
         service.getSold = function(productIdentifier) {
-            var url = URLS.JINBOAYIN.SOLD + productIdentifier;
+            var url = URLS.JINBAOYIN.SOLD + productIdentifier;
 
             return $http.get(url, {
             }).then(function(result) {

@@ -1,19 +1,19 @@
-angular.module('jym.user.settle-account-detail', [
+angular.module('jym.user.jinbaoyin-detail', [
     'jym.services.user'
 ])
     .config(function($stateProvider) {
         $stateProvider
-            .state('jym.user-settle-account-detail', {
-                url: '/user/settle-account/detail/{transactionIdentifier}',
+            .state('jym.user-jinbaoyin-detail', {
+                url: '/user/jinbaoyin/detail/{transactionIdentifier}',
                 views: {
                     'user': {
-                        controller: 'UserSettleAccountDetailCtrl as transaction',
-                        templateUrl: 'app/user/settle-account/detail/detail.tpl.html'
+                        controller: 'UserJinbaoyinDetailCtrl as transaction',
+                        templateUrl: 'app/user/jinbaoyin/detail/detail.tpl.html'
                     }
                 }
             });
     })
-    .controller('UserSettleAccountDetailCtrl', function($scope, $stateParams, $timeout, UserService) {
+    .controller('UserJinbaoyinDetailCtrl', function($scope, $stateParams, $timeout, UserService) {
         var transaction = this;
 
         transaction.model = {};
@@ -33,15 +33,15 @@ angular.module('jym.user.settle-account-detail', [
         };
 
         transaction.refresh = function() {
-            return UserService.getSettelAccountTransaction($stateParams.transactionIdentifier);
+            return UserService.getJBYAccountTransaction($stateParams.transactionIdentifier);
         };
 
         transaction.refreshViewModel = function() {
             transaction.viewModel.amount = (transaction.model.amount / 100).toFixed(2);
-            transaction.viewModel.bankCardNo = transaction.model.bankCardNo;
-            transaction.viewModel.channelCode = transaction.model.channelCode;
+            transaction.viewModel.predeterminedResultDate = transaction.model.predeterminedResultDate;
             transaction.viewModel.resultCode = transaction.model.resultCode;
             transaction.viewModel.resultTime = transaction.model.resultTime;
+            transaction.viewModel.settleAccountTranscationId  = transaction.model.settleAccountTranscationId ;
             transaction.viewModel.trade = transaction.model.trade;
             transaction.viewModel.tradeCode = transaction.model.tradeCode;
             transaction.viewModel.transactionIdentifier = transaction.model.transactionIdentifier;
