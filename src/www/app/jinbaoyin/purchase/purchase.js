@@ -1,7 +1,5 @@
 angular.module('jym.jinbaoyin.purchase', [
     'jym.services',
-    'jym.services.jinbaoyin',
-    'jym.services.product',
     'jym.services.purchase',
     'jym.services.user'
 ])
@@ -17,13 +15,14 @@ angular.module('jym.jinbaoyin.purchase', [
                 }
             })
     })
-    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, ProductService, JinbaoyinService, PurchaseService, UserService) {
+    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, RESOURCES, PurchaseService, UserService, JYMUtilityService) {
         var purchase = this;
 
         purchase.model = {};
         purchase.viewModel = {};
         purchase.model.currentUser = {};
         purchase.model.order = {};
+        purchase.viewModel.password = undefined;
 
         purchase.doRefresh = function() {
             purchase.refreshInfo()
@@ -40,8 +39,28 @@ angular.module('jym.jinbaoyin.purchase', [
         };
 
         purchase.refreshViewModel = function() {
-            purchase.viewModel.userBalance = (purchase.model.currentUser.balance / 100).toFixed(2);
-            purchase.viewModel.investAmount = (purchase.model.order.amount / 100).toFixed(2);
+            purchase.viewModel.balance = (purchase.model.currentUser.balance / 100).toFixed(2);
+            purchase.viewModel.amount = (purchase.model.order.amount / 100).toFixed(2);
+        };
+
+        purchase.purchaseButtonEnable = function() {
+            return purchase.viewModel.amount && purchase.viewModel.password && purchase.model.currentUser.balance >= purchase.model.order.amount;
+        };
+
+        purchase.purchase = function() {
+            if (purchase.purchaseButtonEnable()) {
+                var amount = parseInt(purchase.model.order.amount * 100);
+                UserService.investingJBY(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
+                    .then(function(result) {
+                        if (result) {
+                            JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.JBY);
+                            PurchaseService.clearJBYOrder();
+                            $timeout(function() {
+                                JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', {transactionIdentifier: result.transactionIdentifier});
+                            }, 1000);
+                        }
+                    });
+            }
         };
 
         $scope.$on('$ionicView.enter', function() {

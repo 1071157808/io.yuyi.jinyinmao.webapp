@@ -40,7 +40,7 @@ angular.module('jym.user.jinbaoyin-list', [
         account.viewModel.totalPageCount = 1;
 
         account.loadMoreData = function() {
-            UserService.getJBYAccountList(account.viewModel.nextPageIndex)
+            UserService.getOrderList(account.viewModel.nextPageIndex)
                 .then(function(result) {
                     account.viewModel.currentPageIndex = result.pageIndex;
                     account.viewModel.nextPageIndex = result.pageIndex + 1;
@@ -75,4 +75,6 @@ angular.module('jym.user.jinbaoyin-list', [
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
         };
+
+        account.doRefresh();
     });

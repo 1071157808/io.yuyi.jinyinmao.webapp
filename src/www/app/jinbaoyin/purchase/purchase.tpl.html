@@ -3,20 +3,20 @@
     <ion-list class="deposit">
       <ion-item>
         <span class="pull-left">订单金额</span>
-        <span class="pull-right"><strong ng-bind="purchase.viewModel.investAmount"></strong> &nbsp;元</span>
+        <span class="pull-right"><strong ng-bind="purchase.viewModel.amount"></strong> &nbsp;元</span>
       </ion-item>
     </ion-list>
     <ion-list>
       <ion-item class="card deposit">
         <ion-item class="item">
           <span class="pull-left">账户余额</span>
-          <span class="pull-left" ng-bind="purchase.viewModel.userBalance"> 元</span>
-          <span class="pull-right">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
+          <span class="pull-left" ng-bind="purchase.viewModel.balance"> 元</span>
+          <span class="pull-right" ui-sref="jym.user-settle-account-deposit">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
         </ion-item>
 
         <label class="item item-input">
           <span class="input-label">输入密码</span>
-          <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.userPaymentPassword" required minlength="8" maxlength="18" ng-pattern="^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$">
+          <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.password" required minlength="8" maxlength="18" ng-pattern="^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$">
         </label>
       </ion-item>
 
@@ -32,7 +32,7 @@
         </div>
       </div>
     </ion-list>
-    <button class="btn button-yellow">同意协议并付款</button>
+    <button class="btn button-yellow" ng-click="purchase.purchase()">同意协议并付款</button>
     <br>
     <br>
     <h4 id="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>

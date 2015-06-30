@@ -74,4 +74,6 @@ angular.module('jym.user.settle-account-list', [
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
         };
+
+        account.doRefresh();
     });

@@ -48,24 +48,19 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
             account.viewModel.todayJBYWithdrawalAmount = (account.model.user.todayJBYWithdrawalAmount / 100).toFixed(2);
             account.viewModel.todayJBYWithdrawalableAmount = 100000 - account.viewModel.todayJBYWithdrawalAmount;
 
-            if(account.viewModel.todayJBYWithdrawalableAmount > account.viewModel.jBYWithdrawalableAmount) {
+            if (account.viewModel.todayJBYWithdrawalableAmount > account.viewModel.jBYWithdrawalableAmount) {
                 account.viewModel.todayJBYWithdrawalableAmount = account.viewModel.jBYWithdrawalableAmount;
             }
 
         };
 
-        account.selectAll = function() {
-            account.viewModel.amount = account.viewModel.withdrawAmount;
-        };
-
         account.withdraw = function() {
             var amount = parseInt(account.viewModel.amount * 100);
             if (account.buttonEnable()) {
-                UserService.withdrawal(amount, account.viewModel.bankCardNo, account.viewModel.password)
+                UserService.jBYWithdrawal(amount, account.viewModel.password)
                     .then(function(result) {
                         if (result) {
-                            JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.WITHDRAWAL_SUCCESS);
-                            UserService.sharedData.withdrawalBankCardNo = undefined;
+                            JYMUtilityService.showAlert(RESOURCES.TIP.JINBAOYIN.WITHDRAWAL_SUCCESS);
                             $timeout(function() {
                                 JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', {
                                     transactionIdentifier: result.transactionIdentifier
