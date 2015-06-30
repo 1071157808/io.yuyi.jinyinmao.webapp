@@ -19,6 +19,14 @@ angular.module('jym.services.purchase', [
             regularOrder.productCategory = productCategory;
         };
 
+        service.clearJBYOrder = function() {
+            jbyOrder = {};
+        };
+
+        service.clearRegularOrder = function() {
+            regularOrder = {};
+        };
+
         service.getNewJBYOrder = function() {
             if(!jbyOrder.amount || !jbyOrder.productIdentifier) {
                 JYMUtilityService.goWithDisableBack('jym.jinbaoyin');

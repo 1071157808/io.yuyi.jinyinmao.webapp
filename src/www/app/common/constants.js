@@ -8,7 +8,8 @@ angular.module('jym.constants', [])
             SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         INVESTING: {
-            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY'
+            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         USER: {
             GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
@@ -23,7 +24,12 @@ angular.module('jym.constants', [])
         },
         USERJINBAOYIN: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/'
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+        },
+        ORDER: {
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         SETTLEACCOUNT: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
@@ -91,6 +97,13 @@ angular.module('jym.constants', [])
             SETTLEACCOUNT: {
                 DEPOSIT_SUCCESS: '充值申请已经提交<br>请耐心等待支付结果',
                 WITHDRAWAL_SUCCESS: '提现申请已经提交<br>我们将尽快处理'
+            },
+            JINBAOYIN: {
+                WITHDRAWAL_SUCCESS: '赎回申请已经提交<br>我们将尽快处理'
+            },
+            INVESTING: {
+                JBY: '认购成功',
+                REGULAR: '购买成功'
             }
         }
     })

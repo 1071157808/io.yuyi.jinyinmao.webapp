@@ -53,8 +53,8 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         account.deposit = function() {
-            var amount = parseInt(account.viewModel.amount * 100);
             if(account.buttonEnable()) {
+                var amount = parseInt(account.viewModel.amount * 100);
                 UserService.depositByYilian(amount, account.viewModel.bankCardNo, account.viewModel.password)
                     .then(function(result) {
                         if(result) {

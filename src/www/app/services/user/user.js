@@ -114,6 +114,30 @@ angular.module('jym.services.user', [
             });
         };
 
+        service.investingJBY = function(amount, paymentPassword, productIdentifier) {
+            var url = URLS.INVESTING.JBY;
+
+            return $http.post(url, {
+                amount: amount,
+                paymentPassword: paymentPassword,
+                productIdentifier: productIdentifier
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.investingRegular = function(amount, paymentPassword, productIdentifier) {
+            var url = URLS.INVESTING.REGULAR;
+
+            return $http.post(url, {
+                amount: amount,
+                paymentPassword: paymentPassword,
+                productIdentifier: productIdentifier
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
         service.getBankCard = function(bankCardNo) {
             var url = URLS.BANKCARD.INFO + bankCardNo;
 
@@ -151,6 +175,36 @@ angular.module('jym.services.user', [
 
         service.getJBYAccountTransaction = function(transactionIdentifier) {
             var url = URLS.USERJINBAOYIN.INFO + transactionIdentifier;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getOrderInfo = function(orderIdentifier) {
+            var url = URLS.ORDER.INFO + orderIdentifier;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getOrderList = function(pageIndex) {
+            var url = URLS.ORDER.LIST + pageIndex + '/1';
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
+        service.getSettelAccountTransaction = function(transactionIdentifier) {
+            var url = URLS.SETTLEACCOUNT.INFO + transactionIdentifier;
 
             return $http.get(url, {
                 cache: JYMCacheService.get('userCache')
@@ -210,6 +264,17 @@ angular.module('jym.services.user', [
 
         service.loginOut = function() {
             JYMAuthService.clearToken();
+        };
+
+        service.jBYWithdrawal = function(amount, paymentPassword) {
+            var url = URLS.USERJINBAOYIN.WITHDRAWAL;
+
+            return $http.post(url, {
+                amount: amount,
+                paymentPassword: paymentPassword
+            }).then(function(result) {
+                return result.data;
+            });
         };
 
         service.removeCard = function(bankCardNo) {
