@@ -7,27 +7,27 @@
   <ion-content>
     <ion-list class="reorder">
       <ion-item>
-        <p class="pull-left">交易时间：</p>
+        <p class="pull-left">交易时间</p>
 
         <p class="pull-right" ng-bind="transaction.viewModel.transactionTime | longTime"></p>
       </ion-item>
       <ion-item ng-if="transaction.viewModel.resultCode === 0">
-        <p class="pull-left">预计完成日期：</p>
+        <p class="pull-left">预计完成日期</p>
 
         <p class="pull-right" ng-bind="transaction.viewModel.predeterminedResultDate | time"></p>
       </ion-item>
       <ion-item ng-if="transaction.viewModel.resultCode === 1">
-        <p class="pull-left">完成时间：</p>
+        <p class="pull-left">完成时间</p>
 
         <p class="pull-right" ng-bind="transaction.viewModel.resultTime | longTime"></p>
       </ion-item>
       <ion-item class="nonborder">
-        <p class="pull-left">交易类型：</p>
+        <p class="pull-left">交易类型</p>
 
         <p class="pull-right" ng-bind="transaction.viewModel.tradeCode | tradeCodeForSettle"></p>
       </ion-item>
       <ion-item>
-        <p class="pull-left">金额（元）：</p>
+        <p class="pull-left">金额（元）</p>
 
         <p class="pull-right">
           <span class="plus" ng-if="transaction.viewModel.trade === 0"> + </span>
@@ -36,7 +36,7 @@
         </p>
       </ion-item>
       <ion-item>
-        <p class="pull-left">备注说明：</p>
+        <p class="pull-left">备注说明</p>
 
         <p class="pull-right" ng-bind="transaction.viewModel.transDesc"></p>
       </ion-item>

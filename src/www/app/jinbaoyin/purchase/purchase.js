@@ -17,7 +17,7 @@ angular.module('jym.jinbaoyin.purchase', [
                 }
             })
     })
-    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, ProductService, JinbaoyinService, PurchaseService, UserService) {
         var purchase = this;
 
         purchase.model = {};
@@ -26,11 +26,7 @@ angular.module('jym.jinbaoyin.purchase', [
         purchase.model.order = {};
 
         purchase.doRefresh = function() {
-            purchase.refreshInfo();
-        };
-
-        purchase.refreshInfo = function() {
-            UserService.getUserInfo()
+            purchase.refreshInfo()
                 .then(function(result) {
                     purchase.model.currentUser = result;
                     purchase.model.order = PurchaseService.getNewJBYOrder();
@@ -39,14 +35,18 @@ angular.module('jym.jinbaoyin.purchase', [
                 });
         };
 
+        purchase.refreshInfo = function() {
+            return UserService.getUserInfo();
+        };
+
         purchase.refreshViewModel = function() {
             purchase.viewModel.userBalance = (purchase.model.currentUser.balance / 100).toFixed(2);
             purchase.viewModel.investAmount = (purchase.model.order.amount / 100).toFixed(2);
         };
 
-        purchase.doRefresh();
-
         $scope.$on('$ionicView.enter', function() {
             purchase.doRefresh();
         });
+
+        purchase.doRefresh();
     });

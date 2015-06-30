@@ -9,13 +9,13 @@
     <ion-list>
       <ion-item class="card deposit">
         <ion-item class="item">
-          <span class="pull-left">账户余额：</span><span ng-bind="purchase.viewModel.userBalance" class="pull-left"> 元</span>
+          <span class="pull-left">账户余额（元）</span><span ng-bind="purchase.viewModel.userBalance" class="pull-left"></span>
           <span class="pull-right">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
 
         </ion-item>
 
         <label class="item item-input">
-          <span class="input-label">输入密码：</span>
+          <span class="input-label">输入密码</span>
           <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.userPaymentPassword" required minlength="8" maxlength="18" ng-pattern="^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$">
         </label>
       </ion-item>

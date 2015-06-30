@@ -1,5 +1,6 @@
 angular.module('jym.user.jinbaoyin', [
-    'jym.services.user'
+    'jym.services.user',
+    'jym.user.jinbaoyin-list'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -24,13 +25,6 @@ angular.module('jym.user.jinbaoyin', [
                 .then(function(result) {
                     ctrl.model.user = result;
                     ctrl.refreshUserViewModel();
-                    return result;
-                });
-
-            ctrl.refreshProduct()
-                .then(function(result) {
-                    ctrl.model.product = result;
-                    ctrl.refreshProductViewModel();
                     return result;
                 });
 
