@@ -26,40 +26,6 @@ angular.module('JYM', [
     .config(function($compileProvider) {
         $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile):|data:image\//);
     })
-    .config(function(toastrConfig) {
-        angular.extend(toastrConfig, {
-            allowHtml: true,
-            autoDismiss: true,
-            closeButton: false,
-            closeHtml: '<button>&times;</button>',
-            containerId: 'toast-container',
-            extendedTimeOut: 1000,
-            iconClasses: {
-                error: 'toast-error',
-                info: 'toast-info',
-                success: 'toast-success',
-                warning: 'toast-warning'
-            },
-            maxOpened: 1,
-            messageClass: 'toast-message',
-            newestOnTop: true,
-            onHidden: null,
-            onShown: null,
-            positionClass: 'toast-bottom-center',
-            preventDuplicates: false,
-            preventOpenDuplicates: false,
-            progressBar: false,
-            tapToDismiss: true,
-            target: 'body',
-            templates: {
-                toast: 'directives/toast/toast.html',
-                progressbar: 'directives/progressbar/progressbar.html'
-            },
-            timeOut: 3000,
-            titleClass: 'toast-title',
-            toastClass: 'toast'
-        });
-    })
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('jym', {
             url: "",

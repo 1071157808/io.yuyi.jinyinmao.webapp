@@ -1,7 +1,6 @@
 angular.module('jym.services', [
     'ngAnimate',
-    'angular-cache',
-    'toastr'
+    'angular-cache'
 ])
     .service('JYMAuthService', function(JYMCacheService) {
         var service = this;
@@ -94,7 +93,7 @@ angular.module('jym.services', [
             return service.getConfig().then(extractSlidersConfig);
         }
     })
-    .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX, toastr) {
+    .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX) {
         var service = this;
 
         service.go = function(to, params, options) {
@@ -126,10 +125,5 @@ angular.module('jym.services', [
                 duration: 3000,
                 hideOnStateChange: true
             });
-            //if (window.plugins && window.plugins.toast) {
-            //    $cordovaToast.showShortBottom(text);
-            //} else {
-            //    toastr.info(text);
-            //}
         };
     });
