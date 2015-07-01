@@ -26,6 +26,10 @@ angular.module('jym.zhuanqu.purchase', [
         purchase.viewModel.password = undefined;
         purchase.viewModel.checked = true;
 
+        purchase.check = function() {
+            purchase.viewModel.checked = !purchase.viewModel.checked;
+        };
+
         purchase.doRefresh = function() {
             var productCategory;
             if ($stateParams.bankName === 'fudian') {

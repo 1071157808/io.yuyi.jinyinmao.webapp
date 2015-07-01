@@ -26,6 +26,10 @@ angular.module('jym.yinpiao.purchase', [
         purchase.viewModel.password = undefined;
         purchase.viewModel.checked = true;
 
+        purchase.check = function() {
+            purchase.viewModel.checked = !purchase.viewModel.checked;
+        };
+
         purchase.doRefresh = function() {
             purchase.refreshUserInfo()
                 .then(function(result) {

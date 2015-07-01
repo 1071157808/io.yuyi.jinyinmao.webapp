@@ -3,15 +3,15 @@
     <ion-list class="deposit">
       <ion-item>
         <span class="pull-left">订单金额</span>
-        <span class="pull-right"><strong ng-bind="purchase.viewModel.amount"></strong> &nbsp;元</span>
+        <span class="pull-right"><strong ng-bind="purchase.viewModel.amount"></strong>&nbsp;&nbsp;元</span>
       </ion-item>
     </ion-list>
     <ion-list>
       <ion-item class="card deposit">
         <ion-item class="item">
-          <span class="pull-left">账户余额 &nbsp;&nbsp;</span>
-          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong>&nbsp;元</span>
-          <span class="pull-right" ui-sref="jym.user-settle-account-deposit">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
+          <span class="pull-left">账户余额&nbsp;&nbsp;</span>
+          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong>&nbsp;&nbsp;元</span>
+          <span class="pull-right" ui-sref="jym.user-settle-account-deposit">去充值&nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
         </ion-item>
 
         <label class="item item-input">
@@ -21,11 +21,11 @@
       </ion-item>
 
       <div class="narrow">
-        <button>
+        <button ng-click="purchase.check()">
           <span>
-          <i class="icon ion-android-checkbox-outline-blank" ng-if="!purchase.viewModel.checked"></i>
-          <i class="icon ion-android-checkbox-outline" ng-if="purchase.viewModel.checked"></i>
-        </span>
+            <i class="icon ion-android-checkbox-outline-blank" ng-if="!purchase.viewModel.checked"></i>
+            <i class="icon ion-android-checkbox-outline" ng-if="purchase.viewModel.checked"></i>
+          </span>
           <span>同意</span>
         </button>
         <span>《金银猫金包银投资协议》</span>
