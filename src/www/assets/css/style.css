@@ -925,12 +925,11 @@ ion-item img {
   background-color: #a8b6bf;
   border: 0 solid #a8b6bf;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 750px) and (max-width: 1024px) {
   .btn {
-    height: 80%;
+    line-height: 80%;
   }
-}
-
+} /* pad 竖屏*/
 /*buttons end */
 
 
