@@ -1,24 +1,22 @@
-<ion-view title="购买理财产品">
+<ion-view title="确认购买">
   <ion-content>
     <ion-list class="deposit">
       <ion-item>
         <span class="pull-left">订单金额</span>
-
-        <span class="pull-right"><strong ng-bind="purchase.viewModel.investAmount"></strong> &nbsp;元</span>
+        <span class="pull-right"><strong ng-bind="purchase.viewModel.amount"></strong> &nbsp;元</span>
       </ion-item>
     </ion-list>
     <ion-list>
       <ion-item class="card deposit">
         <ion-item class="item">
-          <span class="pull-left">账户余额（元）</span>
-          <span ng-bind="purchase.viewModel.userBalance" class="pull-left"></span>
-          <span class="pull-right">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
-
+          <span class="pull-left">账户余额</span>
+          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong> &nbsp;元</span>
+          <span class="pull-right" ui-sref="jym.user-settle-account-deposit">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
         </ion-item>
 
         <label class="item item-input">
           <span class="input-label">输入密码</span>
-          <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.userPaymentPassword" required minlength="8" maxlength="18" ng-pattern="^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$">
+          <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.password" required minlength="8" maxlength="18" ng-pattern="^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$">
         </label>
       </ion-item>
 
@@ -28,14 +26,18 @@
             <input type="checkbox" checked>
             <span>同意</span>
           </label>
-
         </div>
         <div class="col col-75">
-          <p><span>《借款协议》</span> <span>《委托协议》</span></p>
+          <p></p>
         </div>
+        <span>
+          <i class="icon ion-android-checkbox-outline-blank" ng-if="!purchase.viewModel.checked"></i>
+          <i class="icon ion-android-checkbox-outline" ng-if="purchase.viewModel.checked"></i>
+        </span>
+        <span>《金银猫金包银投资协议》</span>
       </div>
     </ion-list>
-    <button class="btn button-yellow">同意协议并付款</button>
+    <button class="btn button-yellow" ng-disabled="!purchase.purchaseButtonEnable()" ng-click="purchase.purchase()">同意协议并付款</button>
     <br>
     <br>
     <h4 id="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>

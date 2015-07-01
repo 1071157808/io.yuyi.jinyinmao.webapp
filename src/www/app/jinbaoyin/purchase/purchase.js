@@ -26,7 +26,7 @@ angular.module('jym.jinbaoyin.purchase', [
         purchase.viewModel.checked = true;
 
         purchase.doRefresh = function() {
-            purchase.refreshInfo()
+            purchase.refreshUserInfo()
                 .then(function(result) {
                     purchase.model.currentUser = result;
                     purchase.model.order = PurchaseService.getNewJBYOrder();
@@ -35,7 +35,7 @@ angular.module('jym.jinbaoyin.purchase', [
                 });
         };
 
-        purchase.refreshInfo = function() {
+        purchase.refreshUserInfo = function() {
             return UserService.getUserInfo();
         };
 

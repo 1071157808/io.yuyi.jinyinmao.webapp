@@ -176,7 +176,7 @@ angular.module('jym.zhuanqu.detail', [
             product.viewModel.usage = product.model.usage;
             product.viewModel.valueDate = product.model.valueDate;
             product.viewModel.valueDateMode = product.model.valueDateMode;
-            product.viewModel.valueDateText = getValueDateModeText(product.model.valueDateMode, product.model.valueData, product.model.specifyValueDate);
+            product.viewModel.valueDateText = getValueDateModeText(product.model.valueDateMode, product.model.valueDate, product.model.specifyValueDate);
             product.viewModel.yield = product.model.yield / 100;
 
 

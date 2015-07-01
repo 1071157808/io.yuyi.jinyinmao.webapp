@@ -102,7 +102,7 @@ angular.module('jym.zhuanqu', [
             item.usage = modelItem.usage;
             item.valueDate = modelItem.valueDate;
             item.valueDateMode = modelItem.valueDateMode;
-            item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueData, modelItem.specifyValueDate);
+            item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueDate, modelItem.specifyValueDate);
             item.yield = modelItem.yield / 100;
 
             if(item.status.status === 10) {
@@ -185,4 +185,5 @@ angular.module('jym.zhuanqu', [
             }, 1000);
         };
 
+        products.doRefresh();
     });
