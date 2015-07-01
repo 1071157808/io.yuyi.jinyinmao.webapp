@@ -10,7 +10,7 @@
       <ion-item class="card deposit">
         <ion-item class="item">
           <span class="pull-left">账户余额</span>
-          <span class="pull-left" ng-bind="purchase.viewModel.balance"> 元</span>
+          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong> &nbsp;元</span>
           <span class="pull-right" ui-sref="jym.user-settle-account-deposit">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
         </ion-item>
 
@@ -28,11 +28,16 @@
           </label>
         </div>
         <div class="col col-75">
-          <p>《金银猫金包银投资协议》</p>
+          <p></p>
         </div>
+        <span>
+          <i class="icon ion-android-checkbox-outline-blank" ng-if="!purchase.viewModel.checked"></i>
+          <i class="icon ion-android-checkbox-outline" ng-if="purchase.viewModel.checked"></i>
+        </span>
+        <span>《金银猫金包银投资协议》</span>
       </div>
     </ion-list>
-    <button class="btn button-yellow" ng-click="purchase.purchase()">同意协议并付款</button>
+    <button class="btn button-yellow" ng-disabled="!purchase.purchaseButtonEnable()" ng-click="purchase.purchase()">同意协议并付款</button>
     <br>
     <br>
     <h4 id="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>

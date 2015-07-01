@@ -23,6 +23,7 @@ angular.module('jym.jinbaoyin.purchase', [
         purchase.model.currentUser = {};
         purchase.model.order = {};
         purchase.viewModel.password = undefined;
+        purchase.viewModel.checked = true;
 
         purchase.doRefresh = function() {
             purchase.refreshInfo()
@@ -44,7 +45,7 @@ angular.module('jym.jinbaoyin.purchase', [
         };
 
         purchase.purchaseButtonEnable = function() {
-            return purchase.viewModel.amount && purchase.viewModel.password && purchase.model.currentUser.balance >= purchase.model.order.amount;
+            return purchase.viewModel.checked && purchase.viewModel.amount && purchase.viewModel.password && purchase.model.currentUser.balance >= purchase.model.order.amount;
         };
 
         purchase.purchase = function() {
