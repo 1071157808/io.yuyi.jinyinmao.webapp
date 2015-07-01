@@ -9,8 +9,8 @@
     <ion-list>
       <ion-item class="card deposit">
         <ion-item class="item">
-          <span class="pull-left">账户余额</span>
-          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong> &nbsp;元</span>
+          <span class="pull-left">账户余额 &nbsp;&nbsp;</span>
+          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong>&nbsp;元</span>
           <span class="pull-right" ui-sref="jym.user-settle-account-deposit">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
         </ion-item>
 
@@ -20,20 +20,14 @@
         </label>
       </ion-item>
 
-      <div class="row narrow">
-        <div class="col col-25">
-          <label class="checkbox checkbox-assertive">
-            <input type="checkbox" checked>
-            <span>同意</span>
-          </label>
-        </div>
-        <div class="col col-75">
-          <p></p>
-        </div>
-        <span>
+      <div class="narrow">
+        <button>
+          <span>
           <i class="icon ion-android-checkbox-outline-blank" ng-if="!purchase.viewModel.checked"></i>
           <i class="icon ion-android-checkbox-outline" ng-if="purchase.viewModel.checked"></i>
         </span>
+          <span>同意</span>
+        </button>
         <span>《金银猫金包银投资协议》</span>
       </div>
     </ion-list>
