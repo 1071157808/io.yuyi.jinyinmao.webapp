@@ -892,8 +892,9 @@ ion-item img {
   padding-left: 10px;
 }
 .item-divider .product-no{
-  font-size: 18px;
+  font-size: 14px;
   padding-left: 0;
+  color: #acb5bd;
 }
 .list.card .item-divider p > em {
   color: #e74c3c;
@@ -1196,6 +1197,7 @@ img.top {
   ion-item .col-67 .detail > li{
     font-size: 15px;
   }
+
 }/*中等屏幕设备，pad 横屏*/
 
 @media only screen and (min-width: 768px){
@@ -1568,6 +1570,9 @@ ion-item .divider, .item.divider {
 }
 .item .pull-left {
   color: #444;
+}
+.list .item .pull-right > span {
+  color: #8d9aa5;
 }
 #refresh {
   color: #47b28b;
