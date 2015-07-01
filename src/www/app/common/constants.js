@@ -1,54 +1,54 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         CONFIG: {
-            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.0.0'
+            FETCH: 'https://jymstoretest.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.0.0'
         },
         JINBAOYIN: {
-            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            FETCH: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         INVESTING: {
-            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
-            REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
+            JBY: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         USER: {
-            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
-            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            SENDVERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
-            VERIFYVERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            RESETLOGINPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESETPAYMENTPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SETPAYMENTPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate'
+            GETINFO: 'https://jym-test-api.jinyinmao.com.cn:443/User',
+            SIGNIN: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            SENDVERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/SendVeriCode',
+            VERIFYVERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            RESETLOGINPASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESETPAYMENTPASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SINGUP: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SETPAYMENTPASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            AUTHENTICATE: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/Authenticate'
         },
         USERJINBAOYIN: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         },
         ORDER: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Info/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Index/'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         SETTLEACCOUNT: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
-            DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
+            DEPOSIT: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
+            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
         BANKCARD: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFYBANKCARDBYYILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADDBANKCARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard'
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFYBANKCARDBYYILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADDBANKCARD: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard'
         },
         REGULARPRDUCT: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Sold/'
         }
     })
     .constant('RESOURCES', {
@@ -114,6 +114,6 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.0.0-dev'
+        VERSION: '13.0.0-test'
     });
 
