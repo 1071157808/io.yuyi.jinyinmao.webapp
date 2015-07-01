@@ -28,7 +28,9 @@
           </span>
           <span>同意</span>
         </button>
-        <span>《金银猫金包银投资协议》</span>
+        <span>《</span>
+        <span ng-bind="purchase.viewModel.agreement"></span>
+        <span>》</span>
       </div>
     </ion-list>
     <button class="btn button-yellow" ng-disabled="!purchase.purchaseButtonEnable()" ng-click="purchase.purchase()">同意协议并付款</button>

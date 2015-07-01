@@ -47,6 +47,9 @@ angular.module('jym.yinpiao.purchase', [
         purchase.refreshViewModel = function() {
             purchase.viewModel.balance = (purchase.model.currentUser.balance / 100).toFixed(2);
             purchase.viewModel.amount = (purchase.model.order.amount / 100).toFixed(2);
+
+            purchase.viewModel.agreement1 = '借款协议';
+            purchase.viewModel.agreement2 = '委托协议';
         };
 
         purchase.purchaseButtonEnable = function() {

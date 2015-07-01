@@ -46,6 +46,8 @@ angular.module('jym.jinbaoyin.purchase', [
         purchase.refreshViewModel = function() {
             purchase.viewModel.balance = (purchase.model.currentUser.balance / 100).toFixed(2);
             purchase.viewModel.amount = (purchase.model.order.amount / 100).toFixed(2);
+
+            purchase.viewModel.agreement = '金银猫金包银投资协议';
         };
 
         purchase.purchaseButtonEnable = function() {
