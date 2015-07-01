@@ -10,7 +10,6 @@ angular.module('JYM', [
     'jym.shangpiao',
     'jym.zhuanqu',
     'jym.yinpiao',
-    'jym.misc',
     'jym.constants'
 ])
     .config(function($ionicConfigProvider) {
