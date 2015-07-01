@@ -20,13 +20,18 @@ angular.module('jym.user.security-password', [])
                 }
             });
     })
-    .controller('UserSecurityPasswordCtrl', function($timeout, $stateParams, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSecurityPasswordCtrl', function($scope, $timeout, $stateParams, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
         ctrl.viewModel.password = undefined;
         ctrl.viewModel.confirmPassword = undefined;
 
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.password = undefined;
+            ctrl.viewModel.confirmPassword = undefined;
+        };
+        
         ctrl.enableButton = function() {
             return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
         };
@@ -45,6 +50,10 @@ angular.module('jym.user.security-password', [])
                     });
             }
         };
+
+        $scope.$on('$ionicView.enter', function() {
+            ctrl.doRefresh();
+        });
     })
     .controller('UserSecurityPasswordSendVeriCodeCtrl', function($timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
