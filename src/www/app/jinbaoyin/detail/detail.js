@@ -127,8 +127,9 @@ angular.module('jym.jinbaoyin.detail', [
         product.refreshViewModel = function() {
             product.viewModel.issueNo = parseInt(product.model.issueNo);
             product.viewModel.financingSumAmount = (product.model.financingSumAmount / 1000000).toFixed(0);
-            product.viewModel.productName = product.model.productName + ' ' + '第' + product.model.issueNo + '期';
+            product.viewModel.productName = product.model.productName;
             product.viewModel.productNo = product.model.productNo;
+            product.viewModel.productTitle = product.model.productName + ' 第' + product.model.issueNo + '期';
             product.viewModel.remainCount = ((product.model.financingSumAmount - product.model.paidAmount) / product.model.unitPrice).toFixed(0);
             product.viewModel.sellProgress = getSaleProgress(product.model);
             product.viewModel.sellProgressInCircleProgress = product.viewModel.sellProgress / 100;

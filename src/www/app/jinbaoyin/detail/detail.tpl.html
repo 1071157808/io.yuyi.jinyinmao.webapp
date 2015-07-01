@@ -25,7 +25,7 @@
           <div class="col">
             <ul>
               <li><samp ng-bind="product.viewModel.yield"></samp><span>%</span></li>
-              <div class="space"></div>
+              <li class="space"></li>
               <li>下一工作日起息</li>
               <li>随存随取 承兑汇票抵押</li>
             </ul>
@@ -44,7 +44,7 @@
                  ng-change="product.investCountChange()">
           <samp>份</samp>
         </label>
-        <button class="button button-small button-assertive" id="btn-narrow" ng-bind="product.viewModel.status.buttonText" ng-click="product.goPurchase()"></button>
+        <button class="button button-small button-assertive" id="btn-narrow" ng-bind="product.viewModel.status.buttonText" ng-disabled="!product.goPurchaseButtonEnable()" ng-click="product.goPurchase()"></button>
       </ion-item>
       <ion-item class="item-divider">
         <p class="pull-left">投资金额：<span>&nbsp;</span><span ng-bind="product.viewModel.investAmount"></span><span>&nbsp;</span>元</p>
@@ -54,7 +54,7 @@
     </div>
 
     <ion-list>
-      <ion-item class="item-divider"><p ng-bind="product.viewModel.productNo" class="product-no"></p></ion-item>
+      <ion-item class="item-divider"><p ng-bind="product.viewModel.productTitle" class="product-no"></p></ion-item>
       <ion-item>
         <p class="pull-left">项目状态</p>
 
