@@ -364,46 +364,19 @@ ion-header-bar.bar.bar-header {
   background: -ms-linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(255,225,142,1) 0%,rgba(250,203,58,1) 100%); /* IE10+ */
   background: linear-gradient(to bottom,  rgba(255,214,94,1) 0%,rgba(255,225,142,1) 0%,rgba(250,203,58,1) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd65e', endColorstr='#facb3a',GradientType=0 ); /* IE6-9 */
-
 }
 ion-header-bar.bar.bar-header div {
   padding: 0;
   margin: 2px;
 }
-
 ion-header-bar.bar.bar-header .title {
   color: #FFFFFF;
   font-weight: bold;
   font-size: 20px;
 }
-
 ion-header-bar.bar.bar-header .previous-title {
   display: none;
 }
-
-@media only screen and (max-width: 320px) and (max-height: 480px){
-  ion-header-bar.bar.bar-header div{
-    font-size: 15px!important;
-  }
-}/*iphone4*/
-
-/*@media only screen and (max-width: 320px) and (max-height: 480px){*/
-  /*ion-header-bar.bar.bar-header div{*/
-    /*font-size: 15px!important;*/
-  /*}*/
-/*}/!*iphone4*!/*/
-
-/*ion-header-bar.bar.bar-header div .col.col-25 {*/
-  /*margin-left: 12px;*/
-/*}*/
-
-/*ion-header-bar.bar.bar-header .jym-icon-logo {*/
-  /*display: block;*/
-  /*font-size: 28px;*/
-  /*color: #FACB3A;*/
-  /*height: 100%;*/
-  /*margin-top: 5px;*/
-/*}*/
 ion-header-bar.bar.bar-header ul.jym-nav-top i {
   display: block;
   font-size: 24px;
@@ -411,18 +384,6 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
   text-align: center;
   margin-top: 5px;
 }
-/*@media only screen and (max-width: 320px) and (min-height: 568px){*/
-  /*.jym-nav-top{*/
-    /*position: absolute;*/
-    /*right: 10px;*/
-  /*}*/
-/*}/!*iphone5*!/*/
-/*@media only screen and (max-width: 320px) and (max-height: 480px){*/
-  /*.jym-nav-top{*/
-    /*position: absolute;*/
-    /*right: 7px;*/
-  /*}*/
-/*}/!*iphone4*!/*/
 .tab-item .icon{
   color: rgb(181,181,182) ;
   font-size: 29px;
@@ -437,7 +398,6 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
   vertical-align: text-top;
   bottom: 5px;
 }
-
 .jym-nav-top li {
   position: relative;
   float: right;
@@ -459,6 +419,13 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
 .ui-right {
   right: 0
 }
+
+@media only screen and (max-width: 320px) and (max-height: 480px){
+  ion-header-bar.bar.bar-header div{
+    font-size: 15px!important;
+  }
+}/*iphone4*/
+
 /*ion-header-bar end*/
 
 
@@ -687,7 +654,6 @@ ion-slide img {
 ion-footer-bar button .icon-right {
   right: 20px;
 }
-
 /*ion-footer-bar end*/
 
 
@@ -755,11 +721,6 @@ ion-item .col-67 > li {
 #logout {
   margin-top: 50px;
 }
-
-/*ion-item p {*/
-  /*text-align: left;*/
-  /*font-size: 6px;*/
-/*}*/
 
 @media only screen and (max-width: 320px) and (min-height: 568px){
   ion-item .hint{
@@ -1374,6 +1335,8 @@ img.top {
 }
 /*jbyAccount end*/
 
+
+
 /*myorders start*/
 .myorders h1 {
   font-size: 22px;
@@ -1391,10 +1354,9 @@ img.top {
 .settle-account .item i {
   font-size: 16px;
 }
-/*.settle-account .item {*/
-  /*border-bottom: 1px;*/
-/*}*/
 /*.settle-account end*/
+
+
 
 /*.jbyaccountdetails start*/
 .jbyaccountdate {
@@ -1468,6 +1430,17 @@ img.top {
   color: #e74c3c;
   font-size: 16px;
 }
+.col.col-75 p {
+  font-size: 14px;
+  text-align: left;
+  margin-top: 9px;
+  color: #cead52;
+}
+.col.col-25 span {
+  font-size: 14px;
+  vertical-align: text-top;
+}
+
 @media only screen and (max-width: 320px) and (max-height: 480px){
   .deposit .item > img {
     left:0;
@@ -1483,13 +1456,14 @@ img.top {
   .deposit .item i {
     right: 0;
   }
-
+  .deposit h4{
+    left: 9%;
+  }
 }/*iphone4*/
 @media only screen and (max-width: 320px) and (min-height: 568px) {
   .deposit .item > img {
     left: 0;
   }
-
   .deposit .item > p {
     padding-top: 7px;
     white-space: normal;
@@ -1497,7 +1471,9 @@ img.top {
     right: 20px;
     position: relative;
   }
-
+  .deposit h4{
+    left: 8%;
+  }
   .deposit .item i {
     right: 0;
   }
@@ -1521,30 +1497,6 @@ img.top {
     left: 34%;
   }
 }/*pad*/
-@media only screen and (max-width: 320px) and (max-height: 480px){
-  .deposit h4{
-    left: 9%;
-  }
-}/*iphone4*/
-@media only screen and (max-width: 320px) and (min-height: 568px){
-  .deposit h4{
-    left: 8%;
-  }
-}/*iphone5*/
-  /*.deposit em {*/
-  /*color: #cead52;*/
-  /*text-align: center;*/
-/*}*/
-.col.col-75 p {
-  font-size: 14px;
-  text-align: left;
-  margin-top: 9px;
-  color: #cead52;
-}
-.col.col-25 span {
-  font-size: 14px;
-  vertical-align: text-top;
-}
 /*.deposit end*/
 
 
@@ -1644,12 +1596,16 @@ label.checkbox span {
   top: 18%;
   left: 16%;
 }
+
+
 /*.nav-bar-container start*/
 .nav-bar-container button .ion-ios-arrow-back {
   color: #F5F0F0;
   font-size: 20px;
 }
 /*nav-bar-container end*/
+
+
 
 /*loading start*/
 .spinner svg {
@@ -1660,10 +1616,7 @@ label.checkbox span {
 .loading-container .loading{
   background-color: rgba(0, 0, 0, 0.3);
 }
-
 /*loading end*/
-
-
 
 
 /*backdrop start*/
@@ -1672,7 +1625,6 @@ label.checkbox span {
 }
 /*backdrop end*/
 
-/*.nav-bar-container end*/
 
 /*.safe-banner start*/
 .safe-banner img {
@@ -1722,34 +1674,15 @@ label.checkbox span {
 
 /*#toast-container {*/
   /*background-color: rgba(105, 105, 105, .7)*/
-
 /*}*/
-
 #toast-container > .toast > button.toast-close-button {
   position: relative;
   padding-right: 8px;
 }
-@media only screen and (max-width: 320px) and (max-height: 480px) {
-  #toast-container > .toast > button.toast-close-button {
-    display: none;
-  }
-}
-@media only screen and (max-width: 320px) and (min-height: 568px) {
-  #toast-container > .toast > button.toast-close-button {
-    display: none;
-  }
-}
-
-#toast-container > .toast .toast-title {
-
-}
-
 #toast-container > .toast .toast-message {
   font-size: 14px;
   color: white;
 }
-
-
 #toast-container.toast-bottom-center > div, #toast-container >.toast-info {
   background-color: rgba(105, 105, 105, .7);
   position: relative;
@@ -1762,9 +1695,20 @@ label.checkbox span {
   vertical-align: text-bottom;
 }
 @media only screen and (max-width: 320px) and (max-height: 480px) {
+  #toast-container > .toast > button.toast-close-button {
+    display: none;
+  }
   #toast-container.toast-bottom-center > div, #toast-container >.toast-info {
     bottom: 80px;
   }
+} /*iphone 4*/
+@media only screen and (max-width: 320px) and (min-height: 568px) {
+  #toast-container > .toast > button.toast-close-button {
+    display: none;
+  }
+}/*iphone 5*/
+#toast-container > .toast .toast-title {
+
 }
 /*toast end*/
 
@@ -1796,7 +1740,8 @@ input[readonly]:not(.cloned-text-input) {
   line-height: 1.5em;
 }
 
-/*# yilian-notice start*/
+
+/* #yilian-notice start*/
 #yilian-notice {
   background: url("../img/payment/icon-auth-receive-0885d71.png") no-repeat 50% 30px;
   background-size: 85px auto;
@@ -1831,7 +1776,7 @@ input[readonly]:not(.cloned-text-input) {
   margin-left: 25px;
 }
 
-/*#addcard end*/
+/* #yilian-notice end*/
 
 @media only screen and (min-width: 768px) {
   .item-content .col.col-33 {
@@ -1840,40 +1785,4 @@ input[readonly]:not(.cloned-text-input) {
   .item-content .col.col-67 {
     padding-left: 50px;
   }
-}
-
-/*.item {*/
-  /*border: none;*/
-/*}*/
-/*.list:first-child {*/
-  /*border: none;*/
-  /*border-top: solid thin #e3d8c2;*/
-/*}*/
-/*.list:last-child {*/
-  /*border: none;*/
-  /*border-bottom: solid thin #e3d8c2;*/
-/*}*/
-/*.item.divider {*/
-  /*border-top: solid thin #e3d8c2;*/
-  /*border-bottom: solid thin #e3d8c2;*/
-  /*border-right: none;*/
-  /*border-left: none;*/
-/*}*/
-
-/*.border-less {*/
-  /*border-left: none;*/
-  /*border-right: none;*/
-  /*border-top: solid thin;*/
-  /*border-bottom: solid thin;*/
-  /*width: 90%;*/
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*left: 5%;*/
-  /*height: 100%;*/
-  /*border-color: #e3d8c2;*/
-/*}*/
-
-
-/*.item.divider {*/
-  /*border-bottom: solid thin #e3d8c2;*/
-/*}*//*noinspection CssUnknownTarget*/
+} /*ipad 竖屏*/
