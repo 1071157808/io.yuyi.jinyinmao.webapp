@@ -20,8 +20,7 @@ angular.module('jym.user.bank-card-upgrade', [
         card.viewModel = {};
 
         card.buttonEnable = function() {
-            return card.viewModel.cellphone && card.viewModel.realName && card.model.user.realName
-                && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
+            return card.viewModel.cellphone && card.viewModel.realName && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
         };
 
         card.doRefresh = function() {
