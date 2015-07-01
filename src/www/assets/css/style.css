@@ -1515,6 +1515,9 @@ ion-item .divider, .item.divider {
 .list .item .pull-right > span {
   color: #8d9aa5;
 }
+.list .item .pull-right > .white-span{
+  color: white;
+}
 #refresh {
   color: #47b28b;
   padding-right: 8px;
