@@ -127,8 +127,6 @@ angular.module('jym.user.orders', [
             orders.viewModel.totalCount = 0;
             orders.viewModel.totalPageCount = 1;
 
-            orders.loadMoreData();
-
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);

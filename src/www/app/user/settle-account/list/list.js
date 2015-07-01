@@ -68,8 +68,6 @@ angular.module('jym.user.settle-account-list', [
             account.viewModel.totalCount = 0;
             account.viewModel.totalPageCount = 1;
 
-            account.loadMoreData();
-
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);

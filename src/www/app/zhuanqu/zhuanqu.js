@@ -178,8 +178,6 @@ angular.module('jym.zhuanqu', [
             products.viewModel.totalCount = 0;
             products.viewModel.totalPageCount = 1;
 
-            products.loadMoreData();
-
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
