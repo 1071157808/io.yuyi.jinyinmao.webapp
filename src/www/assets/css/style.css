@@ -1788,7 +1788,10 @@ input[readonly]:not(.cloned-text-input) {
 .orderList .item-divider {
   background-color: white;
 }
-.orderList .item-divider samp, .orderList  p >  span:last-child {
+.orderList .item-divider samp{
+  color: #acb5bd;
+}
+.orderList  p >  span:last-child {
   color: #83817c;
 }
 .orderList .item p > strong {

@@ -6,15 +6,15 @@
       on-refresh="orders.doRefresh()">
     </ion-refresher>
     <ion-list class="orderList">
-      <div ng-repeat="item in orders.viewModel.items">
+      <div ng-repeat="item in orders.viewModel.items" ui-sref="jym.user-orders-detail({
+        transactionIdentifier: item.orderIdentifier})">
         <ion-item class="item-divider item-icon-right">
           <span>订单号： </span>
           <samp ng-bind="item.orderNo"></samp>
           <i class="icon ion-chevron-right"></i>
         </ion-item>
 
-        <ion-item ui-sref="jym.user-orders-detail({
-        transactionIdentifier: item.orderIdentifier})">
+        <ion-item >
           <p>
             <span class="pull-left">订单金额</span>
             <span class="pull-right" ng-bind="item.orderTime | longTime"></span>
