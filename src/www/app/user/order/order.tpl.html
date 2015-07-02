@@ -5,24 +5,46 @@
       spinner="spiral"
       on-refresh="orders.doRefresh()">
     </ion-refresher>
-    <ion-list>
+    <ion-list class="orderList">
       <div ng-repeat="item in orders.viewModel.items">
-        <ion-item class="item-icon-right" ui-sref="jym.user-orders-detail({
+        <ion-item class="item-divider item-icon-right">
+          <span>订单号： </span>
+          <samp ng-bind="item.orderNo"></samp>
+          <i class="icon ion-chevron-right"></i>
+        </ion-item>
+
+        <ion-item ui-sref="jym.user-orders-detail({
         transactionIdentifier: item.orderIdentifier})">
-          <p><span>订单金额</span><span ng-bind="item.principal"></span></p>
-          <p><span>下单时间</span><span ng-bind="item.orderTime | longTime"></span></p>
-          <p><span>预计收益</span><span ng-bind="item.interest"></span></p>
-          <p><span>额外收益</span><span ng-bind="item.extraInterest"></span></p>
-          <p><span>订单状态</span><span ng-bind="item.statusText"></span></p>
-          <p><span>订单号</span><span ng-bind="item.orderNo"></span></p>
-          <p><span>项目名称</span><span ng-bind="item.productSnapshot.productTitle"></span></p>
-          <p><span>项目期数</span><span ng-bind="item.productSnapshot.issueNo"></span></p>
-          <p><span>投资周期</span><span ng-bind="item.productSnapshot.period"></span></p>
-          <p><span>起息日期</span><span ng-bind="item.valueDate | time"></span></p>
-          <p><span>结息日期</span><span ng-bind="item.settleDate | time"></span></p>
-          <p><span>最迟还款日</span><span ng-bind="item.productSnapshot.repaymentDeadline | time"></span></p>
-        <ion-item class="divider"></ion-item>
+          <p>
+            <span class="pull-left">订单金额</span>
+            <span class="pull-right" ng-bind="item.orderTime | longTime"></span>
+          </p>
+          <p>
+            <strong class="pull-left" ng-bind="item.principal"></strong><samp style="float: left">&nbsp;元</samp>
+
+            <!--<span class="pull-left">下单时间</span>-->
+          </p>
+          <p><span class="pull-left">预计收益： </span>
+             <span ng-bind="item.interest"></span>
+             <span>&nbsp;&nbsp;&nbsp;+</span>
+             <span ng-bind="item.extraInterest"></span>
+             <span class="pull-right" ng-bind="item.statusText"></span>
+          </p>
+
+          <!--<p>-->
+            <!--<span class="pull-left">订单状态</span>-->
+          <!--</p>-->
+          </ion-item>
+
+
+          <!--<p><span>项目名称</span><span ng-bind="item.productSnapshot.productTitle"></span></p>-->
+          <!--<p><span>项目期数</span><span ng-bind="item.productSnapshot.issueNo"></span></p>-->
+          <!--<p><span>投资周期</span><span ng-bind="item.productSnapshot.period"></span></p>-->
+          <!--<p><span>起息日期</span><span ng-bind="item.valueDate | time"></span></p>-->
+          <!--<p><span>结息日期</span><span ng-bind="item.settleDate | time"></span></p>-->
+          <!--<p><span>最迟还款日</span><span ng-bind="item.productSnapshot.repaymentDeadline | time"></span></p>-->
       </div>
+      <ion-item class="divider"></ion-item>
     </ion-list>
     <ion-infinite-scroll
       ng-if="orders.moreDataCanBeLoaded()"

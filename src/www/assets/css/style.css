@@ -1513,7 +1513,7 @@ ion-item .divider, .item.divider {
 }
 
 .list .item .pull-right > span {
-  color: #8d9aa5;
+  color: #83817c;
 }
 .list .item .pull-right > .white-span{
   color: white;
@@ -1776,3 +1776,26 @@ input[readonly]:not(.cloned-text-input) {
   height: 3px;
 }
 /*pace end*/
+
+
+/*.orderList start*/
+.orderList .item p {
+  line-height: 20px;
+}
+.orderList .item-complex .item-content {
+  padding-right: 16px;
+}
+.orderList .item-divider {
+  background-color: white;
+}
+.orderList .item-divider samp, .orderList  p >  span:last-child {
+  color: #83817c;
+}
+.orderList .item p > strong {
+  color: #e74c3c;
+}
+.orderList .item p > samp {
+  position: relative;
+  padding-top: 15px;
+}
+/*.orderList end*/
