@@ -1,7 +1,7 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         CONFIG: {
-            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.0.0'
+            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.1.1'
         },
         JINBAOYIN: {
             FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
@@ -115,6 +115,6 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.0.0-dev'
+        VERSION: '13.1.1-dev'
     });
 

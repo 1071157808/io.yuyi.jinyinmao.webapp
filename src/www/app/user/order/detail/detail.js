@@ -8,7 +8,7 @@ angular.module('jym.user.orders-detail', [
                 views: {
                     'user': {
                         controller: 'UserOrderDetailCtrl as order',
-                        templateUrl: 'app/user/orders/detail/detail.tpl.html'
+                        templateUrl: 'app/user/order/detail/detail.tpl.html'
                     }
                 }
             });

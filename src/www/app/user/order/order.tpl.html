@@ -3,7 +3,7 @@
         <ion-refresher pulling-icon="ion-arrow-down-c" spinner="spiral" on-refresh="orders.doRefresh()">
         </ion-refresher>
         <ion-list class="orderList">
-            <div ng-repeat="item in orders.viewModel.items" ui-sref="jym.user-orders-detail({transactionIdentifier: item.orderIdentifier})">
+            <div ng-repeat="item in orders.viewModel.items" ui-sref="jym.user-orders-detail({ orderIdentifier: item.orderIdentifier })">
                 <ion-item class="item-divider item-icon-right">
                     <span>订单号： </span>
                     <samp ng-bind="item.orderNo"></samp>
