@@ -1800,5 +1800,6 @@ input[readonly]:not(.cloned-text-input) {
 .orderList .item p > samp {
   position: relative;
   padding-top: 15px;
+  float: left;
 }
 /*.orderList end*/
