@@ -2,7 +2,8 @@ angular.module('jym.zhuanqu.purchase', [
     'jym.services',
     'jym.services.product',
     'jym.services.purchase',
-    'jym.services.user'
+    'jym.services.user',
+    'jym.user.orders-detail'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -42,7 +43,7 @@ angular.module('jym.zhuanqu.purchase', [
                 productCategory = 100000010;
             }
             purchase.refreshUserInfo()
-                .then(function(result){
+                .then(function(result) {
                     purchase.model.currentUser = result;
                     purchase.model.order = PurchaseService.getRegularOrder(productCategory);
                     purchase.refreshViewModel();
@@ -51,15 +52,15 @@ angular.module('jym.zhuanqu.purchase', [
         };
 
         purchase.refreshUserInfo = function() {
-            UserService.getUserInfo();
+            return UserService.getUserInfo();
         };
 
         purchase.refreshViewModel = function() {
             purchase.viewModel.balance = (purchase.model.currentUser.balance / 100).toFixed(2);
             purchase.viewModel.amount = (purchase.model.order.amount / 100).toFixed(2);
 
-            purchase.viewModel.agreement1 = '借款协议';
-            purchase.viewModel.agreement2 = '委托协议';
+            purchase.viewModel.agreement2 = '借款协议';
+            purchase.viewModel.agreement1 = '委托协议';
         };
 
         purchase.purchaseButtonEnable = function() {
@@ -69,13 +70,13 @@ angular.module('jym.zhuanqu.purchase', [
         purchase.purchase = function() {
             if (purchase.purchaseButtonEnable()) {
                 var amount = parseInt(purchase.model.order.amount * 100);
-                UserService.investingJBY(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
+                UserService.investingRegular(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.REGULAR);
                             PurchaseService.clearRegularOrder();
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
+                                JYMUtilityService.goWithDisableBack('jym.user-orders-detail', {orderIdentifier: result.orderIdentifier});
                             }, 1000);
                         }
                     });

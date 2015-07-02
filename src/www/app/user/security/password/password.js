@@ -31,7 +31,7 @@ angular.module('jym.user.security-password', [])
             ctrl.viewModel.password = undefined;
             ctrl.viewModel.confirmPassword = undefined;
         };
-        
+
         ctrl.enableButton = function() {
             return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
         };

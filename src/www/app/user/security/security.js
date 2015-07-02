@@ -34,7 +34,7 @@ angular.module('jym.user.security', [
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.hasSetPaymentPassword = ctrl.model.user.verified;
+            ctrl.viewModel.hasSetPaymentPassword = ctrl.model.user.hasSetPaymentPassword;
         };
 
         $scope.$on('$ionicView.enter', function() {

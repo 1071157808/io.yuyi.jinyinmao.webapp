@@ -98,7 +98,7 @@ angular.module('jym.user.orders', [
         orders.viewModel.totalPageCount = 1;
 
         orders.loadMoreData = function() {
-            UserService.getSettelAccountList(orders.viewModel.nextPageIndex)
+            UserService.getOrderList(orders.viewModel.nextPageIndex)
                 .then(function(result) {
                     orders.viewModel.currentPageIndex = result.pageIndex;
                     orders.viewModel.nextPageIndex = result.pageIndex + 1;

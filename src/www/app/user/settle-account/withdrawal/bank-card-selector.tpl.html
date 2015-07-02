@@ -10,9 +10,11 @@
         <img ng-src="{{ item.bankName | bankImg }}">
 
         <h2 ng-bind="item.bankName"></h2>
+
         <p class="pull-right" ng-bind="item | bankCardStatus"></p>
 
         <p>尾号 <em ng-bind="item.bankCardNo.substr(-4)"></em></p>
+
         <p>取现额度（元）<span ng-bind="item.withdrawAmount"></span></p>
         <i class="icon ion-checkmark-round" ng-hide="!account.selected(item.bankCardNo)"></i>
       </ion-item>

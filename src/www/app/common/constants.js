@@ -77,7 +77,8 @@ angular.module('jym.constants', [])
             USER: {
                 INVALID_CELLPHONE: '请填写正确的手机号',
                 INVALID_PASSWORD: '请输入正确的密码',
-                LOGIN_OUT: '退出成功'
+                LOGIN_OUT: '退出成功',
+                LOGIN_SUCCESS: '登录成功'
             },
             BANKCARD: {
                 REMOVE_SUCCESS: '删除银行卡成功',

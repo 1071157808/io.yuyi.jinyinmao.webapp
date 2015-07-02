@@ -14,13 +14,16 @@ angular.module('jym.user.login', [
                 }
             })
     })
-    .controller('UserLoginCtrl', function($stateParams, RESOURCES, REGEX, UserService, JYMUtilityService) {
+    .controller('UserLoginCtrl', function($scope, $stateParams, $timeout, RESOURCES, REGEX, UserService, JYMUtilityService) {
         var user = this;
 
         user.viewModel = {};
         user.viewModel.cellphone = undefined;
         user.viewModel.password = undefined;
 
+        user.doRefresh = function() {
+            user.viewModel.password = undefined;
+        };
 
         user.login = function() {
             if (user.loginButtonEnable()) {
@@ -46,12 +49,16 @@ angular.module('jym.user.login', [
                             return;
                         }
 
-                        var backState = 'jym.user';
-                        if ($stateParams.backState) {
-                            backState = $stateParams.backState;
-                        }
+                        JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_SUCCESS);
 
-                        JYMUtilityService.goWithDisableBack(backState);
+                        $timeout(function() {
+                            var backState = 'jym.user';
+                            if ($stateParams.backState) {
+                                backState = $stateParams.backState;
+                            }
+
+                            JYMUtilityService.goWithDisableBack(backState);
+                        }, 1000);
                     });
 
             }
@@ -60,4 +67,8 @@ angular.module('jym.user.login', [
         user.loginButtonEnable = function() {
             return user.viewModel.cellphone && user.viewModel.password;
         };
+
+        $scope.$on('$ionicView.enter', function() {
+            user.doRefresh();
+        });
     });

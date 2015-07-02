@@ -4,7 +4,7 @@
       <ion-item class="divider"></ion-item>
       <ion-item class="item item-input veri-code-refresh">
 
-        <input type="text" placeholder="请输入手机号码" ng-bind="ctrl.viewModel.cellphone" required minlength="11" maxlength="11" ng-pattern="/^(13|14|15|17|18)\d{9}$/" ng-trim="true" readonly="readonly">
+        <input type="text" placeholder="请输入手机号码" ng-model="ctrl.viewModel.cellphone" required minlength="11" maxlength="11" ng-pattern="/^(13|14|15|17|18)\d{9}$/" ng-trim="true" readonly="readonly">
 
         <button class="button button-small" ng-click="ctrl.sendVeriCode()" ng-if="ctrl.showVeriCodeButton()" ng-disabled="!ctrl.sendVeriCodeButtonEnable()">&nbsp;&nbsp;点击发送验证码&nbsp;&nbsp;</button>
 

@@ -9,14 +9,14 @@
     <ion-list>
       <ion-item class="card deposit">
         <ion-item class="item">
-          <span class="pull-left">账户余额</span>
-          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong> &nbsp;元</span>
+          <span class="pull-left">账户余额&nbsp;&nbsp;</span>
+          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong> &nbsp;&nbsp;元</span>
           <span class="pull-right" ui-sref="jym.user-settle-account-deposit">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>
         </ion-item>
 
         <label class="item item-input">
           <span class="input-label">输入密码</span>
-          <input type="password" placeholder="请输入您的支付密码" ng-bind="purchase.viewModel.password" required minlength="8" maxlength="18" ng-pattern="^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$">
+          <input type="password" placeholder="请输入您的支付密码" ng-model="purchase.viewModel.password" required minlength="8" maxlength="18" ng-pattern="/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/">
         </label>
       </ion-item>
 
@@ -29,11 +29,11 @@
           <span>同意</span>
         </button>
         <span>《</span>
-        <span ng-bind="purchase.viewModel.agreement1"></span>
+        <span ng-bind="purchase.viewModel.agreement2"></span>
         <span>》</span>
         <span>及</span>
         <span>《</span>
-        <span ng-bind="purchase.viewModel.agreement2"></span>
+        <span ng-bind="purchase.viewModel.agreement1"></span>
         <span>》</span>
       </div>
     </ion-list>

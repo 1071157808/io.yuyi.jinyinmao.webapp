@@ -4,6 +4,7 @@ angular.module('jym.user', [
     'jym.user.bank-card',
     'jym.user.login',
     'jym.user.jinbaoyin',
+    'jym.user.orders',
     'jym.user.security',
     'jym.user.settle-account'
 ])
@@ -52,7 +53,7 @@ angular.module('jym.user', [
             UserService.loginOut();
             JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_OUT);
             $timeout(function() {
-                JYMUtilityService.goWithDisableBack('jym.user-login', {}, {reload: true})
+                JYMUtilityService.goWithDisableBack('jym.user-login');
             }, 1000);
         };
 
