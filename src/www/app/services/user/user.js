@@ -301,7 +301,7 @@ angular.module('jym.services.user', [
         };
 
         service.resetPaymentPassword = function(credentialNo, password, token, userRealName) {
-            var url = URLS.USER.RESETLOGINPASSWORD;
+            var url = URLS.USER.RESETPAYMENTPASSWORD;
 
             return $http.post(url, {
                 credentialNo: credentialNo,
