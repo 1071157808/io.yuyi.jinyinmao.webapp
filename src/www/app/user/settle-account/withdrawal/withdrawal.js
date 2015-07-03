@@ -88,7 +88,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.WITHDRAWAL_SUCCESS);
                             UserService.sharedData.withdrawalBankCardNo = undefined;
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user-settle-account-detail', {
+                                JYMUtilityService.go('jym.user-settle-account-detail', {
                                     transactionIdentifier: result.transactionIdentifier
                                 });
                             }, 1000);
@@ -105,6 +105,19 @@ angular.module('jym.user.settle-account-withdrawal', [
     })
     .controller('UserSettleAccountWithdrawalBankCardSeletorCtrl', function($scope, $timeout, $ionicHistory, UserService) {
         var account = this;
+
+        var getViewItem = function(modelItem) {
+            var card = {};
+            card.bankCardNo = modelItem.bankCardNo;
+            card.bankName = modelItem.bankName;
+            card.cellphone = modelItem.cellphone;
+            card.cityName = modelItem.cityName;
+            card.verified = modelItem.verified;
+            card.verifiedByYilian = modelItem.verifiedByYilian;
+            card.verifiedTime = modelItem.verifiedTime;
+            card.withdrawAmount = (modelItem.withdrawAmount / 100).toFixed(2);
+            return card;
+        };
 
         account.model = {};
         account.viewModel = {};
@@ -131,17 +144,7 @@ angular.module('jym.user.settle-account-withdrawal', [
             account.viewModel.items = [];
 
             _.forEach(account.model, function(c) {
-                var card = {};
-
-                card.bankCardNo = c.bankCardNo;
-                card.bankName = c.bankName;
-                card.cellphone = c.cellphone;
-                card.cityName = c.cityName;
-                card.verified = c.verified;
-                card.verifiedByYilian = c.verifiedByYilian;
-                card.verifiedTime = c.verifiedTime;
-                card.withdrawAmount = (c.withdrawAmount / 100).toFixed(2);
-                account.viewModel.items.push(c);
+                account.viewModel.items.push(getViewItem(c));
             });
         };
 

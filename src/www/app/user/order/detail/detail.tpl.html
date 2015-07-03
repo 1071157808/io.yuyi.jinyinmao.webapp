@@ -3,21 +3,19 @@
     <ion-list class="orderList">
       <ion-item class="item-divider">
         <span>订单号： </span>
-        <samp ng-bind="item.orderNo"></samp>
+        <samp ng-bind="order.viewModel.orderNo"></samp>
       </ion-item>
       <ion-item>
         <p>
           <span class="pull-left">订单金额</span>
-          <span class="pull-right" ng-bind="item.orderTime | longTime"></span>
+          <span class="pull-right" ng-bind="order.viewModel.principal"><samp>&nbsp;元</samp></span>
         </p>
         <p>
-          <strong class="pull-left" ng-bind="item.principal"></strong><samp>&nbsp;元</samp>
-        </p>
-        <p><span class="pull-left">预计收益： </span>
-          <span ng-bind="item.interest"></span>
-          <span>&nbsp;&nbsp;&nbsp;+</span>
-          <span ng-bind="item.extraInterest"></span>
-          <span class="pull-right" ng-bind="item.statusText"></span>
+          <span class="pull-left">预计收益： </span>
+          <span ng-bind="order.viewModel.interest"></span>
+          <span ng-if="order.viewModel.extraInterest > 0">&nbsp;&nbsp;&nbsp;+</span>
+          <span ng-if="order.viewModel.extraInterest > 0" ng-bind="order.viewModel.extraInterest"></span>
+          <span class="pull-right" ng-bind="order.viewModel.statusText"></span>
         </p>
       </ion-item>
       <ion-item class="divider"></ion-item>

@@ -548,7 +548,7 @@ angular.module('jym.filters', [])
                 return '';
             }
 
-            return moment(time).format('LL');
+            return moment(time).format('YYYY年MM月DD日');
         };
     })
     .filter('longTime', function() {

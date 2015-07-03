@@ -66,7 +66,7 @@ angular.module('jym.shangpiao.purchase', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.REGULAR);
                             PurchaseService.clearRegularOrder();
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
+                                JYMUtilityService.go('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
                             }, 1000);
                         }
                     });
