@@ -5,7 +5,7 @@ angular.module('jym.interceptors', [
         var authService = $injector.get('JYMAuthService');
         return {
             'request': function(config) {
-                config.headers['x-jym'] = authService.getToken();
+                config.headers['x-jym-auth'] = authService.getToken();
                 return config;
             },
 
@@ -15,8 +15,8 @@ angular.module('jym.interceptors', [
             },
 
             'response': function(response) {
-                if (response.headers()['x-jym']) {
-                    authService.setToken(response.headers()['x-jym'])
+                if (response.headers()['x-jym-auth']) {
+                    authService.setToken(response.headers()['x-jym-auth'])
                 }
                 return response;
             },

@@ -52,12 +52,7 @@ angular.module('jym.user.login', [
                         JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_SUCCESS);
 
                         $timeout(function() {
-                            var backState = 'jym.user';
-                            if ($stateParams.backState) {
-                                backState = $stateParams.backState;
-                            }
-
-                            JYMUtilityService.goWithDisableBack(backState);
+                            JYMUtilityService.goWithDisableBack('jym.user');
                         }, 1000);
                     });
 
