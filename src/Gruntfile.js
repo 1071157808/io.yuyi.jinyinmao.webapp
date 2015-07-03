@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                     cleanBowerDir: true,
                     copy: true,
                     install: false,
-                    targetDir: './www/packages'
+                    targetDir: './www'
                 }
             },
             clean: {
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                     cleanBowerDir: true,
                     copy: false,
                     install: false,
-                    targetDir: './www/packages'
+                    targetDir: './www'
                 }
             },
             install: {
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                     cleanBowerDir: false,
                     copy: true,
                     install: true,
-                    targetDir: './www/packages'
+                    targetDir: './www'
                 }
             }
         },
@@ -57,9 +57,9 @@ module.exports = function(grunt) {
             assets: {
                 files: [{
                     expand: true,
-                    cwd: 'assets/img/',
+                    cwd: './www/assets/img/',
                     src: '**/*.{gif,GIF,jpg,jpeg,JPG,png,PNG}',
-                    dest: 'moe-assets/img/'
+                    dest: './www/moe-assets/img/'
                 }]
             }
         },
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         clean: {
             dist: 'dist/**/*',
             npm: 'node_modules/',
-            dev: 'moe_packages/moe-ui@dev/**/*'
+            dev: ['./www/moe_packages/**/*', './www/moe-assets/**/*']
         },
 
         jscs: {
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                 src: ['Gruntfile.js']
             },
             core: {
-                src: ['!app/**/*.js', 'assets/**/*.js', '!app/**/*.min.js', '!assets/**/*.min.js']
+                src: ['./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js']
             }
         },
 
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
                 src: ['Gruntfile.js']
             },
             core: {
-                src: ['!app/**/*.js', 'assets/**/*.js', '!app/**/*.min.js', '!assets/**/*.min.js']
+                src: ['!./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js']
             }
         },
 
@@ -139,7 +139,7 @@ module.exports = function(grunt) {
                 browsers: ['last 2 versions', 'ie 8', 'ie 9', '> 5% in CN']
             },
             core: {
-                src: ['assets/css/*.css', '!assets/css/*.min.css']
+                src: ['./www/assets/css/*.css', '!./www/assets/css/*.min.css']
             }
         },
 
@@ -149,9 +149,9 @@ module.exports = function(grunt) {
             },
             core: {
                 expand: true,
-                cwd: 'assets/css/',
+                cwd: './www/assets/css/',
                 src: '**/*.css',
-                dest: 'assets/css/'
+                dest: './www/assets/css/'
             }
         },
 
@@ -160,7 +160,7 @@ module.exports = function(grunt) {
                 csslintrc: '.csslintrc'
             },
             core: {
-                src: ['assets/css/*.css', '!assets/css/*.min.css']
+                src: ['./www/assets/css/*.css', '!./www/assets/css/*.min.css']
             }
         },
 
@@ -173,9 +173,9 @@ module.exports = function(grunt) {
             core: {
                 files: [{
                     expand: true,
-                    cwd: 'assets/css',
+                    cwd: './www/assets/css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'assets/css',
+                    dest: './www/assets/css',
                     ext: '.min.css'
                 }]
             }
