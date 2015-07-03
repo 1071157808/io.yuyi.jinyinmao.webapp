@@ -3071,6 +3071,8 @@
 
     // Side effect imports
 
+    ;
+
     //! moment.js
     //! version : 2.10.3
     //! authors : Tim Wood, Iskren Chernev, Moment.js contributors

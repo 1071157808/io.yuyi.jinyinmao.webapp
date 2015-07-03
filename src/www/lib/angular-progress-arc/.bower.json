@@ -35,7 +35,6 @@
     "commit": "148d22688c34ae1e7a180283f8c83bcb1ab2a77a"
   },
   "_source": "git://github.com/mathewbyrne/angular-progress-arc.git",
-  "_target": "~1.0.0",
-  "_originalSource": "angular-progress-arc",
-  "_direct": true
+  "_target": "*",
+  "_originalSource": "angular-progress-arc"
 }

@@ -25,16 +25,16 @@ module.exports = function(grunt) {
                     cleanBowerDir: true,
                     copy: false,
                     install: false,
-                    targetDir: '.'
+                    targetDir: './www/packages'
                 }
             },
             install: {
                 options: {
                     cleanTargetDir: false,
-                    cleanBowerDir: true,
+                    cleanBowerDir: false,
                     copy: true,
                     install: true,
-                    targetDir: '.'
+                    targetDir: './www/packages'
                 }
             }
         },
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'assets/img/',
                     src: '**/*.{gif,GIF,jpg,jpeg,JPG,png,PNG}',
-                    dest: 'moe_assets/img/'
+                    dest: 'moe-assets/img/'
                 }]
             }
         },
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                 src: ['Gruntfile.js']
             },
             core: {
-                src: ['assets/**/*.js', '!assets/**/*.min.js']
+                src: ['!app/**/*.js', 'assets/**/*.js', '!app/**/*.min.js', '!assets/**/*.min.js']
             }
         },
 
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
                 src: ['Gruntfile.js']
             },
             core: {
-                src: ['assets/**/*.js', '!assets/**/*.min.js']
+                src: ['!app/**/*.js', 'assets/**/*.js', '!app/**/*.min.js', '!assets/**/*.min.js']
             }
         },
 
@@ -129,12 +129,8 @@ module.exports = function(grunt) {
                 preserveComments: false
             },
             core: {
-                src: 'src/js/<%= pkg.name %>.js',
-                dest: 'src/js/<%= pkg.name %>.min.js'
-            },
-            ie10: {
-                src: 'src/js/<%= pkg.name %>-ie10.js',
-                dest: 'src/js/<%= pkg.name %>-ie10.min.js'
+                src: 'src/js/<%= pkg.name %>-<%= pkg.version %>.js',
+                dest: 'src/js/<%= pkg.name %>-<%= pkg.version %>.min.js'
             }
         },
 
@@ -143,10 +139,7 @@ module.exports = function(grunt) {
                 browsers: ['last 2 versions', 'ie 8', 'ie 9', '> 5% in CN']
             },
             core: {
-                src: ['src/css/*.css', '!src/css/*.min.css']
-            },
-            docs: {
-                src: ['docs/src/css/*.css', '!docs/src/css/*.min.css']
+                src: ['assets/css/*.css', '!assets/css/*.min.css']
             }
         },
 
@@ -156,15 +149,9 @@ module.exports = function(grunt) {
             },
             core: {
                 expand: true,
-                cwd: 'src/css/',
+                cwd: 'assets/css/',
                 src: '**/*.css',
-                dest: 'src/css/'
-            },
-            docs: {
-                expand: true,
-                cwd: 'docs/src/css/',
-                src: '**/*.css',
-                dest: 'docs/src/css/'
+                dest: 'assets/css/'
             }
         },
 
@@ -173,14 +160,7 @@ module.exports = function(grunt) {
                 csslintrc: '.csslintrc'
             },
             core: {
-                src: '<%= autoprefixer.core.src %>'
-            },
-            docs: {
-                options: {
-                    csslintrc: '.csslintrc',
-                    ids: false
-                },
-                src: '<%= autoprefixer.docs.src %>'
+                src: ['assets/css/*.css', '!assets/css/*.min.css']
             }
         },
 
@@ -193,35 +173,10 @@ module.exports = function(grunt) {
             core: {
                 files: [{
                     expand: true,
-                    cwd: 'src/css',
+                    cwd: 'assets/css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'src/css',
+                    dest: 'assets/css',
                     ext: '.min.css'
-                }]
-            }
-        },
-
-        mhandlebars: {
-            options: {
-                partialsDir: 'docs/src/partials/',
-                compilerOptions: {
-                    noEscape: true
-                }
-            },
-            docsTmp: {
-                files: [{
-                    expand: true,
-                    cwd: 'docs/src/',
-                    src: '**/*.html',
-                    dest: 'docs/tmp/'
-                }]
-            },
-            docs: {
-                files: [{
-                    expand: true,
-                    cwd: 'docs/src/',
-                    src: '**/*.html',
-                    dest: 'docs/dist/'
                 }]
             }
         },
