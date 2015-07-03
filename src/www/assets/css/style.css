@@ -990,6 +990,8 @@ label.item-input > span {
   margin-bottom: 20px;
 }
 /*login end*/
+
+
 /*zhuanqu start*/
 #zhuanqu h2 {
   font-size: 22px;
@@ -1829,3 +1831,13 @@ input[readonly]:not(.cloned-text-input) {
   float: left;
 }
 /*.orderList end*/
+
+/*.resetPaymenPasssword start*/
+
+@media only screen and (max-width: 320px) {
+  .resetPaymenPasssword .item-input {
+    padding-left: 8px;
+  }
+}
+
+/*.resetPaymenPasssword end*/
