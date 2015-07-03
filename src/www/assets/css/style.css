@@ -1220,7 +1220,7 @@ img.top {
   max-width: 40px;
   max-height: 40px;
   margin-top: 10px;
-  margin-left: 5px;
+  margin-left: 20px;
 }
 .bank-card .pull-right {
   position: absolute;
@@ -1242,7 +1242,7 @@ img.top {
 }
 .bank-card h1 {
   font-size: 22px;
-  text-align: center;
+  text-align: left;
   padding-top: 20px;
 }
 
