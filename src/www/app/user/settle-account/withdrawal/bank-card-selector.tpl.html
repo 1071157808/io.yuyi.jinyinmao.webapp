@@ -5,16 +5,11 @@
       spinner="spiral"
       on-refresh="account.doRefresh()">
     </ion-refresher>
-    <ion-list class="bank-card">
+    <ion-list class="bank-card-select">
       <ion-item ng-repeat="item in account.viewModel.items" class="item-thumbnail-left item-icon-right" ng-click="account.select(item.bankCardNo)">
         <img ng-src="{{ item.bankName | bankImg }}">
-
         <h2 ng-bind="item.bankName"></h2>
-
-        <p class="pull-right" ng-bind="item | bankCardStatus"></p>
-
-        <p>尾号 <em ng-bind="item.bankCardNo.substr(-4)"></em></p>
-
+        <p>尾号 <em ng-bind="item.bankCardNo.substr(-4)"></em><span>&nbsp;&nbsp;</span><samp ng-bind="item | bankCardStatus"></samp></p>
         <p>取现额度（元）<span ng-bind="item.withdrawAmount"></span></p>
         <i class="icon ion-checkmark-round" ng-hide="!account.selected(item.bankCardNo)"></i>
       </ion-item>

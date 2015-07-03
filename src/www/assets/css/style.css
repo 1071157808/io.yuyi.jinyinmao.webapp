@@ -1291,6 +1291,32 @@ img.top {
 /*bank-card end*/
 
 
+/*.bank-card-select start*/
+.bank-card-select .item-thumbnail-left {
+  height: 90px;
+  padding-top: 15px;
+}
+.bank-card-select p {
+  line-height: 1.5em;
+}
+.bank-card-select p > samp {
+  color: #FACB3A;
+}
+.bank-card-select p > span {
+  color: #83817c;
+}
+.bank-card-select .item-icon-right .icon {
+  color: #FACB3A;
+  top: -24px;
+  font-size: 22px;
+}
+.border--bottom-yellow {
+  border-bottom: solid 2px #FACB3A;
+}
+/*.bank-card-select end*/
+
+
+
 /*jbyAccount start*/
 .jbyaccount .list .item {
   background-color: #e74c3c;
@@ -1788,7 +1814,7 @@ input[readonly]:not(.cloned-text-input) {
 .orderList .item-divider {
   background-color: white;
 }
-.orderList .item-divider samp{
+.orderList .item-divider {
   color: #acb5bd;
 }
 .orderList  p >  span:last-child {
@@ -1799,7 +1825,7 @@ input[readonly]:not(.cloned-text-input) {
 }
 .orderList .item p > samp {
   position: relative;
-  padding-top: 15px;
+  padding-top: 14px;
   float: left;
 }
 /*.orderList end*/
