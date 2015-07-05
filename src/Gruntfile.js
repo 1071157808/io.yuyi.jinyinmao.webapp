@@ -70,6 +70,10 @@ module.exports = function(grunt) {
                 src: ['**/*', '!precompressed', '!precompressed/**/*'],
                 dest: 'dist/assets/icon/'
             },
+            html: {
+                src: 'dist/<%= pkg.name %>@<%= pkg.version %>-dev.html',
+                dest: 'dist/index.html'
+            },
             htmlDev: {
                 src: 'www/index.html',
                 dest: 'dist/<%= pkg.name %>@<%= pkg.version %>-dev.html'
@@ -500,9 +504,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build-css-product', ['useminPrepare:cssProduct', 'autoprefixer:app', 'csscomb:app', 'csslint:app', 'cssmin:product', 'usemin:cssProduct']);
     grunt.registerTask('build-product', ['pre-product-build', 'build-js-product', 'build-css-product', 'post-product-build']);
 
-    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'pre-dev-build']);
-
-    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'to-dev']);
+    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'copy:html', 'to-dev']);
 
     grunt.registerTask('release', ['copy:release', 'compress']);
 
