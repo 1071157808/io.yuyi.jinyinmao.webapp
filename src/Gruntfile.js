@@ -333,10 +333,7 @@ module.exports = function(grunt) {
                     from: 'jym-product-api',
                     to: 'jym-dev-api'
                 }, {
-                    from: 'VERSION: \'<%= pkg.version %>-TEST\'',
-                    to: 'VERSION: \'<%= pkg.version %>-DEV\''
-                }, {
-                    from: 'VERSION: \'<%= pkg.version %>\'',
+                    from: /VERSION: .+/,
                     to: 'VERSION: \'<%= pkg.version %>-DEV\''
                 }]
             },
@@ -356,10 +353,7 @@ module.exports = function(grunt) {
                     from: 'jym-product-api',
                     to: 'jym-test-api'
                 }, {
-                    from: 'VERSION: \'<%= pkg.version %>-DEV\'',
-                    to: 'VERSION: \'<%= pkg.version %>-TEST\''
-                }, {
-                    from: 'VERSION: \'<%= pkg.version %>\'',
+                    from: /VERSION: .+/,
                     to: 'VERSION: \'<%= pkg.version %>-TEST\''
                 }]
             },
@@ -379,10 +373,7 @@ module.exports = function(grunt) {
                     from: 'jym-test-api',
                     to: 'jym-product-api'
                 }, {
-                    from: 'VERSION: \'<%= pkg.version %>-DEV\'',
-                    to: 'VERSION: \'<%= pkg.version %>\''
-                }, {
-                    from: 'VERSION: \'<%= pkg.version %>-TEST\'',
+                    from: /VERSION: .+/,
                     to: 'VERSION: \'<%= pkg.version %>\''
                 }]
             },
@@ -481,7 +472,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dev-imge', ['compresse-image']);
     grunt.registerTask('dev-js', ['jscs:app', 'jshint:app']);
 
-    grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist', 'bump']);
+    grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist']);
 
     grunt.registerTask('pre-dev-build', ['replace:dev']);
     grunt.registerTask('pre-test-build', ['replace:test']);

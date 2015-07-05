@@ -8,7 +8,7 @@
   // Enforcing
   "bitwise": true,
   // true: Prohibit bitwise operators (&, |, ^, etc.)
-  "camelcase": true,
+  "camelcase": false,
   // true: Identifiers must be in camelCase
   "curly": true,
   // true: Require {} for every new block or scope
