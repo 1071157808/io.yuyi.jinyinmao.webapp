@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.settle-account', [
     'jym.services.user',
     'jym.user.settle-account-deposit',

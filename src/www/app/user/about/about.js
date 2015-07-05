@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.about', [])
     .config(function($stateProvider) {
         $stateProvider

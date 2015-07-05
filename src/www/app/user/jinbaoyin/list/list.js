@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.jinbaoyin-list', [
     'jym.services.user',
     'jym.user.jinbaoyin-detail'

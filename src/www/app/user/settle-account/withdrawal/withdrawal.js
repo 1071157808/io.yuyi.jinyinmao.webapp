@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.settle-account-withdrawal', [
     'jym.services.user'
 ])
@@ -80,7 +81,7 @@ angular.module('jym.user.settle-account-withdrawal', [
         };
 
         account.withdraw = function() {
-            var amount = parseInt(account.viewModel.amount * 100);
+            var amount = parseInt(account.viewModel.amount * 100, 10);
             if (account.buttonEnable()) {
                 UserService.withdrawal(amount, account.viewModel.bankCardNo, account.viewModel.password)
                     .then(function(result) {

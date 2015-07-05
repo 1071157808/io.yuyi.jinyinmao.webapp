@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.services.user', [
     'ionic',
     'jym.services'
@@ -95,7 +96,7 @@ angular.module('jym.services.user', [
                     }
 
                     if (user.hasSetPaymentPassword >= 5) {
-                        throw RESOURCES.ALERT.USER.PAYMENT_PASSWORD_NEED_RESET
+                        throw RESOURCES.ALERT.USER.PAYMENT_PASSWORD_NEED_RESET;
                     }
 
                     return user;
@@ -319,7 +320,7 @@ angular.module('jym.services.user', [
 
             return $http.post(url, {
                 cellphone: cellphone,
-                type: parseInt(type)
+                type: parseInt(type, 10)
             })
                 .then(function(result) {
                     return result.data;
@@ -387,7 +388,7 @@ angular.module('jym.services.user', [
 
             return $http.post(url, {
                 cellphone: cellphone,
-                type: parseInt(type),
+                type: parseInt(type, 10),
                 code: code
             })
                 .then(function(result) {

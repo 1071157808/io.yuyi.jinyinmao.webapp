@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.jinbaoyin.purchase', [
     'jym.services',
     'jym.services.purchase',
@@ -13,7 +14,7 @@ angular.module('jym.jinbaoyin.purchase', [
                         templateUrl: 'app/jinbaoyin/purchase/purchase.tpl.html'
                     }
                 }
-            })
+            });
     })
     .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, RESOURCES, PurchaseService, UserService, JYMUtilityService) {
         var purchase = this;
@@ -56,7 +57,7 @@ angular.module('jym.jinbaoyin.purchase', [
 
         purchase.purchase = function() {
             if (purchase.purchaseButtonEnable()) {
-                var amount = parseInt(purchase.model.order.amount);
+                var amount = parseInt(purchase.model.order.amount, 10);
                 UserService.investingJBY(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
                     .then(function(result) {
                         if (result) {

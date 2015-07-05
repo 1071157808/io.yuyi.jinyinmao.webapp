@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.zhuanqu.purchase', [
     'jym.services',
     'jym.services.product',
@@ -15,7 +16,7 @@ angular.module('jym.zhuanqu.purchase', [
                         templateUrl: 'app/zhuanqu/purchase/purchase.tpl.html'
                     }
                 }
-            })
+            });
     })
     .controller('ZhuanquPurchaseCtrl', function($scope, $stateParams, $timeout, RESOURCES, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var purchase = this;
@@ -69,7 +70,7 @@ angular.module('jym.zhuanqu.purchase', [
 
         purchase.purchase = function() {
             if (purchase.purchaseButtonEnable()) {
-                var amount = parseInt(purchase.model.order.amount * 100);
+                var amount = parseInt(purchase.model.order.amount * 100, 10);
                 UserService.investingRegular(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
                     .then(function(result) {
                         if (result) {

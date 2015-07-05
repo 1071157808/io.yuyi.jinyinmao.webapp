@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.security', [
     'jym.user.security-password',
     'jym.user.security-payment-password'

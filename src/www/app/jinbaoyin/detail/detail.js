@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.jinbaoyin.detail', [
     'jym.services',
     'jym.services.jinbaoyin',
@@ -16,7 +17,7 @@ angular.module('jym.jinbaoyin.detail', [
                         templateUrl: 'app/jinbaoyin/detail/detail.tpl.html'
                     }
                 }
-            })
+            });
     })
     .controller('JinbaoyinDetailCtrl', function($scope, $timeout, $q, $state, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
@@ -77,7 +78,7 @@ angular.module('jym.jinbaoyin.detail', [
             }
 
             if (product.viewModel.investCount > product.viewModel.remainCount) {
-                product.viewModel.investCount = parseInt(product.viewModel.remainCount);
+                product.viewModel.investCount = parseInt(product.viewModel.remainCount, 10);
             }
 
             product.refreshInvestViewModel();
@@ -94,7 +95,7 @@ angular.module('jym.jinbaoyin.detail', [
 
                         $state.go('jym.jinbaoyin-purchase');
                     })
-                    .catch(function(result) {
+                    ['catch'](function(result) {
                         JYMUtilityService.showAlert(result);
                     });
             }
@@ -111,7 +112,7 @@ angular.module('jym.jinbaoyin.detail', [
                 product.viewModel.investAmount = 0;
             }
 
-            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, 30) / 100).toFixed(2);
+            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model['yield'], 30) / 100).toFixed(2);
         };
 
         product.refreshProduct = function() {
@@ -125,7 +126,7 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.refreshViewModel = function() {
-            product.viewModel.issueNo = parseInt(product.model.issueNo);
+            product.viewModel.issueNo = parseInt(product.model.issueNo, 10);
             product.viewModel.financingSumAmount = (product.model.financingSumAmount / 1000000).toFixed(0);
             product.viewModel.productName = product.model.productName;
             product.viewModel.productNo = product.model.productNo;
@@ -136,7 +137,7 @@ angular.module('jym.jinbaoyin.detail', [
             product.viewModel.status = getSaleStatus(product.model);
             product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
             product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
-            product.viewModel.yield = (product.model.yield / 100).toFixed(2);
+            product.viewModel['yield'] = (product.model['yield'] / 100).toFixed(2);
         };
 
         product.doRefresh();

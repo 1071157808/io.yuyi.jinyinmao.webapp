@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.services.jinbaoyin', [
     'jym.services'
 ])
@@ -5,7 +6,7 @@ angular.module('jym.services.jinbaoyin', [
         var service = this;
 
         service.buildOrder = function(data) {
-            return $http.post(URLS.INVESTING.JBY, data)
+            return $http.post(URLS.INVESTING.JBY, data);
         };
 
         service.getIndex = function() {

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.filters', [])
     .filter('bankImg', function() {
         return function(bankName) {

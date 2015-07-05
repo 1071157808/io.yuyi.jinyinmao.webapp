@@ -1,3 +1,4 @@
+'use strict';
 window.paceOptions = {
     document: true, // disabled
     elements: true,

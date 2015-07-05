@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.security-payment-password', [])
     .config(function($stateProvider) {
         $stateProvider
@@ -72,7 +73,7 @@ angular.module('jym.user.security-payment-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PASSWORD);
                             UserService.loginOut();
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user-login')
+                                JYMUtilityService.goWithDisableBack('jym.user-login');
                             }, 1000);
                         }
                     });
@@ -179,7 +180,7 @@ angular.module('jym.user.security-payment-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-security-reset-payment-password', { token: result.token })
+                                JYMUtilityService.go('jym.user-security-reset-payment-password', { token: result.token });
                             }, 1000);
                         }
                     });

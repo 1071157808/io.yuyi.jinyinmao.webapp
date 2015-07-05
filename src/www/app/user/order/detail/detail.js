@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.orders-detail', [
     'jym.services.user'
 ])
@@ -55,7 +56,7 @@ angular.module('jym.user.orders-detail', [
             order.viewModel.settleDate = order.model.settleDate;
             order.viewModel.transDesc = order.model.transDesc;
             order.viewModel.valueDate = order.model.valueDate;
-            order.viewModel.yield = (order.model.yield / 100).toFixed(2);
+            order.viewModel['yield'] = (order.model['yield'] / 100).toFixed(2);
 
             order.viewModel.productSnapshot = {};
             order.viewModel.productSnapshot.bankName = order.model.productSnapshot.bankName;
@@ -76,7 +77,7 @@ angular.module('jym.user.orders-detail', [
             order.viewModel.productSnapshot.productIdentifier = order.model.productSnapshot.productIdentifier;
             order.viewModel.productSnapshot.productName = order.model.productSnapshot.productName;
             order.viewModel.productSnapshot.productNo = order.model.productSnapshot.productNo;
-            order.viewModel.productSnapshot.productTitle = order.viewModel.productSnapshot.productName + ' 第' + parseInt(order.viewModel.productSnapshot.issueNo) + '期';
+            order.viewModel.productSnapshot.productTitle = order.viewModel.productSnapshot.productName + ' 第' + parseInt(order.viewModel.productSnapshot.issueNo, 10) + '期';
             order.viewModel.productSnapshot.repaid = order.model.productSnapshot.repaid;
             order.viewModel.productSnapshot.repaidTime = order.model.productSnapshot.repaidTime;
             order.viewModel.productSnapshot.repaymentDeadline = order.model.productSnapshot.repaymentDeadline;
@@ -92,7 +93,7 @@ angular.module('jym.user.orders-detail', [
             order.viewModel.productSnapshot.usage = order.model.productSnapshot.settleDate;
             order.viewModel.productSnapshot.valueDate = order.model.productSnapshot.soldOut;
             order.viewModel.productSnapshot.valueDateMode = order.model.productSnapshot.soldOutTime;
-            order.viewModel.productSnapshot.yield = (order.model.productSnapshot.yield / 100).toFixed(2);
+            order.viewModel.productSnapshot['yield'] = (order.model.productSnapshot['yield'] / 100).toFixed(2);
 
             var now = moment();
             if (order.viewModel.isRepaid) {

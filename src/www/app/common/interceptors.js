@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.interceptors', [
     'jym.services'
 ])
@@ -16,7 +17,7 @@ angular.module('jym.interceptors', [
 
             response: function(response) {
                 if (response.headers()[ 'x-jym-auth' ]) {
-                    authService.setToken(response.headers()[ 'x-jym-auth' ])
+                    authService.setToken(response.headers()[ 'x-jym-auth' ]);
                 }
                 return response;
             },
@@ -38,7 +39,7 @@ angular.module('jym.interceptors', [
                     }
                 }
 
-                if (rejection.status == 401 || rejection.status == 403) {
+                if (rejection.status === 401 || rejection.status === 403) {
                     authService.clearToken();
 
                     $ionicHistory.nextViewOptions({

@@ -67,7 +67,8 @@ module.exports = function(grunt) {
             dist: 'dist/**/*',
             npm: 'node_modules/**/*',
             bower: 'www/lib/',
-            js: 'www/app/**/*.annotated.js'
+            js: 'www/app/**/*.annotated.js',
+            app: 'www/js/**/*'
         },
 
         ngAnnotate: {
@@ -93,7 +94,7 @@ module.exports = function(grunt) {
             grunt: {
                 src: ['Gruntfile.js']
             },
-            core: {
+            app: {
                 src: ['./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js']
             }
         },
@@ -105,8 +106,8 @@ module.exports = function(grunt) {
             grunt: {
                 src: ['Gruntfile.js']
             },
-            core: {
-                src: ['!./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js']
+            app: {
+                src: ['./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js']
             }
         },
 
@@ -114,38 +115,20 @@ module.exports = function(grunt) {
             options: {
                 sourceMap: false
             },
-            core: {
-                src: [
-                    'src/js/components/transition.js',
-                    'src/js/components/alert.js',
-                    'src/js/components/button.js',
-                    'src/js/components/carousel.js',
-                    'src/js/components/collapse.js',
-                    'src/js/components/dropdown.js',
-                    'src/js/components/modal.js',
-                    'src/js/components/tooltip.js',
-                    'src/js/components/popover.js',
-                    'src/js/components/scrollspy.js',
-                    'src/js/components/tab.js',
-                    'src/js/components/affix.js'
-                ],
-                dest: 'src/js/<%= pkg.name %>.js'
-            },
-            ie10: {
-                src: [
-                    'src/js/ie/ie10-*.js'
-                ],
-                dest: 'src/js/<%= pkg.name %>-ie10.js'
+            app: {
+                src: ['www/app/**/*.annotated.js', 'www/assets/js/*.js'],
+                dest: 'www/js/<%= pkg.name %>-<%= pkg.version %>.js'
             }
         },
 
         uglify: {
             options: {
-                preserveComments: false
+                preserveComments: false,
+                sourceMap: true
             },
-            core: {
-                src: 'src/js/<%= pkg.name %>-<%= pkg.version %>.js',
-                dest: 'src/js/<%= pkg.name %>-<%= pkg.version %>.min.js'
+            app: {
+                src: 'www/js/<%= pkg.name %>-<%= pkg.version %>.js',
+                dest: 'www/js/<%= pkg.name %>-<%= pkg.version %>.min.js'
             }
         },
 
@@ -295,6 +278,14 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', ['clean:dev', 'compile', 'copy:build']);
     grunt.registerTask('build-docs', ['before-compile', 'docs-css-compile', 'docs-html-compile', 'copy:docs']);
+
+    grunt.registerTask('build-usemin', [
+        'useminPrepare',
+        'ngAnnotate:app',
+        'concat:app',
+        'uglify:app',
+        'usemin'
+    ]);
 
     // These plugins provide necessary tasks.
     require('load-grunt-tasks')(grunt, {

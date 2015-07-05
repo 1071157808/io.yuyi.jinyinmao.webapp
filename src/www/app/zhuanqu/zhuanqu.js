@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.zhuanqu', [
     'jym.services',
     'jym.zhuanqu.detail'
@@ -20,9 +21,9 @@ angular.module('jym.zhuanqu', [
                         templateUrl: 'app/shangpiao/index.tpl.html'
                     }
                 }
-            })
+            });
     })
-    .controller('ZhuanquIndexCtrl', function($scope, $stateParams, $timeout, ProductService) {
+    .controller('ZhuanquIndexCtrl', function($scope, $filter, $stateParams, $timeout, ProductService) {
         var products = this;
 
         var getSaleProgress = function(product) {
@@ -103,7 +104,7 @@ angular.module('jym.zhuanqu', [
             item.valueDate = modelItem.valueDate;
             item.valueDateMode = modelItem.valueDateMode;
             item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueDate, modelItem.specifyValueDate);
-            item.yield = modelItem.yield / 100;
+            item['yield'] = modelItem['yield'] / 100;
 
             if (item.status.status === 10) {
                 item.statusText = '待售';

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.bank-card-detail', [
     'jym.services',
     'jym.services.user',

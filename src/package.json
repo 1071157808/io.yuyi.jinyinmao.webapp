@@ -21,6 +21,7 @@
     "grunt-moe-bower": "^1.3.0",
     "grunt-moe-image": "^0.4.2",
     "grunt-ng-annotate": "^1.0.1",
+    "grunt-usemin": "^3.0.0",
     "load-grunt-tasks": "^3.2.0",
     "time-grunt": "^1.2.1"
   },

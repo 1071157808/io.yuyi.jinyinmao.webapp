@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.orders', [
     'jym.services.user',
     'jym.user.settle-account-detail'
@@ -37,7 +38,7 @@ angular.module('jym.user.orders', [
             item.settleDate = modelItem.settleDate;
             item.transDesc = modelItem.transDesc;
             item.valueDate = modelItem.valueDate;
-            item.yield = (modelItem.yield / 100).toFixed(2);
+            item['yield'] = (modelItem['yield'] / 100).toFixed(2);
 
             item.productSnapshot = {};
             item.productSnapshot.bankName = modelItem.productSnapshot.bankName;
@@ -58,7 +59,7 @@ angular.module('jym.user.orders', [
             item.productSnapshot.productIdentifier = modelItem.productSnapshot.productIdentifier;
             item.productSnapshot.productName = modelItem.productSnapshot.productName;
             item.productSnapshot.productNo = modelItem.productSnapshot.productNo;
-            item.productSnapshot.productTitle = item.productSnapshot.productName + ' 第' + parseInt(item.productSnapshot.issueNo) + '期';
+            item.productSnapshot.productTitle = item.productSnapshot.productName + ' 第' + parseInt(item.productSnapshot.issueNo, 10) + '期';
             item.productSnapshot.repaid = modelItem.productSnapshot.repaid;
             item.productSnapshot.repaidTime = modelItem.productSnapshot.repaidTime;
             item.productSnapshot.repaymentDeadline = modelItem.productSnapshot.repaymentDeadline;
@@ -74,7 +75,7 @@ angular.module('jym.user.orders', [
             item.productSnapshot.usage = modelItem.productSnapshot.settleDate;
             item.productSnapshot.valueDate = modelItem.productSnapshot.soldOut;
             item.productSnapshot.valueDateMode = modelItem.productSnapshot.soldOutTime;
-            item.productSnapshot.yield = (modelItem.productSnapshot.yield / 100).toFixed(2);
+            item.productSnapshot['yield'] = (modelItem.productSnapshot['yield'] / 100).toFixed(2);
 
             var now = moment();
             if (item.isRepaid) {

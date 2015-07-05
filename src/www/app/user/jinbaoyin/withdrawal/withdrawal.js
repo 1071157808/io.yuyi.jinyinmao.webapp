@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.jinbaoyin-withdrawal', [
     'jym.services.user'
 ])
@@ -55,7 +56,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         };
 
         account.withdraw = function() {
-            var amount = parseInt(account.viewModel.amount * 100);
+            var amount = parseInt(account.viewModel.amount * 100, 10);
             if (account.buttonEnable()) {
                 UserService.jBYWithdrawal(amount, account.viewModel.password)
                     .then(function(result) {

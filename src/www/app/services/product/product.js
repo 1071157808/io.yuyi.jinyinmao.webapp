@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.services.product', [
     'jym.services'
 ])
@@ -25,7 +26,7 @@ angular.module('jym.services.product', [
                 }
 
                 return product;
-            })
+            });
         };
 
         service.getInterest = function(pricipal, _yield, duration) {

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.services.purchase', [
     'jym.services',
     'jym.services.jinbaoyin'

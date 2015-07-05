@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.bank-card-upgrade', [
     'jym.services.user'
 ])
@@ -71,7 +72,7 @@ angular.module('jym.user.bank-card-upgrade', [
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
                                 $timeout(function() {
-                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice')
+                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);
                             }
                         });
@@ -81,7 +82,7 @@ angular.module('jym.user.bank-card-upgrade', [
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
                                 $timeout(function() {
-                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice')
+                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);
                             }
                         });

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.jinbaoyin', [
     'jym.services.jinbaoyin',
     'jym.jinbaoyin.detail'
@@ -12,7 +13,7 @@ angular.module('jym.jinbaoyin', [
                         templateUrl: 'app/jinbaoyin/index.tpl.html'
                     }
                 }
-            })
+            });
     })
     .controller('JinbaoyinCtrl', function($scope, $timeout, JinbaoyinService) {
         var product = this;
@@ -26,7 +27,7 @@ angular.module('jym.jinbaoyin', [
                     product.model = result;
 
                     product.viewModel.title = result.productName + ' ' + '第' + result.issueNo + '期';
-                    product.viewModel.yield = result.yield / 100;
+                    product.viewModel['yield'] = result['yield'] / 100;
                     product.viewModel.unitPrice = (result.unitPrice / 100).toFixed(0);
                 });
         };

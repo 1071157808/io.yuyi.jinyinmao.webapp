@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user', [
     'jym.services.user',
     'jym.user.about',

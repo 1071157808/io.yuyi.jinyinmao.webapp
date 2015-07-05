@@ -1,3 +1,4 @@
+'use strict';
 angular.module('JYM', [
     'ionic',
     'ngCordova',
@@ -28,7 +29,7 @@ angular.module('JYM', [
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('jym', {
             url: '',
-            abstract: true,
+            'abstract': true,
             templateUrl: 'app/index.tpl.html'
         });
 

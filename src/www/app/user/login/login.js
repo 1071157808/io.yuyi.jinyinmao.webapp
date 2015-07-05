@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.login', [
     'jym.services.user',
     'jym.user.signup'
@@ -12,7 +13,7 @@ angular.module('jym.user.login', [
                         templateUrl: 'app/user/login/login.tpl.html'
                     }
                 }
-            })
+            });
     })
     .controller('UserLoginCtrl', function($scope, $stateParams, $timeout, RESOURCES, REGEX, UserService, JYMUtilityService) {
         var user = this;

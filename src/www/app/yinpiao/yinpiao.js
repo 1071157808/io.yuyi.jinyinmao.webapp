@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.yinpiao', [
     'jym.services',
     'jym.yinpiao.detail'
@@ -12,7 +13,7 @@ angular.module('jym.yinpiao', [
                         templateUrl: 'app/yinpiao/index.tpl.html'
                     }
                 }
-            })
+            });
     })
     .controller('YinpiaoIndexCtrl', function($scope, $timeout, $filter, ProductService) {
         var products = this;
@@ -95,7 +96,7 @@ angular.module('jym.yinpiao', [
             item.valueDate = modelItem.valueDate;
             item.valueDateMode = modelItem.valueDateMode;
             item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueData, modelItem.specifyValueDate);
-            item.yield = modelItem.yield / 100;
+            item['yield'] = modelItem['yield'] / 100;
 
             if (item.status.status === 10) {
                 item.statusText = '待售';

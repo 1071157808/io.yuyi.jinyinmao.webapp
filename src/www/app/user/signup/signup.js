@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.signup', [])
     .config(function($stateProvider) {
         $stateProvider
@@ -39,7 +40,7 @@ angular.module('jym.user.signup', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_SUCCESS);
                             UserService.loginOut();
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user-login')
+                                JYMUtilityService.goWithDisableBack('jym.user-login');
                             }, 1000);
                         }
                     });

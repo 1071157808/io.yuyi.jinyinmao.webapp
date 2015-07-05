@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.controllers', [
     'jym.services'
 ])
@@ -25,5 +26,5 @@ angular.module('jym.controllers', [
                     ctrl.activeSlideIndex = 0;
                 }, 5000);
             }
-        }
+        };
     });

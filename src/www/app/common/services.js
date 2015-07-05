@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.services', [
     'ngAnimate',
     'angular-cache'
@@ -7,7 +8,7 @@ angular.module('jym.services', [
         var tokenStorage = JYMCacheService.get('authTokenCache');
 
         service.clearToken = function() {
-            tokenStorage.removeAll()
+            tokenStorage.removeAll();
         };
 
         service.getToken = function() {
@@ -90,7 +91,7 @@ angular.module('jym.services', [
             };
 
             return service.getConfig().then(extractSlidersConfig);
-        }
+        };
     })
     .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX) {
         var service = this;

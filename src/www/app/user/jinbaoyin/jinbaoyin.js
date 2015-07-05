@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.jinbaoyin', [
     'jym.services.user',
     'jym.user.jinbaoyin-list'
@@ -38,11 +39,11 @@ angular.module('jym.user.jinbaoyin', [
         };
 
         ctrl.refreshProduct = function() {
-            return JinbaoyinService.getIndex()
+            return JinbaoyinService.getIndex();
         };
 
         ctrl.refreshProductViewModel = function() {
-            ctrl.viewModel.jBYYield = ctrl.model.product.yield / 100;
+            ctrl.viewModel.jBYYield = ctrl.model.product['yield'] / 100;
         };
 
         ctrl.refreshUserViewModel = function() {

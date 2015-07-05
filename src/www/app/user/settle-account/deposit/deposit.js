@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jym.user.settle-account-deposit', [
     'jym.services.user'
 ])
@@ -54,7 +55,7 @@ angular.module('jym.user.settle-account-deposit', [
 
         account.deposit = function() {
             if (account.buttonEnable()) {
-                var amount = parseInt(account.viewModel.amount * 100);
+                var amount = parseInt(account.viewModel.amount * 100, 10);
                 UserService.depositByYilian(amount, account.viewModel.bankCardNo, account.viewModel.password)
                     .then(function(result) {
                         if (result) {
