@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         bump: {
             options: {
                 files: ['package.json'],
-                updateConfigs: [],
+                updateConfigs: ['pkg'],
                 commit: false,
                 commitMessage: '%VERSION%',
                 commitFiles: ['package.json'],
@@ -472,7 +472,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dev-imge', ['compresse-image']);
     grunt.registerTask('dev-js', ['jscs:app', 'jshint:app']);
 
-    grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist']);
+    grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist', 'bump']);
 
     grunt.registerTask('pre-dev-build', ['replace:dev']);
     grunt.registerTask('pre-test-build', ['replace:test']);
@@ -502,7 +502,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'pre-dev-build']);
 
-    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'pre-dev-build']);
+    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'to-dev']);
 
     grunt.registerTask('release', ['copy:release', 'compress']);
 
