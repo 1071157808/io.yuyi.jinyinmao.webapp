@@ -236,3 +236,4 @@ hooks/
 src/ionic.project
 src/www.zip
 publish/
+!release/
