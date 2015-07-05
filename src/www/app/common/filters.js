@@ -5,43 +5,43 @@ angular.module('jym.filters', [])
 
             switch (bankName) {
                 case '浦发银行':
-                    return 'assets/img/bank/pufa.png';
+                    return 'assets/img/bank/pufa@40x40-3cda6c.png';
                 case '深发银行':
-                    return 'assets/img/bank/shenfazhan.png';
+                    return 'assets/img/bank/shenfazhan@40x40-922fbb.png';
                 case '平安银行':
-                    return 'assets/img/bank/pingan.png';
+                    return 'assets/img/bank/pingan@40x40-487256.png';
                 case '民生银行':
-                    return 'assets/img/bank/minsheng.png';
+                    return 'assets/img/bank/minsheng@40x40-573103.png';
                 case '工商银行':
-                    return 'assets/img/bank/gonghang.png';
+                    return 'assets/img/bank/gonghang@40x40-844afd.png';
                 case '农业银行':
-                    return 'assets/img/bank/nonghang.png';
+                    return 'assets/img/bank/nonghang@40x40-ada715.png';
                 case '建设银行':
-                    return 'assets/img/bank/jianhang.png';
+                    return 'assets/img/bank/jianhang@40x40-de9c06.png';
                 case '招商银行':
-                    return 'assets/img/bank/zhaoshang.png';
+                    return 'assets/img/bank/zhaoshang@40x40-5bc7fd.png';
                 case '广发银行':
-                    return 'assets/img/bank/guangfa.png';
+                    return 'assets/img/bank/guangfa@40x40-270364.png';
                 case '广州银行':
-                    return 'assets/img/bank/guangzhou.png';
+                    return 'assets/img/bank/guangzhou@40x40-df18d8.png';
                 case '邮储银行':
-                    return 'assets/img/bank/youzheng.png';
+                    return 'assets/img/bank/youzheng@40x40-90986d.png';
                 case '兴业银行':
-                    return 'assets/img/bank/xingye.png';
+                    return 'assets/img/bank/xingye@40x40-6770ec.png';
                 case '光大银行':
-                    return 'assets/img/bank/guangda.png';
+                    return 'assets/img/bank/guangda@40x40-c356de.png';
                 case '华夏银行':
-                    return 'assets/img/bank/huaxia.png';
+                    return 'assets/img/bank/huaxia@40x40-5f3ce6.png';
                 case '中信银行':
-                    return 'assets/img/bank/zhongxin.png';
+                    return 'assets/img/bank/zhongxin@40x40-a69ffa.png';
                 case '广州农商行':
-                    return 'assets/img/bank/guangzhounongshang.png';
+                    return 'assets/img/bank/guangzhounongshang@40x40-bacdad.png';
                 case '中国银行':
-                    return 'assets/img/bank/zhonghang.png';
+                    return 'assets/img/bank/zhonghang@40x39-ae01dc.png';
                 case '富滇银行':
-                    return 'assets/img/bank/fudian.png';
+                    return 'assets/img/bank/fudian@40x40-dc7016.png';
                 default:
-                    return 'assets/img/bank/zhonghang.png';
+                    return 'assets/img/bank/zhonghang@40x39-ae01dc.png';
             }
         };
     })

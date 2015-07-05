@@ -23,7 +23,7 @@ angular.module('jym.yinpiao.detail', [
         var product = this;
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getSaleStatus = function(product) {
@@ -167,8 +167,12 @@ angular.module('jym.yinpiao.detail', [
             product.viewModel.usage = product.model.usage;
             product.viewModel.valueDate = product.model.valueDate;
             product.viewModel.valueDateMode = product.model.valueDateMode;
-            product.viewModel.valueDateText = getValueDateModeText(product.model.valueDateMode, product.model.valueData, product.model.specifyValueDate);
+            product.viewModel.valueDateText = getValueDateModeText(product.model.valueDateMode, product.model.valueDate, product.model.specifyValueDate);
             product.viewModel.yield = product.model.yield / 100;
+
+            if (product.viewModel.status.status !== 20) {
+                product.viewModel.remainCount = 0;
+            }
         };
 
         product.doRefresh();

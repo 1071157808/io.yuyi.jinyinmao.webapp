@@ -36,7 +36,17 @@ angular.module('jym.services.product', [
             return Math.floor(pricipal * _yield * duration / 3600000);
         };
 
-        service.getSaleProgress = function(paidAmount, financingSumAmount) {
+        service.getSaleProgress = function(paidAmount, financingSumAmount, soldOut, startSellTime, endSellTime) {
+            var status = service.getSaleStatus(soldOut, startSellTime, endSellTime);
+
+            if (status === 30) {
+                return 100;
+            }
+
+            if (status === 10) {
+                return 0;
+            }
+
             if (paidAmount >= financingSumAmount) {
                 return 100;
             }

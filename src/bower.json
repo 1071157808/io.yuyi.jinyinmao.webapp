@@ -13,5 +13,9 @@
   },
   "resolutions": {
     "angular": ">=1.x"
+  },
+  "devDependencies": {
+    "ionic-service-core": "~0.1.7",
+    "ionic-service-deploy": "~0.1.0"
   }
 }

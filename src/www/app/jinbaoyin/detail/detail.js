@@ -24,7 +24,7 @@ angular.module('jym.jinbaoyin.detail', [
         var product = this;
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getSaleStatus = function(product) {
@@ -139,6 +139,11 @@ angular.module('jym.jinbaoyin.detail', [
             product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
             product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
             product.viewModel.yield = (product.model.yield / 100).toFixed(2);
+
+
+            if (product.viewModel.status.status !== 20) {
+                product.viewModel.remainCount = 0;
+            }
         };
 
         product.doRefresh();

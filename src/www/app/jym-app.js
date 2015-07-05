@@ -1,6 +1,8 @@
 'use strict';
 angular.module('JYM', [
     'ionic',
+    'ionic.service.core',
+    'ionic.service.deploy',
     'ngCordova',
     'jym.user',
     'angular-progress-arc',
@@ -18,6 +20,12 @@ angular.module('JYM', [
         $ionicConfigProvider.views.transition('ios');
         $ionicConfigProvider.tabs.position('bottom');
         $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back');
+    })
+    .config(function($ionicAppProvider) {
+        $ionicAppProvider.identify({
+            app_id: '6e37fda2',
+            api_key: 'c1006ace57b45a0a7b5543cd6e65bb5e689b95d7b00cfad0'
+        });
     })
     .config(function($httpProvider) {
         // $httpProvider.defaults.withCredentials = true;

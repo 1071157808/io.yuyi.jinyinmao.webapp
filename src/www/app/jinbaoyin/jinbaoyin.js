@@ -16,7 +16,7 @@ angular.module('jym.jinbaoyin', [
                 }
             });
     })
-    .controller('JinbaoyinCtrl', function($scope, $timeout, JinbaoyinService) {
+    .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy, JinbaoyinService) {
         var product = this;
 
         product.model = {};
@@ -42,4 +42,12 @@ angular.module('jym.jinbaoyin', [
         };
 
         product.doRefresh();
+
+        $scope.checkForUpdates = function() {
+            $ionicDeploy.check().then(function(hasUpdate) {
+                if (hasUpdate) {
+                    $ionicDeploy.update();
+                }
+            });
+        }
     });

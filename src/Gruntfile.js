@@ -197,12 +197,12 @@ module.exports = function(grunt) {
             options: {
                 base: 'www',
                 htmlmin: {
-                    collapseBooleanAttributes: true,
+                    collapseBooleanAttributes: false,
                     collapseWhitespace: true,
                     removeAttributeQuotes: true,
                     removeComments: true,
                     removeEmptyAttributes: true,
-                    removeRedundantAttributes: true,
+                    removeRedundantAttributes: false,
                     removeScriptTypeAttributes: true,
                     removeStyleLinkTypeAttributes: true
                 },
@@ -455,7 +455,7 @@ module.exports = function(grunt) {
                 debounceDelay: 20000
             },
             dev: {
-                files: ['www/app/**/*', 'www/assets/css/**/*.css', 'www/assets/js/**/*/js', 'www/assets/img/precompressed/**/*', 'www/assets/icon/precompressed/**/*'],
+                files: ['www/app/**/*', 'www/assets/css/**/*.css', 'www/assets/js/**/*/js', 'www/assets/img/precompressed/**/*', 'www/assets/icon/precompressed/**/*', '!www/app/common/templates.js'],
                 tasks: ['dev']
             },
             img: {
@@ -514,6 +514,10 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'pre-dev-build']);
 
     grunt.registerTask('release', ['copy:release', 'compress']);
+
+    grunt.registerTask('to-dev', ['pre-dev-build']);
+    grunt.registerTask('to-test', ['pre-test-build']);
+    grunt.registerTask('to-product', ['pre-product-build']);
 
     // These plugins provide necessary tasks.
     require('load-grunt-tasks')(grunt, {
