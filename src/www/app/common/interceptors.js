@@ -2,11 +2,16 @@
 angular.module('jym.interceptors', [
     'jym.services'
 ])
-    .factory('globalInterceptor', function($q, $rootScope, $timeout, $injector) {
+    .factory('globalInterceptor', function($q, $rootScope, $timeout, $injector, APP) {
         var authService = $injector.get('JYMAuthService');
         return {
             request: function(config) {
-                config.headers[ 'x-jym-auth' ] = authService.getToken();
+                config.headers['x-jym-auth'] = authService.getToken();
+                if (config.url.indexOf('publicfiles') >= 0) {
+                    config.headers['x-jym-corsproxy-url'] = APP.CONFIGURL;
+                } else {
+                    config.headers['x-jym-corsproxy-url'] = APP.APIURL;
+                }
                 return config;
             },
 
@@ -16,8 +21,8 @@ angular.module('jym.interceptors', [
             },
 
             response: function(response) {
-                if (response.headers()[ 'x-jym-auth' ]) {
-                    authService.setToken(response.headers()[ 'x-jym-auth' ]);
+                if (response.headers()['x-jym-auth']) {
+                    authService.setToken(response.headers()['x-jym-auth']);
                 }
                 return response;
             },
@@ -30,7 +35,7 @@ angular.module('jym.interceptors', [
                 if (rejection.status >= 400 && rejection.status < 500) {
                     if (rejection.data.message) {
                         var message = rejection.data.message.split(':');
-                        var errorMessage = message[ message.length - 1 ];
+                        var errorMessage = message[message.length - 1];
                         $ionicLoading.show({
                             template: errorMessage,
                             duration: 3000,

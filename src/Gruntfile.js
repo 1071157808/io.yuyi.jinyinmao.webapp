@@ -22,13 +22,13 @@ module.exports = function(grunt) {
             options: {
                 files: ['package.json'],
                 updateConfigs: [],
-                commit: true,
+                commit: false,
                 commitMessage: '%VERSION%',
                 commitFiles: ['package.json'],
                 createTag: false,
                 tagName: 'v%VERSION%',
                 tagMessage: 'Version %VERSION%',
-                push: true,
+                push: false,
                 pushTo: 'upstream',
                 gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
                 globalReplace: false,
@@ -481,7 +481,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dev-imge', ['compresse-image']);
     grunt.registerTask('dev-js', ['jscs:app', 'jshint:app']);
 
-    grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist']);
+    grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist', 'bump']);
 
     grunt.registerTask('pre-dev-build', ['replace:dev']);
     grunt.registerTask('pre-test-build', ['replace:test']);
@@ -513,7 +513,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'pre-dev-build']);
 
-    grunt.registerTask('release', ['copy:release']);
+    grunt.registerTask('release', ['copy:release', 'compress']);
 
     // These plugins provide necessary tasks.
     require('load-grunt-tasks')(grunt, {
