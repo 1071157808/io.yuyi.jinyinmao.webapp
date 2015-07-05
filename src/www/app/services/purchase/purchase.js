@@ -28,7 +28,7 @@ angular.module('jym.services.purchase', [
         };
 
         service.getNewJBYOrder = function() {
-            if(!jbyOrder.amount || !jbyOrder.productIdentifier) {
+            if (!jbyOrder.amount || !jbyOrder.productIdentifier) {
                 JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
             }
 
@@ -36,7 +36,7 @@ angular.module('jym.services.purchase', [
         };
 
         service.getRegularOrder = function(productCategory) {
-            if(!regularOrder.amount || !regularOrder.productIdentifier || regularOrder.productCategory !== productCategory) {
+            if (!regularOrder.amount || !regularOrder.productIdentifier || regularOrder.productCategory !== productCategory) {
                 JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
             }
             return regularOrder;

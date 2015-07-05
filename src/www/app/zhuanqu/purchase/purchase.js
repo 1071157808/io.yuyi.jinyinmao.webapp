@@ -10,7 +10,7 @@ angular.module('jym.zhuanqu.purchase', [
             .state('jym.zhuanqu-purchase', {
                 url: '/zhuanqu/purchase/{bankName}',
                 views: {
-                    'zhuanqu': {
+                    zhuanqu: {
                         controller: 'ZhuanquPurchaseCtrl as purchase',
                         templateUrl: 'app/zhuanqu/purchase/purchase.tpl.html'
                     }

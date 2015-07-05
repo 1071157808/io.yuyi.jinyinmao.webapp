@@ -74,7 +74,6 @@ angular.module('jym.services', [
                 return result.data.android;
             }
 
-            //noinspection JSUnresolvedVariable
             return result.data.web;
         }
 

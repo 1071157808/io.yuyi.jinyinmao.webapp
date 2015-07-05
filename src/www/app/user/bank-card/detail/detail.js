@@ -8,7 +8,7 @@ angular.module('jym.user.bank-card-detail', [
             .state('jym.user-bank-card-detail', {
                 url: '/user/bank-card-detail/{bankCardNo}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserBankCardDetailCtrl as card',
                         templateUrl: 'app/user/bank-card/detail/detail.tpl.html'
                     }

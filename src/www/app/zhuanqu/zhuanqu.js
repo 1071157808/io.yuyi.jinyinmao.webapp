@@ -2,12 +2,12 @@ angular.module('jym.zhuanqu', [
     'jym.services',
     'jym.zhuanqu.detail'
 ])
-    .config(function ($stateProvider) {
+    .config(function($stateProvider) {
         $stateProvider
             .state('jym.zhuanqu', {
                 url: '/zhuanqu',
                 views: {
-                    'zhuanqu':{
+                    zhuanqu: {
                         templateUrl: 'app/zhuanqu/index.tpl.html'
                     }
                 }
@@ -15,7 +15,7 @@ angular.module('jym.zhuanqu', [
             .state('jym.zhuanqu-list', {
                 url: '/zhuanqu/list/{bankName}',
                 views: {
-                    'zhuanqu':{
+                    zhuanqu: {
                         controller: 'ZhuanquIndexCtrl as ctrl',
                         templateUrl: 'app/shangpiao/index.tpl.html'
                     }
@@ -105,33 +105,33 @@ angular.module('jym.zhuanqu', [
             item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueDate, modelItem.specifyValueDate);
             item.yield = modelItem.yield / 100;
 
-            if(item.status.status === 10) {
+            if (item.status.status === 10) {
                 item.statusText = '待售';
                 item.statusTextClass = '';
                 item.timeText = '开售时间 ' + $filter('time')(item.startSellTime);
-            }else if(item.status.status === 20) {
+            } else if (item.status.status === 20) {
                 item.statusText = '抢购 已售出' + item.sellProgress + '%';
                 item.statusTextClass = '';
                 item.timeText = '起息时间 ' + item.valueDateText;
-            }else {
+            } else {
                 item.statusText = '售罄 请期待下期';
                 item.statusTextClass = '';
                 item.timeText = '还款时间 ' + $filter('time')(item.repaymentDeadline);
             }
 
-            if($stateParams.bankName === 'fudian') {
+            if ($stateParams.bankName === 'fudian') {
                 item.isYinpiao = true;
                 item.isShangpiao = false;
                 item.riskManagementText = item.bankName;
-            }else if($stateParams.bankName === 'fuxin') {
+            } else if ($stateParams.bankName === 'fuxin') {
                 item.isYinpiao = true;
                 item.isShangpiao = false;
                 item.riskManagementText = item.bankName;
-            }else if($stateParams.bankName === 'shibing') {
+            } else if ($stateParams.bankName === 'shibing') {
                 item.isYinpiao = false;
                 item.isShangpiao = true;
                 item.riskManagementText = item.riskManagement;
-            }else {
+            } else {
                 item.isYinpiao = false;
                 item.isShangpiao = false;
                 item.riskManagementText = item.riskManagement;

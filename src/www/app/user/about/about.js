@@ -4,7 +4,7 @@ angular.module('jym.user.about', [])
             .state('jym.user-about', {
                 url: '/about',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'AboutCtrl as ctrl',
                         templateUrl: 'app/user/about/about.tpl.html'
                     }

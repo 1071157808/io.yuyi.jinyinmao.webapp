@@ -5,12 +5,12 @@ angular.module('jym.yinpiao.detail', [
     'jym.services.user',
     'jym.yinpiao.purchase'
 ])
-    .config(function ($stateProvider) {
+    .config(function($stateProvider) {
         $stateProvider
             .state('jym.yinpiao-detail', {
                 url: '/yinpiao/detail/{productIdentifier}',
                 views: {
-                    'yinpiao':{
+                    yinpiao: {
                         controller: 'YinpiaoDetailCtrl as product',
                         templateUrl: 'app/yinpiao/detail/detail.tpl.html'
                     }

@@ -6,7 +6,7 @@ angular.module('jym.user.settle-account-deposit', [
             .state('jym.user-settle-account-deposit', {
                 url: '/user/settle-account/deposit',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSettleAccountDepositCtrl as account',
                         templateUrl: 'app/user/settle-account/deposit/deposit.tpl.html'
                     }
@@ -15,7 +15,7 @@ angular.module('jym.user.settle-account-deposit', [
             .state('jym.user-settle-account-deposit-bank-card-selector', {
                 url: '/user/settle-account/deposit/select-bank-card',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSettleAccountDepositBankCardSeletorCtrl as account',
                         templateUrl: 'app/user/settle-account/deposit/bank-card-selector.tpl.html'
                     }
@@ -24,7 +24,7 @@ angular.module('jym.user.settle-account-deposit', [
             .state('jym.user-settle-account-deposit-success', {
                 url: '/user/settle-account/deposit/success/{transactionIdentifier}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSettleAccountDepositSuccessCtrl as ctrl',
                         templateUrl: 'app/user/settle-account/deposit/deposit-success.tpl.html'
                     }
@@ -53,11 +53,11 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         account.deposit = function() {
-            if(account.buttonEnable()) {
+            if (account.buttonEnable()) {
                 var amount = parseInt(account.viewModel.amount * 100);
                 UserService.depositByYilian(amount, account.viewModel.bankCardNo, account.viewModel.password)
                     .then(function(result) {
-                        if(result) {
+                        if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.DEPOSIT_SUCCESS);
                             UserService.sharedData.depositBankCardNo = undefined;
                             $timeout(function() {

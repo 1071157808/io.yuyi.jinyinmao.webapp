@@ -6,7 +6,7 @@ angular.module('jym.user.settle-account-detail', [
             .state('jym.user-settle-account-detail', {
                 url: '/user/settle-account/detail/{transactionIdentifier}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSettleAccountDetailCtrl as transaction',
                         templateUrl: 'app/user/settle-account/detail/detail.tpl.html'
                     }
@@ -49,11 +49,11 @@ angular.module('jym.user.settle-account-detail', [
             transaction.viewModel.transDesc = transaction.model.transDesc;
             transaction.viewModel.resultStyle = { color: '#444' };
 
-            if(transaction.viewModel.resultCode === 1){
+            if (transaction.viewModel.resultCode === 1) {
                 transaction.viewModel.resultStyle = { color: '#47B28B' };
             }
 
-            if(transaction.viewModel.resultCode === -1){
+            if (transaction.viewModel.resultCode === -1) {
                 transaction.viewModel.resultStyle = { color: '#E74C3C' };
             }
         };

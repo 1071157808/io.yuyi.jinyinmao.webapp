@@ -7,7 +7,7 @@ angular.module('jym.user.settle-account-list', [
             .state('jym.user-settle-account-list', {
                 url: '/user/settle-account/list',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSettleAccountListCtrl as account',
                         templateUrl: 'app/user/settle-account/list/list.tpl.html'
                     }

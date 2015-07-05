@@ -117,4 +117,3 @@ angular.module('jym.constants', [])
     .constant('APP', {
         VERSION: '13.1.1-dev'
     });
-

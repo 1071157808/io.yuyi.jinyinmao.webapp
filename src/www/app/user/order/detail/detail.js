@@ -6,7 +6,7 @@ angular.module('jym.user.orders-detail', [
             .state('jym.user-orders-detail', {
                 url: '/user/orders/detail/{orderIdentifier}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserOrderDetailCtrl as order',
                         templateUrl: 'app/user/order/detail/detail.tpl.html'
                     }

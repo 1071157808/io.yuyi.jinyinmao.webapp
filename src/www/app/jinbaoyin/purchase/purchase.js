@@ -8,7 +8,7 @@ angular.module('jym.jinbaoyin.purchase', [
             .state('jym.jinbaoyin-purchase', {
                 url: '/jinbaoyin/purchase',
                 views: {
-                    'jinbaoyin': {
+                    jinbaoyin: {
                         controller: 'JinbaoyinPurchaseCtrl as purchase',
                         templateUrl: 'app/jinbaoyin/purchase/purchase.tpl.html'
                     }
@@ -63,7 +63,7 @@ angular.module('jym.jinbaoyin.purchase', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.JBY);
                             PurchaseService.clearJBYOrder();
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', {transactionIdentifier: result.transactionIdentifier});
+                                JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', { transactionIdentifier: result.transactionIdentifier });
                             }, 1000);
                         }
                     });

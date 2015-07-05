@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                     cleanBowerDir: true,
                     copy: true,
                     install: false,
-                    targetDir: './www'
+                    targetDir: './www/packages/'
                 }
             },
             clean: {
@@ -25,16 +25,16 @@ module.exports = function(grunt) {
                     cleanBowerDir: true,
                     copy: false,
                     install: false,
-                    targetDir: './www'
+                    targetDir: './www/packages/'
                 }
             },
             install: {
                 options: {
-                    cleanTargetDir: false,
-                    cleanBowerDir: false,
+                    cleanTargetDir: true,
+                    cleanBowerDir: true,
                     copy: true,
                     install: true,
-                    targetDir: './www'
+                    targetDir: './www/packages/'
                 }
             }
         },
@@ -44,31 +44,46 @@ module.exports = function(grunt) {
                 interlaced: true,
                 optimizationLevel: 5,
                 progressive: true,
-                removeSource: true,
+                removeSource: false,
                 svgoPlugins: [{
-                    removeViewBox: false // don't remove the viewbox atribute from the SVG
+                    removeViewBox: false
                 }, {
-                    removeUselessStrokeAndFill: false // don't remove Useless Strokes and Fills
+                    removeUselessStrokeAndFill: false
                 }, {
-                    removeEmptyAttrs: false // don't remove Empty Attributes from the SVG
+                    removeEmptyAttrs: false
                 }]
-
             },
             assets: {
                 files: [{
                     expand: true,
-                    cwd: './www/assets/img/',
+                    cwd: 'www/assets/img/',
                     src: '**/*.{gif,GIF,jpg,jpeg,JPG,png,PNG}',
-                    dest: './www/moe-assets/img/'
+                    dest: 'www/img/'
                 }]
             }
         },
 
-        // Task configuration.
         clean: {
             dist: 'dist/**/*',
-            npm: 'node_modules/',
-            dev: ['./www/moe_packages/**/*', './www/moe-assets/**/*']
+            npm: 'node_modules/**/*',
+            bower: 'www/lib/',
+            js: 'www/app/**/*.annotated.js'
+        },
+
+        ngAnnotate: {
+            options: {
+                singleQuotes: true
+            },
+            app: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['www/app/**/*.js'],
+                        ext: '.annotated.js', // Dest filepaths will have this extension.
+                        extDot: 'last'      // Extensions in filenames begin after the last dot
+                    }
+                ]
+            }
         },
 
         jscs: {
@@ -202,6 +217,18 @@ module.exports = function(grunt) {
                 cwd: 'moe_packages/moe-ui@dev/',
                 src: '**',
                 dest: 'dist/'
+            },
+            img: {
+                expand: true,
+                cwd: 'www/img/',
+                src: '**/*',
+                dest: 'dist/img'
+            },
+            js: {
+                expand: true,
+                cwd: 'www/img/',
+                src: '**/*',
+                dest: 'dist/img'
             }
         },
 

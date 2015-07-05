@@ -6,7 +6,7 @@ angular.module('jym.user.jinbaoyin-detail', [
             .state('jym.user-jinbaoyin-detail', {
                 url: '/user/jinbaoyin/detail/{transactionIdentifier}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserJinbaoyinDetailCtrl as transaction',
                         templateUrl: 'app/user/jinbaoyin/detail/detail.tpl.html'
                     }
@@ -41,7 +41,7 @@ angular.module('jym.user.jinbaoyin-detail', [
             transaction.viewModel.predeterminedResultDate = transaction.model.predeterminedResultDate;
             transaction.viewModel.resultCode = transaction.model.resultCode;
             transaction.viewModel.resultTime = transaction.model.resultTime;
-            transaction.viewModel.settleAccountTranscationId  = transaction.model.settleAccountTranscationId ;
+            transaction.viewModel.settleAccountTranscationId = transaction.model.settleAccountTranscationId;
             transaction.viewModel.trade = transaction.model.trade;
             transaction.viewModel.tradeCode = transaction.model.tradeCode;
             transaction.viewModel.transactionIdentifier = transaction.model.transactionIdentifier;
@@ -49,11 +49,11 @@ angular.module('jym.user.jinbaoyin-detail', [
             transaction.viewModel.transDesc = transaction.model.transDesc;
             transaction.viewModel.resultStyle = { color: '#444' };
 
-            if(transaction.viewModel.resultCode === 1){
+            if (transaction.viewModel.resultCode === 1) {
                 transaction.viewModel.resultStyle = { color: '#47B28B' };
             }
 
-            if(transaction.viewModel.resultCode === -1){
+            if (transaction.viewModel.resultCode === -1) {
                 transaction.viewModel.resultStyle = { color: '#E74C3C' };
             }
         };

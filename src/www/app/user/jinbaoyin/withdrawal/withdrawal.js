@@ -6,7 +6,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
             .state('jym.user-jinbaoyin-withdrawal', {
                 url: '/user/jinbaoyin/withdrawal',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserJinbaoyinWithdrawalCtrl as account',
                         templateUrl: 'app/user/jinbaoyin/withdrawal/withdrawal.tpl.html'
                     }

@@ -11,7 +11,7 @@ angular.module('jym.jinbaoyin.detail', [
             .state('jym.jinbaoyin-detail', {
                 url: '/jinbaoyin/detail',
                 views: {
-                    'jinbaoyin': {
+                    jinbaoyin: {
                         controller: 'JinbaoyinDetailCtrl as product',
                         templateUrl: 'app/jinbaoyin/detail/detail.tpl.html'
                     }
@@ -79,7 +79,7 @@ angular.module('jym.jinbaoyin.detail', [
             if (product.viewModel.investCount > product.viewModel.remainCount) {
                 product.viewModel.investCount = parseInt(product.viewModel.remainCount);
             }
-            
+
             product.refreshInvestViewModel();
         };
 
@@ -88,9 +88,9 @@ angular.module('jym.jinbaoyin.detail', [
                 var amount = product.viewModel.investCount * product.model.unitPrice;
                 var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
                 var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), amount);
-                $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
+                $q.all([ checkUserPurchaseStatus, checkProductPurchaseStatus ])
                     .then(function(result) {
-                        PurchaseService.buildNewJBYOrder(amount, result[1].productIdentifier);
+                        PurchaseService.buildNewJBYOrder(amount, result[ 1 ].productIdentifier);
 
                         $state.go('jym.jinbaoyin-purchase');
                     })

@@ -4,7 +4,7 @@ angular.module('jym.user.signup', [])
             .state('jym.user-signup', {
                 url: '/user/signup/{token}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSignUpCtrl as ctrl',
                         templateUrl: 'app/user/signup/signup.tpl.html'
                     }
@@ -13,7 +13,7 @@ angular.module('jym.user.signup', [])
             .state('jym.user-signup-send-veri-code', {
                 url: '/user/signup-send-veri-code',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSignUpSendVeriCodeCtrl as ctrl',
                         templateUrl: 'app/user/signup/sendVeriCode.tpl.html'
                     }
@@ -93,7 +93,7 @@ angular.module('jym.user.signup', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-signup', {token: result.token});
+                                JYMUtilityService.go('jym.user-signup', { token: result.token });
                             }, 1000);
                         }
                     });

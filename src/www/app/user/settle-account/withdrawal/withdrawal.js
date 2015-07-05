@@ -6,7 +6,7 @@ angular.module('jym.user.settle-account-withdrawal', [
             .state('jym.user-settle-account-withdrawal', {
                 url: '/user/settle-account/withdrawal',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSettleAccountWithdrawalCtrl as account',
                         templateUrl: 'app/user/settle-account/withdrawal/withdrawal.tpl.html'
                     }
@@ -15,7 +15,7 @@ angular.module('jym.user.settle-account-withdrawal', [
             .state('jym.user-settle-account-withdrawal-bank-card-selector', {
                 url: '/user/settle-account/withdrawal/select-bank-card',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSettleAccountWithdrawalBankCardSeletorCtrl as account',
                         templateUrl: 'app/user/settle-account/withdrawal/bank-card-selector.tpl.html'
                     }

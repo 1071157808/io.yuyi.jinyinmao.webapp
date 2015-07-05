@@ -19,8 +19,7 @@ angular.module('jym.services.jinbaoyin', [
         service.getSold = function(productIdentifier) {
             var url = URLS.JINBAOYIN.SOLD + productIdentifier;
 
-            return $http.get(url, {
-            }).then(function(result) {
+            return $http.get(url, {}).then(function(result) {
                 return result.data;
             });
         };

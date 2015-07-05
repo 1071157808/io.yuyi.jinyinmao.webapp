@@ -18,7 +18,7 @@ angular.module('JYM', [
         $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back');
     })
     .config(function($httpProvider) {
-        //$httpProvider.defaults.withCredentials = true;
+        // $httpProvider.defaults.withCredentials = true;
         $httpProvider.interceptors.push('globalInterceptor');
         $httpProvider.interceptors.push('loadingInterceptor');
     })
@@ -27,7 +27,7 @@ angular.module('JYM', [
     })
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider.state('jym', {
-            url: "",
+            url: '',
             abstract: true,
             templateUrl: 'app/index.tpl.html'
         });

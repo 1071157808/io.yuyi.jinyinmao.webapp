@@ -13,7 +13,7 @@ angular.module('jym.user', [
             .state('jym.user', {
                 url: '/user',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserCtrl as user',
                         templateUrl: 'app/user/index.tpl.html'
                     }

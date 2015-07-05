@@ -4,24 +4,24 @@ angular.module('jym.interceptors', [
     .factory('globalInterceptor', function($q, $rootScope, $timeout, $injector) {
         var authService = $injector.get('JYMAuthService');
         return {
-            'request': function(config) {
-                config.headers['x-jym-auth'] = authService.getToken();
+            request: function(config) {
+                config.headers[ 'x-jym-auth' ] = authService.getToken();
                 return config;
             },
 
-            'requestError': function(rejection) {
+            requestError: function(rejection) {
                 $rootScope.$broadcast('http:requestError');
                 return $q.reject(rejection);
             },
 
-            'response': function(response) {
-                if (response.headers()['x-jym-auth']) {
-                    authService.setToken(response.headers()['x-jym-auth'])
+            response: function(response) {
+                if (response.headers()[ 'x-jym-auth' ]) {
+                    authService.setToken(response.headers()[ 'x-jym-auth' ])
                 }
                 return response;
             },
 
-            'responseError': function(rejection) {
+            responseError: function(rejection) {
                 var $state = $injector.get('$state');
                 var $ionicHistory = $injector.get('$ionicHistory');
                 var $ionicLoading = $injector.get('$ionicLoading');
@@ -29,7 +29,7 @@ angular.module('jym.interceptors', [
                 if (rejection.status >= 400 && rejection.status < 500) {
                     if (rejection.data.message) {
                         var message = rejection.data.message.split(':');
-                        var errorMessage = message[message.length - 1];
+                        var errorMessage = message[ message.length - 1 ];
                         $ionicLoading.show({
                             template: errorMessage,
                             duration: 3000,
@@ -44,7 +44,7 @@ angular.module('jym.interceptors', [
                     $ionicHistory.nextViewOptions({
                         disableBack: true
                     });
-                    $state.go('jym.user-login', {backState: $state.current.name});
+                    $state.go('jym.user-login', { backState: $state.current.name });
                 }
 
                 if (rejection.status >= 500) {

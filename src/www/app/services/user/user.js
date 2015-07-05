@@ -147,7 +147,7 @@ angular.module('jym.services.user', [
                 return result.data;
             });
         };
-        
+
         service.getBankCards = function() {
             var url = URLS.BANKCARD.LIST;
 
@@ -361,8 +361,8 @@ angular.module('jym.services.user', [
             return $http.post(url, {
                 clientType: clientType,
                 contractId: 0,
-                inviteBy: "jinyinmao",
-                outletCode: "jinyinmao",
+                inviteBy: 'jinyinmao',
+                outletCode: 'jinyinmao',
                 password: password,
                 token: token
             })

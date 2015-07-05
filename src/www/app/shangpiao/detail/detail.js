@@ -5,12 +5,12 @@ angular.module('jym.shangpiao.detail', [
     'jym.services.user',
     'jym.shangpiao.purchase'
 ])
-    .config(function ($stateProvider) {
+    .config(function($stateProvider) {
         $stateProvider
             .state('jym.shangpiao-detail', {
                 url: '/shangpiao/detail/{productIdentifier}',
                 views: {
-                    'shangpiao':{
+                    shangpiao: {
                         controller: 'ShangpiaoDetailCtrl as product',
                         templateUrl: 'app/shangpiao/detail/detail.tpl.html'
                     }

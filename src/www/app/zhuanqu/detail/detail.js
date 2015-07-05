@@ -10,7 +10,7 @@ angular.module('jym.zhuanqu.detail', [
             .state('jym.zhuanqu-detail', {
                 url: '/zhuanqu/detail/{bankName}/{productIdentifier}',
                 views: {
-                    'zhuanqu': {
+                    zhuanqu: {
                         controller: 'ZhuanquDetailCtrl as product',
                         templateUrl: 'app/zhuanqu/detail/detail.tpl.html'
                     }

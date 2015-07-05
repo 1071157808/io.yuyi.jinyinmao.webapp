@@ -9,7 +9,6 @@
   "disallowSpaceBeforeBinaryOperators": [","],
   "disallowSpaceBeforePostfixUnaryOperators": ["++", "--"],
   "disallowSpacesInNamedFunctionExpression": { "beforeOpeningRoundBrace": true },
-  "disallowSpacesInsideArrayBrackets": true,
   "disallowSpacesInsideParentheses": true,
   "disallowTrailingComma": true,
   "disallowTrailingWhitespace": true,
@@ -30,6 +29,6 @@
   "requireSpacesInFunctionExpression": { "beforeOpeningCurlyBrace": true },
   "requireSpacesInNamedFunctionExpression": { "beforeOpeningCurlyBrace": true },
   "requireSpacesInsideObjectBrackets": "allButNested",
-  "validateIndentation": 2,
+  "validateIndentation": 4,
   "validateQuoteMarks": "'"
 }

@@ -4,7 +4,7 @@ angular.module('jym.user.security-password', [])
             .state('jym.user-security-password', {
                 url: '/user/security-password/{token}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSecurityPasswordCtrl as ctrl',
                         templateUrl: 'app/user/security/password/password.tpl.html'
                     }
@@ -13,7 +13,7 @@ angular.module('jym.user.security-password', [])
             .state('jym.user-security-password-send-veri-code', {
                 url: '/user/security-password-send-veri-code',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSecurityPasswordSendVeriCodeCtrl as ctrl',
                         templateUrl: 'app/user/security/password/sendVeriCode.tpl.html'
                     }
@@ -102,7 +102,7 @@ angular.module('jym.user.security-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-security-password', {token: result.token})
+                                JYMUtilityService.go('jym.user-security-password', { token: result.token })
                             }, 1000);
                         }
                     });

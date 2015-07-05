@@ -7,7 +7,7 @@ angular.module('jym.user.login', [
             .state('jym.user-login', {
                 url: '/user/login/{backState}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserLoginCtrl as user',
                         templateUrl: 'app/user/login/login.tpl.html'
                     }

@@ -2,12 +2,12 @@ angular.module('jym.shangpiao', [
     'jym.services',
     'jym.shangpiao.detail'
 ])
-    .config(function ($stateProvider) {
+    .config(function($stateProvider) {
         $stateProvider
             .state('jym.shangpiao', {
                 url: '/shangpiao',
                 views: {
-                    'shangpiao':{
+                    shangpiao: {
                         controller: 'ShangpiaoIndexCtrl as products',
                         templateUrl: 'app/shangpiao/index.tpl.html'
                     }
@@ -97,15 +97,15 @@ angular.module('jym.shangpiao', [
             item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueData, modelItem.specifyValueDate);
             item.yield = modelItem.yield / 100;
 
-            if(item.status.status === 10) {
+            if (item.status.status === 10) {
                 item.statusText = '待售';
                 item.statusTextClass = '';
                 item.timeText = '开售时间 ' + $filter('time')(item.startSellTime);
-            }else if(item.status.status === 20) {
+            } else if (item.status.status === 20) {
                 item.statusText = '抢购 已售出' + item.sellProgress + '%';
                 item.statusTextClass = '';
                 item.timeText = '起息时间 ' + item.valueDateText;
-            }else {
+            } else {
                 item.statusText = '售罄 请期待下期';
                 item.statusTextClass = '';
                 item.timeText = '还款时间 ' + $filter('time')(item.repaymentDeadline);

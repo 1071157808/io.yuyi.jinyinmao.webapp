@@ -7,7 +7,7 @@ angular.module('jym.user.jinbaoyin', [
             .state('jym.user-jinbaoyin', {
                 url: '/user/jinbaoyin',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserJinbaoyinCtrl as ctrl',
                         templateUrl: 'app/user/jinbaoyin/jinbaoyin.tpl.html'
                     }

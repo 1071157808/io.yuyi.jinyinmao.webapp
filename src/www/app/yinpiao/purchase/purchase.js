@@ -10,7 +10,7 @@ angular.module('jym.yinpiao.purchase', [
             .state('jym.yinpiao-purchase', {
                 url: '/yinpiao/purchase',
                 views: {
-                    'yinpiao': {
+                    yinpiao: {
                         controller: 'YinpiaoPurchaseCtrl as purchase',
                         templateUrl: 'app/yinpiao/purchase/purchase.tpl.html'
                     }

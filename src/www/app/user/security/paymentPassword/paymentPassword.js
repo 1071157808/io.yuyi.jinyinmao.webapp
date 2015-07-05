@@ -4,7 +4,7 @@ angular.module('jym.user.security-payment-password', [])
             .state('jym.user-security-reset-payment-password', {
                 url: '/user/security-reset-payment-password/{token}',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSecurityPaymentPasswordCtrl as ctrl',
                         templateUrl: 'app/user/security/paymentPassword/paymentPassword.tpl.html'
                     }
@@ -13,7 +13,7 @@ angular.module('jym.user.security-payment-password', [])
             .state('jym.user-security-set-payment-password', {
                 url: '/user/security-set-payment-password',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSecuritySetPaymentPasswordCtrl as ctrl',
                         templateUrl: 'app/user/security/paymentPassword/setPaymentPassword.tpl.html'
                     }
@@ -22,14 +22,14 @@ angular.module('jym.user.security-payment-password', [])
             .state('jym.user-security-payment-password-send-veri-code', {
                 url: '/user/security-payment-password-send-veri-code',
                 views: {
-                    'user': {
+                    user: {
                         controller: 'UserSecurityPaymentPasswordSendVeriCodeCtrl as ctrl',
                         templateUrl: 'app/user/security/paymentPassword/sendVeriCode.tpl.html'
                     }
                 }
             });
     })
-    .controller('UserSecurityPaymentPasswordCtrl', function($scope, $stateParams, $timeout,  RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSecurityPaymentPasswordCtrl', function($scope, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -101,9 +101,9 @@ angular.module('jym.user.security-payment-password', [])
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SETPAYMENTPASSWORD);
                             $timeout(function() {
-                                if($ionicHistory.backView()){
+                                if ($ionicHistory.backView()) {
                                     $ionicHistory.goBack();
-                                }else{
+                                } else {
                                     JYMUtilityService.goWithDisableBack('jym.user');
                                 }
 
@@ -179,7 +179,7 @@ angular.module('jym.user.security-payment-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-security-reset-payment-password', {token: result.token})
+                                JYMUtilityService.go('jym.user-security-reset-payment-password', { token: result.token })
                             }, 1000);
                         }
                     });

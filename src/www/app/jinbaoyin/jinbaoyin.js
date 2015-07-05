@@ -2,12 +2,12 @@ angular.module('jym.jinbaoyin', [
     'jym.services.jinbaoyin',
     'jym.jinbaoyin.detail'
 ])
-    .config(function ($stateProvider) {
+    .config(function($stateProvider) {
         $stateProvider
             .state('jym.jinbaoyin', {
                 url: '/jinbaoyin',
                 views: {
-                    'jinbaoyin':{
+                    jinbaoyin: {
                         controller: 'JinbaoyinCtrl as product',
                         templateUrl: 'app/jinbaoyin/index.tpl.html'
                     }
@@ -20,7 +20,7 @@ angular.module('jym.jinbaoyin', [
         product.model = {};
         product.viewModel = {};
 
-        product.refreshProduct = function(){
+        product.refreshProduct = function() {
             JinbaoyinService.getIndex()
                 .then(function(result) {
                     product.model = result;
@@ -31,7 +31,7 @@ angular.module('jym.jinbaoyin', [
                 });
         };
 
-        product.doRefresh = function(){
+        product.doRefresh = function() {
             product.refreshProduct();
 
             $timeout(function() {
