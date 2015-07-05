@@ -1,3 +1,4 @@
+/*jshint -W024 */
 'use strict';
 angular.module('jym.shangpiao', [
     'jym.services',
@@ -96,7 +97,7 @@ angular.module('jym.shangpiao', [
             item.valueDate = modelItem.valueDate;
             item.valueDateMode = modelItem.valueDateMode;
             item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueData, modelItem.specifyValueDate);
-            item['yield'] = modelItem['yield'] / 100;
+            item.yield = modelItem.yield / 100;
 
             if (item.status.status === 10) {
                 item.statusText = '待售';

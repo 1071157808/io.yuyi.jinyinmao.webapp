@@ -1,3 +1,4 @@
+/*jshint -W024 */
 'use strict';
 angular.module('jym.jinbaoyin', [
     'jym.services.jinbaoyin',
@@ -27,7 +28,7 @@ angular.module('jym.jinbaoyin', [
                     product.model = result;
 
                     product.viewModel.title = result.productName + ' ' + '第' + result.issueNo + '期';
-                    product.viewModel['yield'] = result['yield'] / 100;
+                    product.viewModel.yield = result.yield / 100;
                     product.viewModel.unitPrice = (result.unitPrice / 100).toFixed(0);
                 });
         };

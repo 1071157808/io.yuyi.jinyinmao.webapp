@@ -10,7 +10,7 @@
         <ion-item ui-sref="jym.yinpiao-detail({ productIdentifier: item.productIdentifier })">
           <div class="row">
             <div class="col col-33">
-              <em ng-bind="item['yield']"></em><samp>%</samp>
+              <em ng-bind="item.yield"></em><samp>%</samp>
               <li class="jqm-prd-period"><span ng-bind="item.period"></span><samp>&nbsp;天</samp></li>
               <li class="jqm-min-price"><span ng-bind="item.unitPrice"></span><samp>&nbsp;元起</samp></li>
               <li class="jqm-prd-price"><span ng-bind="item.financingSumAmount"></span><samp>&nbsp;万</samp></li>

@@ -6,6 +6,6 @@ window.paceOptions = {
     restartOnPushState: false,
     restartOnRequestAfter: false,
     ajax: {
-        trackMethods: [ 'POST', 'GET' ]
+        trackMethods: ['POST', 'GET']
     }
 };

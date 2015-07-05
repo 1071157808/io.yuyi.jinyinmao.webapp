@@ -1,3 +1,4 @@
+/*jshint -W024 */
 'use strict';
 angular.module('jym.jinbaoyin.detail', [
     'jym.services',
@@ -89,13 +90,13 @@ angular.module('jym.jinbaoyin.detail', [
                 var amount = product.viewModel.investCount * product.model.unitPrice;
                 var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
                 var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), amount);
-                $q.all([ checkUserPurchaseStatus, checkProductPurchaseStatus ])
+                $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
                     .then(function(result) {
-                        PurchaseService.buildNewJBYOrder(amount, result[ 1 ].productIdentifier);
+                        PurchaseService.buildNewJBYOrder(amount, result[1].productIdentifier);
 
                         $state.go('jym.jinbaoyin-purchase');
                     })
-                    ['catch'](function(result) {
+                    .catch(function(result) {
                         JYMUtilityService.showAlert(result);
                     });
             }
@@ -112,7 +113,7 @@ angular.module('jym.jinbaoyin.detail', [
                 product.viewModel.investAmount = 0;
             }
 
-            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model['yield'], 30) / 100).toFixed(2);
+            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, 30) / 100).toFixed(2);
         };
 
         product.refreshProduct = function() {
@@ -137,7 +138,7 @@ angular.module('jym.jinbaoyin.detail', [
             product.viewModel.status = getSaleStatus(product.model);
             product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
             product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
-            product.viewModel['yield'] = (product.model['yield'] / 100).toFixed(2);
+            product.viewModel.yield = (product.model.yield / 100).toFixed(2);
         };
 
         product.doRefresh();

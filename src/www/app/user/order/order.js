@@ -1,3 +1,4 @@
+/*jshint -W024 */
 'use strict';
 angular.module('jym.user.orders', [
     'jym.services.user',
@@ -38,7 +39,7 @@ angular.module('jym.user.orders', [
             item.settleDate = modelItem.settleDate;
             item.transDesc = modelItem.transDesc;
             item.valueDate = modelItem.valueDate;
-            item['yield'] = (modelItem['yield'] / 100).toFixed(2);
+            item.yield = (modelItem.yield / 100).toFixed(2);
 
             item.productSnapshot = {};
             item.productSnapshot.bankName = modelItem.productSnapshot.bankName;
@@ -75,7 +76,7 @@ angular.module('jym.user.orders', [
             item.productSnapshot.usage = modelItem.productSnapshot.settleDate;
             item.productSnapshot.valueDate = modelItem.productSnapshot.soldOut;
             item.productSnapshot.valueDateMode = modelItem.productSnapshot.soldOutTime;
-            item.productSnapshot['yield'] = (modelItem.productSnapshot['yield'] / 100).toFixed(2);
+            item.productSnapshot.yield = (modelItem.productSnapshot.yield / 100).toFixed(2);
 
             var now = moment();
             if (item.isRepaid) {

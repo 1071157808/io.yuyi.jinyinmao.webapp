@@ -1,3 +1,4 @@
+/*jshint -W024 */
 'use strict';
 angular.module('jym.user.jinbaoyin', [
     'jym.services.user',
@@ -43,7 +44,7 @@ angular.module('jym.user.jinbaoyin', [
         };
 
         ctrl.refreshProductViewModel = function() {
-            ctrl.viewModel.jBYYield = ctrl.model.product['yield'] / 100;
+            ctrl.viewModel.jBYYield = ctrl.model.product.yield / 100;
         };
 
         ctrl.refreshUserViewModel = function() {

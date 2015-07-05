@@ -9,6 +9,7 @@ angular.module('JYM', [
     'jym.filters',
     'jym.jinbaoyin',
     'jym.shangpiao',
+    'jym.templates',
     'jym.zhuanqu',
     'jym.yinpiao',
     'jym.constants'

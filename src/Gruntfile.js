@@ -9,6 +9,235 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        autoprefixer: {
+            options: {
+                browsers: ['last 3 versions', 'ie 8', 'ie 9', '> 5% in CN']
+            },
+            app: {
+                src: ['www/assets/css/*.css', '!./www/assets/css/*.min.css']
+            }
+        },
+
+        bump: {
+            options: {
+                files: ['package.json'],
+                updateConfigs: [],
+                commit: true,
+                commitMessage: '%VERSION%',
+                commitFiles: ['package.json'],
+                createTag: false,
+                tagName: 'v%VERSION%',
+                tagMessage: 'Version %VERSION%',
+                push: true,
+                pushTo: 'upstream',
+                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
+                globalReplace: false,
+                prereleaseName: false,
+                regExp: false
+            }
+        },
+
+        clean: {
+            bower: 'www/lib/',
+            dist: 'dist/**/*',
+            js: ['www/app/**/*.annotated.js'],
+            npm: 'node_modules/**/*'
+        },
+
+        copy: {
+            options: {
+                timestamp: true
+            },
+            favicon: {
+                src: 'www/favicon.ico',
+                dest: 'dist/favicon.ico'
+            },
+            fonts: {
+                expand: true,
+                cwd: 'www/assets/fonts/',
+                src: ['**/*'],
+                dest: 'dist/assets/fonts/'
+            },
+            img: {
+                expand: true,
+                cwd: 'www/assets/img/',
+                src: ['**/*', '!precompressed', '!precompressed/**/*'],
+                dest: 'dist/assets/img/'
+            },
+            icon: {
+                expand: true,
+                cwd: 'www/assets/icon/',
+                src: ['**/*', '!precompressed', '!precompressed/**/*'],
+                dest: 'dist/assets/icon/'
+            },
+            htmlDev: {
+                src: 'www/index.html',
+                dest: 'dist/<%= pkg.name %>@<%= pkg.version %>-dev.html'
+            },
+            htmlTest: {
+                src: 'www/index.html',
+                dest: 'dist/<%= pkg.name %>@<%= pkg.version %>-test.html'
+            },
+            htmlProduct: {
+                src: 'www/index.html',
+                dest: 'dist/<%= pkg.name %>@<%= pkg.version %>.html'
+            },
+            packages: {
+                expand: true,
+                cwd: 'www/packages/',
+                src: ['**/*'],
+                dest: 'dist/packages/'
+            },
+            release: {
+                expand: true,
+                cwd: 'dist/',
+                src: ['**/*'],
+                dest: 'release/'
+            }
+        },
+
+        compress: {
+            release: {
+                options: {
+                    archive: 'release.zip'
+                },
+                expand: true,
+                cwd: 'release/',
+                src: ['**/*'],
+                dest: '.'
+            }
+        },
+
+        csscomb: {
+            options: {
+                config: '.csscomb.json'
+            },
+            app: {
+                expand: true,
+                cwd: 'www/assets/css/',
+                src: ['**/*.css', '!**/*.min.css'],
+                dest: 'www/assets/css/'
+            }
+        },
+
+        csslint: {
+            options: {
+                csslintrc: '.csslintrc'
+            },
+            app: {
+                src: ['www/assets/css/*.css', '!www/assets/css/*.min.css']
+            }
+        },
+
+        cssmin: {
+            options: {
+                compatibility: 'ie8',
+                keepSpecialComments: '0',
+                advanced: true
+            },
+            dev: {
+                files: {
+                    'dist/assets/css/<%= pkg.name %>@<%= pkg.version %>-dev.min.css': ['www/assets/css/**/*.css']
+                }
+            },
+            test: {
+                files: {
+                    'dist/assets/css/<%= pkg.name %>@<%= pkg.version %>-test.min.css': ['www/assets/css/**/*.css']
+                }
+            },
+            product: {
+                files: {
+                    'dist/assets/css/<%= pkg.name %>@<%= pkg.version %>.min.css': ['www/assets/css/**/*.css']
+                }
+            }
+        },
+
+        concat: {
+            options: {
+                sourceMap: false
+            },
+            dev: {
+                src: ['www/app/**/*.annotated.js', 'www/assets/js/*.js'],
+                dest: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>-dev.js'
+            },
+            test: {
+                src: ['www/app/**/*.annotated.js', 'www/assets/js/*.js'],
+                dest: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>-test.js'
+            },
+            product: {
+                src: ['www/app/**/*.annotated.js', 'www/assets/js/*.js'],
+                dest: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>.js'
+            }
+        },
+
+        exec: {
+            options: {
+                stdout: true,
+                stderr: true
+            },
+            npmInstall: {
+                command: 'npm install'
+            },
+            npmUpdate: {
+                command: 'npm update --save-dev'
+            }
+        },
+
+        filerev: {
+            options: {
+                algorithm: 'md5',
+                length: 6
+            },
+            fonts: {
+                src: 'www/assets/fonts/**'
+            }
+        },
+
+        html2js: {
+            options: {
+                base: 'www',
+                htmlmin: {
+                    collapseBooleanAttributes: true,
+                    collapseWhitespace: true,
+                    removeAttributeQuotes: true,
+                    removeComments: true,
+                    removeEmptyAttributes: true,
+                    removeRedundantAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    removeStyleLinkTypeAttributes: true
+                },
+                module: 'jym.templates'
+            },
+            app: {
+                src: ['www/app/**/*.tpl.html'],
+                dest: 'www/app/common/templates.js'
+            }
+        },
+
+        jscs: {
+            options: {
+                config: '.jscsrc'
+            },
+            grunt: {
+                src: ['Gruntfile.js']
+            },
+            app: {
+                src: ['./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js', '!./www/app/common/templates.js']
+            }
+        },
+
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            grunt: {
+                src: ['Gruntfile.js']
+            },
+            app: {
+                src: ['./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js', '!./www/app/common/templates.js']
+            }
+        },
+
         mbower: {
             copy: {
                 options: {
@@ -43,8 +272,8 @@ module.exports = function(grunt) {
             options: {
                 interlaced: true,
                 optimizationLevel: 5,
+                removeSource: true,
                 progressive: true,
-                removeSource: false,
                 svgoPlugins: [{
                     removeViewBox: false
                 }, {
@@ -53,22 +282,22 @@ module.exports = function(grunt) {
                     removeEmptyAttrs: false
                 }]
             },
-            assets: {
+            icon: {
                 files: [{
                     expand: true,
-                    cwd: 'www/assets/img/',
+                    cwd: 'www/assets/icon/precompressed/',
                     src: '**/*.{gif,GIF,jpg,jpeg,JPG,png,PNG}',
-                    dest: 'www/img/'
+                    dest: 'www/assets/icon/'
+                }]
+            },
+            img: {
+                files: [{
+                    expand: true,
+                    cwd: 'www/assets/img/precompressed/',
+                    src: '**/*.{gif,GIF,jpg,jpeg,JPG,png,PNG}',
+                    dest: 'www/assets/img/'
                 }]
             }
-        },
-
-        clean: {
-            dist: 'dist/**/*',
-            npm: 'node_modules/**/*',
-            bower: 'www/lib/',
-            js: 'www/app/**/*.annotated.js',
-            app: 'www/js/**/*'
         },
 
         ngAnnotate: {
@@ -87,37 +316,99 @@ module.exports = function(grunt) {
             }
         },
 
-        jscs: {
-            options: {
-                config: '.jscsrc'
+        replace: {
+            dev: {
+                src: ['www/app/common/constants.js'],
+                overwrite: true,
+                replacements: [{
+                    from: 'jymstoretest',
+                    to: 'jymstoredev'
+                }, {
+                    from: 'jymstoreproduct',
+                    to: 'jymstoredev'
+                }, {
+                    from: 'jym-test-api',
+                    to: 'jym-dev-api'
+                }, {
+                    from: 'jym-product-api',
+                    to: 'jym-dev-api'
+                }, {
+                    from: 'VERSION: \'<%= pkg.version %>-TEST\'',
+                    to: 'VERSION: \'<%= pkg.version %>-DEV\''
+                }, {
+                    from: 'VERSION: \'<%= pkg.version %>\'',
+                    to: 'VERSION: \'<%= pkg.version %>-DEV\''
+                }]
             },
-            grunt: {
-                src: ['Gruntfile.js']
+            test: {
+                src: ['www/app/common/constants.js'],
+                overwrite: true,
+                replacements: [{
+                    from: 'jymstoredev',
+                    to: 'jymstoretest'
+                }, {
+                    from: 'jymstoreproduct',
+                    to: 'jymstoretest'
+                }, {
+                    from: 'jym-dev-api',
+                    to: 'jym-test-api'
+                }, {
+                    from: 'jym-product-api',
+                    to: 'jym-test-api'
+                }, {
+                    from: 'VERSION: \'<%= pkg.version %>-DEV\'',
+                    to: 'VERSION: \'<%= pkg.version %>-TEST\''
+                }, {
+                    from: 'VERSION: \'<%= pkg.version %>\'',
+                    to: 'VERSION: \'<%= pkg.version %>-TEST\''
+                }]
             },
-            app: {
-                src: ['./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js']
-            }
-        },
-
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc'
+            product: {
+                src: ['www/app/common/constants.js'],
+                overwrite: true,
+                replacements: [{
+                    from: 'jymstoredev',
+                    to: 'jymstoreproduct'
+                }, {
+                    from: 'jymstoretest',
+                    to: 'jymstoreproduct'
+                }, {
+                    from: 'jym-dev-api',
+                    to: 'jym-product-api'
+                }, {
+                    from: 'jym-test-api',
+                    to: 'jym-product-api'
+                }, {
+                    from: 'VERSION: \'<%= pkg.version %>-DEV\'',
+                    to: 'VERSION: \'<%= pkg.version %>\''
+                }, {
+                    from: 'VERSION: \'<%= pkg.version %>-TEST\'',
+                    to: 'VERSION: \'<%= pkg.version %>\''
+                }]
             },
-            grunt: {
-                src: ['Gruntfile.js']
+            buildDev: {
+                src: ['dist/<%= pkg.name %>@<%= pkg.version %>-dev.html'],
+                overwrite: true,
+                replacements: [{
+                    from: 'jym@version',
+                    to: 'jym@<%= pkg.version %>-dev'
+                }]
             },
-            app: {
-                src: ['./www/app/**/*.js', './www/assets/**/*.js', '!./www/app/**/*.min.js', '!./www/assets/**/*.min.js']
-            }
-        },
-
-        concat: {
-            options: {
-                sourceMap: false
+            buildTest: {
+                src: ['dist/<%= pkg.name %>@<%= pkg.version %>-test.html'],
+                overwrite: true,
+                replacements: [{
+                    from: 'jym@version',
+                    to: 'jym@<%= pkg.version %>-test'
+                }]
             },
-            app: {
-                src: ['www/app/**/*.annotated.js', 'www/assets/js/*.js'],
-                dest: 'www/js/<%= pkg.name %>-<%= pkg.version %>.js'
+            buildProduct: {
+                src: ['dist/<%= pkg.name %>@<%= pkg.version %>.html'],
+                overwrite: true,
+                replacements: [{
+                    from: 'jym@version',
+                    to: 'jym@<%= pkg.version %>'
+                }]
             }
         },
 
@@ -126,166 +417,103 @@ module.exports = function(grunt) {
                 preserveComments: false,
                 sourceMap: true
             },
-            app: {
-                src: 'www/js/<%= pkg.name %>-<%= pkg.version %>.js',
-                dest: 'www/js/<%= pkg.name %>-<%= pkg.version %>.min.js'
+            dev: {
+                src: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>-dev.js',
+                dest: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>-dev.min.js'
+            },
+            test: {
+                src: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>-test.js',
+                dest: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>-test.min.js'
+            },
+            product: {
+                src: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>.js',
+                dest: 'dist/assets/js/<%= pkg.name %>@<%= pkg.version %>.min.js'
             }
         },
 
-        autoprefixer: {
-            options: {
-                browsers: ['last 2 versions', 'ie 8', 'ie 9', '> 5% in CN']
-            },
-            core: {
-                src: ['./www/assets/css/*.css', '!./www/assets/css/*.min.css']
-            }
+        useminPrepare: {
+            cssDev: 'dist/<%= pkg.name %>@<%= pkg.version %>-dev.html',
+            cssTest: 'dist/<%= pkg.name %>@<%= pkg.version %>-test.html',
+            cssProduct: 'dist/<%= pkg.name %>@<%= pkg.version %>.html',
+            jsDev: 'dist/<%= pkg.name %>@<%= pkg.version %>-dev.html',
+            jsTest: 'dist/<%= pkg.name %>@<%= pkg.version %>-test.html',
+            jsProduct: 'dist/<%= pkg.name %>@<%= pkg.version %>.html'
         },
 
-        csscomb: {
-            options: {
-                config: '.csscomb.json'
-            },
-            core: {
-                expand: true,
-                cwd: './www/assets/css/',
-                src: '**/*.css',
-                dest: './www/assets/css/'
-            }
+        usemin: {
+            cssDev: 'dist/<%= pkg.name %>@<%= pkg.version %>-dev.html',
+            cssTest: 'dist/<%= pkg.name %>@<%= pkg.version %>-test.html',
+            cssProduct: 'dist/<%= pkg.name %>@<%= pkg.version %>.html',
+            jsDev: 'dist/<%= pkg.name %>@<%= pkg.version %>-dev.html',
+            jsTest: 'dist/<%= pkg.name %>@<%= pkg.version %>-test.html',
+            jsProduct: 'dist/<%= pkg.name %>@<%= pkg.version %>.html'
         },
 
-        csslint: {
-            options: {
-                csslintrc: '.csslintrc'
-            },
-            core: {
-                src: ['./www/assets/css/*.css', '!./www/assets/css/*.min.css']
-            }
-        },
-
-        cssmin: {
-            options: {
-                compatibility: 'ie8',
-                keepSpecialComments: '0',
-                advanced: true
-            },
-            core: {
-                files: [{
-                    expand: true,
-                    cwd: './www/assets/css',
-                    src: ['*.css', '!*.min.css'],
-                    dest: './www/assets/css',
-                    ext: '.min.css'
-                }]
-            }
-        },
-
-        copy: {
-            options: {
-                timestamp: true
-            },
-            build: {
-                expand: true,
-                cwd: 'src/',
-                src: ['css/**/*.css', 'fonts/**/**', 'js/*.js'],
-                dest: 'moe_packages/moe-ui@dev/'
-            },
-            docs: {
-                expand: true,
-                cwd: 'docs/src/',
-                src: ['assets/**/*', 'css/**/*', 'js/**/*', '*.ico'],
-                dest: 'docs/dist'
-            },
-            release: {
-                expand: true,
-                cwd: 'moe_packages/moe-ui@dev/',
-                src: '**',
-                dest: 'dist/'
-            },
-            img: {
-                expand: true,
-                cwd: 'www/img/',
-                src: '**/*',
-                dest: 'dist/img'
-            },
-            js: {
-                expand: true,
-                cwd: 'www/img/',
-                src: '**/*',
-                dest: 'dist/img'
-            }
-        },
-
-        exec: {
-            options: {
-                stdout: true,
-                stderr: true
-            },
-            npmUpdate: {
-                command: 'npm update'
-            },
-            npmInstall: {
-                command: 'npm install'
-            }
-        },
 
         watch: {
             options: {
-                debounceDelay: 5000
+                debounceDelay: 20000
             },
-            js: {
-                files: ['Gruntfile.js', 'src/js/**/*.js'],
-                tasks: []
-            },
-            css: {
-                files: ['Gruntfile.js', 'src/less/**/*.less'],
-                tasks: ['less-compile']
-            },
-            core: {
-                files: ['Gruntfile.js', 'src/js/**/*.js', 'src/less/**/*.less', '!src/js/*.js'],
-                tasks: ['build']
+            dev: {
+                files: ['www/app/**/*', 'www/assets/css/**/*.css', 'www/assets/js/**/*/js', 'www/assets/img/precompressed/**/*', 'www/assets/icon/precompressed/**/*'],
+                tasks: ['dev']
             },
             img: {
-                files: ['assets/img/**/*.{gif,GIF,jpg,jpeg,JPG,png,PNG}'],
-                tasks: ['mimage:assets']
-            },
-            docs: {
-                files: ['docs/src/**/*.{html,json,css}'],
-                tasks: ['build-docs']
+                files: ['www/assets/img/precompressed/**/*', 'www/assets/icon/precompressed/**/*'],
+                tasks: ['compresse-icon', 'compresse-image']
             }
         }
-
     });
 
     // This command registers the default task which will install bower packages into wwwroot/lib
-    grunt.registerTask('default', ['update', 'build', 'build-docs']);
+    grunt.registerTask('default', ['watch:dev']);
 
-    grunt.registerTask('install', ['mbower:install']);
-    grunt.registerTask('update', ['exec:npmInstall', 'exec:npmUpdate', 'mbower:clean', 'install']);
+    grunt.registerTask('prepare', ['exec:npmUpdate', 'mbower:clean', 'mbower:install']);
 
-    grunt.registerTask('dev', ['watch:core']);
-    grunt.registerTask('dev-css', ['watch:css']);
-    grunt.registerTask('dev-js', ['watch:js']);
-    grunt.registerTask('dev-img', ['watch:img']);
-    grunt.registerTask('dev-docs', ['watch:docs']);
+    grunt.registerTask('compresse-icon', ['mimage:icon']);
+    grunt.registerTask('compresse-image', ['mimage:img']);
 
-    grunt.registerTask('before-compile', ['jscs:grunt', 'jshint:grunt']);
-    grunt.registerTask('css-compile', ['clean:css', 'less:core', 'autoprefixer:core', 'csscomb:core', 'csslint:core', 'cssmin:core']);
-    grunt.registerTask('js-compile', ['clean:js', 'jscs:core', 'jshint:core', 'concat', 'uglify']);
-    grunt.registerTask('compile', ['before-compile', 'css-compile', 'js-compile']);
+    grunt.registerTask('compile-templates', ['html2js:app']);
 
-    grunt.registerTask('docs-css-compile', ['autoprefixer:docs', 'csscomb:docs', 'csslint:docs']);
-    grunt.registerTask('docs-html-compile', ['mhandlebars:docsTmp', 'clean:docsTmp', 'clean:docsDist', 'mhandlebars:docs']);
+    grunt.registerTask('dev', ['dev-css', 'dev-icon', 'dev-imge', 'dev-js', 'compile-templates']);
+    grunt.registerTask('dev-css', ['autoprefixer:app', 'csscomb:app', 'csslint:app']);
+    grunt.registerTask('dev-icon', ['compresse-icon']);
+    grunt.registerTask('dev-imge', ['compresse-image']);
+    grunt.registerTask('dev-js', ['jscs:app', 'jshint:app']);
 
-    grunt.registerTask('build', ['clean:dev', 'compile', 'copy:build']);
-    grunt.registerTask('build-docs', ['before-compile', 'docs-css-compile', 'docs-html-compile', 'copy:docs']);
+    grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist']);
 
-    grunt.registerTask('build-usemin', [
-        'useminPrepare',
-        'ngAnnotate:app',
-        'concat:app',
-        'uglify:app',
-        'usemin'
-    ]);
+    grunt.registerTask('pre-dev-build', ['replace:dev']);
+    grunt.registerTask('pre-test-build', ['replace:test']);
+    grunt.registerTask('pre-product-build', ['replace:product']);
+    grunt.registerTask('post-dev-build', ['replace:buildDev']);
+    grunt.registerTask('post-test-build', ['replace:buildTest']);
+    grunt.registerTask('post-product-build', ['replace:buildProduct']);
+
+    grunt.registerTask('build-fonts', ['copy:fonts']);
+    grunt.registerTask('build-html', ['copy:htmlDev', 'copy:htmlTest', 'copy:htmlProduct']);
+    grunt.registerTask('build-icon', ['copy:icon', 'copy:favicon']);
+    grunt.registerTask('build-img', ['copy:img']);
+    grunt.registerTask('build-packages', ['copy:packages']);
+    grunt.registerTask('build-js', ['clean:js', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:js', 'concat:app', 'uglify:app', 'usemin:js', 'clean:js']);
+
+    grunt.registerTask('build-js-dev', ['clean:js', 'replace:dev', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsDev', 'concat:dev', 'uglify:dev', 'usemin:jsDev', 'clean:js']);
+    grunt.registerTask('build-css-dev', ['autoprefixer:app', 'csscomb:app', 'csslint:app', 'useminPrepare:cssDev', 'cssmin:dev', 'usemin:cssDev']);
+    grunt.registerTask('build-dev', ['pre-dev-build', 'build-js-dev', 'build-css-dev', 'post-dev-build']);
+
+    grunt.registerTask('build-js-test', ['clean:js', 'replace:test', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsTest', 'concat:test', 'uglify:test', 'usemin:jsTest', 'clean:js']);
+    grunt.registerTask('build-css-test', ['useminPrepare:cssTest', 'autoprefixer:app', 'csscomb:app', 'csslint:app', 'cssmin:test', 'usemin:cssTest']);
+    grunt.registerTask('build-test', ['pre-test-build', 'build-js-test', 'build-css-test', 'post-test-build']);
+
+    grunt.registerTask('build-js-product', ['clean:js', 'replace:product', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsProduct', 'concat:product', 'uglify:product', 'usemin:jsProduct', 'clean:js']);
+    grunt.registerTask('build-css-product', ['useminPrepare:cssProduct', 'autoprefixer:app', 'csscomb:app', 'csslint:app', 'cssmin:product', 'usemin:cssProduct']);
+    grunt.registerTask('build-product', ['pre-product-build', 'build-js-product', 'build-css-product', 'post-product-build']);
+
+    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'pre-dev-build']);
+
+    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'pre-dev-build']);
+
+    grunt.registerTask('release', ['copy:release']);
 
     // These plugins provide necessary tasks.
     require('load-grunt-tasks')(grunt, {

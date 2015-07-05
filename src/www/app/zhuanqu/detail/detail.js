@@ -1,3 +1,4 @@
+/*jshint -W024 */
 'use strict';
 angular.module('jym.zhuanqu.detail', [
     'jym.services',
@@ -110,7 +111,7 @@ angular.module('jym.zhuanqu.detail', [
 
                         $state.go('jym.zhuanqu-purchase');
                     })
-                    ['catch'](function(result) {
+                    .catch(function(result) {
                         JYMUtilityService.showAlert(result);
                     });
             }
@@ -127,7 +128,7 @@ angular.module('jym.zhuanqu.detail', [
                 product.viewModel.investAmount = 0;
             }
 
-            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model['yield'], product.getAccrualDuration()) / 100).toFixed(2);
+            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, product.getAccrualDuration()) / 100).toFixed(2);
         };
 
         product.refreshProduct = function() {
@@ -178,7 +179,7 @@ angular.module('jym.zhuanqu.detail', [
             product.viewModel.valueDate = product.model.valueDate;
             product.viewModel.valueDateMode = product.model.valueDateMode;
             product.viewModel.valueDateText = getValueDateModeText(product.model.valueDateMode, product.model.valueDate, product.model.specifyValueDate);
-            product.viewModel['yield'] = product.model['yield'] / 100;
+            product.viewModel.yield = product.model.yield / 100;
 
 
             if ($stateParams.bankName === 'fudian') {
