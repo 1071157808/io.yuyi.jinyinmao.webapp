@@ -466,6 +466,7 @@ module.exports = function(grunt) {
 
     // This command registers the default task which will install bower packages into wwwroot/lib
     grunt.registerTask('default', ['watch:dev']);
+    grunt.registerTask('templates', ['watch:templates']);
 
     grunt.registerTask('prepare', ['exec:npmUpdate', 'mbower:clean', 'mbower:install']);
 
