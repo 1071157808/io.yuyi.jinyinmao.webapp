@@ -27,20 +27,20 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         };
 
         account.doRefresh = function() {
-            account.refresh()
+            account.refreshUser()
                 .then(function(result) {
-                    account.model.currentUser = result;
+                    account.model.user = result;
                     account.refreshViewModel();
                     return result;
                 });
         };
 
-        account.refresh = function() {
+        account.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
         account.refreshViewModel = function() {
-            account.viewModel.userBalance = (account.model.currentUser.balance / 100).toFixed(2);
+            account.viewModel.userBalance = (account.model.user.balance / 100).toFixed(2);
             account.viewModel.jBYLastInterest = (account.model.user.jBYLastInterest / 100).toFixed(2);
             account.viewModel.jBYTotalAmount = (account.model.user.jBYTotalAmount / 100).toFixed(2);
             account.viewModel.jBYTotalInterest = (account.model.user.jBYTotalInterest / 100).toFixed(2);

@@ -2,7 +2,8 @@
 'use strict';
 angular.module('jym.user.jinbaoyin', [
     'jym.services.user',
-    'jym.user.jinbaoyin-list'
+    'jym.user.jinbaoyin-list',
+    'jym.user.jinbaoyin-withdrawal'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -16,7 +17,7 @@ angular.module('jym.user.jinbaoyin', [
                 }
             });
     })
-    .controller('UserJinbaoyinCtrl', function($scope, $state, $timeout, RESOURCES, JinbaoyinService, UserService) {
+    .controller('UserJinbaoyinCtrl', function($scope, $state, $timeout, $q, RESOURCES, JinbaoyinService, UserService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -27,6 +28,13 @@ angular.module('jym.user.jinbaoyin', [
                 .then(function(result) {
                     ctrl.model.user = result;
                     ctrl.refreshUserViewModel();
+                    return result;
+                });
+
+            ctrl.refreshProduct()
+                .then(function(result) {
+                    ctrl.model.product = result;
+                    ctrl.refreshProductViewModel();
                     return result;
                 });
 

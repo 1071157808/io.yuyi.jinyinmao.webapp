@@ -41,7 +41,7 @@ angular.module('jym.user.jinbaoyin-list', [
         account.viewModel.totalPageCount = 1;
 
         account.loadMoreData = function() {
-            UserService.getOrderList(account.viewModel.nextPageIndex)
+            UserService.getJBYAccountList(account.viewModel.nextPageIndex)
                 .then(function(result) {
                     account.viewModel.currentPageIndex = result.pageIndex;
                     account.viewModel.nextPageIndex = result.pageIndex + 1;

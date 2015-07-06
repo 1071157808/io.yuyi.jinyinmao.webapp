@@ -45,6 +45,8 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         account.doRefresh = function() {
+            account.viewModel.amount = undefined;
+            account.viewModel.password = undefined;
             account.refresh()
                 .then(function(result) {
                     account.model = result;
