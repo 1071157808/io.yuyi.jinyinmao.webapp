@@ -755,7 +755,11 @@ ion-footer-bar button .icon-right {
 .item p {
   line-height: 20px;
 }
-
+@media only screen and (max-width: 320px) {
+  .reorder.disable-user-behavior .item .pull-right {
+    padding-right: 0;
+  }
+}
 .item .ion-chevron-right {
   font-size: 18px;
 }
@@ -766,7 +770,7 @@ ion-item .col {
 }
 
 ion-item .col-33 em {
-  font-size: 35px;
+  font-size: 30px;
   color: #e74c3c;
 }
 
@@ -1515,7 +1519,7 @@ label.item-input > span {
   line-height: 1.5em;
 }
 
-.bank-card-select p > samp {
+.bank-card-select p > samp, .bank-card p > samp {
   color: #facb3a;
 }
 
@@ -1523,13 +1527,13 @@ label.item-input > span {
   color: #83817c;
 }
 
-.bank-card-select .item-icon-right .icon {
+.bank-card-select .item-icon-right .icon, .bank-card .item-icon-right .icon.ion-checkmark-round {
   top: -24px;
   font-size: 22px;
   color: #facb3a;
 }
 
-.bank-card-select .border-bottom-yellow {
+.bank-card-select .border-bottom-yellow, .bank-card .border-bottom-yellow {
   border-bottom: solid 2px #facb3a;
 }
 
@@ -2120,15 +2124,17 @@ input[readonly]:not(.cloned-text-input) {
   position: fixed;
   top: 0;
   z-index: 999;
-  width: 100%;
+  width: auto;
   height: auto;
   visibility: hidden;
+  padding: 10px;
+  background-color: white;
 }
 .agreement p {
   font-size: 14px;
   color: #475058;
   text-align: left;
-  background-color: white;
+
 }
 .agreement span {
   font-size: 16px;
