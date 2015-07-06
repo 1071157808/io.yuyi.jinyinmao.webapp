@@ -17,5 +17,5 @@ angular.module('jym.user.about', [])
 
         ctrl.viewModel = {};
 
-        ctrl.viewModel = APP.VERSION;
+        ctrl.viewModel.version = APP.VERSION;
     });
