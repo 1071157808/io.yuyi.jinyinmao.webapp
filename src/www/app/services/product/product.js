@@ -73,6 +73,38 @@ angular.module('jym.services.product', [
             return 10;
         };
 
+        service.getRegularPage = function(pageIndex, productCategoryName) {
+            var productCategory = 100000010;
+
+            switch (productCategoryName){
+                case 'yinpiao':
+                    productCategory = 100000010;
+                    break;
+                case 'shangpiao':
+                    productCategory = 100000020;
+                    break;
+                case 'fudian':
+                    productCategory = 210001010;
+                    break;
+                case 'fuxin':
+                    productCategory = 210003010;
+                    break;
+                case 'shibing':
+                    productCategory = 210002020;
+                    break;
+                default :
+                    productCategory = 100000010;
+            }
+
+            var url = URLS.REGULARPRDUCT.PAGE + pageIndex + '?categories=' + productCategory;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('productCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
         service.getRegularProductInfo = function(productIdentifier) {
             var url = URLS.REGULARPRDUCT.INFO + productIdentifier;
 
@@ -92,24 +124,14 @@ angular.module('jym.services.product', [
         };
 
         service.getShangpiaoPage = function(pageIndex) {
-            var url = URLS.REGULARPRDUCT.PAGE + pageIndex + '?categories=100000020';
-
-            return $http.get(url, {
-                cache: JYMCacheService.get('productCache')
-            }).then(function(result) {
-                return result.data;
-            });
+            return service.getRegularPage(pageIndex, 'shangpiao');
         };
 
         service.getYinpiaoPage = function(pageIndex) {
-            var url = URLS.REGULARPRDUCT.PAGE + pageIndex + '?categories=100000010';
-
-            return $http.get(url, {
-                cache: JYMCacheService.get('productCache')
-            }).then(function(result) {
-                return result.data;
-            });
+            return service.getRegularPage(pageIndex, 'yinpiao');
         };
+
+
 
         service.getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {
             if (specifyValueDate) {

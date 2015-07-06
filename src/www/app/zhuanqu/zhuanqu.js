@@ -151,7 +151,7 @@ angular.module('jym.zhuanqu', [
         products.viewModel.totalPageCount = 1;
 
         products.loadMoreData = function() {
-            ProductService.getYinpiaoPage(products.viewModel.nextPageIndex)
+            ProductService.getRegularPage(products.viewModel.nextPageIndex, $stateParams.bankName)
                 .then(function(result) {
                     products.viewModel.currentPageIndex = result.pageIndex;
                     products.viewModel.nextPageIndex = result.pageIndex + 1;
@@ -184,6 +184,4 @@ angular.module('jym.zhuanqu', [
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
         };
-
-        products.doRefresh();
     });
