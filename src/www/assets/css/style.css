@@ -1257,7 +1257,7 @@ label.item-input > span {
   }
 
   .slider-pager {
-    top: 300px;
+    bottom: 45px;
   }
 
   .jinbaoyin-index-product h4 {
@@ -1350,10 +1350,6 @@ label.item-input > span {
 @media only screen and (max-width: 414px) and (min-height: 700px) {
   ion-header-bar.bar.bar-header div ul > li > a {
     font-size: 25px;
-  }
-
-  .slider-pager {
-    top: 130px;
   }
 
   .jinbaoyin-index-product {
@@ -2119,3 +2115,22 @@ input[readonly]:not(.cloned-text-input) {
 }
 
 /*.reset-paymen-passsword end*/
+
+.agreement {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: auto;
+  visibility: hidden;
+}
+.agreement p {
+  font-size: 14px;
+  color: #475058;
+  text-align: left;
+  background-color: white;
+}
+.agreement span {
+  font-size: 16px;
+  color: #475058;
+}

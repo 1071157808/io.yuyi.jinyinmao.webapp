@@ -1006,7 +1006,7 @@ angular.module('jym.services', [
         };
     }]);
 
-angular.module('jym.templates', ['app/common/templates/index-slide-box.tpl.html', 'app/index.tpl.html', 'app/jinbaoyin/detail/detail.tpl.html', 'app/jinbaoyin/index.tpl.html', 'app/jinbaoyin/purchase/purchase.tpl.html', 'app/misc/agreement_modal.tpl.html', 'app/shangpiao/detail/detail.tpl.html', 'app/shangpiao/index.tpl.html', 'app/shangpiao/purchase/purchase.tpl.html', 'app/user/about/about.tpl.html', 'app/user/bank-card/add/add.tpl.html', 'app/user/bank-card/add/bankSelector.tpl.html', 'app/user/bank-card/add/methodSelector.tpl.html', 'app/user/bank-card/bank-card.tpl.html', 'app/user/bank-card/detail/detail.tpl.html', 'app/user/bank-card/upgrade/upgrade.tpl.html', 'app/user/bank-card/yilian-notice.tpl.html', 'app/user/index.tpl.html', 'app/user/jinbaoyin/detail/detail.tpl.html', 'app/user/jinbaoyin/jinbaoyin.tpl.html', 'app/user/jinbaoyin/list/list.tpl.html', 'app/user/jinbaoyin/withdrawal/withdrawal.tpl.html', 'app/user/login/login.tpl.html', 'app/user/order/detail/detail.tpl.html', 'app/user/order/order.tpl.html', 'app/user/security/password/password.tpl.html', 'app/user/security/password/sendVeriCode.tpl.html', 'app/user/security/paymentPassword/paymentPassword.tpl.html', 'app/user/security/paymentPassword/sendVeriCode.tpl.html', 'app/user/security/paymentPassword/setPaymentPassword.tpl.html', 'app/user/security/security.tpl.html', 'app/user/settle-account/deposit/bank-card-selector.tpl.html', 'app/user/settle-account/deposit/deposit-success.tpl.html', 'app/user/settle-account/deposit/deposit.tpl.html', 'app/user/settle-account/detail/detail.tpl.html', 'app/user/settle-account/list/list.tpl.html', 'app/user/settle-account/settle-account.tpl.html', 'app/user/settle-account/withdrawal/bank-card-selector.tpl.html', 'app/user/settle-account/withdrawal/withdrawal.tpl.html', 'app/user/signup/sendVeriCode.tpl.html', 'app/user/signup/signup.tpl.html', 'app/yinpiao/detail/detail.tpl.html', 'app/yinpiao/index.tpl.html', 'app/yinpiao/purchase/purchase.tpl.html', 'app/zhuanqu/detail/detail.tpl.html', 'app/zhuanqu/index.tpl.html', 'app/zhuanqu/list.tpl.html', 'app/zhuanqu/purchase/purchase.tpl.html']);
+angular.module('jym.templates', ['app/common/templates/index-slide-box.tpl.html', 'app/index.tpl.html', 'app/jinbaoyin/detail/detail.tpl.html', 'app/jinbaoyin/index.tpl.html', 'app/jinbaoyin/purchase/purchase.tpl.html', 'app/misc/agreement_modal.tpl.html', 'app/shangpiao/detail/detail.tpl.html', 'app/shangpiao/index.tpl.html', 'app/shangpiao/purchase/purchase.tpl.html', 'app/user/about/about.tpl.html', 'app/user/bank-card/Upgrade/upgrade.tpl.html', 'app/user/bank-card/add/add.tpl.html', 'app/user/bank-card/add/bankSelector.tpl.html', 'app/user/bank-card/add/methodSelector.tpl.html', 'app/user/bank-card/bank-card.tpl.html', 'app/user/bank-card/detail/detail.tpl.html', 'app/user/bank-card/yilian-notice.tpl.html', 'app/user/index.tpl.html', 'app/user/jinbaoyin/detail/detail.tpl.html', 'app/user/jinbaoyin/jinbaoyin.tpl.html', 'app/user/jinbaoyin/list/list.tpl.html', 'app/user/jinbaoyin/withdrawal/withdrawal.tpl.html', 'app/user/login/login.tpl.html', 'app/user/order/detail/detail.tpl.html', 'app/user/order/order.tpl.html', 'app/user/security/password/password.tpl.html', 'app/user/security/password/sendVeriCode.tpl.html', 'app/user/security/paymentPassword/paymentPassword.tpl.html', 'app/user/security/paymentPassword/sendVeriCode.tpl.html', 'app/user/security/paymentPassword/setPaymentPassword.tpl.html', 'app/user/security/security.tpl.html', 'app/user/settle-account/deposit/bank-card-selector.tpl.html', 'app/user/settle-account/deposit/deposit-success.tpl.html', 'app/user/settle-account/deposit/deposit.tpl.html', 'app/user/settle-account/detail/detail.tpl.html', 'app/user/settle-account/list/list.tpl.html', 'app/user/settle-account/settle-account.tpl.html', 'app/user/settle-account/withdrawal/bank-card-selector.tpl.html', 'app/user/settle-account/withdrawal/withdrawal.tpl.html', 'app/user/signup/sendVeriCode.tpl.html', 'app/user/signup/signup.tpl.html', 'app/yinpiao/detail/detail.tpl.html', 'app/yinpiao/index.tpl.html', 'app/yinpiao/purchase/purchase.tpl.html', 'app/zhuanqu/detail/detail.tpl.html', 'app/zhuanqu/index.tpl.html', 'app/zhuanqu/list.tpl.html', 'app/zhuanqu/purchase/purchase.tpl.html']);
 
 angular.module("app/common/templates/index-slide-box.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/common/templates/index-slide-box.tpl.html",
@@ -1030,7 +1030,7 @@ angular.module("app/jinbaoyin/index.tpl.html", []).run(["$templateCache", functi
 
 angular.module("app/jinbaoyin/purchase/purchase.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/jinbaoyin/purchase/purchase.tpl.html",
-    "<ion-view title=金包银认购><ion-content><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong>&nbsp;&nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong>&nbsp;&nbsp;元</span> <span class=pull-right ui-sref=jym.user-settle-account-deposit>去充值&nbsp;&nbsp;<i class=\"icon ion-chevron-right\"></i></span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span>《</span> <span ng-bind=purchase.viewModel.agreement></span> <span>》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4></ion-content></ion-view>");
+    "<ion-view title=金包银认购><ion-content><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong>&nbsp;&nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong>&nbsp;&nbsp;元</span> <span class=pull-right ui-sref=jym.user-settle-account-deposit>去充值&nbsp;&nbsp;<i class=\"icon ion-chevron-right\"></i></span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span>《</span> <span ng-bind=purchase.viewModel.agreement></span> <span>》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement style=\"visibility:visible; z-index: 999; height: auto; width: 100%; position: fixed; top:0\"><p style=background-color:white align=left><span style=\"color: #475058; font-size: 16px\">金银猫金包银投资协议</span> （以下简称“本协议”）由以下双方于签订：<br>甲方：上海金银猫金融服务有限公司(以下简称金银猫)<br>注：甲方拥有金银猫网站（www.jinyinmao.com.cn）的经营权。<br>地址：上海市浦东新区峨山路91弄61号陆家嘴软件园10号楼13层<br>乙方：<br>金银猫用户名：<br>身份证号码：<br>甲乙双方经友好协商，本着平等自愿、诚实信用的原则，就金银猫提供的金包银理财计划的相关事项订立有效合约，达成如下协议：<br>释义：<br>除非本协议另有规定，以下词语在本协议中定义如下：<br>a. 金银猫：指由甲方运营和管理的网站，域名为：www.jinyinmao.com.cn。<br>b. 出借人（乙方）：指通过甲方金银猫成功注册账户的会员，可参考甲方的推荐自主选择出借一定金额的资金给借款客户，且具有完全民事权利/行为能力的自然人。<br>c. 合作机构：指与甲方建立合作关系的机构，包括但不限于小额贷款公司、融资性担保公司、第三方支付机构等。<br>d. 借款客户：指有一定的资金需求，经过甲方合作机构的筛选推荐并且得到甲方合作机构（包括但不限于小额贷款公司或融资性担保公司）全额本息担保后，由甲方推荐给出借人并得到出借人资金的借款企业或借款自然人。<br>e. 借款：出借人拟向借款客户提供的借款。<br>f. 监管账户：以甲方名义在第三方支付开立的、账户内资金独立于甲方自有资金的监管/保管账户。<br>g. 金银猫账户：指出借人以自身名义在金银猫注册后系统自动产生的虚拟账户，通过第三方支付机构及/或其他通道进行支付或提现。<br>h. 《借款合同》：指通过金银猫平台完成撮合的借款的借款合同。<br>i. 担保：指合作机构为出借人的借款提供的全额本息保障方式，包括但不限于以保证、抵押、票据质押等方式提供担保，或承诺进行代偿、债权回购或发放后备贷款等方式。<br>J:提现：在金包银项目中指债权转让。<br>一、主要内容<br>1.1 金包银：金包银是金银猫推出的对经合作机构全额本息担保的借款项目进行自动优先投资及乙方提现时自动转让债权的理财项目。<br>1.2投资金额及收益：乙方知悉、了解并同意，甲方未以任何方式对本金及收益进行承诺或担保，乙方出借本金存在不能够按期收回的风险，在前述前提下，乙方同意通过金银猫平台加入甲方提供的金包银项目。<br>1.3借款资金来源保证：乙方保证其所用于出借的资金来源合法，乙方是该资金的合法所有人，如果第三方对资金归属、合法性问题提出异议，由乙方自行解决。如未能解决，则乙方承诺放弃享有其所出借资金带来的利息等收益。<br>二、本协议的成立<br>2.1 本协议成立：乙方按照金银猫的规则，通过在金银猫平台勾选“我同意《金银猫金包银投资协议》”以及点击“同意协议并付款”按钮确认后，即视为乙方与甲方已达成协议并同意接受本协议的全部约定以及与金银猫网站所包含的其他与本协议有关的各项规则的规定。<br>2.2本协议生效：<span style=font-size:10pt;font-family:宋体;color:#000000>本协议于乙方成功支付借款本金数额的第一个工作日生效，生效后的第一个工作日开始计算收益及相关费用</span><span style=\"font-size:10pt;font-family:宋体; color:#000000\">。</span><br>三、投资管理<br>3.1 <span style=font-size:10pt;font-family:宋体;color:#000000>在甲方平台上，已有现实存在资金需求的借款客户的情况下，乙方资金方可进入甲方平台进行投资。</span>乙方全权委托甲方按照本协议的约定，对乙方投资金额进行自动优先投资，作为出借资金出借给借款客户，该借款客户是金银猫平台上经甲方及合作机构推荐并且提供包括但不限于承兑汇票、<span style=font-size:10pt>有价证券、信用证</span>等资产担保，担保覆盖全额本息；同时，乙方授权甲方在完成上述自动优先投资后以乙方名义代为签署相应的《借款合同》。<br>3.2 投资范围：金银猫平台上的经甲方及合作机构推荐、并且借款客户提供包括但不限于承兑汇票、有价证券、信用证等资产担保，担保覆盖全额本息的借款项目。<br>3.3 乙方加入金包银项目后，甲方将按照乙方加入时间的先后顺序，对乙方加入金包银项目的一定金额的资金进行自动优先<span style=font-size:10pt;font-family:宋体;color:#000000>选择项目</span>投资。<br>3.4在乙方提现时，乙方全权委托甲方将乙方所持有的债权代为进行债权转让并以乙方名义代为签署相应的《债权转让协议》以及代为履行通知债务人。<br>四、收益及费用<br>4.1收益起算时间：<span style=font-size:10pt;font-family:宋体;color:#000000>自合同生效后的第一个工作日开始计算收益。</span><br>4.2 收益返还：乙方提现时返还至乙方指定的银行卡账户。<br>4.3金包银项目费用种类：金包银项目管理费和债权转让费用（即提现费用）。<br>4.4金包银项目管理费：以金银猫网站信息为准。<br>4.5提现费用仅在乙方申请提现时产生，费用标准参见本协议第5.7条。<br>五、提现<br>5.1 发起申请：乙方可在金包银项目存续期限内选择提现。<br>5.2 申请确认：甲方根据实际提现情况确认乙方提现到账时间。<br>5.3 提现次数限制：以金银猫网站信息为准。<br>5.4 申请撤销：乙方发起的提现申请无法撤销。<br>5.5 额度限制：乙方单日能够提现的金额，应同时符合下列条件：<br>5.5.1单日单笔最高额度限制：以金银猫网站信息为准。<br>5.6 利息结算： <span style=font-size:10pt;font-family:宋体;color:#000000>甲方最快在乙方申请提现的第一个工作日确认提现，确认当天开始不计算利息。</span><br>5.7 提现费用：以金银猫网站信息为准。<br>六、其他<br>6.1 本协议的任何修改、补充均须以金银猫平台电子文本形式作出。<br>6.2 双方均确认，本协议的签订、生效和履行以不违反法律为前提。如果本协议中的任何一条或多条被司法部门认定为违反所须适用的法律，则该条将被视为无效，但该无效条款并不影响本协议其他条款的效力。<br>6.3 如双方在本协议履行过程中发生任何争议，应友好协商解决；如协商不成，则须提交甲方所在地有管辖权的人民法院诉讼解决。<br>（以下无正文）<br></p></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/misc/agreement_modal.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1058,6 +1058,11 @@ angular.module("app/user/about/about.tpl.html", []).run(["$templateCache", funct
     "<ion-view title=关于金银猫><ion-content><ion-list><ion-item><p class=pull-left>公司网站</p><p class=pull-right>www.jinyinmao.com.cn</p></ion-item><ion-item><p class=pull-left>客服热线</p><p class=pull-right>4008-556-333</p></ion-item><ion-item><p class=pull-left>新浪微博</p><p class=pull-right>金银猫</p></ion-item><ion-item><p class=pull-left>微信服务号</p><p class=pull-right>金银猫服务号</p></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
+angular.module("app/user/bank-card/Upgrade/upgrade.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("app/user/bank-card/Upgrade/upgrade.tpl.html",
+    "<ion-view title=认证银行卡><ion-content><ion-list><label class=\"item item-input\"><span class=input-label>手机</span> <input type=text placeholder=请输入手机号码 required minlength=11 maxlength=11 ng-model=card.viewModel.cellphone readonly=\"readonly\"></label><label class=\"item item-input\"><span class=input-label>姓名</span> <input type=text placeholder=请输入姓名 required minlength=2 maxlength=30 ng-model=card.viewModel.realName ng-readonly=\"card.viewModel.verified\"></label><label class=\"item item-input\"><span class=input-label>身份证</span> <input type=text placeholder=请输入18位身份证号 required minlength=5 maxlength=18 ng-model=card.viewModel.credentialNo ng-readonly=\"card.viewModel.verified\"></label><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>卡号</span> <input type=text placeholder=请输入借记卡号 required minlength=15 maxlength=19 ng-model=card.viewModel.bankCardNo readonly=\"readonly\"></label><ion-item class=\"bank-card item-thumbnail-left\"><img ng-src=\"{{ card.viewModel.bankName | bankImg }}\"><h2 ng-bind=card.viewModel.bankName></h2></ion-item></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-disabled=!card.buttonEnable() ng-click=card.verify()>认证银行卡</button><p class=attention>认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p></ion-content></ion-view>");
+}]);
+
 angular.module("app/user/bank-card/add/add.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/bank-card/add/add.tpl.html",
     "<ion-view title=添加银行卡><ion-content><div ng-if=card.viewModel.hasSetPaymentPassword><ion-list><label class=\"item item-input\"><span class=input-label>手机</span> <input type=text placeholder=请输入手机号码 required minlength=11 maxlength=11 ng-model=card.viewModel.cellphone readonly=\"readonly\"></label><label class=\"item item-input\"><span class=input-label>姓名</span> <input type=text placeholder=请输入姓名 required minlength=2 maxlength=30 ng-model=card.viewModel.realName ng-readonly=\"card.viewModel.verified\"></label><label class=\"item item-input\"><span class=input-label>身份证</span> <input type=text placeholder=请输入18位身份证号 required minlength=5 maxlength=18 ng-model=card.viewModel.credentialNo ng-readonly=\"card.viewModel.verified\"></label><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>卡号</span> <input type=text placeholder=请输入借记卡号 required minlength=15 maxlength=19 ng-model=\"card.viewModel.bankCardNo\"></label><ion-item class=\"item-thumbnail-left bank-card item-icon-right\" ui-sref=jym.user-bank-card-add-bank-selector><img ng-src=\"{{ card.viewModel.bankName | bankImg }}\"><h2 ng-bind=card.viewModel.bankName></h2><i class=\"icon ion-chevron-right\"></i></ion-item></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-disabled=!card.buttonEnable() ng-click=card.verify() ng-if=card.viewModel.hasSetPaymentPassword>认证银行卡</button><p class=attention ng-if=card.viewModel.hasSetPaymentPassword>认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p></div><div ng-if=!card.viewModel.hasSetPaymentPassword><div class=space></div><div class=space></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ui-sref=jym.user-security-set-payment-password ng-if=!card.viewModel.hasSetPaymentPassword>设置支付密码</button><p class=attention>为保证您能够正常使用支付功能，请先设置支付密码。</p></div></ion-content></ion-view>");
@@ -1081,11 +1086,6 @@ angular.module("app/user/bank-card/bank-card.tpl.html", []).run(["$templateCache
 angular.module("app/user/bank-card/detail/detail.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/bank-card/detail/detail.tpl.html",
     "<ion-view title=我的银行卡><ion-content><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=card.doRefresh()></ion-refresher><ion-list class=\"bank-card detail\"><ion-item class=item-thumbnail-left><img ng-src=\"{{ card.viewModel.bankName | bankImg }}\"><h2 ng-bind=card.viewModel.bankName></h2><span class=pull-right ng-bind=\"card.viewModel | bankCardStatus\"></span><p>尾号 <em ng-bind=card.viewModel.bankCardNo.substr(-4)></em></p></ion-item></ion-list><br><button class=\"btn button-yellow\" ng-if=!card.viewModel.verifiedByYilian ui-sref=\"jym.user-bank-card-upgrade({ bankCardNo: card.viewModel.bankCardNo })\">升级签约支付</button><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=card.removeCard()>删除银行卡</button></ion-content></ion-view>");
-}]);
-
-angular.module("app/user/bank-card/upgrade/upgrade.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("app/user/bank-card/upgrade/upgrade.tpl.html",
-    "<ion-view title=认证银行卡><ion-content><ion-list><label class=\"item item-input\"><span class=input-label>手机</span> <input type=text placeholder=请输入手机号码 required minlength=11 maxlength=11 ng-model=card.viewModel.cellphone readonly=\"readonly\"></label><label class=\"item item-input\"><span class=input-label>姓名</span> <input type=text placeholder=请输入姓名 required minlength=2 maxlength=30 ng-model=card.viewModel.realName ng-readonly=\"card.viewModel.verified\"></label><label class=\"item item-input\"><span class=input-label>身份证</span> <input type=text placeholder=请输入18位身份证号 required minlength=5 maxlength=18 ng-model=card.viewModel.credentialNo ng-readonly=\"card.viewModel.verified\"></label><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>卡号</span> <input type=text placeholder=请输入借记卡号 required minlength=15 maxlength=19 ng-model=card.viewModel.bankCardNo readonly=\"readonly\"></label><ion-item class=\"bank-card item-thumbnail-left\"><img ng-src=\"{{ card.viewModel.bankName | bankImg }}\"><h2 ng-bind=card.viewModel.bankName></h2></ion-item></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-disabled=!card.buttonEnable() ng-click=card.verify()>认证银行卡</button><p class=attention>认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/bank-card/yilian-notice.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -2692,6 +2692,105 @@ angular.module('jym.user.about', [])
     }]);
 
 'use strict';
+angular.module('jym.user.bank-card-upgrade', [
+    'jym.services.user'
+])
+    .config(['$stateProvider', function($stateProvider) {
+        $stateProvider
+            .state('jym.user-bank-card-upgrade', {
+                url: '/user/bank-card-upgrade/{bankCardNo}',
+                views: {
+                    user: {
+                        controller: 'UserBankCardUpgradeCtrl as card',
+                        templateUrl: 'app/user/bank-card/upgrade/upgrade.tpl.html'
+                    }
+                }
+            });
+    }])
+    .controller('UserBankCardUpgradeCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'RESOURCES', 'UserService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
+        var card = this;
+
+        card.model = {};
+        card.viewModel = {};
+
+        card.buttonEnable = function() {
+            return card.viewModel.cellphone && card.viewModel.realName && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
+        };
+
+        card.doRefresh = function() {
+            card.refreshUser()
+                .then(function(result) {
+                    card.model.user = result;
+                    return result;
+                }).then(function() {
+                    card.refreshBankCard()
+                        .then(function(result) {
+                            card.model.card = result;
+                            card.refreshViewModel();
+
+                        });
+                });
+        };
+
+        card.refreshBankCard = function() {
+            return UserService.getBankCard($stateParams.bankCardNo);
+        };
+
+        card.refreshUser = function() {
+            return UserService.getUserInfo();
+        };
+
+        card.refreshViewModel = function() {
+            card.viewModel.verified = card.model.user.verified;
+            card.viewModel.cellphone = card.model.user.cellphone;
+
+            if (card.viewModel.verified) {
+                card.viewModel.realName = card.model.user.realName;
+                card.viewModel.credentialNo = card.model.user.credentialNo;
+            } else {
+                card.viewModel.realName = '';
+                card.viewModel.credentialNo = '';
+            }
+
+            card.viewModel.bankCardNo = card.model.card.bankCardNo;
+            card.viewModel.bankName = card.model.card.bankName;
+        };
+
+        card.verify = function() {
+            if (card.buttonEnable()) {
+
+                if (card.viewModel.verified) {
+                    UserService.verifyBankCardByYilian(card.viewModel.bankCardNo)
+                        .then(function(result) {
+                            if (result) {
+                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+                                $timeout(function() {
+                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
+                                }, 1000);
+                            }
+                        });
+                } else {
+                    UserService.authenticate(card.viewModel.bankCardNo, card.viewModel.bankName, card.viewModel.credentialNo, card.viewModel.realName)
+                        .then(function(result) {
+                            if (result) {
+                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+                                $timeout(function() {
+                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
+                                }, 1000);
+                            }
+                        });
+                }
+            }
+        };
+
+        $scope.$on('$ionicView.enter', function() {
+            card.doRefresh();
+        });
+
+        card.doRefresh();
+    }]);
+
+'use strict';
 angular.module('jym.user.bank-card-add', [
     'jym.services.user'
 ])
@@ -2956,105 +3055,6 @@ angular.module('jym.user.bank-card-detail', [
                             JYMUtilityService.goWithDisableBack('jym.user-bank-card');
                         }, 1000);
                     });
-            }
-        };
-
-        $scope.$on('$ionicView.enter', function() {
-            card.doRefresh();
-        });
-
-        card.doRefresh();
-    }]);
-
-'use strict';
-angular.module('jym.user.bank-card-upgrade', [
-    'jym.services.user'
-])
-    .config(['$stateProvider', function($stateProvider) {
-        $stateProvider
-            .state('jym.user-bank-card-upgrade', {
-                url: '/user/bank-card-upgrade/{bankCardNo}',
-                views: {
-                    user: {
-                        controller: 'UserBankCardUpgradeCtrl as card',
-                        templateUrl: 'app/user/bank-card/upgrade/upgrade.tpl.html'
-                    }
-                }
-            });
-    }])
-    .controller('UserBankCardUpgradeCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'RESOURCES', 'UserService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
-        var card = this;
-
-        card.model = {};
-        card.viewModel = {};
-
-        card.buttonEnable = function() {
-            return card.viewModel.cellphone && card.viewModel.realName && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
-        };
-
-        card.doRefresh = function() {
-            card.refreshUser()
-                .then(function(result) {
-                    card.model.user = result;
-                    return result;
-                }).then(function() {
-                    card.refreshBankCard()
-                        .then(function(result) {
-                            card.model.card = result;
-                            card.refreshViewModel();
-
-                        });
-                });
-        };
-
-        card.refreshBankCard = function() {
-            return UserService.getBankCard($stateParams.bankCardNo);
-        };
-
-        card.refreshUser = function() {
-            return UserService.getUserInfo();
-        };
-
-        card.refreshViewModel = function() {
-            card.viewModel.verified = card.model.user.verified;
-            card.viewModel.cellphone = card.model.user.cellphone;
-
-            if (card.viewModel.verified) {
-                card.viewModel.realName = card.model.user.realName;
-                card.viewModel.credentialNo = card.model.user.credentialNo;
-            } else {
-                card.viewModel.realName = '';
-                card.viewModel.credentialNo = '';
-            }
-
-            card.viewModel.bankCardNo = card.model.card.bankCardNo;
-            card.viewModel.bankName = card.model.card.bankName;
-        };
-
-        card.verify = function() {
-            if (card.buttonEnable()) {
-
-                if (card.viewModel.verified) {
-                    UserService.verifyBankCardByYilian(card.viewModel.bankCardNo)
-                        .then(function(result) {
-                            if (result) {
-                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
-                                $timeout(function() {
-                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
-                                }, 1000);
-                            }
-                        });
-                } else {
-                    UserService.authenticate(card.viewModel.bankCardNo, card.viewModel.bankName, card.viewModel.credentialNo, card.viewModel.realName)
-                        .then(function(result) {
-                            if (result) {
-                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
-                                $timeout(function() {
-                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
-                                }, 1000);
-                            }
-                        });
-                }
             }
         };
 
