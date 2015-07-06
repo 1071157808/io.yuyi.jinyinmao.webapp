@@ -57,7 +57,7 @@ angular.module('jym.jinbaoyin.purchase', [
 
         purchase.purchase = function() {
             if (purchase.purchaseButtonEnable()) {
-                var amount = parseInt(purchase.model.order.amount, 10);
+                var amount = purchase.model.order.amount;
                 UserService.investingJBY(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
                     .then(function(result) {
                         if (result) {

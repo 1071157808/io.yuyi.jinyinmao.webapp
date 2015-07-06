@@ -60,7 +60,7 @@ angular.module('jym.shangpiao.purchase', [
 
         purchase.purchase = function() {
             if (purchase.purchaseButtonEnable()) {
-                var amount = parseInt(purchase.model.order.amount * 100, 10);
+                var amount = purchase.model.order.amount;
                 UserService.investingRegular(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
                     .then(function(result) {
                         if (result) {
