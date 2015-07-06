@@ -453,6 +453,10 @@ module.exports = function(grunt) {
                 files: ['www/app/**/*', 'www/assets/css/**/*.css', 'www/assets/js/**/*/js', 'www/assets/img/precompressed/**/*', 'www/assets/icon/precompressed/**/*', '!www/app/common/templates.js'],
                 tasks: ['dev']
             },
+            templates: {
+                files: ['www/app/**/*.tpl.html'],
+                tasks: ['dev-templates']
+            },
             img: {
                 files: ['www/assets/img/precompressed/**/*', 'www/assets/icon/precompressed/**/*'],
                 tasks: ['compresse-icon', 'compresse-image']
@@ -475,6 +479,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dev-icon', ['compresse-icon']);
     grunt.registerTask('dev-imge', ['compresse-image']);
     grunt.registerTask('dev-js', ['jscs:app', 'jshint:app']);
+    grunt.registerTask('dev-templates', ['compile-templates']);
 
     grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist', 'bump']);
 

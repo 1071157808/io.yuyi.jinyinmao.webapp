@@ -29,7 +29,11 @@ angular.module('jym.services.purchase', [
         };
 
         service.getNewJBYOrder = function() {
-            if (!jbyOrder.amount || !jbyOrder.productIdentifier) {
+            if (!jbyOrder.amount || jbyOrder.amount <= 0) {
+                jbyOrder.amount = 1000;
+            }
+
+            if (!jbyOrder.productIdentifier) {
                 JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
             }
 
@@ -37,8 +41,22 @@ angular.module('jym.services.purchase', [
         };
 
         service.getRegularOrder = function(productCategory) {
-            if (!regularOrder.amount || !regularOrder.productIdentifier || regularOrder.productCategory !== productCategory) {
-                JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
+            if (!regularOrder.amount || regularOrder.amount <= 0) {
+                regularOrder.amount = 1000;
+            }
+
+            if (regularOrder.productCategory !== productCategory) {
+                regularOrder.productCategory = productCategory;
+            }
+
+            if (!regularOrder.productIdentifier) {
+                if (productCategory === 100000010) {
+                    JYMUtilityService.goWithDisableBack('jym.yinpiao');
+                } else if (productCategory === 100000020) {
+                    JYMUtilityService.goWithDisableBack('jym.shangpiao');
+                } else {
+                    JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
+                }
             }
             return regularOrder;
         };
