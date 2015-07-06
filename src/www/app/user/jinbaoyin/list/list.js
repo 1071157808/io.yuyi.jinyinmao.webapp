@@ -74,6 +74,4 @@ angular.module('jym.user.jinbaoyin-list', [
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
         };
-
-        account.doRefresh();
     });
