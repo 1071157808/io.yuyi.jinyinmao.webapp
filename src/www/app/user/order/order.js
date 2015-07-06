@@ -92,14 +92,30 @@ angular.module('jym.user.orders', [
         };
 
         orders.viewModel = {};
-        orders.viewModel.items = [];
-        orders.viewModel.currentPageIndex = 0;
-        orders.viewModel.nextPageIndex = 0;
-        orders.viewModel.pageSize = 10;
-        orders.viewModel.totalCount = 0;
-        orders.viewModel.totalPageCount = 1;
+
+        orders.doRefresh = function() {
+            orders.viewModel.items = [];
+            orders.viewModel.currentPageIndex = 0;
+            orders.viewModel.nextPageIndex = 0;
+            orders.viewModel.pageSize = 10;
+            orders.viewModel.totalCount = 0;
+            orders.viewModel.totalPageCount = 1;
+            orders.viewModel.loading = false;
+
+            orders.loadMoreData();
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
 
         orders.loadMoreData = function() {
+            if (orders.viewModel.loading) {
+                return;
+            }
+
+            orders.viewModel.loading = true;
+
             UserService.getOrderList(orders.viewModel.nextPageIndex)
                 .then(function(result) {
                     orders.viewModel.currentPageIndex = result.pageIndex;
@@ -111,6 +127,8 @@ angular.module('jym.user.orders', [
                     _.forEach(result.items, function(i) {
                         orders.viewModel.items.push(getViewItem(i));
                     });
+
+                    orders.viewModel.loading = false;
                 });
             $timeout(function() {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -119,19 +137,6 @@ angular.module('jym.user.orders', [
 
         orders.moreDataCanBeLoaded = function() {
             return orders.viewModel.nextPageIndex < orders.viewModel.totalPageCount;
-        };
-
-        orders.doRefresh = function() {
-            orders.viewModel.items = [];
-            orders.viewModel.currentPageIndex = 0;
-            orders.viewModel.nextPageIndex = 0;
-            orders.viewModel.pageSize = 10;
-            orders.viewModel.totalCount = 0;
-            orders.viewModel.totalPageCount = 1;
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
         };
 
         orders.doRefresh();

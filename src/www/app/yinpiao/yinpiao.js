@@ -117,14 +117,30 @@ angular.module('jym.yinpiao', [
         };
 
         products.viewModel = {};
-        products.viewModel.items = [];
-        products.viewModel.currentPageIndex = 0;
-        products.viewModel.nextPageIndex = 0;
-        products.viewModel.pageSize = 10;
-        products.viewModel.totalCount = 0;
-        products.viewModel.totalPageCount = 1;
+
+        products.doRefresh = function() {
+            products.viewModel.items = [];
+            products.viewModel.currentPageIndex = 0;
+            products.viewModel.nextPageIndex = 0;
+            products.viewModel.pageSize = 10;
+            products.viewModel.totalCount = 0;
+            products.viewModel.totalPageCount = 1;
+            products.viewModel.loading = false;
+
+            products.loadMoreData();
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
 
         products.loadMoreData = function() {
+            if (products.viewModel.loading) {
+                return;
+            }
+
+            products.viewModel.loading = true;
+
             ProductService.getYinpiaoPage(products.viewModel.nextPageIndex)
                 .then(function(result) {
                     products.viewModel.currentPageIndex = result.pageIndex;
@@ -136,6 +152,8 @@ angular.module('jym.yinpiao', [
                     _.forEach(result.items, function(i) {
                         products.viewModel.items.push(getViewItem(i));
                     });
+
+                    products.viewModel.loading = false;
                 });
             $timeout(function() {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -146,16 +164,5 @@ angular.module('jym.yinpiao', [
             return products.viewModel.nextPageIndex < products.viewModel.totalPageCount;
         };
 
-        products.doRefresh = function() {
-            products.viewModel.items = [];
-            products.viewModel.currentPageIndex = 0;
-            products.viewModel.nextPageIndex = 0;
-            products.viewModel.pageSize = 10;
-            products.viewModel.totalCount = 0;
-            products.viewModel.totalPageCount = 1;
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
-        };
+        products.doRefresh();
     });

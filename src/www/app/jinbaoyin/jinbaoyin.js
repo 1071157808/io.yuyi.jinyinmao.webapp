@@ -22,6 +22,14 @@ angular.module('jym.jinbaoyin', [
         product.model = {};
         product.viewModel = {};
 
+        product.doRefresh = function() {
+            product.refreshProduct();
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 500);
+        };
+
         product.refreshProduct = function() {
             JinbaoyinService.getIndex()
                 .then(function(result) {
@@ -31,14 +39,6 @@ angular.module('jym.jinbaoyin', [
                     product.viewModel.yield = result.yield / 100;
                     product.viewModel.unitPrice = (result.unitPrice / 100).toFixed(0);
                 });
-        };
-
-        product.doRefresh = function() {
-            product.refreshProduct();
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
         };
 
         product.doRefresh();

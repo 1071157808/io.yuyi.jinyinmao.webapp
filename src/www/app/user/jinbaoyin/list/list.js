@@ -33,14 +33,30 @@ angular.module('jym.user.jinbaoyin-list', [
         };
 
         account.viewModel = {};
-        account.viewModel.items = [];
-        account.viewModel.currentPageIndex = 0;
-        account.viewModel.nextPageIndex = 0;
-        account.viewModel.pageSize = 10;
-        account.viewModel.totalCount = 0;
-        account.viewModel.totalPageCount = 1;
+
+        account.doRefresh = function() {
+            account.viewModel.items = [];
+            account.viewModel.currentPageIndex = 0;
+            account.viewModel.nextPageIndex = 0;
+            account.viewModel.pageSize = 10;
+            account.viewModel.totalCount = 0;
+            account.viewModel.totalPageCount = 1;
+            account.viewModel.loading = false;
+
+            account.loadMoreData();
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
 
         account.loadMoreData = function() {
+            if (account.viewModel.loading) {
+                return;
+            }
+
+            account.viewModel.loading = true;
+
             UserService.getJBYAccountList(account.viewModel.nextPageIndex)
                 .then(function(result) {
                     account.viewModel.currentPageIndex = result.pageIndex;
@@ -52,6 +68,8 @@ angular.module('jym.user.jinbaoyin-list', [
                     _.forEach(result.items, function(i) {
                         account.viewModel.items.push(getViewItem(i));
                     });
+
+                    account.viewModel.loading = false;
                 });
             $timeout(function() {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -62,16 +80,5 @@ angular.module('jym.user.jinbaoyin-list', [
             return account.viewModel.nextPageIndex < account.viewModel.totalPageCount;
         };
 
-        account.doRefresh = function() {
-            account.viewModel.items = [];
-            account.viewModel.currentPageIndex = 0;
-            account.viewModel.nextPageIndex = 0;
-            account.viewModel.pageSize = 10;
-            account.viewModel.totalCount = 0;
-            account.viewModel.totalPageCount = 1;
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
-        };
+        account.doRefresh();
     });
