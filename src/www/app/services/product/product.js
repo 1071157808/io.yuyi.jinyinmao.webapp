@@ -55,7 +55,7 @@ angular.module('jym.services.product', [
                 return 99;
             }
 
-            return (paidAmount / financingSumAmount).toFixed(0);
+            return (paidAmount / financingSumAmount * 100).toFixed(0);
         };
 
         service.getSaleStatus = function(soldOut, startSellTime, endSellTime) {

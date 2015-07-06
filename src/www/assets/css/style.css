@@ -2126,15 +2126,14 @@ input[readonly]:not(.cloned-text-input) {
   z-index: 999;
   width: auto;
   height: auto;
-  visibility: hidden;
   padding: 10px;
+  visibility: hidden;
   background-color: white;
 }
 .agreement p {
   font-size: 14px;
   color: #475058;
   text-align: left;
-
 }
 .agreement span {
   font-size: 16px;

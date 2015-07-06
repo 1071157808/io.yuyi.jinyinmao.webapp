@@ -19,14 +19,14 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
 
         account.model = {};
         account.viewModel = {};
-        account.viewModel.amount = undefined;
-        account.viewModel.password = undefined;
 
         account.buttonEnable = function() {
             return account.viewModel.amount && account.viewModel.password && account.viewModel.amount <= account.viewModel.todayJBYWithdrawalableAmount;
         };
 
         account.doRefresh = function() {
+            account.viewModel.amount = undefined;
+            account.viewModel.password = undefined;
             account.refreshUser()
                 .then(function(result) {
                     account.model.user = result;

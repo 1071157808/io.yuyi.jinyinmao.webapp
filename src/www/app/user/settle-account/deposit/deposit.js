@@ -37,8 +37,6 @@ angular.module('jym.user.settle-account-deposit', [
 
         account.model = {};
         account.viewModel = {};
-        account.viewModel.amount = undefined;
-        account.viewModel.password = undefined;
 
         account.buttonEnable = function() {
             return account.viewModel.bankCardNo && account.viewModel.amount && account.viewModel.password;
