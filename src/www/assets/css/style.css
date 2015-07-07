@@ -2121,7 +2121,7 @@ input[readonly]:not(.cloned-text-input) {
 /*.reset-paymen-passsword end*/
 
 .agreement {
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 999;
   width: auto;
@@ -2130,12 +2130,25 @@ input[readonly]:not(.cloned-text-input) {
   visibility: hidden;
   background-color: white;
 }
+.agreement h2 {
+  font-size: 20px;
+  text-align: center;
+  color: #475058;
+  border-bottom: 1px #dedede solid;
+}
 .agreement p {
   font-size: 14px;
   color: #475058;
   text-align: left;
 }
-.agreement span {
+.agreement span, .agreement a {
   font-size: 16px;
   color: #475058;
+}
+
+@media only screen and (max-width: 320px) {
+  .accept {
+    padding-left: 0;
+    margin-left: -10px;
+  }
 }
