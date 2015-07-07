@@ -2105,6 +2105,7 @@ input[readonly]:not(.cloned-text-input) {
     visibility: hidden;
     background-color: #fbf7ed;
     font-size: 14px;
+    line-height: 2em;
 }
 
 .agreement strong {
@@ -2117,17 +2118,22 @@ input[readonly]:not(.cloned-text-input) {
 }
 
 .agreement h2 {
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     color: #475058;
-    text-align: center;
-    border-bottom: 1px #dedede solid;
+  border-bottom: 1px #dedede solid;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
 }
 
 .agreement p {
     font-size: 14px;
     color: #475058;
     text-align: left;
+}
+
+.agreement button {
+  font-size: 18px;
 }
 
 .agreement span,
