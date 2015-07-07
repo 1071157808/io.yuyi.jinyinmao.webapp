@@ -20,12 +20,6 @@
       </ion-item>
       <ion-item class="divider"></ion-item>
     </ion-list>
-    <!--<p><span>订单金额</span><span ng-bind="order.viewModel.principal"></span></p>-->
-    <!--<p><span>下单时间</span><span ng-bind="order.viewModel.orderTime | longTime"></span></p>-->
-    <!--<p><span>预计收益</span><span ng-bind="order.viewModel.interest"></span></p>-->
-    <!--<p><span>额外收益</span><span ng-bind="order.viewModel.extraInterest"></span></p>-->
-    <!--<p><span>订单状态</span><span ng-bind="order.viewModel.statusText"></span></p>-->
-    <!--<p><span>订单号</span><span ng-bind="order.viewModel.orderNo"></span></p>-->
     <ion-list class="orderDetail">
       <ion-item>
         <span class="pull-left">项目名称</span>
@@ -51,7 +45,26 @@
         <span class="pull-left">最迟还款日</span>
         <span class="pull-right" ng-bind="order.viewModel.productSnapshot.repaymentDeadline | time"></span>
       </ion-item>
+      <ion-item class="divider"></ion-item>
+      <ion-item class="item-icon-right" ng-click="order.toggleAgreement1()">
+        <p>委托协议</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="item-icon-right" ng-click="order.toggleAgreement2()">
+        <p>借款协议</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
     </ion-list>
+
+    <div class="agreement" ng-if="order.viewModel.showAgreement1">
+      <div ng-bind-html="order.viewModel.agreement1"></div>
+      <button class="btn button-yellow" ng-click="order.toggleAgreement1()">返回</button>
+    </div>
+
+    <div class="agreement" ng-if="order.viewModel.showAgreement2">
+      <div ng-bind-html="order.viewModel.agreement2"></div>
+      <button class="btn button-yellow" ng-click="order.toggleAgreement2()">返回</button>
+    </div>
 
   </ion-content>
 </ion-view>
