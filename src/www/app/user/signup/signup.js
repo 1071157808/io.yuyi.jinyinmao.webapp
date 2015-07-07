@@ -21,18 +21,21 @@ angular.module('jym.user.signup', [])
                 }
             });
     })
-    .controller('UserSignUpCtrl', function($timeout, $stateParams, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSignUpCtrl', function($scope, $timeout, $stateParams, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
-        ctrl.viewModel.checked = true;
-        ctrl.viewModel.password = '';
-        ctrl.viewModel.confirmPassword = '';
-        ctrl.viewModel.showAgreement1 = false;
-        ctrl.viewModel.showAgreement2 = false;
 
         ctrl.check = function() {
             ctrl.viewModel.checked = !ctrl.viewModel.checked;
+        };
+
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.checked = true;
+            ctrl.viewModel.password = '';
+            ctrl.viewModel.confirmPassword = '';
+            ctrl.viewModel.showAgreement1 = false;
+            ctrl.viewModel.showAgreement2 = false;
         };
 
         ctrl.enableButton = function() {
@@ -67,6 +70,12 @@ angular.module('jym.user.signup', [])
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement2 = !ctrl.viewModel.showAgreement2;
         };
+
+        $scope.$on('$ionicView.enter', function() {
+            ctrl.doRefresh();
+        });
+
+        ctrl.doRefresh();
     })
     .controller('UserSignUpSendVeriCodeCtrl', function($timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
