@@ -1058,7 +1058,7 @@ ion-item img {
   padding-bottom: 3px;
   font-size: 16px;
   font-weight: 400;
-  color: #f5f5f5;
+  color: white;
   background-color: #facb3a;
   border: 0 solid #cead52;
 }
@@ -1541,7 +1541,7 @@ label.item-input > span {
 
 /*jbyAccount start*/
 .jbyaccount .list .item {
-  background-color: #e74c3c;
+  background-color: #e95d01;
 }
 
 .jbyaccount a.item {
