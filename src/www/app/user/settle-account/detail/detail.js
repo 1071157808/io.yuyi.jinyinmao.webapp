@@ -14,11 +14,15 @@ angular.module('jym.user.settle-account-detail', [
                 }
             });
     })
-    .controller('UserSettleAccountDetailCtrl', function($scope, $stateParams, $timeout, UserService) {
+    .controller('UserSettleAccountDetailCtrl', function($scope, $stateParams, $timeout, $ionicHistory, UserService, JYMUtilityService) {
         var transaction = this;
 
         transaction.model = {};
         transaction.viewModel = {};
+
+        transaction.canBack = function() {
+            return $ionicHistory.backView();
+        };
 
         transaction.doRefresh = function() {
             transaction.refresh()
@@ -31,6 +35,11 @@ angular.module('jym.user.settle-account-detail', [
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
+        };
+
+        transaction.go = function(toState, params) {
+            params = params || {};
+            JYMUtilityService.goWithDisableBack(toState, params);
         };
 
         transaction.refresh = function() {

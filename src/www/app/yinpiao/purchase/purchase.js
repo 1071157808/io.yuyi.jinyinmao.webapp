@@ -25,14 +25,15 @@ angular.module('jym.yinpiao.purchase', [
         purchase.viewModel = {};
         purchase.model.currentUser = {};
         purchase.model.order = {};
-        purchase.viewModel.password = undefined;
-        purchase.viewModel.checked = true;
 
         purchase.check = function() {
             purchase.viewModel.checked = !purchase.viewModel.checked;
         };
 
         purchase.doRefresh = function() {
+            purchase.viewModel.password = '';
+            purchase.viewModel.checked = true;
+
             purchase.refreshUserInfo()
                 .then(function(result) {
                     purchase.model.currentUser = result;
@@ -67,7 +68,7 @@ angular.module('jym.yinpiao.purchase', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.REGULAR);
                             PurchaseService.clearRegularOrder();
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
+                                JYMUtilityService.goWithDisableBack('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
                             }, 1000);
                         }
                     });

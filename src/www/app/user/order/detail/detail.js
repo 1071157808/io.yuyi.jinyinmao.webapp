@@ -15,11 +15,15 @@ angular.module('jym.user.orders-detail', [
                 }
             });
     })
-    .controller('UserOrderDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicScrollDelegate, ProductService, UserService) {
+    .controller('UserOrderDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicHistory, $ionicScrollDelegate, ProductService, UserService, JYMUtilityService) {
         var order = this;
 
         order.model = {};
         order.viewModel = {};
+
+        order.canBack = function() {
+            return $ionicHistory.backView();
+        };
 
         order.doRefresh = function() {
             order.viewModel.showAgreement1 = false;
@@ -72,6 +76,11 @@ angular.module('jym.user.orders-detail', [
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
+        };
+
+        order.go = function(toState, params) {
+            params = params || {};
+            JYMUtilityService.goWithDisableBack(toState, params);
         };
 
         order.refreshOrder = function() {

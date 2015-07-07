@@ -2101,7 +2101,6 @@ input[readonly]:not(.cloned-text-input) {
     width: auto;
     height: auto;
     padding: 10px 10px 10px 15px;
-    visibility: hidden;
     background-color: #fbf7ed;
     font-size: 14px;
     line-height: 2em;
