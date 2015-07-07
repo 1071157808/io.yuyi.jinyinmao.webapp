@@ -29,6 +29,20 @@ angular.module('jym.services.product', [
             });
         };
 
+        service.getAgreementContent = function(productIdentifier, agreementIndex) {
+            if (agreementIndex <= 1) {
+                agreementIndex = 1;
+            }
+
+            var url = URLS.REGULARPRDUCT.AGREEMENT + productIdentifier + '-' + agreementIndex;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('productCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
         service.getInterest = function(pricipal, _yield, duration) {
             // 返回的金额以 分 为单位
             // 本金的单位为 分
@@ -36,47 +50,10 @@ angular.module('jym.services.product', [
             return Math.floor(pricipal * _yield * duration / 3600000);
         };
 
-        service.getSaleProgress = function(paidAmount, financingSumAmount, soldOut, startSellTime, endSellTime) {
-            var status = service.getSaleStatus(soldOut, startSellTime, endSellTime);
-
-            if (status === 30) {
-                return 100;
-            }
-
-            if (status === 10) {
-                return 0;
-            }
-
-            if (paidAmount >= financingSumAmount) {
-                return 100;
-            }
-
-            if (paidAmount >= financingSumAmount * 0.991) {
-                return 99;
-            }
-
-            return (paidAmount / financingSumAmount * 100).toFixed(0);
-        };
-
-        service.getSaleStatus = function(soldOut, startSellTime, endSellTime) {
-            // 售罄
-            if (soldOut === true || moment(endSellTime) < moment()) {
-                return 30;
-            }
-
-            // 在售
-            if (moment(startSellTime) < moment()) {
-                return 20;
-            }
-
-            // 待售
-            return 10;
-        };
-
         service.getRegularPage = function(pageIndex, productCategoryName) {
             var productCategory = 100000010;
 
-            switch (productCategoryName){
+            switch (productCategoryName) {
                 case 'yinpiao':
                     productCategory = 100000010;
                     break;
@@ -115,6 +92,45 @@ angular.module('jym.services.product', [
             });
         };
 
+        service.getSaleProgress = function(paidAmount, financingSumAmount, soldOut, startSellTime, endSellTime) {
+            var status = service.getSaleStatus(soldOut, startSellTime, endSellTime);
+
+            if (status === 30) {
+                return 100;
+            }
+
+            if (status === 10) {
+                return 0;
+            }
+
+            if (paidAmount >= financingSumAmount) {
+                return 100;
+            }
+
+            if (paidAmount >= financingSumAmount * 0.991) {
+                return 99;
+            }
+
+            return (paidAmount / financingSumAmount * 100).toFixed(0);
+        };
+
+
+
+        service.getSaleStatus = function(soldOut, startSellTime, endSellTime) {
+            // 售罄
+            if (soldOut === true || moment(endSellTime) < moment()) {
+                return 30;
+            }
+
+            // 在售
+            if (moment(startSellTime) < moment()) {
+                return 20;
+            }
+
+            // 待售
+            return 10;
+        };
+
         service.getSold = function(productIdentifier) {
             var url = URLS.REGULARPRDUCT.SOLD + productIdentifier;
 
@@ -130,7 +146,6 @@ angular.module('jym.services.product', [
         service.getYinpiaoPage = function(pageIndex) {
             return service.getRegularPage(pageIndex, 'yinpiao');
         };
-
 
 
         service.getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {

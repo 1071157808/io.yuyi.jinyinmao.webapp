@@ -15,18 +15,34 @@ angular.module('jym.user.orders-detail', [
                 }
             });
     })
-    .controller('UserOrderDetailCtrl', function($scope, $stateParams, $timeout, UserService) {
+    .controller('UserOrderDetailCtrl', function($scope, $stateParams, $timeout, $ionicScrollDelegate, ProductService, UserService) {
         var order = this;
 
         order.model = {};
         order.viewModel = {};
 
         order.doRefresh = function() {
-            order.refresh()
+            order.viewModel.showAgreement1 = false;
+            order.viewModel.showAgreement2 = false;
+            order.viewModel.agreement1 = '';
+            order.viewModel.agreement2 = '';
+
+            order.refreshOrder()
                 .then(function(result) {
                     order.model = result;
                     order.refreshViewModel();
                     return result;
+                })
+                .then(function() {
+                    order.refreshOrderAgreement(1)
+                        .then(function(result) {
+                            order.viewModel.agreement1 = result.content;
+                        });
+
+                    order.refreshOrderAgreement(2)
+                        .then(function(result) {
+                            order.viewModel.agreement2 = result.content;
+                        });
                 });
 
             $timeout(function() {
@@ -34,8 +50,12 @@ angular.module('jym.user.orders-detail', [
             }, 1000);
         };
 
-        order.refresh = function() {
+        order.refreshOrder = function() {
             return UserService.getOrderInfo($stateParams.orderIdentifier);
+        };
+
+        order.refreshOrderAgreement = function(agreementIndex) {
+            return ProductService.getAgreementContent(order.model.productSnapshot.productIdentifier, agreementIndex);
         };
 
         order.refreshViewModel = function() {
@@ -106,6 +126,18 @@ angular.module('jym.user.orders-detail', [
             } else {
                 order.viewModel.statusText = '下单成功';
             }
+        };
+
+        order.toggleAgreement1 = function() {
+            order.viewModel.showAgreement2 = false;
+            $ionicScrollDelegate.scrollTop();
+            order.viewModel.showAgreement1 = !order.viewModel.showAgreement1;
+        };
+
+        order.toggleAgreement2 = function() {
+            order.viewModel.showAgreement1 = false;
+            $ionicScrollDelegate.scrollTop();
+            order.viewModel.showAgreement2 = !order.viewModel.showAgreement2;
         };
 
         $scope.$on('$ionicView.enter', function() {

@@ -49,7 +49,8 @@ angular.module('jym.constants', [])
         REGULARPRDUCT: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
             PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/'
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         }
     })
     .constant('RESOURCES', {
