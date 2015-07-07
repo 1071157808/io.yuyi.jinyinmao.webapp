@@ -2,7 +2,7 @@
 angular.module('jym.services.product', [
     'jym.services'
 ])
-    .service('ProductService', function($http, RESOURCES, URLS, JYMCacheService) {
+    .service('ProductService', function($http, $filter, RESOURCES, URLS, JYMCacheService) {
         var service = this;
 
         service.checkProductPurchaseStatus = function(getProductInfo, amount) {
@@ -27,6 +27,16 @@ angular.module('jym.services.product', [
 
                 return product;
             });
+        };
+
+        service.fillDataForAgreement = function(content, data) {
+            return content.replace('<--协议编号-->', data.orderNo)
+                .replace('<--订单生成日期-->', $filter('time')(data.orderTime))
+                .replace('<--用户姓名-->', data.realName)
+                .replace('<--证件号码-->', data.credentialNo)
+                .replace('<--投资金额-->', data.principal)
+                .replace('<--投资利息-->', data.interest)
+                .replace('<--用户ID-->', data.cellphone);
         };
 
         service.getAgreementContent = function(productIdentifier, agreementIndex) {

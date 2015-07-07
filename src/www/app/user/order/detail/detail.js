@@ -36,7 +36,15 @@ angular.module('jym.user.orders-detail', [
                 .then(function() {
                     order.refreshOrderAgreement(1)
                         .then(function(result) {
-                            order.viewModel.agreement1 = result.content;
+                            order.viewModel.agreement1 = ProductService.fillDataForAgreement(result.content, {
+                                cellphone: '',
+                                credentialNo: '',
+                                interest: order.viewModel.interest,
+                                orderNo: order.viewModel.orderNo,
+                                orderTime: order.viewModel.orderTime,
+                                principal: order.viewModel.principal,
+                                realName: ''
+                            })
                         });
 
                     order.refreshOrderAgreement(2)
