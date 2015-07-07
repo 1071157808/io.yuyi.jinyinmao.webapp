@@ -31,6 +31,14 @@ angular.module('jym.services.jinbaoyin', [
             });
         };
 
+        service.getInvestingAgreement = function() {
+            return service.getIndex()
+                .then(function(result) {
+                    return service.getAgreement(result.productIdentifier, 1);
+                });
+
+        };
+
         service.getSold = function(productIdentifier) {
             var url = URLS.JINBAOYIN.SOLD + productIdentifier;
 

@@ -14,7 +14,7 @@ angular.module('jym.user.jinbaoyin-detail', [
                 }
             });
     })
-    .controller('UserJinbaoyinDetailCtrl', function($scope, $stateParams, $timeout, $ionicHistory, UserService, JYMUtilityService) {
+    .controller('UserJinbaoyinDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicHistory, $ionicScrollDelegate, JinbaoyinService, ProductService, UserService, JYMUtilityService) {
         var transaction = this;
 
         transaction.model = {};
@@ -25,12 +25,38 @@ angular.module('jym.user.jinbaoyin-detail', [
         };
 
         transaction.doRefresh = function() {
-            transaction.refresh()
+            transaction.viewModel.agreement = '';
+            transaction.viewModel.showAgreement = false;
+
+            var refreshTransaction = transaction.refreshTransaction()
                 .then(function(result) {
-                    transaction.model = result;
+                    transaction.model.transaction = result;
                     transaction.refreshViewModel();
                     return result;
                 });
+
+            var refreshUser = transaction.refreshUser()
+                .then(function(result) {
+                    transaction.model.user = result;
+                    return result;
+                });
+
+            $q.all([refreshTransaction, refreshUser])
+                .then(function() {
+                    var agreementData = {
+                        cellphone: transaction.model.user.cellphone,
+                        credentialNo: transaction.model.user.credentialNo,
+                        orderTime: transaction.viewModel.resultTime,
+                        principal: transaction.viewModel.amount,
+                        realName: transaction.model.user.realName
+                    };
+
+                    transaction.refreshAgreement()
+                        .then(function(result) {
+                            transaction.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
+                        });
+                });
+
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
@@ -42,21 +68,29 @@ angular.module('jym.user.jinbaoyin-detail', [
             JYMUtilityService.goWithDisableBack(toState, params);
         };
 
-        transaction.refresh = function() {
+        transaction.refreshTransaction = function() {
             return UserService.getJBYAccountTransaction($stateParams.transactionIdentifier);
         };
 
+        transaction.refreshAgreement = function() {
+            if (transaction.viewModel.trade === 0) {
+                return JinbaoyinService.getInvestingAgreement();
+            } else {
+                return JinbaoyinService.getTransferAgreement();
+            }
+        };
+
         transaction.refreshViewModel = function() {
-            transaction.viewModel.amount = (transaction.model.amount / 100).toFixed(2);
-            transaction.viewModel.predeterminedResultDate = transaction.model.predeterminedResultDate;
-            transaction.viewModel.resultCode = transaction.model.resultCode;
-            transaction.viewModel.resultTime = transaction.model.resultTime;
-            transaction.viewModel.settleAccountTranscationId = transaction.model.settleAccountTranscationId;
-            transaction.viewModel.trade = transaction.model.trade;
-            transaction.viewModel.tradeCode = transaction.model.tradeCode;
-            transaction.viewModel.transactionIdentifier = transaction.model.transactionIdentifier;
-            transaction.viewModel.transactionTime = transaction.model.transactionTime;
-            transaction.viewModel.transDesc = transaction.model.transDesc;
+            transaction.viewModel.amount = (transaction.model.transaction.amount / 100).toFixed(2);
+            transaction.viewModel.predeterminedResultDate = transaction.model.transaction.predeterminedResultDate;
+            transaction.viewModel.resultCode = transaction.model.transaction.resultCode;
+            transaction.viewModel.resultTime = transaction.model.transaction.resultTime;
+            transaction.viewModel.settleAccountTranscationId = transaction.model.transaction.settleAccountTranscationId;
+            transaction.viewModel.trade = transaction.model.transaction.trade;
+            transaction.viewModel.tradeCode = transaction.model.transaction.tradeCode;
+            transaction.viewModel.transactionIdentifier = transaction.model.transaction.transactionIdentifier;
+            transaction.viewModel.transactionTime = transaction.model.transaction.transactionTime;
+            transaction.viewModel.transDesc = transaction.model.transaction.transDesc;
             transaction.viewModel.resultStyle = { color: '#444' };
 
             if (transaction.viewModel.resultCode === 1) {
@@ -66,6 +100,15 @@ angular.module('jym.user.jinbaoyin-detail', [
             if (transaction.viewModel.resultCode === -1) {
                 transaction.viewModel.resultStyle = { color: '#E74C3C' };
             }
+        };
+
+        transaction.refreshUser = function() {
+            return UserService.getUserInfo();
+        };
+
+        transaction.toggleAgreement = function() {
+            $ionicScrollDelegate.scrollTop();
+            transaction.viewModel.showAgreement = !transaction.viewModel.showAgreement;
         };
 
         $scope.$on('$ionicView.enter', function() {
