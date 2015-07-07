@@ -118,7 +118,7 @@ angular.module('jym.zhuanqu.detail', [
         };
 
         product.goPurchaseButtonEnable = function() {
-            return product.viewModel.status.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
+            return product.viewModel.status && product.viewModel.status.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
         };
 
         product.refreshInvestViewModel = function() {

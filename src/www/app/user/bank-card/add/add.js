@@ -59,6 +59,7 @@ angular.module('jym.user.bank-card-add', [
             card.viewModel.bankCardsCount = card.model.user.bankCardsCount;
             card.viewModel.hasSetPaymentPassword = card.model.user.hasSetPaymentPassword;
             card.viewModel.shouldAddBankCard = card.viewModel.bankCardsCount <= 0;
+            card.viewModel.verified = card.model.user.verified;
 
             if (card.viewModel.verified) {
                 card.viewModel.realName = card.model.user.realName;
@@ -95,6 +96,8 @@ angular.module('jym.user.bank-card-add', [
                             }
                         });
                 }
+
+                card.viewModel.bankCardNo = '';
             }
         };
 

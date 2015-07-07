@@ -25,14 +25,15 @@ angular.module('jym.zhuanqu.purchase', [
         purchase.viewModel = {};
         purchase.model.currentUser = {};
         purchase.model.order = {};
-        purchase.viewModel.password = undefined;
-        purchase.viewModel.checked = true;
 
         purchase.check = function() {
             purchase.viewModel.checked = !purchase.viewModel.checked;
         };
 
         purchase.doRefresh = function() {
+            purchase.viewModel.password = '';
+            purchase.viewModel.checked = true;
+
             var productCategory;
             if ($stateParams.bankName === 'fudian') {
                 productCategory = 210001010;
@@ -77,7 +78,7 @@ angular.module('jym.zhuanqu.purchase', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.REGULAR);
                             PurchaseService.clearRegularOrder();
                             $timeout(function() {
-                                JYMUtilityService.go('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
+                                JYMUtilityService.goWithDisableBack('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
                             }, 1000);
                         }
                     });

@@ -23,14 +23,15 @@ angular.module('jym.jinbaoyin.purchase', [
         purchase.viewModel = {};
         purchase.model.currentUser = {};
         purchase.model.order = {};
-        purchase.viewModel.password = undefined;
-        purchase.viewModel.checked = true;
 
         purchase.check = function() {
             purchase.viewModel.checked = !purchase.viewModel.checked;
         };
 
         purchase.doRefresh = function() {
+            purchase.viewModel.password = '';
+            purchase.viewModel.checked = true;
+
             purchase.refreshUserInfo()
                 .then(function(result) {
                     purchase.model.currentUser = result;
