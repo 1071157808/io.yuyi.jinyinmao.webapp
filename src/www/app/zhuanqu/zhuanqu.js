@@ -18,13 +18,13 @@ angular.module('jym.zhuanqu', [
                 url: '/zhuanqu/list/{bankName}',
                 views: {
                     zhuanqu: {
-                        controller: 'ZhuanquIndexCtrl as ctrl',
-                        templateUrl: 'app/shangpiao/index.tpl.html'
+                        controller: 'ZhuanquListCtrl as products',
+                        templateUrl: 'app/zhuanqu/list.tpl.html'
                     }
                 }
             });
     })
-    .controller('ZhuanquIndexCtrl', function($scope, $filter, $stateParams, $timeout, ProductService) {
+    .controller('ZhuanquListCtrl', function($scope, $filter, $stateParams, $timeout, ProductService) {
         var products = this;
 
         var getSaleProgress = function(product) {
