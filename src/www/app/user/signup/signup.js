@@ -21,15 +21,22 @@ angular.module('jym.user.signup', [])
                 }
             });
     })
-    .controller('UserSignUpCtrl', function($timeout, $stateParams, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSignUpCtrl', function($timeout, $stateParams, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
-        ctrl.viewModel.password = undefined;
-        ctrl.viewModel.confirmPassword = undefined;
+        ctrl.viewModel.checked = true;
+        ctrl.viewModel.password = '';
+        ctrl.viewModel.confirmPassword = '';
+        ctrl.viewModel.showAgreement1 = false;
+        ctrl.viewModel.showAgreement2 = false;
+
+        ctrl.check = function() {
+            ctrl.viewModel.checked = !ctrl.viewModel.checked;
+        };
 
         ctrl.enableButton = function() {
-            return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
+            return ctrl.viewModel.checked && ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
         };
 
         ctrl.resetPassword = function() {
@@ -39,12 +46,26 @@ angular.module('jym.user.signup', [])
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_SUCCESS);
                             UserService.loginOut();
+                            ctrl.viewModel.password = '';
+                            ctrl.viewModel.confirmPassword = '';
                             $timeout(function() {
                                 JYMUtilityService.goWithDisableBack('jym.user-login');
                             }, 1000);
                         }
                     });
             }
+        };
+
+        ctrl.toggleAgreement1 = function() {
+            ctrl.viewModel.showAgreement2 = false;
+            $ionicScrollDelegate.scrollTop();
+            ctrl.viewModel.showAgreement1 = !ctrl.viewModel.showAgreement1;
+        };
+
+        ctrl.toggleAgreement2 = function() {
+            ctrl.viewModel.showAgreement1 = false;
+            $ionicScrollDelegate.scrollTop();
+            ctrl.viewModel.showAgreement2 = !ctrl.viewModel.showAgreement2;
         };
     })
     .controller('UserSignUpSendVeriCodeCtrl', function($timeout, RESOURCES, UserService, JYMUtilityService) {

@@ -10,6 +10,7 @@
           <span class="pull-left">订单金额</span>
           <span class="pull-right" ng-bind="order.viewModel.principal"><samp>&nbsp;元</samp></span>
         </p>
+
         <p>
           <span class="pull-left">预计收益： </span>
           <span ng-bind="order.viewModel.interest"></span>
@@ -64,11 +65,15 @@
 
     <div class="agreement" ng-if="order.viewModel.showAgreement1">
       <div ng-bind-html="order.viewModel.agreement1"></div>
+      <div class="space"></div>
+      <div class="space"></div>
       <button class="btn button-yellow" ng-click="order.toggleAgreement1()">返回</button>
     </div>
 
     <div class="agreement" ng-if="order.viewModel.showAgreement2">
       <div ng-bind-html="order.viewModel.agreement2"></div>
+      <div class="space"></div>
+      <div class="space"></div>
       <button class="btn button-yellow" ng-click="order.toggleAgreement2()">返回</button>
     </div>
 

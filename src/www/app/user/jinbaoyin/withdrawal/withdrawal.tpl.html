@@ -7,7 +7,7 @@
       </ion-item>
       <ion-item class="card deposit">
         <ion-item class="item">
-          <span class="pull-left">今日可申请额度</span>
+          <span class="pull-left">今日可申请额度（元）：&nbsp;</span>
           <span class="pull-left" ng-bind="account.viewModel.todayJBYWithdrawalableAmount"> 元</span>
         </ion-item>
         <ion-item class="divider"></ion-item>
@@ -21,21 +21,28 @@
         </label>
       </ion-item>
 
-      <div class="row narrow">
-        <div class="col col-25">
-          <label class="checkbox checkbox-assertive">
-            <input type="checkbox" checked>
-            <span>同意</span>
-          </label>
-        </div>
-        <div class="col col-75">
-          <p>《金银猫金包银投资协议》</p>
-        </div>
+      <div class="narrow">
+        <button ng-click="account.check()">
+          <span>
+            <i class="icon ion-android-checkbox-outline-blank" ng-if="!account.viewModel.checked"></i>
+            <i class="icon ion-android-checkbox-outline" ng-if="account.viewModel.checked"></i>
+          </span>
+          <span>同意</span>
+        </button>
+        <span ng-click="account.toggleAgreement()">《金包银自动交易授权委托书》</span>
       </div>
     </ion-list>
-    <button class="btn button-yellow">同意协议并付款</button>
+    <button class="btn button-yellow" ng-disabled="!account.withdrawButtonEnable()" ng-click="account.withdraw()">同意协议并取现</button>
     <br>
     <br>
     <h4 id="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>
+
+    <div class="agreement" ng-if="account.viewModel.showAgreement">
+      <div ng-bind-html="account.viewModel.agreement"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <button class="btn button-yellow" ng-click="account.toggleAgreement()">返回</button>
+    </div>
+
   </ion-content>
 </ion-view>

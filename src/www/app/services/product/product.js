@@ -30,13 +30,36 @@ angular.module('jym.services.product', [
         };
 
         service.fillDataForAgreement = function(content, data) {
-            return content.replace('<--协议编号-->', data.orderNo)
-                .replace('<--订单生成日期-->', $filter('time')(data.orderTime))
-                .replace('<--用户姓名-->', data.realName)
-                .replace('<--证件号码-->', data.credentialNo)
-                .replace('<--投资金额-->', data.principal)
-                .replace('<--投资利息-->', data.interest)
-                .replace('<--用户ID-->', data.cellphone);
+            var agreement = content;
+            if (data.orderNo) {
+                agreement = agreement.replace('<--协议编号-->', data.orderNo);
+            }
+
+            if (data.orderTime) {
+                agreement = agreement.replace('<--订单生成日期-->', $filter('time')(data.orderTime));
+            }
+
+            if (data.realName) {
+                agreement = agreement.replace('<--用户姓名-->', data.realName);
+            }
+
+            if (data.credentialNo) {
+                agreement = agreement.replace('<--证件号码-->', data.credentialNo);
+            }
+
+            if (data.principal) {
+                agreement = agreement.replace('<--投资金额-->', data.principal);
+            }
+
+            if (data.interest) {
+                agreement = agreement.replace('<--投资利息-->', data.principal);
+            }
+
+            if (data.cellphone) {
+                agreement = agreement.replace('<--用户ID-->', data.cellphone);
+            }
+
+            return agreement;
         };
 
         service.getAgreementContent = function(productIdentifier, agreementIndex) {
@@ -123,7 +146,6 @@ angular.module('jym.services.product', [
 
             return (paidAmount / financingSumAmount * 100).toFixed(0);
         };
-
 
 
         service.getSaleStatus = function(soldOut, startSellTime, endSellTime) {

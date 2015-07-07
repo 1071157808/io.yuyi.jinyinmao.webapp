@@ -15,7 +15,7 @@ angular.module('jym.user.orders-detail', [
                 }
             });
     })
-    .controller('UserOrderDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicHistory, $ionicScrollDelegate, ProductService, UserService, JYMUtilityService) {
+    .controller('UserOrderDetailCtrl', function($scope, $stateParams, $filter, $timeout, $q, $ionicHistory, $ionicScrollDelegate, ProductService, UserService, JYMUtilityService) {
         var order = this;
 
         order.model = {};
@@ -26,10 +26,10 @@ angular.module('jym.user.orders-detail', [
         };
 
         order.doRefresh = function() {
+            order.viewModel.agreement1 = '委托协议';
+            order.viewModel.agreement2 = '借款协议';
             order.viewModel.showAgreement1 = false;
             order.viewModel.showAgreement2 = false;
-            order.viewModel.agreement1 = '';
-            order.viewModel.agreement2 = '';
 
             var refreshOrder = order.refreshOrder()
                 .then(function(result) {
@@ -46,30 +46,24 @@ angular.module('jym.user.orders-detail', [
 
             $q.all([refreshOrder, refreshUser])
                 .then(function() {
+                    var agreementData = {
+                        cellphone: order.model.user.cellphone,
+                        credentialNo: order.model.user.credentialNo,
+                        interest: order.viewModel.interest,
+                        orderNo: order.viewModel.orderNo,
+                        orderTime: order.viewModel.orderTime,
+                        principal: order.viewModel.principal,
+                        realName: order.model.user.realName
+                    };
+
                     order.refreshOrderAgreement(1)
                         .then(function(result) {
-                            order.viewModel.agreement1 = ProductService.fillDataForAgreement(result.content, {
-                                cellphone: order.model.user.cellphone,
-                                credentialNo: order.model.user.credentialNo,
-                                interest: order.viewModel.interest,
-                                orderNo: order.viewModel.orderNo,
-                                orderTime: order.viewModel.orderTime,
-                                principal: order.viewModel.principal,
-                                realName: order.model.user.realName
-                            });
+                            order.viewModel.agreement1 = ProductService.fillDataForAgreement(result.content, agreementData);
                         });
 
                     order.refreshOrderAgreement(2)
                         .then(function(result) {
-                            order.viewModel.agreement2 = ProductService.fillDataForAgreement(result.content, {
-                                cellphone: order.model.user.cellphone,
-                                credentialNo: order.model.user.credentialNo,
-                                interest: order.viewModel.interest,
-                                orderNo: order.viewModel.orderNo,
-                                orderTime: order.viewModel.orderTime,
-                                principal: order.viewModel.principal,
-                                realName: order.model.user.realName
-                            });
+                            order.viewModel.agreement2 = ProductService.fillDataForAgreement(result.content, agreementData);
                         });
                 });
 

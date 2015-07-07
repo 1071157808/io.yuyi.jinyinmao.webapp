@@ -94,7 +94,7 @@ angular.module('jym.jinbaoyin.detail', [
                     .then(function(result) {
                         PurchaseService.buildNewJBYOrder(amount, result[1].productIdentifier);
 
-                        $state.go('jym.jinbaoyin-purchase');
+                        $state.go('jym.jinbaoyin-purchase', { productIdentifier: product.model.productIdentifier });
                     })
                     .catch(function(result) {
                         JYMUtilityService.showAlert(result);
@@ -127,8 +127,13 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.refreshViewModel = function() {
-            product.viewModel.issueNo = parseInt(product.model.issueNo, 10);
+            product.viewModel.endSellTime = product.model.endSellTime;
             product.viewModel.financingSumAmount = (product.model.financingSumAmount / 1000000).toFixed(0);
+            product.viewModel.issueNo = parseInt(product.model.issueNo, 10);
+            product.viewModel.issueTime = product.model.issueTime;
+            product.viewModel.paidAmount = product.model.paidAmount;
+            product.viewModel.productCategory = product.model.productCategory;
+            product.viewModel.productIdentifier = product.model.productIdentifier;
             product.viewModel.productName = product.model.productName;
             product.viewModel.productNo = product.model.productNo;
             product.viewModel.productTitle = product.model.productName + ' 第' + product.model.issueNo + '期';

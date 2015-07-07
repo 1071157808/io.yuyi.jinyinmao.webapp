@@ -6,7 +6,8 @@ angular.module('jym.constants', [])
         },
         JINBAOYIN: {
             FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/',
+            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Agreement/'
         },
         INVESTING: {
             JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',

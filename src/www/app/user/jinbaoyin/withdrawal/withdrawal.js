@@ -14,25 +14,47 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
                 }
             });
     })
-    .controller('UserJinbaoyinWithdrawalCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserJinbaoyinWithdrawalCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, UserService, JYMUtilityService) {
         var account = this;
 
         account.model = {};
         account.viewModel = {};
 
-        account.buttonEnable = function() {
-            return account.viewModel.amount && account.viewModel.password && account.viewModel.amount <= account.viewModel.todayJBYWithdrawalableAmount;
+        account.check = function() {
+            account.viewModel.checked = !account.viewModel.checked;
         };
 
         account.doRefresh = function() {
-            account.viewModel.amount = undefined;
-            account.viewModel.password = undefined;
+            account.viewModel.agreement = '金包银自动交易授权委托书';
+            account.viewModel.amount = 10;
+            account.viewModel.checked = true;
+            account.viewModel.password = '';
+            account.viewModel.showAgreement = false;
+
             account.refreshUser()
                 .then(function(result) {
                     account.model.user = result;
                     account.refreshViewModel();
                     return result;
+                })
+                .then(function() {
+                    account.refreshAgreement()
+                        .then(function(result) {
+                            result.then(function(result) {
+                                var agreementData = {
+                                    cellphone: account.model.user.cellphone,
+                                    credentialNo: account.model.user.credentialNo,
+                                    realName: account.model.user.realName
+                                };
+
+                                account.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
+                            });
+                        });
                 });
+        };
+
+        account.refreshAgreement = function() {
+            return JinbaoyinService.getTransferAgreement();
         };
 
         account.refreshUser = function() {
@@ -52,7 +74,11 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
             if (account.viewModel.todayJBYWithdrawalableAmount > account.viewModel.jBYWithdrawalableAmount) {
                 account.viewModel.todayJBYWithdrawalableAmount = account.viewModel.jBYWithdrawalableAmount;
             }
+        };
 
+        account.toggleAgreement = function() {
+            $ionicScrollDelegate.scrollTop();
+            account.viewModel.showAgreement = !account.viewModel.showAgreement;
         };
 
         account.withdraw = function() {
@@ -70,6 +96,10 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
                         }
                     });
             }
+        };
+
+        account.withdrawButtonEnable = function() {
+            return account.viewModel.checked && account.viewModel.amount && account.viewModel.password && account.viewModel.amount <= account.viewModel.todayJBYWithdrawalableAmount;
         };
 
         $scope.$on('$ionicView.enter', function() {

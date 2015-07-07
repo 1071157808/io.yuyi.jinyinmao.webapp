@@ -28,13 +28,9 @@
           </span>
           <span>同意</span>
         </button>
-        <span>《</span>
-        <span ng-bind="purchase.viewModel.agreement2"></span>
-        <span>》</span>
+        <span ng-click="purchase.toggleAgreement1()">《委托协议》</span>
         <span>及</span>
-        <span>《</span>
-        <span ng-bind="purchase.viewModel.agreement1"></span>
-        <span>》</span>
+        <span ng-click="purchase.toggleAgreement2()">《借款协议》</span>
       </div>
     </ion-list>
     <button class="btn button-yellow" ng-disabled="!purchase.purchaseButtonEnable()" ng-click="purchase.purchase()">同意协议并付款</button>
@@ -42,6 +38,19 @@
     <br>
     <h4 id="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>
 
+    <div class="agreement" ng-if="purchase.viewModel.showAgreement1">
+      <div ng-bind-html="purchase.viewModel.agreement1"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <button class="btn button-yellow" ng-click="purchase.toggleAgreement1()">返回</button>
+    </div>
+
+    <div class="agreement" ng-if="purchase.viewModel.showAgreement2">
+      <div ng-bind-html="purchase.viewModel.agreement2"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <button class="btn button-yellow" ng-click="purchase.toggleAgreement2()">返回</button>
+    </div>
 
   </ion-content>
 </ion-view>
