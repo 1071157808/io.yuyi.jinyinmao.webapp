@@ -246,7 +246,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -351,7 +351,7 @@ a, a:hover {
 
 a:active, a:focus, button:active, button:focus {
   -webkit-animation: activeReset .1s ease-out;
-  animation: activeReset .1s ease-out;
+          animation: activeReset .1s ease-out;
 }
 
 a:visited, button:visited, a.ui-disabled:active, a.ui-disabled:focus, button.ui-disabled:active, button.ui-disabled:focus {
@@ -2054,11 +2054,11 @@ input[readonly]:not(.cloned-text-input) {
 
 /*pace start*/
 .pace {
-  pointer-events: none;
+          pointer-events: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 
   -webkit-pointer-events: none;
 }
