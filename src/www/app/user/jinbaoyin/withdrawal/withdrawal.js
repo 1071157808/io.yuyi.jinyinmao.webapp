@@ -40,16 +40,15 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
                 .then(function() {
                     account.refreshAgreement()
                         .then(function(result) {
-                            result.then(function(result) {
-                                var agreementData = {
-                                    cellphone: account.model.user.cellphone,
-                                    credentialNo: account.model.user.credentialNo,
-                                    realName: account.model.user.realName
-                                };
+                            var agreementData = {
+                                cellphone: account.model.user.cellphone,
+                                credentialNo: account.model.user.credentialNo,
+                                realName: account.model.user.realName
+                            };
 
-                                account.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
-                            });
+                            account.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
                         });
+
                 });
         };
 
@@ -83,7 +82,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
 
         account.withdraw = function() {
             var amount = parseInt(account.viewModel.amount * 100, 10);
-            if (account.buttonEnable()) {
+            if (account.withdrawButtonEnable()) {
                 UserService.jBYWithdrawal(amount, account.viewModel.password)
                     .then(function(result) {
                         if (result) {

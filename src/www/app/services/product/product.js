@@ -32,31 +32,31 @@ angular.module('jym.services.product', [
         service.fillDataForAgreement = function(content, data) {
             var agreement = content;
             if (data.orderNo) {
-                agreement = agreement.replace('<--协议编号-->', data.orderNo);
+                agreement = agreement.replace(/<--协议编号-->/g, data.orderNo);
             }
 
             if (data.orderTime) {
-                agreement = agreement.replace('<--订单生成日期-->', $filter('time')(data.orderTime));
+                agreement = agreement.replace(/<--订单生成日期-->/g, $filter('time')(data.orderTime));
             }
 
             if (data.realName) {
-                agreement = agreement.replace('<--用户姓名-->', data.realName);
+                agreement = agreement.replace(/<--用户姓名-->/g, data.realName);
             }
 
             if (data.credentialNo) {
-                agreement = agreement.replace('<--证件号码-->', data.credentialNo);
+                agreement = agreement.replace(/<--证件号码-->/g, data.credentialNo);
             }
 
             if (data.principal) {
-                agreement = agreement.replace('<--投资金额-->', data.principal);
+                agreement = agreement.replace(/<--投资金额-->/g, data.principal);
             }
 
             if (data.interest) {
-                agreement = agreement.replace('<--投资利息-->', data.principal);
+                agreement = agreement.replace(/<--投资利息-->/g, data.principal);
             }
 
             if (data.cellphone) {
-                agreement = agreement.replace('<--用户ID-->', data.cellphone);
+                agreement = agreement.replace(/<--用户ID-->/g, data.cellphone);
             }
 
             return agreement;
