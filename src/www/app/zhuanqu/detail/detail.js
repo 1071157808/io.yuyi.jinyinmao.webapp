@@ -109,7 +109,7 @@ angular.module('jym.zhuanqu.detail', [
                     .then(function(result) {
                         PurchaseService.buildRegularOrder(amount, result[1].productIdentifier, productCategory);
 
-                        $state.go('jym.zhuanqu-purchase');
+                        $state.go('jym.zhuanqu-purchase', { bankName: $stateParams.bankName });
                     })
                     .catch(function(result) {
                         JYMUtilityService.showAlert(result);

@@ -33,21 +33,27 @@ angular.module('jym.zhuanqu.purchase', [
         purchase.doRefresh = function() {
             purchase.viewModel.agreement1 = '委托协议';
             purchase.viewModel.agreement2 = '借款协议';
+            purchase.viewModel.bankName = $stateParams.bankName || purchase.viewModel.bankName || 'fudian';
             purchase.viewModel.checked = true;
             purchase.viewModel.password = '';
             purchase.viewModel.showAgreement1 = false;
             purchase.viewModel.showAgreement2 = false;
 
             var productCategory;
-            if ($stateParams.bankName === 'fudian') {
-                productCategory = 210001010;
-            } else if ($stateParams.bankName === 'fuxin') {
-                productCategory = 210003010;
-            } else if ($stateParams.bankName === 'shibing') {
-                productCategory = 210002020;
-            } else {
-                productCategory = 100000010;
+            switch (purchase.viewModel.bankName) {
+                case 'fudian':
+                    productCategory = 210001010;
+                    break;
+                case 'fuxin':
+                    productCategory = 210003010;
+                    break;
+                case 'shibing':
+                    productCategory = 210002020;
+                    break;
+                default :
+                    productCategory = 210001010;
             }
+
             purchase.refreshUserInfo()
                 .then(function(result) {
                     purchase.model.user = result;
@@ -83,6 +89,7 @@ angular.module('jym.zhuanqu.purchase', [
         };
 
         purchase.refreshViewModel = function() {
+            purchase.viewModel.amount = (purchase.model.order.amount / 100).toFixed(2);
             purchase.viewModel.balance = (purchase.model.user.balance / 100).toFixed(2);
         };
 

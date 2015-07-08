@@ -54,8 +54,10 @@ angular.module('jym.services.purchase', [
                     JYMUtilityService.goWithDisableBack('jym.yinpiao');
                 } else if (productCategory === 100000020) {
                     JYMUtilityService.goWithDisableBack('jym.shangpiao');
-                } else {
+                } else if (productCategory === 100000030) {
                     JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
+                } else {
+                    JYMUtilityService.goWithDisableBack('jym.zhuanqu');
                 }
             }
             return regularOrder;
