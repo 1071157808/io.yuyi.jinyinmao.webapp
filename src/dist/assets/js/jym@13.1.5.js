@@ -1236,7 +1236,7 @@ angular.module("app/zhuanqu/detail/detail.tpl.html", []).run(["$templateCache", 
 
 angular.module("app/zhuanqu/index.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/zhuanqu/index.tpl.html",
-    "<ion-view title=银行专区><ion-content id=zhuanqu><ion-list><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'fudian' })\"><h2 id=fudian>富滇银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'fudian' })\"><img src=assets/img/zhuanqu/fudian@308x130-ff6b31.gif></ion-item><ion-item><p>票据由富滇银行代为保管和托收</p><p>到期由承兑银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'fuxin' })\"><h2 id=fuxin>阜新银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'fuxin' })\"><img src=assets/img/zhuanqu/fuxin@308x130-73f47c.gif></ion-item><ion-item><p>票据由阜新银行代为保管和托收</p><p>到期由承兑银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'shibing' })\"><h2 id=shibingcunzhen>施秉金鼎村镇银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'shibing' })\"><img src=assets/img/zhuanqu/sbjd@308x130-04c7a4.gif></ion-item><ion-item><p>募集资金由施秉金鼎村镇银行进行资金监管</p></ion-item><ion-item class=divider></ion-item><ion-item class=\"item item-icon-right\" ng-href=\"https://piao.cib.com.cn/\"><h2 id=xingye>兴业银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item ui-sref=jym.yinhangzhuanqu.detail ng-href=\"https://piao.cib.com.cn/\"><img src=assets/img/zhuanqu/cib@308x130-6bb205.gif></ion-item><ion-item><p>到期由兴业银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item></ion-list></ion-content></ion-view>");
+    "<ion-view title=银行专区><ion-content id=zhuanqu><ion-list><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'fudian' })\"><h2 id=fudian>富滇银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bankName: 'fudian' })\"><img src=assets/img/zhuanqu/fudian@308x130-ff6b31.gif></ion-item><ion-item><p>票据由富滇银行代为保管和托收</p><p>到期由承兑银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'fuxin' })\"><h2 id=fuxin>阜新银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bankName: 'fuxin' })\"><img src=assets/img/zhuanqu/fuxin@308x130-73f47c.gif></ion-item><ion-item><p>票据由阜新银行代为保管和托收</p><p>到期由承兑银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'shibing' })\"><h2 id=shibingcunzhen>施秉金鼎村镇银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bankName: 'shibing' })\"><img src=assets/img/zhuanqu/sbjd@308x130-04c7a4.gif></ion-item><ion-item><p>募集资金由施秉金鼎村镇银行进行资金监管</p></ion-item><ion-item class=divider></ion-item><ion-item class=\"item item-icon-right\" ng-href=\"https://piao.cib.com.cn/\"><h2 id=xingye>兴业银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item ui-sref=jym.yinhangzhuanqu.detail ng-href=\"https://piao.cib.com.cn/\"><img src=assets/img/zhuanqu/cib@308x130-6bb205.gif></ion-item><ion-item><p>到期由兴业银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
 angular.module("app/zhuanqu/list.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -6138,12 +6138,20 @@ angular.module('jym.zhuanqu', [
             products.viewModel.totalPageCount = 1;
             products.viewModel.loading = false;
 
+            products.loadMoreData();
+
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
         };
 
         products.loadMoreData = function() {
+            if (products.viewModel.loading) {
+                return;
+            }
+
+            products.viewModel.loading = true;
+
             ProductService.getRegularPage(products.viewModel.nextPageIndex, $stateParams.bankName)
                 .then(function(result) {
                     products.viewModel.currentPageIndex = result.pageIndex;
@@ -6155,6 +6163,8 @@ angular.module('jym.zhuanqu', [
                     _.forEach(result.items, function(i) {
                         products.viewModel.items.push(getViewItem(i));
                     });
+
+                    products.viewModel.loading = false;
                 });
             $timeout(function() {
                 $scope.$broadcast('scroll.infiniteScrollComplete');

@@ -154,12 +154,20 @@ angular.module('jym.zhuanqu', [
             products.viewModel.totalPageCount = 1;
             products.viewModel.loading = false;
 
+            products.loadMoreData();
+
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1000);
         };
 
         products.loadMoreData = function() {
+            if (products.viewModel.loading) {
+                return;
+            }
+
+            products.viewModel.loading = true;
+
             ProductService.getRegularPage(products.viewModel.nextPageIndex, $stateParams.bankName)
                 .then(function(result) {
                     products.viewModel.currentPageIndex = result.pageIndex;
@@ -171,6 +179,8 @@ angular.module('jym.zhuanqu', [
                     _.forEach(result.items, function(i) {
                         products.viewModel.items.push(getViewItem(i));
                     });
+
+                    products.viewModel.loading = false;
                 });
             $timeout(function() {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
