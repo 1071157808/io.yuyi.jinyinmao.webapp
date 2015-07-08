@@ -558,7 +558,7 @@ angular.module('jym.filters', [])
                 return '';
             }
 
-            return moment(time).format('YYYY-MM-DD HH:mm');
+            return moment(time).format('YYYY年MM月DD日 HH:mm');
         };
     })
     .filter('tradeForSettle', function() {

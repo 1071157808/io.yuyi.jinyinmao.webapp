@@ -64,7 +64,7 @@ angular.module('jym.constants', [])
 
             },
             USER: {
-                CLOSED: '账户被禁用<br>如需帮助，请联系金银猫客服<br>4008-556-333',
+                CLOSED: '账户被禁用<br>如需帮助，请联系金银猫客服<br>4008&nbsp;556&nbsp;333&nbsp;',
                 HAS_NOT_SET_PAYMENT_PASSWORD: '请先设置支付密码',
                 PAYMENT_PASSWORD_NEED_RESET: '支付密码被锁定<br>请重置后使用',
                 USER_LOGIN_PASSWORD_LOCK: '登录密码被锁定<br>请重置后使用',
@@ -118,5 +118,5 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.4-DEV'
+        VERSION: '13.1.5-DEV'
     });

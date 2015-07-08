@@ -143,12 +143,20 @@ angular.module('jym.zhuanqu', [
         };
 
         products.viewModel = {};
-        products.viewModel.items = [];
-        products.viewModel.currentPageIndex = 0;
-        products.viewModel.nextPageIndex = 0;
-        products.viewModel.pageSize = 10;
-        products.viewModel.totalCount = 0;
-        products.viewModel.totalPageCount = 1;
+
+        products.doRefresh = function() {
+            products.viewModel.items = [];
+            products.viewModel.currentPageIndex = 0;
+            products.viewModel.nextPageIndex = 0;
+            products.viewModel.pageSize = 10;
+            products.viewModel.totalCount = 0;
+            products.viewModel.totalPageCount = 1;
+            products.viewModel.loading = false;
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
 
         products.loadMoreData = function() {
             ProductService.getRegularPage(products.viewModel.nextPageIndex, $stateParams.bankName)
@@ -172,16 +180,5 @@ angular.module('jym.zhuanqu', [
             return products.viewModel.nextPageIndex < products.viewModel.totalPageCount;
         };
 
-        products.doRefresh = function() {
-            products.viewModel.items = [];
-            products.viewModel.currentPageIndex = 0;
-            products.viewModel.nextPageIndex = 0;
-            products.viewModel.pageSize = 10;
-            products.viewModel.totalCount = 0;
-            products.viewModel.totalPageCount = 1;
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
-        };
+        products.doRefresh();
     });

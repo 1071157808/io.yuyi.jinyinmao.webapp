@@ -143,7 +143,7 @@ angular.module('jym.jinbaoyin.detail', [
             product.viewModel.status = getSaleStatus(product.model);
             product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
             product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
-            product.viewModel.yield = (product.model.yield / 100).toFixed(2);
+            product.viewModel.yield = product.model.yield / 100;
 
 
             if (product.viewModel.status.status !== 20) {
