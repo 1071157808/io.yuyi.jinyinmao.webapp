@@ -85,7 +85,7 @@ angular.module('jym.shangpiao.detail', [
         };
 
         product.getAccrualDuration = function() {
-            var diff = (moment(product.model.settleDate) - moment(product.model.valueDate)) / (1000 * 60 * 60 * 24);
+            var diff = (moment(product.model.settleDate) - moment(product.model.currentValueDate)) / (1000 * 60 * 60 * 24);
             return parseInt(diff, 10);
         };
 
@@ -132,6 +132,7 @@ angular.module('jym.shangpiao.detail', [
 
         product.refreshViewModel = function() {
             product.viewModel.bankName = product.model.bankName;
+            product.viewModel.currentValueDate = product.model.currentValueDate;
             product.viewModel.drawee = product.model.drawee;
             product.viewModel.draweeInfo = product.model.draweeInfo;
             product.viewModel.endorseImageLink = product.model.endorseImageLink;

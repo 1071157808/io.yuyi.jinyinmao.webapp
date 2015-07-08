@@ -20,7 +20,7 @@ angular.module('jym.yinpiao', [
         var products = this;
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getSaleStatus = function(product) {
@@ -61,6 +61,7 @@ angular.module('jym.yinpiao', [
         var getViewItem = function(modelItem) {
             var item = {};
             item.bankName = modelItem.bankName;
+            item.currentValueDate = modelItem.currentValueDate;
             item.drawee = modelItem.drawee;
             item.draweeInfo = modelItem.draweeInfo;
             item.endorseImageLink = modelItem.endorseImageLink;

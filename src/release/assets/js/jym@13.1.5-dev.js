@@ -64,7 +64,7 @@ angular.module('jym.constants', [])
 
             },
             USER: {
-                CLOSED: '账户被禁用<br>如需帮助，请联系金银猫客服<br>4008-556-333',
+                CLOSED: '账户被禁用<br>如需帮助，请联系金银猫客服<br>4008&nbsp;556&nbsp;333&nbsp;',
                 HAS_NOT_SET_PAYMENT_PASSWORD: '请先设置支付密码',
                 PAYMENT_PASSWORD_NEED_RESET: '支付密码被锁定<br>请重置后使用',
                 USER_LOGIN_PASSWORD_LOCK: '登录密码被锁定<br>请重置后使用',
@@ -712,7 +712,7 @@ angular.module('jym.filters', [])
                 return '';
             }
 
-            return moment(time).format('YYYY-MM-DD HH:mm');
+            return moment(time).format('YYYY年MM月DD日 HH:mm');
         };
     })
     .filter('tradeForSettle', function() {
@@ -1032,7 +1032,7 @@ angular.module("app/jinbaoyin/index.tpl.html", []).run(["$templateCache", functi
 
 angular.module("app/jinbaoyin/purchase/purchase.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/jinbaoyin/purchase/purchase.tpl.html",
-    "<ion-view title=金包银认购><ion-content><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong>&nbsp;&nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong>&nbsp;&nbsp;元</span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=purchase.toggleAgreement()>《金银猫金包银投资协议》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=purchase.viewModel.showAgreement><div ng-bind-html=purchase.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement()>返回</button></div></ion-content></ion-view>");
+    "<ion-view title=金包银认购><ion-content><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong>&nbsp;&nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong>&nbsp;&nbsp;元</span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=purchase.toggleAgreement()>《金银猫金包银投资协议》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008&nbsp;556&nbsp;333&nbsp;。</h4><div class=agreement ng-if=purchase.viewModel.showAgreement><div ng-bind-html=purchase.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement()>返回</button></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/shangpiao/detail/detail.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1047,12 +1047,12 @@ angular.module("app/shangpiao/index.tpl.html", []).run(["$templateCache", functi
 
 angular.module("app/shangpiao/purchase/purchase.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/shangpiao/purchase/purchase.tpl.html",
-    "<ion-view title=确认购买><ion-content class=has-header><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong> &nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong> &nbsp;&nbsp;元</span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=purchase.toggleAgreement1()>《委托协议》</span> <span>及</span> <span ng-click=purchase.toggleAgreement2()>《借款协议》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=purchase.viewModel.showAgreement1><div ng-bind-html=purchase.viewModel.agreement1></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement1()>返回</button></div><div class=agreement ng-if=purchase.viewModel.showAgreement2><div ng-bind-html=purchase.viewModel.agreement2></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement2()>返回</button></div></ion-content></ion-view>");
+    "<ion-view title=确认购买><ion-content class=has-header><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong> &nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong> &nbsp;&nbsp;元</span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=purchase.toggleAgreement1()>《委托协议》</span> <span>及</span> <span ng-click=purchase.toggleAgreement2()>《借款协议》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008&nbsp;556&nbsp;333&nbsp;。</h4><div class=agreement ng-if=purchase.viewModel.showAgreement1><div ng-bind-html=purchase.viewModel.agreement1></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement1()>返回</button></div><div class=agreement ng-if=purchase.viewModel.showAgreement2><div ng-bind-html=purchase.viewModel.agreement2></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement2()>返回</button></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/about/about.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/about/about.tpl.html",
-    "<ion-view title=关于金银猫><ion-content><ion-list><ion-item><p class=pull-left>公司网站</p><p class=pull-right>www.jinyinmao.com.cn</p></ion-item><ion-item><p class=pull-left>客服热线</p><p class=pull-right>4008-556-333</p></ion-item><ion-item><p class=pull-left>新浪微博</p><p class=pull-right>金银猫</p></ion-item><ion-item><p class=pull-left>微信服务号</p><p class=pull-right>金银猫服务号</p></ion-item><ion-item><p class=pull-left>版本号</p><p class=pull-right ng-bind=ctrl.viewModel.version></p></ion-item></ion-list></ion-content></ion-view>");
+    "<ion-view title=关于金银猫><ion-content><ion-list><ion-item><p class=pull-left>公司网站</p><p class=pull-right>www.jinyinmao.com.cn</p></ion-item><ion-item><p class=pull-left>客服热线</p><p class=pull-right>4008&nbsp;556&nbsp;333&nbsp;</p></ion-item><ion-item><p class=pull-left>新浪微博</p><p class=pull-right>金银猫</p></ion-item><ion-item><p class=pull-left>微信服务号</p><p class=pull-right>金银猫服务号</p></ion-item><ion-item><p class=pull-left>版本号</p><p class=pull-right ng-bind=ctrl.viewModel.version></p></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/bank-card/add/add.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1087,7 +1087,7 @@ angular.module("app/user/bank-card/upgrade/upgrade.tpl.html", []).run(["$templat
 
 angular.module("app/user/bank-card/yilian-notice.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/bank-card/yilian-notice.tpl.html",
-    "<ion-view title=认证受理中><ion-content><div id=yilian-notice><h2>请求已受理</h2><p>在十分钟之内您可能会接到银联（广州）来电。号码为020-96585.</p><p>请您配合语音提示进行操作</p><p>如您没有接到此来电，则会绑定失败。</p><div class=space></div><p>认证流程可能会需要长达十分钟的时间，请您耐心等待。</p><i class=\"icon ion-ios-information\"></i> <span>成功之后就可以购买啦！</span><div class=space></div></div><div class=space></div><button class=\"btn button-yellow\" ng-click=\"ctrl.go('jym.user')\">返回个人中心</button></ion-content></ion-view>");
+    "<ion-view title=认证受理中><ion-content><div id=yilian-notice><h2>请求已受理</h2><p>在十分钟之内您可能会接到银联（广州）来电。号码为020&nbsp;96585.</p><p>请您配合语音提示进行操作</p><p>如您没有接到此来电，则会绑定失败。</p><div class=space></div><p>认证流程可能会需要长达十分钟的时间，请您耐心等待。</p><i class=\"icon ion-ios-information\"></i> <span>成功之后就可以购买啦！</span><div class=space></div></div><div class=space></div><button class=\"btn button-yellow\" ng-click=\"ctrl.go('jym.user')\">返回个人中心</button></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/index.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1113,7 +1113,7 @@ angular.module("app/user/jinbaoyin/list/list.tpl.html", []).run(["$templateCache
 
 angular.module("app/user/jinbaoyin/withdrawal/withdrawal.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/jinbaoyin/withdrawal/withdrawal.tpl.html",
-    "<ion-view title=金包银赎回><ion-content><ion-list class=deposit><ion-item><span class=pull-left>可取资金（元）</span> <span class=pull-right><strong ng-bind=account.viewModel.jBYWithdrawalableAmount></strong></span></ion-item><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>今日可申请额度（元）：&nbsp;</span> <span class=pull-left ng-bind=account.viewModel.todayJBYWithdrawalableAmount>元</span></ion-item><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>取款金额</span> <input type=number placeholder=请输入取款金额（元） required min=0.01 max=1000000 ng-model=account.viewModel.amount></label><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=account.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=account.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!account.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=account.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=account.toggleAgreement()>《金包银自动交易授权委托书》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!account.withdrawButtonEnable() ng-click=account.withdraw()>同意协议并取现</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=account.viewModel.showAgreement><div ng-bind-html=account.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=account.toggleAgreement()>返回</button></div></ion-content></ion-view>");
+    "<ion-view title=金包银赎回><ion-content><ion-list class=deposit><ion-item><span class=pull-left>可取资金（元）</span> <span class=pull-right><strong ng-bind=account.viewModel.jBYWithdrawalableAmount></strong></span></ion-item><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>今日可申请额度（元）：&nbsp;</span> <span class=pull-left ng-bind=account.viewModel.todayJBYWithdrawalableAmount>元</span></ion-item><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>取款金额</span> <input type=number placeholder=请输入取款金额（元） required min=0.01 max=1000000 ng-model=account.viewModel.amount></label><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=account.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=account.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!account.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=account.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=account.toggleAgreement()>《金包银自动交易授权委托书》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!account.withdrawButtonEnable() ng-click=account.withdraw()>同意协议并取现</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008&nbsp;556&nbsp;333&nbsp;。</h4><div class=agreement ng-if=account.viewModel.showAgreement><div ng-bind-html=account.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=account.toggleAgreement()>返回</button></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/login/login.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1226,7 +1226,7 @@ angular.module("app/yinpiao/index.tpl.html", []).run(["$templateCache", function
 
 angular.module("app/yinpiao/purchase/purchase.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/yinpiao/purchase/purchase.tpl.html",
-    "<ion-view title=确认购买><ion-content class=has-header><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong> &nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong> &nbsp;&nbsp;元</span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=purchase.toggleAgreement1()>《委托协议》</span> <span>及</span> <span ng-click=purchase.toggleAgreement2()>《借款协议》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=purchase.viewModel.showAgreement1><div ng-bind-html=purchase.viewModel.agreement1></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement1()>返回</button></div><div class=agreement ng-if=purchase.viewModel.showAgreement2><div ng-bind-html=purchase.viewModel.agreement2></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement2()>返回</button></div></ion-content></ion-view>");
+    "<ion-view title=确认购买><ion-content class=has-header><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong> &nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong> &nbsp;&nbsp;元</span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=purchase.toggleAgreement1()>《委托协议》</span> <span>及</span> <span ng-click=purchase.toggleAgreement2()>《借款协议》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008&nbsp;556&nbsp;333&nbsp;。</h4><div class=agreement ng-if=purchase.viewModel.showAgreement1><div ng-bind-html=purchase.viewModel.agreement1></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement1()>返回</button></div><div class=agreement ng-if=purchase.viewModel.showAgreement2><div ng-bind-html=purchase.viewModel.agreement2></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement2()>返回</button></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/zhuanqu/detail/detail.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1236,7 +1236,7 @@ angular.module("app/zhuanqu/detail/detail.tpl.html", []).run(["$templateCache", 
 
 angular.module("app/zhuanqu/index.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/zhuanqu/index.tpl.html",
-    "<ion-view title=银行专区><ion-content id=zhuanqu><ion-list><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'fudian' })\"><h2 id=fudian>富滇银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'fudan' })\"><img src=assets/img/zhuanqu/fudian@308x130-ff6b31.gif></ion-item><ion-item><p>票据由富滇银行代为保管和托收</p><p>到期由承兑银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'fuxin' })\"><h2 id=fuxin>阜新银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'fuxin' })\"><img src=assets/img/zhuanqu/fuxin@308x130-73f47c.gif></ion-item><ion-item><p>票据由阜新银行代为保管和托收</p><p>到期由承兑银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'shibing' })\"><h2 id=shibingcunzhen>施秉金鼎村镇银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'shibing' })\"><img src=assets/img/zhuanqu/sbjd@308x130-04c7a4.gif></ion-item><ion-item><p>募集资金由施秉金鼎村镇银行进行资金监管</p></ion-item><ion-item class=divider></ion-item><ion-item class=\"item item-icon-right\" ng-href=\"https://piao.cib.com.cn/\"><h2 id=xingye>兴业银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item ui-sref=jym.yinhangzhuanqu.detail ng-href=\"https://piao.cib.com.cn/\"><img src=assets/img/zhuanqu/cib@308x130-6bb205.gif></ion-item><ion-item><p>到期由兴业银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item></ion-list></ion-content></ion-view>");
+    "<ion-view title=银行专区><ion-content id=zhuanqu><ion-list><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'fudian' })\"><h2 id=fudian>富滇银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'fudian' })\"><img src=assets/img/zhuanqu/fudian@308x130-ff6b31.gif></ion-item><ion-item><p>票据由富滇银行代为保管和托收</p><p>到期由承兑银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'fuxin' })\"><h2 id=fuxin>阜新银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'fuxin' })\"><img src=assets/img/zhuanqu/fuxin@308x130-73f47c.gif></ion-item><ion-item><p>票据由阜新银行代为保管和托收</p><p>到期由承兑银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=\"jym.zhuanqu-list({ bankName: 'shibing' })\"><h2 id=shibingcunzhen>施秉金鼎村镇银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item ui-sref=\"jym.zhuanqu-list({ bank: 'shibing' })\"><img src=assets/img/zhuanqu/sbjd@308x130-04c7a4.gif></ion-item><ion-item><p>募集资金由施秉金鼎村镇银行进行资金监管</p></ion-item><ion-item class=divider></ion-item><ion-item class=\"item item-icon-right\" ng-href=\"https://piao.cib.com.cn/\"><h2 id=xingye>兴业银行</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item ui-sref=jym.yinhangzhuanqu.detail ng-href=\"https://piao.cib.com.cn/\"><img src=assets/img/zhuanqu/cib@308x130-6bb205.gif></ion-item><ion-item><p>到期由兴业银行无条件兑付</p><p>本息安全 风险趋零</p></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
 angular.module("app/zhuanqu/list.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1246,7 +1246,7 @@ angular.module("app/zhuanqu/list.tpl.html", []).run(["$templateCache", function(
 
 angular.module("app/zhuanqu/purchase/purchase.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/zhuanqu/purchase/purchase.tpl.html",
-    "<ion-view title=确认购买><ion-content><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong> &nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong> &nbsp;&nbsp;元</span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=purchase.toggleAgreement1()>《委托协议》</span> <span>及</span> <span ng-click=purchase.toggleAgreement2()>《借款协议》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=purchase.viewModel.showAgreement1><div ng-bind-html=purchase.viewModel.agreement1></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement1()>返回</button></div><div class=agreement ng-if=purchase.viewModel.showAgreement2><div ng-bind-html=purchase.viewModel.agreement2></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement2()>返回</button></div></ion-content></ion-view>");
+    "<ion-view title=确认购买><ion-content><ion-list class=deposit><ion-item><span class=pull-left>订单金额</span> <span class=pull-right><strong ng-bind=purchase.viewModel.amount></strong> &nbsp;元</span></ion-item></ion-list><ion-list><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>账户余额&nbsp;&nbsp;</span> <span class=pull-left><strong ng-bind=purchase.viewModel.balance></strong> &nbsp;&nbsp;元</span></ion-item><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=purchase.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=purchase.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!purchase.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=purchase.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=purchase.toggleAgreement1()>《委托协议》</span> <span>及</span> <span ng-click=purchase.toggleAgreement2()>《借款协议》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!purchase.purchaseButtonEnable() ng-click=purchase.purchase()>同意协议并付款</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008&nbsp;556&nbsp;333&nbsp;。</h4><div class=agreement ng-if=purchase.viewModel.showAgreement1><div ng-bind-html=purchase.viewModel.agreement1></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement1()>返回</button></div><div class=agreement ng-if=purchase.viewModel.showAgreement2><div ng-bind-html=purchase.viewModel.agreement2></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=purchase.toggleAgreement2()>返回</button></div></ion-content></ion-view>");
 }]);
 
 /*jshint -W024 */
@@ -1394,7 +1394,7 @@ angular.module('jym.jinbaoyin.detail', [
             product.viewModel.status = getSaleStatus(product.model);
             product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
             product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
-            product.viewModel.yield = (product.model.yield / 100).toFixed(2);
+            product.viewModel.yield = product.model.yield / 100;
 
 
             if (product.viewModel.status.status !== 20) {
@@ -2470,7 +2470,7 @@ angular.module('jym.shangpiao.detail', [
         };
 
         product.getAccrualDuration = function() {
-            var diff = (moment(product.model.settleDate) - moment(product.model.valueDate)) / (1000 * 60 * 60 * 24);
+            var diff = (moment(product.model.settleDate) - moment(product.model.currentValueDate)) / (1000 * 60 * 60 * 24);
             return parseInt(diff, 10);
         };
 
@@ -2517,6 +2517,7 @@ angular.module('jym.shangpiao.detail', [
 
         product.refreshViewModel = function() {
             product.viewModel.bankName = product.model.bankName;
+            product.viewModel.currentValueDate = product.model.currentValueDate;
             product.viewModel.drawee = product.model.drawee;
             product.viewModel.draweeInfo = product.model.draweeInfo;
             product.viewModel.endorseImageLink = product.model.endorseImageLink;
@@ -2705,7 +2706,7 @@ angular.module('jym.shangpiao', [
         var products = this;
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getSaleStatus = function(product) {
@@ -2746,6 +2747,7 @@ angular.module('jym.shangpiao', [
         var getViewItem = function(modelItem) {
             var item = {};
             item.bankName = modelItem.bankName;
+            item.currentValueDate = modelItem.currentValueDate;
             item.drawee = modelItem.drawee;
             item.draweeInfo = modelItem.draweeInfo;
             item.endorseImageLink = modelItem.endorseImageLink;
@@ -5255,7 +5257,7 @@ angular.module('jym.yinpiao.detail', [
         };
 
         product.getAccrualDuration = function() {
-            var diff = (moment(product.model.settleDate) - moment(product.model.valueDate)) / (1000 * 60 * 60 * 24);
+            var diff = (moment(product.model.settleDate) - moment(product.model.currentValueDate)) / (1000 * 60 * 60 * 24);
             return parseInt(diff, 10);
         };
 
@@ -5302,6 +5304,7 @@ angular.module('jym.yinpiao.detail', [
 
         product.refreshViewModel = function() {
             product.viewModel.bankName = product.model.bankName;
+            product.viewModel.currentValueDate = product.model.currentValueDate;
             product.viewModel.drawee = product.model.drawee;
             product.viewModel.draweeInfo = product.model.draweeInfo;
             product.viewModel.endorseImageLink = product.model.endorseImageLink;
@@ -5489,7 +5492,7 @@ angular.module('jym.yinpiao', [
         var products = this;
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getSaleStatus = function(product) {
@@ -5530,6 +5533,7 @@ angular.module('jym.yinpiao', [
         var getViewItem = function(modelItem) {
             var item = {};
             item.bankName = modelItem.bankName;
+            item.currentValueDate = modelItem.currentValueDate;
             item.drawee = modelItem.drawee;
             item.draweeInfo = modelItem.draweeInfo;
             item.endorseImageLink = modelItem.endorseImageLink;
@@ -5723,7 +5727,7 @@ angular.module('jym.zhuanqu.detail', [
         };
 
         product.getAccrualDuration = function() {
-            var diff = (moment(product.model.settleDate) - moment(product.model.valueDate)) / (1000 * 60 * 60 * 24);
+            var diff = (moment(product.model.settleDate) - moment(product.model.currentValueDate)) / (1000 * 60 * 60 * 24);
             return parseInt(diff, 10);
         };
 
@@ -5781,6 +5785,7 @@ angular.module('jym.zhuanqu.detail', [
 
         product.refreshViewModel = function() {
             product.viewModel.bankName = product.model.bankName;
+            product.viewModel.currentValueDate = product.model.currentValueDate;
             product.viewModel.drawee = product.model.drawee;
             product.viewModel.draweeInfo = product.model.draweeInfo;
             product.viewModel.endorseImageLink = product.model.endorseImageLink;
@@ -6007,7 +6012,7 @@ angular.module('jym.zhuanqu', [
         var products = this;
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getSaleStatus = function(product) {
@@ -6048,6 +6053,7 @@ angular.module('jym.zhuanqu', [
         var getViewItem = function(modelItem) {
             var item = {};
             item.bankName = modelItem.bankName;
+            item.currentValueDate = modelItem.currentValueDate;
             item.drawee = modelItem.drawee;
             item.draweeInfo = modelItem.draweeInfo;
             item.endorseImageLink = modelItem.endorseImageLink;
@@ -6122,12 +6128,20 @@ angular.module('jym.zhuanqu', [
         };
 
         products.viewModel = {};
-        products.viewModel.items = [];
-        products.viewModel.currentPageIndex = 0;
-        products.viewModel.nextPageIndex = 0;
-        products.viewModel.pageSize = 10;
-        products.viewModel.totalCount = 0;
-        products.viewModel.totalPageCount = 1;
+
+        products.doRefresh = function() {
+            products.viewModel.items = [];
+            products.viewModel.currentPageIndex = 0;
+            products.viewModel.nextPageIndex = 0;
+            products.viewModel.pageSize = 10;
+            products.viewModel.totalCount = 0;
+            products.viewModel.totalPageCount = 1;
+            products.viewModel.loading = false;
+
+            $timeout(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            }, 1000);
+        };
 
         products.loadMoreData = function() {
             ProductService.getRegularPage(products.viewModel.nextPageIndex, $stateParams.bankName)
@@ -6151,18 +6165,7 @@ angular.module('jym.zhuanqu', [
             return products.viewModel.nextPageIndex < products.viewModel.totalPageCount;
         };
 
-        products.doRefresh = function() {
-            products.viewModel.items = [];
-            products.viewModel.currentPageIndex = 0;
-            products.viewModel.nextPageIndex = 0;
-            products.viewModel.pageSize = 10;
-            products.viewModel.totalCount = 0;
-            products.viewModel.totalPageCount = 1;
-
-            $timeout(function() {
-                $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
-        };
+        products.doRefresh();
     }]);
 
 'use strict';
