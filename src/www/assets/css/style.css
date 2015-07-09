@@ -1479,27 +1479,15 @@ label.item-input > span {
   color: #facb3a;
 }
 
-@media only screen and (max-width: 320px) and (min-height: 568px) {
+@media only screen and (max-width: 320px) {
   .bank-card p {
-    font-size: 13px;
+    font-size: 12px;
   }
   .bank-card h2 {
     padding-top: 8px;
     font-size: 16px;
   }
 }
-/*iphone5*/
-
-@media only screen and (max-width: 320px) and (max-height: 480px) {
-  .bank-card p {
-    font-size: 13px;
-  }
-  .bank-card h2 {
-    padding-top: 8px;
-    font-size: 16px;
-  }
-}
-/*iphone4*/
 /*bank-card end*/
 /*.bank-card-select start*/
 
