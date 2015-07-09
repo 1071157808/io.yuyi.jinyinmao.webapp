@@ -60,6 +60,9 @@ angular.module('jym.user', [
 
         $scope.$on('$ionicView.enter', function() {
             user.doRefresh();
+        });
+
+        $scope.$on('$ionicView.leave', function() {
             $ionicScrollDelegate.scrollTop();
         });
 

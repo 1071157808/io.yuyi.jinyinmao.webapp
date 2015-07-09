@@ -107,7 +107,7 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         account.resetInput = function() {
-            account.viewModel.amount = 10;
+            account.viewModel.amount = null;
             account.viewModel.password = '';
         };
 

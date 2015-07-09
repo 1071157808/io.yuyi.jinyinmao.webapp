@@ -34,8 +34,8 @@ angular.module('jym.user.settle-account-withdrawal', [
         };
 
         account.doRefresh = function() {
-            account.viewModel.amount = undefined;
-            account.viewModel.password = undefined;
+            account.resetInput();
+
             account.refresh()
                 .then(function(result) {
                     account.model = result;
@@ -76,6 +76,11 @@ angular.module('jym.user.settle-account-withdrawal', [
             }
         };
 
+        account.resetInput = function() {
+            account.viewModel.amount = null;
+            account.viewModel.password = '';
+        };
+
         account.selectAll = function() {
             account.viewModel.amount = account.viewModel.withdrawAmount;
         };
@@ -89,6 +94,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.WITHDRAWAL_SUCCESS);
                             UserService.sharedData.withdrawalBankCardNo = undefined;
                             $timeout(function() {
+                                account.resetInput();
                                 JYMUtilityService.go('jym.user-settle-account-detail', {
                                     transactionIdentifier: result.transactionIdentifier
                                 });
