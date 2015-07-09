@@ -19,6 +19,8 @@ angular.module('jym.yinpiao', [
     .controller('YinpiaoIndexCtrl', function($scope, $timeout, $filter, ProductService) {
         var products = this;
 
+        products.viewModel = {};
+
         var getSaleProgress = function(product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
@@ -97,7 +99,7 @@ angular.module('jym.yinpiao', [
             item.usage = modelItem.usage;
             item.valueDate = modelItem.valueDate;
             item.valueDateMode = modelItem.valueDateMode;
-            item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueData, modelItem.specifyValueDate);
+            item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueDate, modelItem.specifyValueDate);
             item.yield = modelItem.yield / 100;
 
             if (item.status.status === 10) {
@@ -116,8 +118,6 @@ angular.module('jym.yinpiao', [
 
             return item;
         };
-
-        products.viewModel = {};
 
         products.doRefresh = function() {
             products.viewModel.items = [];

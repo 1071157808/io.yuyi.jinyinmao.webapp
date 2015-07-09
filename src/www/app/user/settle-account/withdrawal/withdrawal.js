@@ -122,7 +122,6 @@ angular.module('jym.user.settle-account-withdrawal', [
 
         account.model = {};
         account.viewModel = {};
-        account.viewModel.items = [];
 
         account.doRefresh = function() {
             account.refreshBankCards()

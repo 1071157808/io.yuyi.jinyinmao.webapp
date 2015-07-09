@@ -23,8 +23,6 @@ angular.module('jym.zhuanqu.purchase', [
 
         purchase.model = {};
         purchase.viewModel = {};
-        purchase.model.currentUser = {};
-        purchase.model.order = {};
 
         purchase.check = function() {
             purchase.viewModel.checked = !purchase.viewModel.checked;
@@ -34,10 +32,10 @@ angular.module('jym.zhuanqu.purchase', [
             purchase.viewModel.agreement1 = '委托协议';
             purchase.viewModel.agreement2 = '借款协议';
             purchase.viewModel.bankName = $stateParams.bankName || purchase.viewModel.bankName || 'fudian';
-            purchase.viewModel.checked = true;
-            purchase.viewModel.password = '';
             purchase.viewModel.showAgreement1 = false;
             purchase.viewModel.showAgreement2 = false;
+
+            purchase.resetInput();
 
             var productCategory;
             switch (purchase.viewModel.bankName) {
@@ -93,6 +91,11 @@ angular.module('jym.zhuanqu.purchase', [
             purchase.viewModel.balance = (purchase.model.user.balance / 100).toFixed(2);
         };
 
+        purchase.resetInput = function() {
+            purchase.viewModel.checked = true;
+            purchase.viewModel.password = '';
+        };
+
         purchase.purchaseButtonEnable = function() {
             return purchase.viewModel.checked && purchase.viewModel.amount && purchase.viewModel.password && purchase.model.user.balance >= purchase.model.order.amount;
         };
@@ -106,6 +109,7 @@ angular.module('jym.zhuanqu.purchase', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.REGULAR);
                             PurchaseService.clearRegularOrder();
                             $timeout(function() {
+                                purchase.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
                             }, 1000);
                         }

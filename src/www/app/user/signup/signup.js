@@ -32,14 +32,19 @@ angular.module('jym.user.signup', [])
 
         ctrl.doRefresh = function() {
             ctrl.viewModel.checked = true;
-            ctrl.viewModel.password = '';
-            ctrl.viewModel.confirmPassword = '';
             ctrl.viewModel.showAgreement1 = false;
             ctrl.viewModel.showAgreement2 = false;
+
+            ctrl.resetInput();
         };
 
         ctrl.enableButton = function() {
             return ctrl.viewModel.checked && ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.confirmPassword = '';
+            ctrl.viewModel.password = '';
         };
 
         ctrl.resetPassword = function() {
@@ -81,10 +86,16 @@ angular.module('jym.user.signup', [])
         var ctrl = this;
 
         ctrl.viewModel = {};
-        ctrl.viewModel.cellphone = undefined;
-        ctrl.viewModel.veriCode = undefined;
-
         ctrl.viewModel.remainSeconds = 0;
+
+        ctrl.doRefresh = function() {
+            ctrl.resetInput();
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.cellphone = '';
+            ctrl.viewModel.veriCode = '';
+        };
 
         ctrl.sendVeriCode = function() {
             if (ctrl.sendVeriCodeButtonEnable()) {
@@ -120,10 +131,9 @@ angular.module('jym.user.signup', [])
                     .then(function(result) {
                         if (result) {
                             ctrl.viewModel.remainSeconds = 0;
-
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
-
                             $timeout(function() {
+                                ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-signup', { token: result.token });
                             }, 1000);
                         }
@@ -134,4 +144,10 @@ angular.module('jym.user.signup', [])
         ctrl.verifyVeriCodeButtonEnable = function() {
             return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
+
+        $scope.$on('$ionicView.enter', function() {
+            ctrl.doRefresh();
+        });
+
+        ctrl.doRefresh();
     });

@@ -4,17 +4,17 @@ angular.module('JYM', [
     'ionic.service.core',
     'ionic.service.deploy',
     'ngCordova',
-    'jym.user',
     'angular-progress-arc',
+    'jym.constants',
     'jym.controllers',
-    'jym.interceptors',
     'jym.filters',
+    'jym.interceptors',
     'jym.jinbaoyin',
     'jym.shangpiao',
     'jym.templates',
-    'jym.zhuanqu',
+    'jym.user',
     'jym.yinpiao',
-    'jym.constants'
+    'jym.zhuanqu'
 ])
     .config(function($ionicConfigProvider) {
         $ionicConfigProvider.views.transition('ios');
@@ -49,9 +49,6 @@ angular.module('JYM', [
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
-            }
-            if (window.StatusBar) {
-                StatusBar.styleDefault();
             }
         });
     })

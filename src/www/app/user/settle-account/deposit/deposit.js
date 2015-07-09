@@ -43,8 +43,8 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         account.doRefresh = function() {
-            account.viewModel.amount = undefined;
-            account.viewModel.password = undefined;
+            account.resetInput();
+
             account.refresh()
                 .then(function(result) {
                     account.model = result;
@@ -62,6 +62,7 @@ angular.module('jym.user.settle-account-deposit', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.DEPOSIT_SUCCESS);
                             UserService.sharedData.depositBankCardNo = undefined;
                             $timeout(function() {
+                                account.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-settle-account-deposit-success');
                             }, 1000);
                         }
@@ -103,6 +104,11 @@ angular.module('jym.user.settle-account-deposit', [
                 account.viewModel.withdrawAmount = (account.model.withdrawAmount / 100).toFixed(2);
                 account.viewModel.noCard = false;
             }
+        };
+
+        account.resetInput = function() {
+            account.viewModel.amount = 10;
+            account.viewModel.password = '';
         };
 
         $scope.$on('$ionicView.enter', function() {

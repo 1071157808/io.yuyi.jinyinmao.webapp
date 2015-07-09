@@ -27,6 +27,8 @@ angular.module('jym.zhuanqu', [
     .controller('ZhuanquListCtrl', function($scope, $filter, $stateParams, $timeout, ProductService) {
         var products = this;
 
+        products.viewModel = {};
+
         var getSaleProgress = function(product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
@@ -142,8 +144,6 @@ angular.module('jym.zhuanqu', [
 
             return item;
         };
-
-        products.viewModel = {};
 
         products.doRefresh = function() {
             products.viewModel.items = [];
