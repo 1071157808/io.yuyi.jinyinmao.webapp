@@ -848,10 +848,14 @@ ion-item .col-67 > .detail > li {
   padding-top: 3px;
   font-size: 14px;
   color: #83817c;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 215px;
 }
 
 ion-item .col-67 > li {
-  padding-top: 3px;
+  padding-top: 4px;
   padding-bottom: 5px;
   font-size: 16px;
 }
@@ -888,11 +892,7 @@ ion-item img {
     margin-left: -8px;
   }
   ion-item .col-67 > .detail > li {
-    text-overflow: ellipsis;
-    word-wrap: normal;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 140%;
+    width: 205px;
   }
 
 }
