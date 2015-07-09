@@ -330,7 +330,7 @@ angular.module('jym.services.user', [
                     return result.data;
                 })
                 .then(function(result) {
-                    if (!result.success || result.remainCount < 0) {
+                    if (!result.success || result.remainCount <= 0) {
                         JYMUtilityService.showAlert(RESOURCES.ALERT.USER.TOO_MANY_VERI_CODE);
                         return false;
                     }
@@ -399,8 +399,13 @@ angular.module('jym.services.user', [
                     return result.data;
                 })
                 .then(function(result) {
-                    if (!result.success || result.remainCount < 0) {
-                        JYMUtilityService.showAlert(RESOURCES.ALERT.USER.VERI_CODE_FAIL);
+                    if (!result.success || result.remainCount > 0) {
+                        if (result.remainCount > 0) {
+                            JYMUtilityService.showAlert(RESOURCES.ALERT.USER.VERI_CODE_FAIL);
+                        } else {
+                            JYMUtilityService.showAlert(RESOURCES.ALERT.USER.VERI_CODE_EXPIRE);
+                        }
+
                         return false;
                     }
 

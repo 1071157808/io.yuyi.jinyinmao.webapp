@@ -93,7 +93,8 @@ angular.module('jym.constants', [])
             },
             SECURITY: {
                 RESET_PASSWORD: '登录密码修改成功<br>请用新密码登录',
-                SET_PAYMENT_PASSWORD: '设置成功'
+                SET_PAYMENT_PASSWORD: '设置成功',
+                RESET_PAYMENT_PASSWORD: '支付密码修改成功'
             },
             SIGNUP: {
                 SIGNUP_SUCCESS: '注册成功<br>请登录使用'

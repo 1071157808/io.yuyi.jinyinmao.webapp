@@ -76,11 +76,10 @@ angular.module('jym.user.security-payment-password', [])
                 UserService.resetPaymentPassword(ctrl.viewModel.credentialNo, ctrl.viewModel.password, $stateParams.token, ctrl.viewModel.realName)
                     .then(function(result) {
                         if (result) {
-                            JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PASSWORD);
-                            UserService.loginOut();
+                            JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PAYMENT_PASSWORD);
                             ctrl.resetInput();
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user-login');
+                                JYMUtilityService.goWithDisableBack('jym.user');
                             }, 1000);
                         }
                     });
