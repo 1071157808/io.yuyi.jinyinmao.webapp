@@ -516,24 +516,28 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
   width: 46px;
   overflow: hidden;
 }
+.item h2 {
+  font-family: 'HiraginoSansGB W3', 'Microsoft YaHei', \5FAE\8F6F\96C5\9ED1, Helvetica, Arial, sans-serif;
+  color: #666;
+}
+/*.ui-left,*/
+/*.ui-right {*/
+  /*position: absolute;*/
+  /*top: 0;*/
+/*}*/
 
-.ui-left,
-.ui-right {
-  position: absolute;
-  top: 0;
-}
+/*.ui-left {*/
+  /*left: 0;*/
+/*}*/
 
-.ui-left {
-  left: 0;
-}
+/*.ui-right {*/
+  /*right: 0;*/
+/*}*/
 
-.ui-right {
-  right: 0;
-}
-.item-complex .item-content {
-  padding-top: 8px;
-  padding-bottom: 10px;
-}
+/*.item-complex .item-content {*/
+  /*padding-top: 8px;*/
+  /*padding-bottom: 10px;*/
+/*}*/
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   ion-header-bar.bar.bar-header div {
     font-size: 15px !important;
