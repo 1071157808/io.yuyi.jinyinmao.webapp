@@ -22,6 +22,9 @@ angular.module('jym.shangpiao.detail', [
     .controller('ShangpiaoDetailCtrl', function($scope, $state, $stateParams, $timeout, $q, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
+        product.model = {};
+        product.viewModel = {};
+
         var getSaleProgress = function(product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
@@ -57,9 +60,6 @@ angular.module('jym.shangpiao.detail', [
         var getValueDateModeText = function(valueDateMode) {
             return ProductService.getValueDateModeText(valueDateMode);
         };
-
-        product.model = {};
-        product.viewModel = {};
 
         product.doRefresh = function() {
             product.viewModel.investCount = product.viewModel.investCount || 10;

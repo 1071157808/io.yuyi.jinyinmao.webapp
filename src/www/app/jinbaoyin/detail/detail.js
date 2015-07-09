@@ -153,5 +153,4 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         product.doRefresh();
-
     });

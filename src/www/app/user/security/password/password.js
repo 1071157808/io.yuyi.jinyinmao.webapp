@@ -25,16 +25,18 @@ angular.module('jym.user.security-password', [])
         var ctrl = this;
 
         ctrl.viewModel = {};
-        ctrl.viewModel.password = undefined;
-        ctrl.viewModel.confirmPassword = undefined;
 
         ctrl.doRefresh = function() {
-            ctrl.viewModel.password = undefined;
-            ctrl.viewModel.confirmPassword = undefined;
+            ctrl.resetInput();
         };
 
         ctrl.enableButton = function() {
             return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.password = '';
+            ctrl.viewModel.confirmPassword = '';
         };
 
         ctrl.resetPassword = function() {
@@ -45,6 +47,7 @@ angular.module('jym.user.security-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PASSWORD);
                             UserService.loginOut();
                             $timeout(function() {
+                                ctrl.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-login');
                             }, 1000);
                         }

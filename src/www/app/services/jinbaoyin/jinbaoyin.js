@@ -52,6 +52,5 @@ angular.module('jym.services.jinbaoyin', [
                 .then(function(result) {
                     return service.getAgreement(result.productIdentifier, 2);
                 });
-
         };
     });

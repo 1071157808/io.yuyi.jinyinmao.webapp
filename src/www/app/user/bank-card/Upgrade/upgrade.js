@@ -52,11 +52,11 @@ angular.module('jym.user.bank-card-upgrade', [
             card.viewModel.cellphone = card.model.user.cellphone;
 
             if (card.viewModel.verified) {
-                card.viewModel.realName = card.model.user.realName;
                 card.viewModel.credentialNo = card.model.user.credentialNo;
+                card.viewModel.realName = card.model.user.realName;
             } else {
-                card.viewModel.realName = '';
-                card.viewModel.credentialNo = '';
+                card.viewModel.credentialNo = card.viewModel.credentialNo || '';
+                card.viewModel.realName = card.viewModel.realName || '';
             }
 
             card.viewModel.bankCardNo = card.model.card.bankCardNo;

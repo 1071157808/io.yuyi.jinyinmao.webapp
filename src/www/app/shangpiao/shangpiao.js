@@ -19,6 +19,8 @@ angular.module('jym.shangpiao', [
     .controller('ShangpiaoIndexCtrl', function($scope, $timeout, $filter, ProductService) {
         var products = this;
 
+        products.viewModel = {};
+
         var getSaleProgress = function(product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
@@ -116,8 +118,6 @@ angular.module('jym.shangpiao', [
 
             return item;
         };
-
-        products.viewModel = {};
 
         products.doRefresh = function() {
             products.viewModel.items = [];

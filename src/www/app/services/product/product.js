@@ -147,7 +147,6 @@ angular.module('jym.services.product', [
             return (paidAmount / financingSumAmount * 100).toFixed(0);
         };
 
-
         service.getSaleStatus = function(soldOut, startSellTime, endSellTime) {
             // 售罄
             if (soldOut === true || moment(endSellTime) < moment()) {
@@ -163,6 +162,10 @@ angular.module('jym.services.product', [
             return 10;
         };
 
+        service.getShangpiaoPage = function(pageIndex) {
+            return service.getRegularPage(pageIndex, 'shangpiao');
+        };
+
         service.getSold = function(productIdentifier) {
             var url = URLS.REGULARPRDUCT.SOLD + productIdentifier;
 
@@ -171,14 +174,9 @@ angular.module('jym.services.product', [
             });
         };
 
-        service.getShangpiaoPage = function(pageIndex) {
-            return service.getRegularPage(pageIndex, 'shangpiao');
-        };
-
         service.getYinpiaoPage = function(pageIndex) {
             return service.getRegularPage(pageIndex, 'yinpiao');
         };
-
 
         service.getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {
             if (specifyValueDate) {

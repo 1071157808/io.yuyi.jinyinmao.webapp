@@ -35,26 +35,17 @@ angular.module('jym.user.security-payment-password', [])
 
         ctrl.model = {};
         ctrl.viewModel = {};
-        ctrl.viewModel.realName = '';
-        ctrl.viewModel.credentialNo = '';
-        ctrl.viewModel.password = undefined;
-        ctrl.viewModel.confirmPassword = undefined;
+
 
         ctrl.doRefresh = function() {
+            ctrl.resetInput();
+
             ctrl.refreshUser()
                 .then(function(result) {
                     ctrl.model.user = result;
                     ctrl.refreshViewModel();
                     return result;
                 });
-        };
-
-        ctrl.refreshUser = function() {
-            return UserService.getUserInfo();
-        };
-
-        ctrl.refreshViewModel = function() {
-            ctrl.viewModel.needUserInfo = ctrl.model.user.verified;
         };
 
         ctrl.enableButton = function() {
@@ -65,6 +56,21 @@ angular.module('jym.user.security-payment-password', [])
             }
         };
 
+        ctrl.refreshUser = function() {
+            return UserService.getUserInfo();
+        };
+
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.needUserInfo = ctrl.model.user.verified;
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.confirmPassword = '';
+            ctrl.viewModel.credentialNo = '';
+            ctrl.viewModel.password = '';
+            ctrl.viewModel.realName = '';
+        };
+
         ctrl.resetPassword = function() {
             if (ctrl.enableButton()) {
                 UserService.resetPaymentPassword(ctrl.viewModel.credentialNo, ctrl.viewModel.password, $stateParams.token, ctrl.viewModel.realName)
@@ -72,6 +78,7 @@ angular.module('jym.user.security-payment-password', [])
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PASSWORD);
                             UserService.loginOut();
+                            ctrl.resetInput();
                             $timeout(function() {
                                 JYMUtilityService.goWithDisableBack('jym.user-login');
                             }, 1000);
@@ -83,16 +90,25 @@ angular.module('jym.user.security-payment-password', [])
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
+
+        ctrl.doRefresh();
     })
     .controller('UserSecuritySetPaymentPasswordCtrl', function($timeout, $stateParams, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
-        ctrl.viewModel.password = undefined;
-        ctrl.viewModel.confirmPassword = undefined;
+
+        ctrl.doRefresh = function() {
+            ctrl.resetInput();
+        };
 
         ctrl.enableButton = function() {
             return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.confirmPassword = '';
+            ctrl.viewModel.password = '';
         };
 
         ctrl.setPassword = function() {
@@ -102,6 +118,7 @@ angular.module('jym.user.security-payment-password', [])
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SET_PAYMENT_PASSWORD);
                             $timeout(function() {
+                                ctrl.resetInput();
                                 if ($ionicHistory.backView()) {
                                     $ionicHistory.goBack();
                                 } else {
@@ -113,18 +130,24 @@ angular.module('jym.user.security-payment-password', [])
                     });
             }
         };
+
+        $scope.$on('$ionicView.enter', function() {
+            ctrl.doRefresh();
+        });
+
+        ctrl.doRefresh();
     })
     .controller('UserSecurityPaymentPasswordSendVeriCodeCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
         ctrl.viewModel = {};
-        ctrl.viewModel.cellphone = undefined;
-        ctrl.viewModel.veriCode = undefined;
-
-        ctrl.viewModel.remainSeconds = 0;
 
         ctrl.doRefresh = function() {
+            ctrl.viewModel.remainSeconds = 0;
+
+            ctrl.resetInput();
+
             ctrl.refreshUser()
                 .then(function(result) {
                     ctrl.model.user = result;
@@ -139,6 +162,11 @@ angular.module('jym.user.security-payment-password', [])
 
         ctrl.refreshViewModel = function() {
             ctrl.viewModel.cellphone = ctrl.model.user.cellphone;
+            ctrl.viewModel.veriCode = '';
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.cellphone = '';
             ctrl.viewModel.veriCode = '';
         };
 
@@ -180,6 +208,7 @@ angular.module('jym.user.security-payment-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
+                                ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-security-reset-payment-password', { token: result.token });
                             }, 1000);
                         }

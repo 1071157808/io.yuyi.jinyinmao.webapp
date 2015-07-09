@@ -21,8 +21,6 @@ angular.module('jym.jinbaoyin.purchase', [
 
         purchase.model = {};
         purchase.viewModel = {};
-        purchase.model.currentUser = {};
-        purchase.model.order = {};
 
         purchase.check = function() {
             purchase.viewModel.checked = !purchase.viewModel.checked;
@@ -30,8 +28,8 @@ angular.module('jym.jinbaoyin.purchase', [
 
         purchase.doRefresh = function() {
             purchase.viewModel.agreement = '金银猫金包银投资协议';
-            purchase.viewModel.checked = true;
-            purchase.viewModel.password = '';
+
+            purchase.resetInput();
 
             purchase.refreshUserInfo()
                 .then(function(result) {
@@ -78,11 +76,17 @@ angular.module('jym.jinbaoyin.purchase', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.JBY);
                             PurchaseService.clearJBYOrder();
                             $timeout(function() {
+                                purchase.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', { transactionIdentifier: result.transactionIdentifier });
                             }, 1000);
                         }
                     });
             }
+        };
+
+        purchase.resetInput = function() {
+            purchase.viewModel.checked = true;
+            purchase.viewModel.password = '';
         };
 
         purchase.toggleAgreement = function() {

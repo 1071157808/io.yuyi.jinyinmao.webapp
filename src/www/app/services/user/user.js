@@ -53,23 +53,6 @@ angular.module('jym.services.user', [
 
         var currentUser = {};
 
-        service.authenticate = function(bankCardNo, bankName, credentialNo, realName) {
-            var url = URLS.USER.AUTHENTICATE;
-            var cityName = getCityName(bankName);
-
-            return $http.post(url, {
-                bankCardNo: bankCardNo,
-                bankName: bankName,
-                cityName: cityName,
-                credential: 10,
-                credentialNo: credentialNo,
-                realName: realName
-            })
-                .then(function(result) {
-                    return result.status === 200;
-                });
-        };
-
         service.addBankCard = function(bankCardNo, bankName) {
             var url = URLS.BANKCARD.ADD_BANK_CARD;
             var cityName = getCityName(bankName);
@@ -92,6 +75,23 @@ angular.module('jym.services.user', [
                 bankCardNo: bankCardNo,
                 bankName: bankName,
                 cityName: cityName
+            })
+                .then(function(result) {
+                    return result.status === 200;
+                });
+        };
+
+        service.authenticate = function(bankCardNo, bankName, credentialNo, realName) {
+            var url = URLS.USER.AUTHENTICATE;
+            var cityName = getCityName(bankName);
+
+            return $http.post(url, {
+                bankCardNo: bankCardNo,
+                bankName: bankName,
+                cityName: cityName,
+                credential: 10,
+                credentialNo: credentialNo,
+                realName: realName
             })
                 .then(function(result) {
                     return result.status === 200;
@@ -210,16 +210,6 @@ angular.module('jym.services.user', [
 
         service.getOrderList = function(pageIndex) {
             var url = URLS.ORDER.LIST + pageIndex + '/1';
-
-            return $http.get(url, {
-                cache: JYMCacheService.get('userCache')
-            }).then(function(result) {
-                return result.data;
-            });
-        };
-
-        service.getSettelAccountTransaction = function(transactionIdentifier) {
-            var url = URLS.SETTLEACCOUNT.INFO + transactionIdentifier;
 
             return $http.get(url, {
                 cache: JYMCacheService.get('userCache')

@@ -42,6 +42,8 @@ angular.module('jym.user.bank-card-add', [
         };
 
         card.doRefresh = function() {
+            card.resetInput();
+
             card.refreshUser()
                 .then(function(result) {
                     card.model.user = result;
@@ -62,15 +64,22 @@ angular.module('jym.user.bank-card-add', [
             card.viewModel.verified = card.model.user.verified;
 
             if (card.viewModel.verified) {
-                card.viewModel.realName = card.model.user.realName;
                 card.viewModel.credentialNo = card.model.user.credentialNo;
+                card.viewModel.realName = card.model.user.realName;
             } else {
-                card.viewModel.realName = card.viewModel.realName || '';
                 card.viewModel.credentialNo = card.viewModel.credentialNo || '';
+                card.viewModel.realName = card.viewModel.realName || '';
             }
 
             card.viewModel.bankCardNo = card.viewModel.bankCardNo || '';
             card.viewModel.bankName = UserService.sharedData.addBankName || '工商银行';
+        };
+
+        card.resetInput = function() {
+            card.viewModel.bankCardNo = '';
+            card.viewModel.cellphone = '';
+            card.viewModel.credentialNo = '';
+            card.viewModel.realName = '';
         };
 
         card.verify = function() {
@@ -81,6 +90,7 @@ angular.module('jym.user.bank-card-add', [
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
                                 $timeout(function() {
+                                    card.resetInput();
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);
                             }
@@ -91,13 +101,12 @@ angular.module('jym.user.bank-card-add', [
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
                                 $timeout(function() {
+                                    card.resetInput();
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);
                             }
                         });
                 }
-
-                card.viewModel.bankCardNo = '';
             }
         };
 
