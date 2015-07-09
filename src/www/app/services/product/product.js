@@ -2,7 +2,7 @@
 angular.module('jym.services.product', [
     'jym.services'
 ])
-    .service('ProductService', function($http, $filter, RESOURCES, URLS, JYMCacheService) {
+    .service('ProductService', function($http, $filter, RESOURCES, URLS, JYMCacheService, JYMUtilityService) {
         var service = this;
 
         service.checkProductPurchaseStatus = function(getProductInfo, amount) {
@@ -148,13 +148,14 @@ angular.module('jym.services.product', [
         };
 
         service.getSaleStatus = function(soldOut, startSellTime, endSellTime) {
+            var now = JYMUtilityService.getTime();
             // 售罄
-            if (soldOut === true || moment(endSellTime) < moment()) {
+            if (soldOut === true || moment(endSellTime) < now) {
                 return 30;
             }
 
             // 在售
-            if (moment(startSellTime) < moment()) {
+            if (moment(startSellTime) < now) {
                 return 20;
             }
 

@@ -2,6 +2,10 @@
   <ion-content>
     <div ng-if="!account.viewModel.noCard">
       <ion-list class="bank-card">
+        <ion-item>
+          <p>可取金额（元）：<strong ng-bind="account.viewModel.withdrawalableAmount"></strong></p>
+        </ion-item>
+        <ion-item class="divider"></ion-item>
         <ion-item class="item-thumbnail-left item-icon-right" ui-sref="jym.user-settle-account-withdrawal-bank-card-selector">
           <img ng-src="{{ account.viewModel.bankName | bankImg }}">
 
@@ -16,7 +20,7 @@
         <ion-item class="divider"></ion-item>
         <ion-item class="item-input max-withdrawal">
           <span class="input-label">取款金额</span>
-          <input type="number" placeholder="请输入取款金额（元）" required min="0.01" max="1000000" ng-model="account.viewModel.amount">
+          <input type="number" placeholder="请输入取款金额（元）" required min="0.01" max="{{ account.viewModel.withdrawalableAmount }}" ng-model="account.viewModel.amount">
         </ion-item>
         <ion-item class="item-input">
           <span class="input-label">输入密码</span>

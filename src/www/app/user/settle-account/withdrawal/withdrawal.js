@@ -36,15 +36,20 @@ angular.module('jym.user.settle-account-withdrawal', [
         account.doRefresh = function() {
             account.resetInput();
 
-            account.refresh()
+            account.refreshBankCard()
                 .then(function(result) {
-                    account.model = result;
+                    account.model.bankCard = result;
                     account.refreshViewModel();
                     return result;
                 });
+
+            account.refreshUser()
+                .then(function(result) {
+                    account.model.user = result;
+                });
         };
 
-        account.refresh = function() {
+        account.refreshBankCard = function() {
             if (UserService.sharedData.withdrawalBankCardNo) {
                 return UserService.getBankCard(UserService.sharedData.withdrawalBankCardNo);
             } else {
@@ -60,19 +65,25 @@ angular.module('jym.user.settle-account-withdrawal', [
             }
         };
 
+        account.refreshUser = function() {
+            return UserService.getUserInfo();
+        };
+
         account.refreshViewModel = function() {
-            if (account.model === null) {
+            if (account.model.bankCard === null) {
                 account.viewModel.noCard = true;
             } else {
-                account.viewModel.bankCardNo = account.model.bankCardNo;
-                account.viewModel.bankName = account.model.bankName;
-                account.viewModel.cellphone = account.model.cellphone;
-                account.viewModel.cityName = account.model.cityName;
-                account.viewModel.verified = account.model.verified;
-                account.viewModel.verifiedByYilian = account.model.verifiedByYilian;
-                account.viewModel.verifiedTime = account.model.verifiedTime;
-                account.viewModel.withdrawAmount = (account.model.withdrawAmount / 100).toFixed(2);
+                account.viewModel.bankCardNo = account.model.bankCard.bankCardNo;
+                account.viewModel.bankName = account.model.bankCard.bankName;
+                account.viewModel.cellphone = account.model.bankCard.cellphone;
+                account.viewModel.cityName = account.model.bankCard.cityName;
+                account.viewModel.verified = account.model.bankCard.verified;
+                account.viewModel.verifiedByYilian = account.model.bankCard.verifiedByYilian;
+                account.viewModel.verifiedTime = account.model.bankCard.verifiedTime;
+                account.viewModel.withdrawAmount = (account.model.bankCard.withdrawAmount / 100).toFixed(2);
                 account.viewModel.noCard = false;
+
+                account.viewModel.withdrawalableAmount = (account.user.withdrawalableAmount / 100).toFixed(2);
             }
         };
 

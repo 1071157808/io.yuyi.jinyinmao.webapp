@@ -94,7 +94,12 @@ angular.module('jym.services', [
         };
     })
     .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX) {
+        var now = moment();
         var service = this;
+
+        service.getTime = function() {
+            return now;
+        };
 
         service.go = function(to, params, options) {
             $state.go(to, params, options);
@@ -117,6 +122,10 @@ angular.module('jym.services', [
             } else {
                 $state.go(url);
             }
+        };
+
+        service.setTime = function(time) {
+            now = time;
         };
 
         service.showAlert = function(text) {

@@ -147,7 +147,7 @@ angular.module('jym.user.orders-detail', [
             order.viewModel.productSnapshot.valueDateMode = order.model.order.productSnapshot.soldOutTime;
             order.viewModel.productSnapshot.yield = (order.model.order.productSnapshot.yield / 100).toFixed(2);
 
-            var now = moment();
+            var now = JYMUtilityService.getTime();
             if (order.viewModel.isRepaid) {
                 order.viewModel.statusText = '已还款';
             } else if (now > moment(order.viewModel.settleDate)) {
