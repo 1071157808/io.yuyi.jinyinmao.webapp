@@ -530,7 +530,10 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
 .ui-right {
   right: 0;
 }
-
+.item-complex .item-content {
+  padding-top: 8px;
+  padding-bottom: 10px;
+}
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   ion-header-bar.bar.bar-header div {
     font-size: 15px !important;
@@ -600,21 +603,12 @@ ion-slide img {
   margin: 5% auto;
 }
 
-@media only screen and (max-width: 320px) and (min-height: 568px) {
-  .jinbaoyin-index-product span {
-    margin-right: 11px;
-    margin-left: 11px;
-  }
-}
-/*iphone5*/
-
-@media only screen and (max-width: 320px) and (max-height: 480px) {
+@media only screen and (max-width: 320px) {
   .jinbaoyin-index-product span {
     margin-right: 10px;
     margin-left: 10px;
   }
 }
-/*iphone4*/
 /*.jym-safe-control start*/
 
 .ui-grid3 {
@@ -709,19 +703,11 @@ ion-slide img {
 }
 /*.jym-safe-control end*/
 
-@media only screen and (max-width: 320px) and (min-height: 568px) {
+@media only screen and (max-width: 320px)  {
   .jinbaoyin-index-product {
     margin-top: 0;
   }
 }
-/*iphone5*/
-
-@media only screen and (max-width: 320px) and (max-height: 480px) {
-  .jinbaoyin-index-product {
-    margin-top: 0;
-  }
-}
-/*iphone4*/
 
 @media only screen and (min-width: 768px) {
   .jinbaoyin-index-product h4 {
@@ -811,7 +797,9 @@ ion-item .col {
   padding-bottom: 0;
   list-style: none;
 }
-
+ion-item .col-33 {
+  padding-left: 15px;
+}
 ion-item .col-33 em {
   font-size: 30px;
   color: #e74c3c;
@@ -848,10 +836,14 @@ ion-item .col-67 > .detail > li {
   padding-top: 3px;
   font-size: 14px;
   color: #83817c;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 215px;
 }
 
 ion-item .col-67 > li {
-  padding-top: 3px;
+  padding-top: 4px;
   padding-bottom: 5px;
   font-size: 16px;
 }
@@ -888,11 +880,11 @@ ion-item img {
     margin-left: -8px;
   }
   ion-item .col-67 > .detail > li {
-    width: 140%;
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: normal;
     white-space: nowrap;
+    width: 205px;
   }
 }
 /*ion-list ion-item end*/
@@ -1001,7 +993,7 @@ ion-item img {
 }
 
 .item-divider p {
-  padding-left: 10px;
+  /*padding-left: 10px;*/
   font-size: 12px;
 }
 
@@ -1672,28 +1664,28 @@ label.item-input > span {
   color: #cead52;
 }
 
-@media only screen and (max-width: 320px) and (max-height: 480px) {
-  .deposit .item > img {
-    left: 0;
-  }
-  .deposit .item > p {
-    position: relative;
-    right: 20px;
-    width: 145px;
-    padding-top: 7px;
-    font-size: 13px;
-    white-space: normal;
-  }
-  .deposit .item i {
-    right: 0;
-  }
-  .deposit h4 {
-    left: 9%;
-  }
-}
+/*@media only screen and (max-width: 320px) and (max-height: 480px) {*/
+  /*.deposit .item > img {*/
+    /*left: 0;*/
+  /*}*/
+  /*.deposit .item > p {*/
+    /*position: relative;*/
+    /*right: 20px;*/
+    /*width: 145px;*/
+    /*padding-top: 7px;*/
+    /*font-size: 13px;*/
+    /*white-space: normal;*/
+  /*}*/
+  /*.deposit .item i {*/
+    /*right: 0;*/
+  /*}*/
+  /*.deposit h4 {*/
+    /*left: 9%;*/
+  /*}*/
+/*}*/
 /*iphone4*/
 
-@media only screen and (max-width: 320px) and (min-height: 568px) {
+@media only screen and (max-width: 320px)  {
   .deposit .item > img {
     left: 0;
   }
@@ -1715,7 +1707,6 @@ label.item-input > span {
     font-size: 14px;
   }
 }
-/*iphone5*/
 
 @media only screen and (min-width: 992px) {
   .deposit h4 {
@@ -1873,19 +1864,11 @@ label.checkbox span {
 }
 /*ion-tabs end*/
 
-@media only screen and (max-width: 320px) and (max-height: 480px) {
-  ion-item .date {
-    padding-right: 11px;
-  }
-}
-/*iphone4*/
-
-@media only screen and (max-width: 320px) and (min-height: 568px) {
+@media only screen and (max-width: 320px)  {
   ion-item .date {
     padding-right: 10px;
   }
 }
-/*iphone5*/
 /*circle-progress start*/
 
 .circle-progress circle {
@@ -2017,8 +2000,9 @@ input[readonly]:not(.cloned-text-input) {
   .item-content .col.col-67 {
     padding-left: 50px;
   }
-}
-/*ipad 竖屏*/
+}/*ipad 竖屏*/
+
+
 /*pace start*/
 .pace {
           pointer-events: none;
@@ -2076,8 +2060,9 @@ input[readonly]:not(.cloned-text-input) {
   padding-top: 14px;
 }
 /*.orderList end*/
-/*.reset-paymen-passsword start*/
 
+
+/*.reset-paymen-passsword start*/
 @media only screen and (max-width: 320px) {
   .reset-payment-passsword .item-input {
     padding-left: 8px;
