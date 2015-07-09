@@ -93,13 +93,21 @@ angular.module('jym.services', [
             return service.getConfig().then(extractSlidersConfig);
         };
     })
-    .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX) {
-        var now = moment();
+    .service('JYMTimeService', function() {
         var service = this;
+
+        var now = moment();
 
         service.getTime = function() {
             return now;
         };
+
+        service.setTime = function(time) {
+            now = time;
+        };
+    })
+    .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX) {
+        var service = this;
 
         service.go = function(to, params, options) {
             $state.go(to, params, options);
@@ -122,10 +130,6 @@ angular.module('jym.services', [
             } else {
                 $state.go(url);
             }
-        };
-
-        service.setTime = function(time) {
-            now = time;
         };
 
         service.showAlert = function(text) {

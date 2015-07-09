@@ -1,6 +1,7 @@
 /*jshint -W024 */
 'use strict';
 angular.module('jym.user.orders-detail', [
+    'jym.services',
     'jym.services.user'
 ])
     .config(function($stateProvider) {

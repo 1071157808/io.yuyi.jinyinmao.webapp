@@ -23,7 +23,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                 }
             });
     })
-    .controller('UserSettleAccountWithdrawalCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSettleAccountWithdrawalCtrl', function($scope, $timeout, $q, RESOURCES, UserService, JYMUtilityService) {
         var account = this;
 
         account.model = {};
@@ -36,16 +36,20 @@ angular.module('jym.user.settle-account-withdrawal', [
         account.doRefresh = function() {
             account.resetInput();
 
-            account.refreshBankCard()
+            var refreshBankCard = account.refreshBankCard()
                 .then(function(result) {
                     account.model.bankCard = result;
-                    account.refreshViewModel();
                     return result;
                 });
 
-            account.refreshUser()
+            var refreshUser = account.refreshUser()
                 .then(function(result) {
                     account.model.user = result;
+                });
+
+            $q.all([refreshBankCard, refreshUser])
+                .then(function() {
+                    account.refreshViewModel();
                 });
         };
 
@@ -83,7 +87,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                 account.viewModel.withdrawAmount = (account.model.bankCard.withdrawAmount / 100).toFixed(2);
                 account.viewModel.noCard = false;
 
-                account.viewModel.withdrawalableAmount = (account.user.withdrawalableAmount / 100).toFixed(2);
+                account.viewModel.withdrawalableAmount = (account.model.user.withdrawalableAmount / 100).toFixed(2);
             }
         };
 

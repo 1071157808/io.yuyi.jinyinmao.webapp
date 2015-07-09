@@ -1,6 +1,7 @@
 /*jshint -W024 */
 'use strict';
 angular.module('jym.user.orders', [
+    'jym.services',
     'jym.services.user',
     'jym.user.settle-account-detail'
 ])

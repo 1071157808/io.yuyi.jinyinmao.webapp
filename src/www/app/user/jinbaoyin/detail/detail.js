@@ -1,5 +1,6 @@
 'use strict';
 angular.module('jym.user.jinbaoyin-detail', [
+    'jym.services',
     'jym.services.user'
 ])
     .config(function($stateProvider) {

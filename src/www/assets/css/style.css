@@ -522,21 +522,21 @@ ion-header-bar.bar.bar-header ul.jym-nav-top i {
 }
 /*.ui-left,*/
 /*.ui-right {*/
-  /*position: absolute;*/
-  /*top: 0;*/
+/*position: absolute;*/
+/*top: 0;*/
 /*}*/
 
 /*.ui-left {*/
-  /*left: 0;*/
+/*left: 0;*/
 /*}*/
 
 /*.ui-right {*/
-  /*right: 0;*/
+/*right: 0;*/
 /*}*/
 
 /*.item-complex .item-content {*/
-  /*padding-top: 8px;*/
-  /*padding-bottom: 10px;*/
+/*padding-top: 8px;*/
+/*padding-bottom: 10px;*/
 /*}*/
 @media only screen and (max-width: 320px) and (max-height: 480px) {
   ion-header-bar.bar.bar-header div {
