@@ -20,7 +20,7 @@ angular.module('jym.jinbaoyin.detail', [
                 }
             });
     })
-    .controller('JinbaoyinDetailCtrl', function($scope, $timeout, $q, $state, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinDetailCtrl', function($scope, $state, $timeout, $q, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
         product.model = {};

@@ -24,7 +24,7 @@ angular.module('jym.zhuanqu', [
                 }
             });
     })
-    .controller('ZhuanquListCtrl', function($scope, $filter, $stateParams, $timeout, ProductService) {
+    .controller('ZhuanquListCtrl', function($scope, $stateParams, $filter, $timeout, ProductService) {
         var products = this;
 
         products.viewModel = {};

@@ -16,7 +16,7 @@ angular.module('jym.yinpiao', [
                 }
             });
     })
-    .controller('YinpiaoIndexCtrl', function($scope, $timeout, $filter, ProductService) {
+    .controller('YinpiaoIndexCtrl', function($scope, $filter, $timeout, ProductService) {
         var products = this;
 
         products.viewModel = {};

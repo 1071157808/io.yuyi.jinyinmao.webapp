@@ -21,7 +21,7 @@ angular.module('jym.user.signup', [])
                 }
             });
     })
-    .controller('UserSignUpCtrl', function($scope, $timeout, $stateParams, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSignUpCtrl', function($scope, $stateParams, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};

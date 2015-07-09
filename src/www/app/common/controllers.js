@@ -2,7 +2,7 @@
 angular.module('jym.controllers', [
     'jym.services'
 ])
-    .controller('SlidesCtrl', function($state, $timeout, $ionicSlideBoxDelegate, JYMConfigService, JYMUtilityService) {
+    .controller('SlidesCtrl', function($timeout, $ionicSlideBoxDelegate, JYMConfigService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.slides = [];

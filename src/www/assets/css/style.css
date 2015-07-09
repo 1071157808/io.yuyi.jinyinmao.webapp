@@ -888,13 +888,12 @@ ion-item img {
     margin-left: -8px;
   }
   ion-item .col-67 > .detail > li {
+    width: 140%;
+    overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: normal;
-    overflow: hidden;
     white-space: nowrap;
-    width: 140%;
   }
-
 }
 /*ion-list ion-item end*/
 /*order-detail*/s

@@ -21,6 +21,11 @@
 
         <p class="pull-right" ng-bind="transaction.viewModel.tradeCode | tradeCodeForSettle"></p>
       </ion-item>
+      <ion-item class="nonborder">
+        <p class="pull-left">银行卡号</p>
+
+        <p class="pull-right" ng-bind="transaction.viewModel.bankCardNo"></p>
+      </ion-item>
       <ion-item>
         <p class="pull-left">金额（元）</p>
 
@@ -46,6 +51,8 @@
       <div class="space"></div>
       <div class="space"></div>
       <button class="btn button-yellow" ng-click="transaction.go('jym.user')">返回个人中心</button>
+      <div class="space"></div>
+      <div class="space"></div>
     </div>
   </ion-content>
 </ion-view>

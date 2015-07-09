@@ -19,7 +19,7 @@ angular.module('jym.zhuanqu.detail', [
                 }
             });
     })
-    .controller('ZhuanquDetailCtrl', function($scope, $state, $stateParams, $timeout, $q, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ZhuanquDetailCtrl', function($scope, $state, $stateParams, $q, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
         product.model = {};
