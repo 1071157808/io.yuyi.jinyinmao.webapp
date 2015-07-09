@@ -93,7 +93,7 @@ angular.module('jym.user.security-payment-password', [])
 
         ctrl.doRefresh();
     })
-    .controller('UserSecuritySetPaymentPasswordCtrl', function($timeout, $stateParams, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSecuritySetPaymentPasswordCtrl', function($scope, $timeout, $stateParams, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};

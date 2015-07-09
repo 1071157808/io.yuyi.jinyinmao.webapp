@@ -82,7 +82,7 @@ angular.module('jym.user.signup', [])
 
         ctrl.doRefresh();
     })
-    .controller('UserSignUpSendVeriCodeCtrl', function($timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSignUpSendVeriCodeCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
