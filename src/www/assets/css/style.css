@@ -811,7 +811,9 @@ ion-item .col {
   padding-bottom: 0;
   list-style: none;
 }
-
+ion-item .col-33 {
+  padding-left: 15px;
+}
 ion-item .col-33 em {
   font-size: 30px;
   color: #e74c3c;
