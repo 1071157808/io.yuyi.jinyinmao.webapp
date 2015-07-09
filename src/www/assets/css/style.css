@@ -880,21 +880,24 @@ ion-item img {
   color: #416ed0;
 }
 
-@media only screen and (max-width: 320px) and (min-height: 568px) {
+@media only screen and (max-width: 320px) {
   ion-item .hint {
     font-size: 13px;
   }
-}
-/*iphone5*/
+  ion-item .col-67 {
+    margin-left: -8px;
+  }
+  ion-item .col-67 > .detail > li {
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 140%;
+  }
 
-@media only screen and (max-width: 320px) and (max-height: 480px) {
-  ion-item .hint {
-    font-size: 13px;
-  }
 }
-/*iphone4*/
 /*ion-list ion-item end*/
-/*order-detail*/
+/*order-detail*/s
 
 .order-detail em {
   padding-left: 8px;
@@ -1479,27 +1482,15 @@ label.item-input > span {
   color: #facb3a;
 }
 
-@media only screen and (max-width: 320px) and (min-height: 568px) {
+@media only screen and (max-width: 320px) {
   .bank-card p {
-    font-size: 13px;
+    font-size: 12px;
   }
   .bank-card h2 {
     padding-top: 8px;
     font-size: 16px;
   }
 }
-/*iphone5*/
-
-@media only screen and (max-width: 320px) and (max-height: 480px) {
-  .bank-card p {
-    font-size: 13px;
-  }
-  .bank-card h2 {
-    padding-top: 8px;
-    font-size: 16px;
-  }
-}
-/*iphone4*/
 /*bank-card end*/
 /*.bank-card-select start*/
 
