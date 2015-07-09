@@ -839,7 +839,7 @@ ion-item .col-67 > .detail > li {
   white-space: normal;
   word-wrap: break-word;
   word-break: break-all;
-  width: 215px;
+  width: 110%;
 }
 
 ion-item .col-67 > li {
