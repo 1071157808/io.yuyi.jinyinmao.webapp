@@ -19,11 +19,9 @@ angular.module('jym.user.login', [
         var user = this;
 
         user.viewModel = {};
-        user.viewModel.cellphone = undefined;
-        user.viewModel.password = undefined;
 
         user.doRefresh = function() {
-            user.viewModel.password = undefined;
+            user.resetInput();
         };
 
         user.login = function() {
@@ -53,6 +51,7 @@ angular.module('jym.user.login', [
                         JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_SUCCESS);
 
                         $timeout(function() {
+                            user.resetInput();
                             JYMUtilityService.goWithDisableBack('jym.user');
                         }, 1000);
                     });
@@ -64,7 +63,14 @@ angular.module('jym.user.login', [
             return user.viewModel.cellphone && user.viewModel.password;
         };
 
+        user.resetInput = function() {
+            user.viewModel.cellphone = user.viewModel.cellphone || '';
+            user.viewModel.password = '';
+        };
+
         $scope.$on('$ionicView.enter', function() {
             user.doRefresh();
         });
+
+        user.doRefresh();
     });

@@ -22,8 +22,11 @@ angular.module('jym.zhuanqu.detail', [
     .controller('ZhuanquDetailCtrl', function($scope, $state, $stateParams, $timeout, $q, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
+        product.model = {};
+        product.viewModel = {};
+
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getSaleStatus = function(product) {
@@ -58,13 +61,11 @@ angular.module('jym.zhuanqu.detail', [
             return ProductService.getValueDateModeText(valueDateMode);
         };
 
-        product.model = {};
-        product.viewModel = {};
-        product.viewModel.investCount = 10;
-        product.viewModel.investAmount = 0;
-        product.viewModel.expectedInterest = 0;
-
         product.doRefresh = function() {
+            product.viewModel.investCount = product.viewModel.investCount || 10;
+            product.viewModel.investAmount = 0;
+            product.viewModel.expectedInterest = 0;
+
             product.refreshProduct();
 
             $timeout(function() {
@@ -203,5 +204,4 @@ angular.module('jym.zhuanqu.detail', [
         };
 
         product.doRefresh();
-
     });

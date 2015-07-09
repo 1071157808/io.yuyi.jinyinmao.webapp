@@ -1,37 +1,36 @@
 'use strict';
 angular.module('jym.constants', [])
     .constant('URLS', {
+        BANKCARD: {
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADD_BANK_CARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
+            ADD_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
+        },
         CONFIG: {
             FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.1.1'
-        },
-        JINBAOYIN: {
-            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/',
-            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Agreement/'
         },
         INVESTING: {
             JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
             REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
         },
-        USER: {
-            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
-            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            SENDVERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
-            VERIFYVERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            RESETLOGINPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESETPAYMENTPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SETPAYMENTPASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate'
-        },
-        USERJINBAOYIN: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+        JINBAOYIN: {
+            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
+            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         ORDER: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Info/',
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Index/'
+        },
+        REGULARPRDUCT: {
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
         SETTLEACCOUNT: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
@@ -39,41 +38,42 @@ angular.module('jym.constants', [])
             DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
             WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
-        BANKCARD: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFYBANKCARDBYYILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADDBANKCARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard'
+        USER: {
+            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
+            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
+            RESET_LOGIN_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SEND_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
+            SET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode'
         },
-        REGULARPRDUCT: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
-            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
+        USERJINBAOYIN: {
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         }
     })
     .constant('RESOURCES', {
         ALERT: {
             PRODUCT: {
+                AMOUNT_INCORRECT: '购买金额错误',
                 NOT_ON_SALE: '该产品未开售<br>请耐心等待',
-                SOLD_OUT: '该产品已经售罄<br>请期待下一期',
                 SHARE_INSUFFICIENT: '产品剩余份额不足',
-                AMOUNT_INCORRECT: '购买金额错误'
-
+                SOLD_OUT: '该产品已经售罄<br>请期待下一期'
             },
             USER: {
-                CLOSED: '账户被禁用<br>如需帮助，请联系金银猫客服<br>4008&nbsp;556&nbsp;333&nbsp;',
+                CLOSED: '账户被禁用<br>如需帮助，请联系金银猫客服<br>4008-556-333',
                 HAS_NOT_SET_PAYMENT_PASSWORD: '请先设置支付密码',
                 PAYMENT_PASSWORD_NEED_RESET: '支付密码被锁定<br>请重置后使用',
-                USER_LOGIN_PASSWORD_LOCK: '登录密码被锁定<br>请重置后使用',
-                USER_NOT_EXIST: '用户名或者密码错误<br>请确认后再试',
-                USER_LOGIN_FAIL: '用户名或者密码错误<br>请确认后再试',
-                USER_LOGIN_PASSWORD_REMIAN_LESS: '用户名或者密码错误次数过多<br>请核实后再试',
                 TOO_MANY_VERI_CODE: '验证码发送次数过多<br>请稍后再试',
-                VERI_CODE_FAIL: '验证码错误<br>请确认后重试',
-                VERI_CODE_EXPIRE: '验证码过期<br>请重新获取验证码'
+                USER_LOGIN_FAIL: '用户名或者密码错误<br>请确认后再试',
+                USER_LOGIN_PASSWORD_LOCK: '登录密码被锁定<br>请重置后使用',
+                USER_LOGIN_PASSWORD_REMIAN_LESS: '用户名或者密码错误次数过多<br>请核实后再试',
+                USER_NOT_EXIST: '用户名或者密码错误<br>请确认后再试',
+                VERI_CODE_EXPIRE: '验证码过期<br>请重新获取验证码',
+                VERI_CODE_FAIL: '验证码错误<br>请确认后重试'
             }
         },
         TIP: {
@@ -93,7 +93,7 @@ angular.module('jym.constants', [])
             },
             SECURITY: {
                 RESET_PASSWORD: '登录密码修改成功<br>请用新密码登录',
-                SETPAYMENTPASSWORD: '设置成功'
+                SET_PAYMENT_PASSWORD: '设置成功'
             },
             SIGNUP: {
                 SIGNUP_SUCCESS: '注册成功<br>请登录使用'

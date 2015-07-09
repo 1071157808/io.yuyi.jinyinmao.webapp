@@ -1,5 +1,20 @@
 'use strict';
 angular.module('jym.filters', [])
+    .filter('bankCardStatus', function() {
+        return function(card) {
+            if (card) {
+                if (card.verifiedByYilian) {
+                    return '签约支付';
+                }
+
+                if (card.verified) {
+                    return '短信验证支付';
+                }
+            }
+
+            return '';
+        };
+    })
     .filter('bankImg', function() {
         return function(bankName) {
 
@@ -43,21 +58,6 @@ angular.module('jym.filters', [])
                 default:
                     return 'assets/img/bank/zhonghang@40x39-ae01dc.png';
             }
-        };
-    })
-    .filter('bankCardStatus', function() {
-        return function(card) {
-            if (card) {
-                if (card.verifiedByYilian) {
-                    return '签约支付';
-                }
-
-                if (card.verified) {
-                    return '短信验证支付';
-                }
-            }
-
-            return '';
         };
     })
     .filter('city', function() {
@@ -527,6 +527,15 @@ angular.module('jym.filters', [])
             }
         };
     })
+    .filter('longTime', function() {
+        return function(time) {
+            if (time === undefined || time === null || time === '') {
+                return '';
+            }
+
+            return moment(time).format('YYYY年MM月DD日 HH:mm');
+        };
+    })
     .filter('resultText', function() {
         return function(resultCode) {
             if (!isFinite(resultCode)) {
@@ -552,39 +561,26 @@ angular.module('jym.filters', [])
             return moment(time).format('YYYY年MM月DD日');
         };
     })
-    .filter('longTime', function() {
-        return function(time) {
-            if (time === undefined || time === null || time === '') {
-                return '';
+    .filter('tradeCodeForJBY', function() {
+        return function(tradeCode) {
+            if (!isFinite(tradeCode)) {
+                return tradeCode;
             }
 
-            return moment(time).format('YYYY年MM月DD日 HH:mm');
-        };
-    })
-    .filter('tradeForSettle', function() {
-        return function(trade) {
-            if (!isFinite(trade)) {
-                return trade;
+            switch (tradeCode) {
+                case 2001011101:
+                    return '账户冲正';
+                case 2001012101:
+                    return '账户冲正';
+                case 2001051102:
+                    return '金包银申购';
+                case 2001012002:
+                    return '金包银赎回';
+                case 2001011106:
+                    return '金包银利息复投';
+                default:
+                    return '未知交易';
             }
-
-            if (trade === 0) {
-                return '充值';
-            }
-
-            return '取现';
-        };
-    })
-    .filter('tradeForJBY', function() {
-        return function(trade) {
-            if (!isFinite(trade)) {
-                return trade;
-            }
-
-            if (trade === 0) {
-                return '申购';
-            }
-
-            return '赎回';
         };
     })
     .filter('tradeCodeForSettle', function() {
@@ -625,25 +621,29 @@ angular.module('jym.filters', [])
             }
         };
     })
-    .filter('tradeCodeForJBY', function() {
-        return function(tradeCode) {
-            if (!isFinite(tradeCode)) {
-                return tradeCode;
+    .filter('tradeForJBY', function() {
+        return function(trade) {
+            if (!isFinite(trade)) {
+                return trade;
             }
 
-            switch (tradeCode) {
-                case 2001011101:
-                    return '账户冲正';
-                case 2001012101:
-                    return '账户冲正';
-                case 2001051102:
-                    return '金包银申购';
-                case 2001012002:
-                    return '金包银赎回';
-                case 2001011106:
-                    return '金包银利息复投';
-                default:
-                    return '未知交易';
+            if (trade === 0) {
+                return '申购';
             }
+
+            return '赎回';
+        };
+    })
+    .filter('tradeForSettle', function() {
+        return function(trade) {
+            if (!isFinite(trade)) {
+                return trade;
+            }
+
+            if (trade === 0) {
+                return '充值';
+            }
+
+            return '取现';
         };
     });

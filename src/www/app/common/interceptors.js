@@ -7,11 +7,6 @@ angular.module('jym.interceptors', [
         return {
             request: function(config) {
                 config.headers['x-jym-auth'] = authService.getToken();
-                if (config.url.indexOf('publicfiles') >= 0) {
-                    config.headers['x-jym-corsproxy-url'] = APP.CONFIGURL;
-                } else {
-                    config.headers['x-jym-corsproxy-url'] = APP.APIURL;
-                }
                 return config;
             },
 

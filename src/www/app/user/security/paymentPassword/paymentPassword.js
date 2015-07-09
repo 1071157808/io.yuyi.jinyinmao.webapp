@@ -100,7 +100,7 @@ angular.module('jym.user.security-payment-password', [])
                 UserService.setPaymentPassword(ctrl.viewModel.password)
                     .then(function(result) {
                         if (result) {
-                            JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SETPAYMENTPASSWORD);
+                            JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SET_PAYMENT_PASSWORD);
                             $timeout(function() {
                                 if ($ionicHistory.backView()) {
                                     $ionicHistory.goBack();

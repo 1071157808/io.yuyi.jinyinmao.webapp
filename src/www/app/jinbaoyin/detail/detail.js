@@ -23,6 +23,9 @@ angular.module('jym.jinbaoyin.detail', [
     .controller('JinbaoyinDetailCtrl', function($scope, $timeout, $q, $state, ProductService, JinbaoyinService, PurchaseService, UserService, JYMUtilityService) {
         var product = this;
 
+        product.model = {};
+        product.viewModel = {};
+
         var getSaleProgress = function(product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
@@ -59,13 +62,11 @@ angular.module('jym.jinbaoyin.detail', [
             return ProductService.getValueDateModeText(valueDateMode);
         };
 
-        product.model = {};
-        product.viewModel = {};
-        product.viewModel.investCount = 10;
-        product.viewModel.investAmount = 0;
-        product.viewModel.expectedInterest = 0;
-
         product.doRefresh = function() {
+            product.viewModel.investCount = product.viewModel.investCount || 10;
+            product.viewModel.investAmount = 0;
+            product.viewModel.expectedInterest = 0;
+
             product.refreshProduct();
 
             $timeout(function() {

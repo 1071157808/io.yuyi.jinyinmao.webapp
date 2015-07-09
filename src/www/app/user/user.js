@@ -21,7 +21,7 @@ angular.module('jym.user', [
                 }
             });
     })
-    .controller('UserCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
         var user = this;
 
         user.model = {};
@@ -60,6 +60,7 @@ angular.module('jym.user', [
 
         $scope.$on('$ionicView.enter', function() {
             user.doRefresh();
+            $ionicScrollDelegate.scrollTop();
         });
 
         user.doRefresh();

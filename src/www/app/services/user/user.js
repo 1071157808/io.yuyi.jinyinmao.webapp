@@ -71,7 +71,21 @@ angular.module('jym.services.user', [
         };
 
         service.addBankCard = function(bankCardNo, bankName) {
-            var url = URLS.BANKCARD.ADDBANKCARD;
+            var url = URLS.BANKCARD.ADD_BANK_CARD;
+            var cityName = getCityName(bankName);
+
+            return $http.post(url, {
+                bankCardNo: bankCardNo,
+                bankName: bankName,
+                cityName: cityName
+            })
+                .then(function(result) {
+                    return result.status === 200;
+                });
+        };
+
+        service.addBankCardByYilian = function(bankCardNo, bankName) {
+            var url = URLS.BANKCARD.ADD_BANK_CARD_BY_YILIAN;
             var cityName = getCityName(bankName);
 
             return $http.post(url, {
@@ -290,7 +304,7 @@ angular.module('jym.services.user', [
         };
 
         service.resetLoginPassword = function(password, token) {
-            var url = URLS.USER.RESETLOGINPASSWORD;
+            var url = URLS.USER.RESET_LOGIN_PASSWORD;
 
             return $http.post(url, {
                 password: password,
@@ -302,7 +316,7 @@ angular.module('jym.services.user', [
         };
 
         service.resetPaymentPassword = function(credentialNo, password, token, userRealName) {
-            var url = URLS.USER.RESETPAYMENTPASSWORD;
+            var url = URLS.USER.RESET_PAYMENT_PASSWORD;
 
             return $http.post(url, {
                 credentialNo: credentialNo,
@@ -316,7 +330,7 @@ angular.module('jym.services.user', [
         };
 
         service.sendVeriCode = function(cellphone, type) {
-            var url = URLS.USER.SENDVERICODE;
+            var url = URLS.USER.SEND_VERICODE;
 
             return $http.post(url, {
                 cellphone: cellphone,
@@ -336,7 +350,7 @@ angular.module('jym.services.user', [
         };
 
         service.setPaymentPassword = function(password) {
-            var url = URLS.USER.SETPAYMENTPASSWORD;
+            var url = URLS.USER.SET_PAYMENT_PASSWORD;
 
             return $http.post(url, {
                 password: password
@@ -373,7 +387,7 @@ angular.module('jym.services.user', [
         };
 
         service.verifyBankCardByYilian = function(bankCardNo) {
-            var url = URLS.BANKCARD.VERIFYBANKCARDBYYILIAN;
+            var url = URLS.BANKCARD.VERIFY_BANK_CARD_BY_YILIAN;
 
             return $http.post(url, {
                 bankCardNo: bankCardNo
@@ -384,7 +398,7 @@ angular.module('jym.services.user', [
         };
 
         service.verifyVeriCode = function(cellphone, code, type) {
-            var url = URLS.USER.VERIFYVERICODE;
+            var url = URLS.USER.VERIFY_VERICODE;
 
             return $http.post(url, {
                 cellphone: cellphone,

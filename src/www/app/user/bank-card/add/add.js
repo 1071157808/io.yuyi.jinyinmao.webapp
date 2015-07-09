@@ -76,7 +76,7 @@ angular.module('jym.user.bank-card-add', [
         card.verify = function() {
             if (card.buttonEnable()) {
                 if (card.viewModel.verified) {
-                    UserService.addBankCard(card.viewModel.bankCardNo, card.viewModel.bankName)
+                    UserService.addBankCardByYilian(card.viewModel.bankCardNo, card.viewModel.bankName)
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
