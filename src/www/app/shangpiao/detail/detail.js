@@ -124,7 +124,7 @@ angular.module('jym.shangpiao.detail', [
             product.viewModel.period = product.model.period;
             product.viewModel.productCategory = product.model.productCategory;
             product.viewModel.productIdentifier = product.model.productIdentifier;
-            product.viewModel.productName = product.model.productName + ' ' + '第' + product.model.issueNo + '期';
+            product.viewModel.productName = product.model.productName;
             product.viewModel.productNo = product.model.productNo;
             product.viewModel.remainCount = ((product.model.financingSumAmount - product.model.paidAmount) / product.model.unitPrice).toFixed(0);
             product.viewModel.repaid = product.model.repaid;

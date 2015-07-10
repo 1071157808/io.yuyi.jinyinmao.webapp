@@ -881,8 +881,8 @@ ion-item img {
     margin-left: 10px;
   }
   ion-item .col-33 {
-    margin-left: 0;
     padding-left: 0;
+    margin-left: 0;
   }
   ion-item .col-33 em {
     font-size: 26px;
