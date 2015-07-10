@@ -837,7 +837,7 @@ ion-item .col-67 {
 }
 
 ion-item .col-67 > .detail > li {
-  width: 110%;
+  width: 115%;
   padding-top: 3px;
   font-size: 14px;
   color: #83817c;
@@ -881,14 +881,21 @@ ion-item img {
     font-size: 13px;
   }
   ion-item .col-67 {
-    margin-left: -8px;
+    margin-left: 10px;
   }
-  ion-item .col-67 > .detail > li {
-    width: 205px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-wrap: normal;
-    white-space: nowrap;
+  /*ion-item .col-67 > .detail > li {*/
+    /*width: 205px;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    /*word-wrap: normal;*/
+    /*white-space: nowrap;*/
+  /*}*/
+  ion-item .col-33 {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  ion-item .col-33 em {
+    font-size: 26px;
   }
 }
 /*ion-list ion-item end*/
