@@ -801,11 +801,9 @@ ion-item .col {
   padding-bottom: 0;
   list-style: none;
 }
-ion-item .col-33 {
-  padding-left: 15px;
-}
 ion-item .col-33 em {
-  font-size: 30px;
+  font-s
+  ize: 30px;
   color: #e74c3c;
 }
 
@@ -849,7 +847,7 @@ ion-item .col-67 > .detail > li {
 ion-item .col-67 > li {
   padding-top: 4px;
   padding-bottom: 5px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #logout {
@@ -883,19 +881,15 @@ ion-item img {
   ion-item .col-67 {
     margin-left: 10px;
   }
-  /*ion-item .col-67 > .detail > li {*/
-    /*width: 205px;*/
-    /*overflow: hidden;*/
-    /*text-overflow: ellipsis;*/
-    /*word-wrap: normal;*/
-    /*white-space: nowrap;*/
-  /*}*/
   ion-item .col-33 {
     margin-left: 0;
     padding-left: 0;
   }
   ion-item .col-33 em {
     font-size: 26px;
+  }
+  .row {
+    padding-left: 0;
   }
 }
 /*ion-list ion-item end*/
