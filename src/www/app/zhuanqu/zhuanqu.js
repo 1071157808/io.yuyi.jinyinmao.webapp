@@ -34,34 +34,7 @@ angular.module('jym.zhuanqu', [
         };
 
         var getSaleStatus = function(product) {
-            var status = ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
-
-            switch (status) {
-                case 10:
-                    return {
-                        status: 10,
-                        text: '待售',
-                        icon: 'jym-icon-waiting',
-                        buttonClass: '',
-                        buttonText: '待 售'
-                    };
-                case 20:
-                    return {
-                        status: 20,
-                        text: '抢购',
-                        icon: 'jym-icon-selling',
-                        buttonClass: '',
-                        buttonText: '立 即 抢 购'
-                    };
-                case 30:
-                    return {
-                        status: 30,
-                        text: '售罄',
-                        icon: 'jym-icon-soldout',
-                        buttonClass: '',
-                        buttonText: '售 罄'
-                    };
-            }
+            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {
@@ -110,18 +83,26 @@ angular.module('jym.zhuanqu', [
             item.valueDateText = getValueDateModeText(modelItem.valueDateMode, modelItem.valueDate, modelItem.specifyValueDate);
             item.yield = modelItem.yield / 100;
 
-            if (item.status.status === 10) {
-                item.statusText = '待售';
-                item.statusTextClass = '';
-                item.timeText = '开售时间 ' + $filter('time')(item.startSellTime);
-            } else if (item.status.status === 20) {
-                item.statusText = '抢购 已售出' + item.sellProgress + '%';
-                item.statusTextClass = '';
-                item.timeText = '起息时间 ' + item.valueDateText;
-            } else {
-                item.statusText = '售罄 请期待下期';
-                item.statusTextClass = '';
-                item.timeText = '还款时间 ' + $filter('time')(item.repaymentDeadline);
+            switch (item.status) {
+                case 10:
+                    item.statusText = '待售';
+                    item.timeText = '开售时间 ' + $filter('time')(item.startSellTime);
+                    break;
+                case 20:
+                    item.statusText = '抢购 已售出' + item.sellProgress + '%';
+                    item.timeText = '起息时间 ' + item.valueDateText;
+                    break;
+                case 30:
+                    item.statusText = '售罄 请期待下期';
+                    item.timeText = '预计还款时间 ' + $filter('time')(item.repaymentDeadline);
+                    break;
+                case 40:
+                    item.statusText = '项目结束';
+                    item.timeText = '还款时间 ' + $filter('time')(item.repaidTime);
+                    break;
+                default :
+                    item.statusText = '';
+                    item.timeText = '';
             }
 
             if ($stateParams.bankName === 'fudian') {

@@ -30,31 +30,7 @@ angular.module('jym.shangpiao.detail', [
         };
 
         var getSaleStatus = function(product) {
-            var status = ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
-
-            switch (status) {
-                case 10:
-                    return {
-                        status: 10,
-                        text: '待售',
-                        icon: 'jym-icon-waiting',
-                        buttonText: '待 售'
-                    };
-                case 20:
-                    return {
-                        status: 20,
-                        text: '抢购',
-                        icon: 'jym-icon-selling',
-                        buttonText: '立 即 抢 购'
-                    };
-                case 30:
-                    return {
-                        status: 30,
-                        text: '售罄',
-                        icon: 'jym-icon-soldout',
-                        buttonText: '售 罄'
-                    };
-            }
+            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getValueDateModeText = function(valueDateMode) {
@@ -108,7 +84,7 @@ angular.module('jym.shangpiao.detail', [
         };
 
         product.goPurchaseButtonEnable = function() {
-            return product.viewModel.status && product.viewModel.status.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
+            return product.viewModel.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
         };
 
         product.refreshInvestViewModel = function() {
@@ -173,8 +149,25 @@ angular.module('jym.shangpiao.detail', [
             product.viewModel.yield = product.model.yield / 100;
 
 
-            if (product.viewModel.status.status !== 20) {
+            if (product.viewModel.status !== 20) {
                 product.viewModel.remainCount = 0;
+            }
+
+            switch (product.viewModel.status) {
+                case 10:
+                    product.viewModel.statusText = '待售';
+                    break;
+                case 20:
+                    product.viewModel.statusText = '抢购';
+                    break;
+                case 30:
+                    product.viewModel.statusText = '售罄';
+                    break;
+                case 40:
+                    product.viewModel.statusText = '结束';
+                    break;
+                default :
+                    product.viewModel.statusText = '';
             }
         };
 

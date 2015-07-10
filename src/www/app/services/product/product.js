@@ -147,8 +147,12 @@ angular.module('jym.services.product', [
             return (paidAmount / financingSumAmount * 100).toFixed(0);
         };
 
-        service.getSaleStatus = function(soldOut, startSellTime, endSellTime) {
+        service.getSaleStatus = function(repaid, soldOut, startSellTime, endSellTime) {
             var now = JYMUtilityService.getTime();
+            // 项目结束
+            if (repaid === true) {
+                return 40;
+            }
             // 售罄
             if (soldOut === true || moment(endSellTime) < now) {
                 return 30;

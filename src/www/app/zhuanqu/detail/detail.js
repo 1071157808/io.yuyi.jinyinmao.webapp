@@ -30,31 +30,7 @@ angular.module('jym.zhuanqu.detail', [
         };
 
         var getSaleStatus = function(product) {
-            var status = ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
-
-            switch (status) {
-                case 10:
-                    return {
-                        status: 10,
-                        text: '待售',
-                        icon: 'jym-icon-waiting',
-                        buttonText: '待 售'
-                    };
-                case 20:
-                    return {
-                        status: 20,
-                        text: '抢购',
-                        icon: 'jym-icon-selling',
-                        buttonText: '立 即 抢 购'
-                    };
-                case 30:
-                    return {
-                        status: 30,
-                        text: '售罄',
-                        icon: 'jym-icon-soldout',
-                        buttonText: '售 罄'
-                    };
-            }
+            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
         var getValueDateModeText = function(valueDateMode) {
