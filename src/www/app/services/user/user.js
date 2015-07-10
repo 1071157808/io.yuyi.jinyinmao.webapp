@@ -268,7 +268,9 @@ angular.module('jym.services.user', [
         };
 
         service.loginOut = function() {
+            service.sharedData = {};
             JYMAuthService.clearToken();
+            JYMUtilityService.clearCache();
         };
 
         service.jBYWithdrawal = function(amount, paymentPassword) {

@@ -24,14 +24,14 @@ angular.module('jym.services', [
     .service('JYMCacheService', function(CacheFactory) {
         var service = this;
 
-        CacheFactory('configCache', {
-            maxAge: 15 * 60 * 1000,
+        CacheFactory('authTokenCache', {
+            maxAge: 365 * 24 * 60 * 60 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'localStorage'
         });
 
-        CacheFactory('authTokenCache', {
-            maxAge: 365 * 24 * 60 * 60 * 1000,
+        CacheFactory('configCache', {
+            maxAge: 15 * 60 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'localStorage'
         });
@@ -106,8 +106,15 @@ angular.module('jym.services', [
             now = time;
         };
     })
-    .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX) {
+    .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX, JYMCacheService) {
         var service = this;
+
+        service.clearCache = function() {
+            JYMCacheService.get('authTokenCache').removeAll();
+            JYMCacheService.get('configCache').removeAll();
+            JYMCacheService.get('productCache').removeAll();
+            JYMCacheService.get('userCache').removeAll();
+        };
 
         service.go = function(to, params, options) {
             $state.go(to, params, options);

@@ -17,7 +17,7 @@ angular.module('jym.user.orders', [
                 }
             });
     })
-    .controller('UserOrdersCtrl', function($scope, $timeout, UserService, JYMUtilityService) {
+    .controller('UserOrdersCtrl', function($scope, $timeout, UserService, JYMTimeService) {
         var orders = this;
 
         var getViewItem = function(modelItem) {
@@ -79,7 +79,7 @@ angular.module('jym.user.orders', [
             item.productSnapshot.valueDateMode = modelItem.productSnapshot.soldOutTime;
             item.productSnapshot.yield = (modelItem.productSnapshot.yield / 100).toFixed(2);
 
-            var now = JYMUtilityService.getTime();
+            var now = JYMTimeService.getTime();
             if (item.isRepaid) {
                 item.statusText = '已还款';
             } else if (now > moment(item.settleDate)) {

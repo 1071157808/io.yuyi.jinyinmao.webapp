@@ -2,7 +2,7 @@
 angular.module('jym.services.product', [
     'jym.services'
 ])
-    .service('ProductService', function($http, $filter, RESOURCES, URLS, JYMCacheService, JYMUtilityService) {
+    .service('ProductService', function($http, $filter, RESOURCES, URLS, JYMCacheService, JYMTimeService) {
         var service = this;
 
         service.checkProductPurchaseStatus = function(getProductInfo, amount) {
@@ -148,7 +148,7 @@ angular.module('jym.services.product', [
         };
 
         service.getSaleStatus = function(repaid, soldOut, startSellTime, endSellTime) {
-            var now = JYMUtilityService.getTime();
+            var now = JYMTimeService.getTime();
             // 项目结束
             if (repaid === true) {
                 return 40;
