@@ -95,7 +95,7 @@ angular.module('jym.zhuanqu.detail', [
         };
 
         product.goPurchaseButtonEnable = function() {
-            return product.viewModel.status && product.viewModel.status.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
+            return product.viewModel.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
         };
 
         product.refreshInvestViewModel = function() {
@@ -176,6 +176,27 @@ angular.module('jym.zhuanqu.detail', [
                 product.viewModel.isYinpiao = false;
                 product.viewModel.isShangpiao = false;
                 product.viewModel.riskManagementText = product.viewModel.riskManagement;
+            }
+
+            if (product.viewModel.status !== 20) {
+                product.viewModel.remainCount = 0;
+            }
+
+            switch (product.viewModel.status) {
+                case 10:
+                    product.viewModel.statusText = '待售';
+                    break;
+                case 20:
+                    product.viewModel.statusText = '抢购';
+                    break;
+                case 30:
+                    product.viewModel.statusText = '售罄';
+                    break;
+                case 40:
+                    product.viewModel.statusText = '结束';
+                    break;
+                default :
+                    product.viewModel.statusText = '';
             }
         };
 

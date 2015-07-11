@@ -26,7 +26,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
 
         account.doRefresh = function() {
             account.viewModel.agreement = '金包银自动交易授权委托书';
-            account.viewModel.amount = 10;
+            account.viewModel.amount = null;
             account.viewModel.showAgreement = false;
 
             account.resetInput();
@@ -76,6 +76,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         };
 
         account.resetInput = function() {
+            account.viewModel.amount = null;
             account.viewModel.checked = true;
             account.viewModel.password = '';
         };
