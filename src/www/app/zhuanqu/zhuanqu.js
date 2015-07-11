@@ -30,11 +30,11 @@ angular.module('jym.zhuanqu', [
         products.viewModel = {};
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {

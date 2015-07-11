@@ -7,8 +7,9 @@ angular.module('jym.services.product', [
 
         service.checkProductPurchaseStatus = function(getProductInfo, amount) {
             return getProductInfo.then(function(product) {
+                var repaid = product.repaid || false;
 
-                var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
+                var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, repaid);
                 if (status === 10) {
                     throw RESOURCES.ALERT.PRODUCT.NOT_ON_SALE;
                 }
@@ -125,10 +126,10 @@ angular.module('jym.services.product', [
             });
         };
 
-        service.getSaleProgress = function(paidAmount, financingSumAmount, soldOut, startSellTime, endSellTime) {
-            var status = service.getSaleStatus(soldOut, startSellTime, endSellTime);
+        service.getSaleProgress = function(paidAmount, financingSumAmount, soldOut, startSellTime, endSellTime, repaid) {
+            var status = service.getSaleStatus(soldOut, startSellTime, endSellTime, repaid);
 
-            if (status === 30) {
+            if (status === 30 || status === 40) {
                 return 100;
             }
 
@@ -147,7 +148,9 @@ angular.module('jym.services.product', [
             return (paidAmount / financingSumAmount * 100).toFixed(0);
         };
 
-        service.getSaleStatus = function(repaid, soldOut, startSellTime, endSellTime) {
+        service.getSaleStatus = function(soldOut, startSellTime, endSellTime, repaid) {
+            repaid = repaid || false;
+
             var now = JYMTimeService.getTime();
             // 项目结束
             if (repaid === true) {
