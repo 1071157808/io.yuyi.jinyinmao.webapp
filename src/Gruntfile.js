@@ -522,7 +522,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'copy:html', 'to-dev']);
 
-    grunt.registerTask('release', ['copy:release', 'compress', ]);
+    grunt.registerTask('release', ['copy:release', 'compress', 'copy:deployToDev']);
 
     grunt.registerTask('to-dev', ['pre-dev-build']);
     grunt.registerTask('to-test', ['pre-test-build']);

@@ -1733,8 +1733,9 @@ angular.module('jym.services.product', [
 
         service.checkProductPurchaseStatus = function(getProductInfo, amount) {
             return getProductInfo.then(function(product) {
+                var repaid = product.repaid || false;
 
-                var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
+                var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, repaid);
                 if (status === 10) {
                     throw RESOURCES.ALERT.PRODUCT.NOT_ON_SALE;
                 }
@@ -1851,10 +1852,10 @@ angular.module('jym.services.product', [
             });
         };
 
-        service.getSaleProgress = function(paidAmount, financingSumAmount, soldOut, startSellTime, endSellTime) {
-            var status = service.getSaleStatus(soldOut, startSellTime, endSellTime);
+        service.getSaleProgress = function(paidAmount, financingSumAmount, soldOut, startSellTime, endSellTime, repaid) {
+            var status = service.getSaleStatus(soldOut, startSellTime, endSellTime, repaid);
 
-            if (status === 30) {
+            if (status === 30 || status === 40) {
                 return 100;
             }
 
@@ -1873,7 +1874,9 @@ angular.module('jym.services.product', [
             return (paidAmount / financingSumAmount * 100).toFixed(0);
         };
 
-        service.getSaleStatus = function(repaid, soldOut, startSellTime, endSellTime) {
+        service.getSaleStatus = function(soldOut, startSellTime, endSellTime, repaid) {
+            repaid = repaid || false;
+
             var now = JYMTimeService.getTime();
             // 项目结束
             if (repaid === true) {
@@ -2446,11 +2449,11 @@ angular.module('jym.shangpiao.detail', [
         product.viewModel = {};
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode) {
@@ -2740,11 +2743,11 @@ angular.module('jym.shangpiao', [
         products.viewModel = {};
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {
@@ -3581,7 +3584,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
 
         account.doRefresh = function() {
             account.viewModel.agreement = '金包银自动交易授权委托书';
-            account.viewModel.amount = 10;
+            account.viewModel.amount = null;
             account.viewModel.showAgreement = false;
 
             account.resetInput();
@@ -3631,6 +3634,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         };
 
         account.resetInput = function() {
+            account.viewModel.amount = null;
             account.viewModel.checked = true;
             account.viewModel.password = '';
         };
@@ -5311,11 +5315,11 @@ angular.module('jym.yinpiao.detail', [
         product.viewModel = {};
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode) {
@@ -5604,11 +5608,11 @@ angular.module('jym.yinpiao', [
         products.viewModel = {};
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {
@@ -5759,11 +5763,11 @@ angular.module('jym.zhuanqu.detail', [
         product.viewModel = {};
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode) {
@@ -5828,7 +5832,7 @@ angular.module('jym.zhuanqu.detail', [
         };
 
         product.goPurchaseButtonEnable = function() {
-            return product.viewModel.status && product.viewModel.status.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
+            return product.viewModel.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
         };
 
         product.refreshInvestViewModel = function() {
@@ -5909,6 +5913,27 @@ angular.module('jym.zhuanqu.detail', [
                 product.viewModel.isYinpiao = false;
                 product.viewModel.isShangpiao = false;
                 product.viewModel.riskManagementText = product.viewModel.riskManagement;
+            }
+
+            if (product.viewModel.status !== 20) {
+                product.viewModel.remainCount = 0;
+            }
+
+            switch (product.viewModel.status) {
+                case 10:
+                    product.viewModel.statusText = '待售';
+                    break;
+                case 20:
+                    product.viewModel.statusText = '抢购';
+                    break;
+                case 30:
+                    product.viewModel.statusText = '售罄';
+                    break;
+                case 40:
+                    product.viewModel.statusText = '结束';
+                    break;
+                default :
+                    product.viewModel.statusText = '';
             }
         };
 
@@ -6085,11 +6110,11 @@ angular.module('jym.zhuanqu', [
         products.viewModel = {};
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime);
+            return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {

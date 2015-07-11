@@ -26,7 +26,7 @@ angular.module('jym.shangpiao.detail', [
         product.viewModel = {};
 
         var getSaleProgress = function(product) {
-            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime,product.repaid);
+            return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getSaleStatus = function(product) {
