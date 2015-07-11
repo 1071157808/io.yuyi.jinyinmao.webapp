@@ -226,14 +226,16 @@ node_modules
 # WebStorm
 .idea/
 
-# ionic project
+
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
 
+# ionic project
 platforms/
 plugins/
 hooks/
 src/ionic.project
 src/www.zip
-publish/
+
+#release files
 !release/
