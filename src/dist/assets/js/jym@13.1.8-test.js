@@ -119,7 +119,7 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.7-TEST'
+        VERSION: '13.1.8-TEST'
     });
 
 'use strict';
@@ -5612,7 +5612,7 @@ angular.module('jym.yinpiao', [
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
+            return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {

@@ -5612,7 +5612,7 @@ angular.module('jym.yinpiao', [
         };
 
         var getSaleStatus = function(product) {
-            return ProductService.getSaleStatus(product.repaid, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
+            return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
         };
 
         var getValueDateModeText = function(valueDateMode, valueDate, specifyValueDate) {
