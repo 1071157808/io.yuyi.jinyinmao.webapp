@@ -1036,18 +1036,17 @@ ion-item img {
   margin-bottom: 5px;
 }
 
-@media only screen and (max-width: 320px) and (min-height: 480px) {
+@media only screen and (max-width: 320px) {
   .item-divider p {
     padding-left: 0;
     font-size: 12px;
+  }
+  .center > p {
+    padding-left: 8px;
   }
 }
 
 @media only screen and (max-width: 320px) and (min-height: 568px) {
-  .item-divider p {
-    padding-left: 0;
-    font-size: 12px;
-  }
   .order-detail ul {
     padding-right: 12px;
   }
