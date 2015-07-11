@@ -74,7 +74,9 @@ angular.module('jym.jinbaoyin.purchase', [
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.JBY);
+
                             PurchaseService.clearJBYOrder();
+
                             $timeout(function() {
                                 purchase.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', { transactionIdentifier: result.transactionIdentifier });

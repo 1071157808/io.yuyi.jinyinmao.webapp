@@ -71,6 +71,7 @@ angular.module('jym.user.bank-card-upgrade', [
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+
                                 $timeout(function() {
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);
@@ -81,6 +82,7 @@ angular.module('jym.user.bank-card-upgrade', [
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+
                                 $timeout(function() {
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);

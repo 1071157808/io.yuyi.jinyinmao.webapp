@@ -48,6 +48,7 @@ angular.module('jym.user.bank-card-detail', [
                 UserService.removeCard(card.model.bankCardNo)
                     .then(function() {
                         JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.REMOVE_SUCCESS);
+
                         $timeout(function() {
                             JYMUtilityService.goWithDisableBack('jym.user-bank-card');
                         }, 1000);

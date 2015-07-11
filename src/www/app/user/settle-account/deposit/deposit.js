@@ -60,7 +60,9 @@ angular.module('jym.user.settle-account-deposit', [
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.DEPOSIT_SUCCESS);
+
                             UserService.sharedData.depositBankCardNo = undefined;
+
                             $timeout(function() {
                                 account.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-settle-account-deposit-success');

@@ -107,7 +107,9 @@ angular.module('jym.zhuanqu.purchase', [
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.REGULAR);
+
                             PurchaseService.clearRegularOrder();
+
                             $timeout(function() {
                                 purchase.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });

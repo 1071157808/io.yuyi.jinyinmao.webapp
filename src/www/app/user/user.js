@@ -52,7 +52,9 @@ angular.module('jym.user', [
 
         user.loginOut = function() {
             UserService.loginOut();
+
             JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_OUT);
+
             $timeout(function() {
                 JYMUtilityService.goWithDisableBack('jym.user-login');
             }, 1000);

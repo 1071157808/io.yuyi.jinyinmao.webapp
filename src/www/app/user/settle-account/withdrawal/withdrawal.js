@@ -107,7 +107,9 @@ angular.module('jym.user.settle-account-withdrawal', [
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.WITHDRAWAL_SUCCESS);
+
                             UserService.sharedData.withdrawalBankCardNo = undefined;
+
                             $timeout(function() {
                                 account.resetInput();
                                 JYMUtilityService.go('jym.user-settle-account-detail', {

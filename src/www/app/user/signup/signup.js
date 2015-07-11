@@ -102,8 +102,9 @@ angular.module('jym.user.signup', [])
                 UserService.sendVeriCode(ctrl.viewModel.cellphone, 10)
                     .then(function(result) {
                         if (result) {
-                            ctrl.viewModel.remainSeconds = 60;
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.SEND_VERI_CODE);
+                        } else {
+                            ctrl.viewModel.remainSeconds = 0;
                         }
                     });
                 ctrl.startTimer();
@@ -130,8 +131,8 @@ angular.module('jym.user.signup', [])
                 UserService.verifyVeriCode(ctrl.viewModel.cellphone, ctrl.viewModel.veriCode, 10)
                     .then(function(result) {
                         if (result) {
-                            ctrl.viewModel.remainSeconds = 0;
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
+
                             $timeout(function() {
                                 ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-signup', { token: result.token });

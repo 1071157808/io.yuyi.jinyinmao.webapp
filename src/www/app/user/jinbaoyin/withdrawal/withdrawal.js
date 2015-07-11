@@ -95,6 +95,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
                             JYMUtilityService.showAlert(RESOURCES.TIP.JINBAOYIN.WITHDRAWAL_SUCCESS);
                             $timeout(function() {
                                 account.resetInput();
+
                                 JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', {
                                     transactionIdentifier: result.transactionIdentifier
                                 });

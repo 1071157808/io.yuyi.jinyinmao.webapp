@@ -87,6 +87,7 @@ angular.module('jym.user.bank-card-add', [
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+
                                 $timeout(function() {
                                     card.resetInput();
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
@@ -98,6 +99,7 @@ angular.module('jym.user.bank-card-add', [
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+
                                 $timeout(function() {
                                     card.resetInput();
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
