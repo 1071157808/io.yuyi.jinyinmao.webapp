@@ -42,8 +42,6 @@ angular.module('jym.user.bank-card-add', [
         };
 
         card.doRefresh = function() {
-            card.resetInput();
-
             card.refreshUser()
                 .then(function(result) {
                     card.model.user = result;
