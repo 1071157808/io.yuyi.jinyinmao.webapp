@@ -1,6 +1,6 @@
 {
   "name": "jym",
-  "version": "13.1.8",
+  "version": "13.1.9",
   "description": "jym",
   "dependencies": {},
   "devDependencies": {
@@ -33,14 +33,13 @@
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
-    "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-inappbrowser",
     "com.ionic.keyboard",
     "nl.x-services.plugins.toast"
   ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    "ios",
+    "android"
   ]
 }

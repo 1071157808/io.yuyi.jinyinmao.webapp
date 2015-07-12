@@ -8,18 +8,18 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "id": "cordova-plugin-statusbar.statusbar",
-        "clobbers": [
-            "window.StatusBar"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
         "id": "cordova-plugin-inappbrowser.inappbrowser",
         "clobbers": [
             "cordova.InAppBrowser.open",
             "window.open"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
         ]
     },
     {
@@ -32,21 +32,15 @@ module.exports = [
     {
         "file": "plugins/nl.x-services.plugins.toast/test/tests.js",
         "id": "nl.x-services.plugins.toast.tests"
-    },
-    {
-        "file": "plugins/cordova-plugin-whitelist/whitelist.js",
-        "id": "cordova-plugin-whitelist.whitelist",
-        "runs": true
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "com.ionic.keyboard": "1.0.4",
-    "cordova-plugin-statusbar": "1.0.0",
     "cordova-plugin-inappbrowser": "1.0.0",
-    "nl.x-services.plugins.toast": "2.0.4",
-    "cordova-plugin-whitelist": "1.1.1-dev"
+    "cordova-plugin-statusbar": "1.0.0",
+    "nl.x-services.plugins.toast": "2.0.4"
 }
 // BOTTOM OF METADATA
 });

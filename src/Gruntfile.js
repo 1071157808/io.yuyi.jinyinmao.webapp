@@ -113,12 +113,12 @@ module.exports = function(grunt) {
         compress: {
             release: {
                 options: {
-                    archive: 'release.zip'
+                    archive: './publish/release.zip'
                 },
                 expand: true,
                 cwd: 'release/',
                 src: ['**/*'],
-                dest: './publish'
+                dest: '.'
             }
         },
 
@@ -348,7 +348,7 @@ module.exports = function(grunt) {
                     to: 'jym-dev-api'
                 }, {
                     from: /VERSION: .+/,
-                    to: 'VERSION: \'<%= pkg.version %>-DEV\''
+                    to: 'VERSION: \'<%= pkg.version %>-DEV\','
                 }, {
                     from: 'ENV: \'test\'',
                     to: 'ENV: \'dev\''
@@ -374,7 +374,7 @@ module.exports = function(grunt) {
                     to: 'jym-test-api'
                 }, {
                     from: /VERSION: .+/,
-                    to: 'VERSION: \'<%= pkg.version %>-TEST\''
+                    to: 'VERSION: \'<%= pkg.version %>-TEST\','
                 }, {
                     from: 'ENV: \'dev\'',
                     to: 'ENV: \'test\''
@@ -400,7 +400,7 @@ module.exports = function(grunt) {
                     to: 'jym-product-api'
                 }, {
                     from: /VERSION: .+/,
-                    to: 'VERSION: \'<%= pkg.version %>\''
+                    to: 'VERSION: \'<%= pkg.version %>\','
                 }, {
                     from: 'ENV: \'dev\'',
                     to: 'ENV: \'test\''
