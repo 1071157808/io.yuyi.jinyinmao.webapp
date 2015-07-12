@@ -118,7 +118,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'release/',
                 src: ['**/*'],
-                dest: '.'
+                dest: './publish'
             }
         },
 
@@ -349,6 +349,12 @@ module.exports = function(grunt) {
                 }, {
                     from: /VERSION: .+/,
                     to: 'VERSION: \'<%= pkg.version %>-DEV\''
+                }, {
+                    from: 'ENV: \'test\'',
+                    to: 'ENV: \'dev\''
+                }, {
+                    from: 'ENV: \'product\'',
+                    to: 'ENV: \'dev\''
                 }]
             },
             test: {
@@ -369,6 +375,12 @@ module.exports = function(grunt) {
                 }, {
                     from: /VERSION: .+/,
                     to: 'VERSION: \'<%= pkg.version %>-TEST\''
+                }, {
+                    from: 'ENV: \'dev\'',
+                    to: 'ENV: \'test\''
+                }, {
+                    from: 'ENV: \'product\'',
+                    to: 'ENV: \'test\''
                 }]
             },
             product: {
@@ -389,6 +401,12 @@ module.exports = function(grunt) {
                 }, {
                     from: /VERSION: .+/,
                     to: 'VERSION: \'<%= pkg.version %>\''
+                }, {
+                    from: 'ENV: \'dev\'',
+                    to: 'ENV: \'test\''
+                }, {
+                    from: 'ENV: \'test\'',
+                    to: 'ENV: \'product\''
                 }]
             },
             buildDev: {

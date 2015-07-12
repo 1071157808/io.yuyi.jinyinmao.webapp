@@ -239,3 +239,4 @@ src/www.zip
 
 #release files
 !release/
+!src/publish

@@ -22,7 +22,20 @@ angular.module('jym.jinbaoyin', [
         product.model = {};
         product.viewModel = {};
 
+        product.checkUpdate = function() {
+            var checkTime;
+            if (checkTime && checkTime - moment() > 1000 * 60 * 60 * 24) {
+                $ionicDeploy.check().then(function(hasUpdate) {
+                    checkTime = moment();
+                    if (hasUpdate) {
+                        $ionicDeploy.update();
+                    }
+                });
+            }
+        };
+
         product.doRefresh = function() {
+            product.checkUpdate();
             product.refreshProduct();
 
             $timeout(function() {
@@ -42,12 +55,4 @@ angular.module('jym.jinbaoyin', [
         };
 
         product.doRefresh();
-
-        $scope.checkForUpdates = function() {
-            $ionicDeploy.check().then(function(hasUpdate) {
-                if (hasUpdate) {
-                    $ionicDeploy.update();
-                }
-            });
-        };
     });

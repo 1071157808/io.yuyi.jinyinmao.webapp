@@ -27,6 +27,9 @@ angular.module('JYM', [
             api_key: 'c1006ace57b45a0a7b5543cd6e65bb5e689b95d7b00cfad0'
         });
     })
+    .config(function($ionicDeploy, APP) {
+        $ionicDeploy.setChannel(APP.ENV);
+    })
     .config(function($httpProvider) {
         // $httpProvider.defaults.withCredentials = true;
         $httpProvider.interceptors.push('globalInterceptor');
