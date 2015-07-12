@@ -1,0 +1,22 @@
+<ion-view title="我的银行卡">
+  <ion-content>
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="card.doRefresh()">
+    </ion-refresher>
+    <ion-list class="bank-card detail">
+      <ion-item class="item-thumbnail-left">
+        <img ng-src="{{ card.viewModel.bankName | bankImg }}">
+        <h2 ng-bind="card.viewModel.bankName"></h2>
+        <span class="pull-right" ng-bind="card.viewModel | bankCardStatus"></span>
+        <p>尾号 <em ng-bind="card.viewModel.bankCardNo.substr(-4)"></em></p>
+      </ion-item>
+    </ion-list>
+    <br>
+    <button class="btn button-yellow" ng-if="!card.viewModel.verifiedByYilian" ui-sref="jym.user-bank-card-upgrade({ bankCardNo: card.viewModel.bankCardNo })">升级签约支付</button>
+    <div class="space"></div>
+    <div class="space"></div>
+    <button class="btn button-yellow" ng-click="card.removeCard()">删除银行卡</button>
+  </ion-content>
+</ion-view>

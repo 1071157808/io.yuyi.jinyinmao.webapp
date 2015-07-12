@@ -231,9 +231,6 @@ node_modules
 # http://git-scm.com/docs/gitignore
 
 # ionic project
-platforms/
-plugins/
-hooks/
 src/ionic.project
 src/www.zip
 

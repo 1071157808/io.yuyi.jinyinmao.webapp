@@ -1,0 +1,54 @@
+<ion-view title="我的金银猫">
+  <ion-content id="user-index">
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="user.doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item>
+        <p class="pull-left">手机号</p>
+        <p class="pull-right" ng-bind="user.viewModel.cellphone"></p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">真实姓名</p>
+        <p class="pull-right" ng-bind="user.viewModel.realName"></p>
+      </ion-item>
+      <ion-item>
+        <p class="pull-left">身份证</p>
+        <p class="pull-right" ng-bind="user.viewModel.credentialNo"></p>
+      </ion-item>
+      <ion-item class="divider"></ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-settle-account">
+        <p>资金账户</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-jinbaoyin">
+        <p>金包银账户</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-orders">
+        <p>我的订单</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-bank-card">
+        <p>我的银行卡</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="divider">
+      </ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-security">
+        <p>密码设置</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <ion-item class="divider">
+      </ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-about">
+        <p>关于金银猫</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+    <br>
+    <button class="btn button-grey" ng-click="user.loginOut()">登出</button>
+  </ion-content>
+</ion-view>

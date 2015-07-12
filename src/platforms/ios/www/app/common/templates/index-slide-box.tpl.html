@@ -1,0 +1,9 @@
+<div ng-controller="SlidesCtrl as ctrl">
+  <ion-slide-box auto-play="true" slide-interval="5000" on-slide-changed="ctrl.onSlideChanged()" active-slide="ctrl.activeSlideIndex">
+    <ion-slide ng-repeat="slide in ctrl.slides">
+      <a ng-click="ctrl.clickSlide(slide.targetUrl)">
+        <img ng-src="{{ slide.imageSource }}">
+      </a>
+    </ion-slide>
+  </ion-slide-box>
+</div>

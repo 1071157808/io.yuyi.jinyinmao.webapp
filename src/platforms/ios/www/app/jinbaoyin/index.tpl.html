@@ -1,0 +1,46 @@
+<ion-view title="金银猫">
+
+  <ion-content id="nonbackcolor">
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="product.doRefresh()">
+    </ion-refresher>
+    <div ng-include="'app/common/templates/index-slide-box.tpl.html'"></div>
+    <div class="jinbaoyin-index-product padding">
+      <h4 class="padding" ng-bind="product.viewModel.title"></h4>
+      <h5>承兑汇票抵押</h5>
+      <strong class="jinbaoyin-yield">
+        <em ng-bind="product.viewModel.yield"></em><samp>%</samp>
+      </strong>
+
+      <div class="clearfix">
+        <span><em ng-bind="product.viewModel.unitPrice"></em>元起</span>
+        <span>随时存取</span>
+        <span>灵活投资</span>
+      </div>
+    </div>
+
+    <div class="jym-index-purchase">
+      <button class="btn button-action" ui-sref="jym.jinbaoyin-detail">立即抢购</button>
+    </div>
+
+    <div class="jym-safe-control">
+      <div class="row">
+        <div class="col col-33 block-a">
+          <span class="icon-safe-1"></span>
+          <em>风险趋零</em>
+        </div>
+        <div class="col col-33 block-b">
+          <span class="icon-safe-2"></span>
+          <em>刚性兑付</em>
+        </div>
+        <div class="col col-33 block-c">
+          <span class="icon-safe-3"></span>
+          <em>双重保障</em>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

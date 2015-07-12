@@ -1,0 +1,40 @@
+<ion-view title="银企众盈">
+  <ion-content>
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="products.doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <div ng-repeat="item in products.viewModel.items">
+        <ion-item ui-sref="jym.yinpiao-detail({ productIdentifier: item.productIdentifier })">
+          <div class="row">
+            <div class="col col-33">
+              <em ng-bind="item.yield"></em><samp>%</samp>
+              <li class="jqm-prd-period"><span ng-bind="item.period"></span><samp>&nbsp;天</samp></li>
+              <li class="jqm-min-price"><span ng-bind="item.unitPrice"></span><samp>&nbsp;元起</samp></li>
+              <li class="jqm-prd-price"><span ng-bind="item.financingSumAmount"></span><samp>&nbsp;万</samp></li>
+            </div>
+            <div class="col col-67">
+              <li ng-bind="item.productName"></li>
+              <div class="detail">
+                <li class="saleStatus" ng-bind="item.statusText"></li>
+                <li ng-bind="item.timeText"></li>
+                <li ng-bind="item.bankName"></li>
+              </div>
+            </div>
+          </div>
+
+        </ion-item>
+        <ion-item class="divider">
+        </ion-item>
+      </div>
+    </ion-list>
+    <ion-infinite-scroll
+      ng-if="products.moreDataCanBeLoaded()"
+      on-infinite="products.loadMoreData()"
+      distance="1%"
+      spinner="spiral">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
