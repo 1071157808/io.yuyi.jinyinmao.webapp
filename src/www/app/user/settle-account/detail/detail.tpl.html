@@ -16,12 +16,12 @@
 
         <p class="pull-right" ng-bind="transaction.viewModel.resultTime | longTime"></p>
       </ion-item>
-      <ion-item class="nonborder">
+      <ion-item>
         <p class="pull-left">交易类型</p>
 
         <p class="pull-right" ng-bind="transaction.viewModel.tradeCode | tradeCodeForSettle"></p>
       </ion-item>
-      <ion-item class="nonborder">
+      <ion-item ng-if="transaction.viewModel.showBankCard">
         <p class="pull-left">银行卡号</p>
 
         <p class="pull-right" ng-bind="transaction.viewModel.bankCardNo"></p>

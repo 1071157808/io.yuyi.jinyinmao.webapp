@@ -52,11 +52,13 @@ angular.module('jym.user.settle-account-detail', [
             transaction.viewModel.channelCode = transaction.model.channelCode;
             transaction.viewModel.resultCode = transaction.model.resultCode;
             transaction.viewModel.resultTime = transaction.model.resultTime;
+            transaction.viewModel.showBankCard = transaction.viewModel.bankCardNo.length > 0;
             transaction.viewModel.trade = transaction.model.trade;
             transaction.viewModel.tradeCode = transaction.model.tradeCode;
             transaction.viewModel.transactionIdentifier = transaction.model.transactionIdentifier;
             transaction.viewModel.transactionTime = transaction.model.transactionTime;
             transaction.viewModel.transDesc = transaction.model.transDesc;
+
             transaction.viewModel.resultStyle = { color: '#444' };
 
             if (transaction.viewModel.resultCode === 1) {
