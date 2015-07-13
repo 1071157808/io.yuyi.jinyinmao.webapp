@@ -44,7 +44,7 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     })
-    .run(function($ionicPlatform, $ionicDeploy) {
+    .run(function($state, $timeout, $ionicPlatform, $ionicDeploy, APP) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -65,6 +65,10 @@ angular.module('JYM', [
             };
 
             checkUpdate();
+
+            $timeout(function(){
+              $state.go('jym.jinbaoyin');
+            }, 5000);
         });
     })
     .run(function($rootScope, $ionicLoading) {

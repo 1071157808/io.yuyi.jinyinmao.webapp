@@ -39,6 +39,11 @@ module.exports = [
     {
         "file": "plugins/nl.x-services.plugins.toast/test/tests.js",
         "id": "nl.x-services.plugins.toast.tests"
+    },
+    {
+        "file": "plugins/cordova-plugin-whitelist/whitelist.js",
+        "id": "cordova-plugin-whitelist.whitelist",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -48,7 +53,8 @@ module.exports.metadata =
     "com.ionic.keyboard": "1.0.4",
     "cordova-plugin-inappbrowser": "1.0.0",
     "cordova-plugin-statusbar": "1.0.0",
-    "nl.x-services.plugins.toast": "2.0.4"
+    "nl.x-services.plugins.toast": "2.0.4",
+    "cordova-plugin-whitelist": "1.0.0"
 }
 // BOTTOM OF METADATA
 });
