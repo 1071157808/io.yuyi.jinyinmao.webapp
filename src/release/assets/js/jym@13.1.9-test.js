@@ -1446,7 +1446,7 @@ angular.module('jym.jinbaoyin', [
                 }
             });
     }])
-    .controller('JinbaoyinCtrl', ['$scope', '$timeout', '$ionicDeploy', 'JinbaoyinService', function($scope, $timeout, $ionicDeploy, JinbaoyinService) {
+    .controller('JinbaoyinCtrl', ['$scope', '$timeout', '$ionicDeploy', 'APP', 'JinbaoyinService', function($scope, $timeout, $ionicDeploy, APP, JinbaoyinService) {
         var product = this;
 
         product.model = {};
@@ -1455,6 +1455,7 @@ angular.module('jym.jinbaoyin', [
         product.checkUpdate = function() {
             var checkTime;
             if (checkTime && checkTime - moment() > 1000 * 60 * 60 * 24) {
+                $ionicDeploy.setChannel(APP.ENV);
                 $ionicDeploy.check().then(function(hasUpdate) {
                     checkTime = moment();
                     if (hasUpdate) {
@@ -1620,9 +1621,6 @@ angular.module('JYM', [
             app_id: '6e37fda2',
             api_key: 'c1006ace57b45a0a7b5543cd6e65bb5e689b95d7b00cfad0'
         });
-    }])
-    .config(['$ionicDeploy', 'APP', function($ionicDeploy, APP) {
-        $ionicDeploy.setChannel(APP.ENV);
     }])
     .config(['$httpProvider', function($httpProvider) {
         // $httpProvider.defaults.withCredentials = true;

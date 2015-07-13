@@ -16,7 +16,7 @@ angular.module('jym.jinbaoyin', [
                 }
             });
     })
-    .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy, JinbaoyinService) {
+    .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy, APP, JinbaoyinService) {
         var product = this;
 
         product.model = {};
@@ -25,6 +25,7 @@ angular.module('jym.jinbaoyin', [
         product.checkUpdate = function() {
             var checkTime;
             if (checkTime && checkTime - moment() > 1000 * 60 * 60 * 24) {
+                $ionicDeploy.setChannel(APP.ENV);
                 $ionicDeploy.check().then(function(hasUpdate) {
                     checkTime = moment();
                     if (hasUpdate) {
