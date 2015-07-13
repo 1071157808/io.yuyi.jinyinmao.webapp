@@ -44,12 +44,27 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     })
-    .run(function($ionicPlatform) {
+    .run(function($ionicPlatform, $ionicDeploy) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
+
+            var checkUpdate = function() {
+                var checkTime;
+                if (checkTime && checkTime - moment() > 1000 * 60 * 60 * 24) {
+                    $ionicDeploy.setChannel(APP.ENV);
+                    $ionicDeploy.check().then(function(hasUpdate) {
+                        checkTime = moment();
+                        if (hasUpdate) {
+                            $ionicDeploy.update();
+                        }
+                    });
+                }
+            };
+
+            checkUpdate();
         });
     })
     .run(function($rootScope, $ionicLoading) {
