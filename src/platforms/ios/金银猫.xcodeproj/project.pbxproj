@@ -39,13 +39,13 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		B959FF790A9E46D188F1A21C /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B0208465B54D4CFDBD773901 /* IonicKeyboard.m */; };
-		070B5E28E18D4D8EA270FC90 /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C4E008886C4F89B6F8A267 /* UIWebViewExtension.m */; };
-		D26D3CCE461A468998450DE4 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F1D0918094AAFB0CD3AFE /* CDVInAppBrowser.m */; };
-		D48EA14E80B841D9A99C1E20 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8467995E4F174C1BBA5C7D10 /* CDVStatusBar.m */; };
-		6A78BFF4267B4352BD5C0BEB /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 990CE5BC56C3450BA3F9751B /* Toast+UIView.m */; };
-		413EACB366DF4E288EA1F662 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80541ED0C04C8F93BC822B /* Toast.m */; };
-		952D5935BB6D439FAD231981 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1832503FB07E4A0892C9891E /* QuartzCore.framework */; };
+		66F34166645B4BEF9692D2D9 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 201DAB1D06D3460FBDBDE8D8 /* IonicKeyboard.m */; };
+		1C221423A8DC44718AB6F9E1 /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C3615FF4034603B1A96845 /* UIWebViewExtension.m */; };
+		6006869FEFF94D529D45E6D6 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = BF479C3997B14E6DBCE153E0 /* CDVInAppBrowser.m */; };
+		F42AE318EA0A4FC39FFDE5BE /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B934D6758442FCA4507752 /* CDVStatusBar.m */; };
+		90F6B7717D8F43C19BC4B805 /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E705D7DF4184A50B79F77FD /* Toast+UIView.m */; };
+		1858C4D74E554EABA6058C2B /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 179B39B62DF544F2870CE41E /* Toast.m */; };
+		3259A9F1FD4E4929BEF159EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F69C7931DA240F19420E96F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,19 +111,19 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "金银猫/config.xml"; sourceTree = "<group>"; };
-		B0208465B54D4CFDBD773901 /* IonicKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "IonicKeyboard.m"; path = "com.ionic.keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		E6C4E008886C4F89B6F8A267 /* UIWebViewExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIWebViewExtension.m"; path = "com.ionic.keyboard/UIWebViewExtension.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		972E98051357427A895AC138 /* IonicKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "IonicKeyboard.h"; path = "com.ionic.keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		9D83E677882C4EC4974F2AF1 /* UIWebViewExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIWebViewExtension.h"; path = "com.ionic.keyboard/UIWebViewExtension.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		4C7F1D0918094AAFB0CD3AFE /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		D465BFA5E8D44920A43E9367 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		8467995E4F174C1BBA5C7D10 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		C2282DD62BE5490DBD1ED5FB /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		990CE5BC56C3450BA3F9751B /* Toast+UIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Toast+UIView.m"; path = "nl.x-services.plugins.toast/Toast+UIView.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		9F80541ED0C04C8F93BC822B /* Toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Toast.m"; path = "nl.x-services.plugins.toast/Toast.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		5ABD0377D15F4B899F187C90 /* Toast+UIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Toast+UIView.h"; path = "nl.x-services.plugins.toast/Toast+UIView.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		13310E9F6AE6400A9BEFDA8F /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Toast.h"; path = "nl.x-services.plugins.toast/Toast.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		1832503FB07E4A0892C9891E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		201DAB1D06D3460FBDBDE8D8 /* IonicKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "IonicKeyboard.m"; path = "com.ionic.keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		91C3615FF4034603B1A96845 /* UIWebViewExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIWebViewExtension.m"; path = "com.ionic.keyboard/UIWebViewExtension.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		AA8EC33D09D6491D83946AE5 /* IonicKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "IonicKeyboard.h"; path = "com.ionic.keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		D1ACCD3481B14081A79CEA62 /* UIWebViewExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIWebViewExtension.h"; path = "com.ionic.keyboard/UIWebViewExtension.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		BF479C3997B14E6DBCE153E0 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		6AFC0A0120374E66B16DDAEB /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		B5B934D6758442FCA4507752 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		7D898E4A5FB941EBB1B43217 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		7E705D7DF4184A50B79F77FD /* Toast+UIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Toast+UIView.m"; path = "nl.x-services.plugins.toast/Toast+UIView.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		179B39B62DF544F2870CE41E /* Toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "Toast.m"; path = "nl.x-services.plugins.toast/Toast.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		5511E745D86B4FDC8B99710E /* Toast+UIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Toast+UIView.h"; path = "nl.x-services.plugins.toast/Toast+UIView.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		A207F483D6A0454280752679 /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Toast.h"; path = "nl.x-services.plugins.toast/Toast.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		5F69C7931DA240F19420E96F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
-				952D5935BB6D439FAD231981 /* QuartzCore.framework in Frameworks */,
+				3259A9F1FD4E4929BEF159EE /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +208,7 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
-				1832503FB07E4A0892C9891E /* QuartzCore.framework */,
+				5F69C7931DA240F19420E96F /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,18 +224,18 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				B0208465B54D4CFDBD773901 /* IonicKeyboard.m */,
-				E6C4E008886C4F89B6F8A267 /* UIWebViewExtension.m */,
-				972E98051357427A895AC138 /* IonicKeyboard.h */,
-				9D83E677882C4EC4974F2AF1 /* UIWebViewExtension.h */,
-				4C7F1D0918094AAFB0CD3AFE /* CDVInAppBrowser.m */,
-				D465BFA5E8D44920A43E9367 /* CDVInAppBrowser.h */,
-				8467995E4F174C1BBA5C7D10 /* CDVStatusBar.m */,
-				C2282DD62BE5490DBD1ED5FB /* CDVStatusBar.h */,
-				990CE5BC56C3450BA3F9751B /* Toast+UIView.m */,
-				9F80541ED0C04C8F93BC822B /* Toast.m */,
-				5ABD0377D15F4B899F187C90 /* Toast+UIView.h */,
-				13310E9F6AE6400A9BEFDA8F /* Toast.h */,
+				201DAB1D06D3460FBDBDE8D8 /* IonicKeyboard.m */,
+				91C3615FF4034603B1A96845 /* UIWebViewExtension.m */,
+				AA8EC33D09D6491D83946AE5 /* IonicKeyboard.h */,
+				D1ACCD3481B14081A79CEA62 /* UIWebViewExtension.h */,
+				BF479C3997B14E6DBCE153E0 /* CDVInAppBrowser.m */,
+				6AFC0A0120374E66B16DDAEB /* CDVInAppBrowser.h */,
+				B5B934D6758442FCA4507752 /* CDVStatusBar.m */,
+				7D898E4A5FB941EBB1B43217 /* CDVStatusBar.h */,
+				7E705D7DF4184A50B79F77FD /* Toast+UIView.m */,
+				179B39B62DF544F2870CE41E /* Toast.m */,
+				5511E745D86B4FDC8B99710E /* Toast+UIView.h */,
+				A207F483D6A0454280752679 /* Toast.h */,
 			);
 			name = Plugins;
 			path = "金银猫/Plugins";
@@ -420,12 +420,12 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				B959FF790A9E46D188F1A21C /* IonicKeyboard.m in Sources */,
-				070B5E28E18D4D8EA270FC90 /* UIWebViewExtension.m in Sources */,
-				D26D3CCE461A468998450DE4 /* CDVInAppBrowser.m in Sources */,
-				D48EA14E80B841D9A99C1E20 /* CDVStatusBar.m in Sources */,
-				6A78BFF4267B4352BD5C0BEB /* Toast+UIView.m in Sources */,
-				413EACB366DF4E288EA1F662 /* Toast.m in Sources */,
+				66F34166645B4BEF9692D2D9 /* IonicKeyboard.m in Sources */,
+				1C221423A8DC44718AB6F9E1 /* UIWebViewExtension.m in Sources */,
+				6006869FEFF94D529D45E6D6 /* CDVInAppBrowser.m in Sources */,
+				F42AE318EA0A4FC39FFDE5BE /* CDVStatusBar.m in Sources */,
+				90F6B7717D8F43C19BC4B805 /* Toast+UIView.m in Sources */,
+				1858C4D74E554EABA6058C2B /* Toast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,7 +39,7 @@
     "nl.x-services.plugins.toast"
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "android",
+    "ios"
   ]
 }
