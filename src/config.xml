@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.jym730647" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="cn.com.jinyinmao.app" version="13.1.10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>金银猫</name>
     <description>
         金银猫
     </description>
-    <author email="lu.siqi@yuyidev.com" href="http://www.yuyidev.com/">
+    <author email="lu.siqi@jinyinmao.com.cn" href="https://www.jinyinmao.com.cn/">
         Shanghai Yuyi Mdt InfoTech Ltd.
     </author>
     <content src="index.html"/>
