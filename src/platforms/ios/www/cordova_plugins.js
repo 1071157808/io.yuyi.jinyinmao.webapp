@@ -32,6 +32,13 @@ module.exports = [
     {
         "file": "plugins/nl.x-services.plugins.toast/test/tests.js",
         "id": "nl.x-services.plugins.toast.tests"
+    },
+    {
+        "file": "plugins/com.ionic.deploy/www/ionicdeploy.js",
+        "id": "com.ionic.deploy.IonicDeploy",
+        "clobbers": [
+            "IonicDeploy"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -40,7 +47,8 @@ module.exports.metadata =
     "com.ionic.keyboard": "1.0.4",
     "cordova-plugin-inappbrowser": "1.0.0",
     "cordova-plugin-statusbar": "1.0.0",
-    "nl.x-services.plugins.toast": "2.0.4"
+    "nl.x-services.plugins.toast": "2.0.4",
+    "com.ionic.deploy": "0.2.1"
 }
 // BOTTOM OF METADATA
 });

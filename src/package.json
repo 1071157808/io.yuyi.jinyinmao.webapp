@@ -36,7 +36,11 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-inappbrowser",
     "com.ionic.keyboard",
-    "nl.x-services.plugins.toast"
+    "nl.x-services.plugins.toast",
+    {
+      "locator": "https://github.com/driftyco/ionic-plugins-deploy",
+      "id": "com.ionic.deploy"
+    }
   ],
   "cordovaPlatforms": [
     "android",

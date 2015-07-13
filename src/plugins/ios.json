@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"Toast\"><param name=\"ios-package\" value=\"Toast\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"IonicDeploy\"><param name=\"ios-package\" onload=\"true\" value=\"IonicDeploy\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -64,6 +68,9 @@
             "PACKAGE_NAME": "com.ionicframework.jym730647"
         },
         "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "com.ionicframework.jym730647"
+        },
+        "com.ionic.deploy": {
             "PACKAGE_NAME": "com.ionicframework.jym730647"
         }
     },
