@@ -61,10 +61,16 @@ angular.module('jym.interceptors', [
             }
         };
     })
-    .factory('loadingInterceptor', function($rootScope) {
+    .factory('loadingInterceptor', function($rootScope, $timeout) {
         return {
             request: function(config) {
-                $rootScope.$broadcast('loading:show');
+                if (config.method.toUpperCase() !== 'GET') {
+                    $rootScope.$broadcast('loading:show');
+                    $timeout(function() {
+                        $rootScope.$broadcast('loading:hide');
+                    }, 10000);
+                }
+
                 return config;
             },
             response: function(response) {
