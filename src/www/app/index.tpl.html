@@ -1,7 +1,4 @@
-<ion-nav-bar align-title="center">
-  <ion-nav-back-button></ion-nav-back-button>
-</ion-nav-bar>
-<ion-tabs class="tabs-jym tabs-icon-only">
+<ion-tabs class="tabs-jym tabs-icon-only" ng-controller="TabsCtrl" ng-class="{'tabs-item-hide': hideTabs}">
   <ion-tab ui-sref="jym.jinbaoyin" icon-on="jym-icon-home" icon-off="jym-icon-home">
     <ion-nav-view name="jinbaoyin"></ion-nav-view>
   </ion-tab>

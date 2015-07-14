@@ -65,10 +65,6 @@ angular.module('JYM', [
             };
 
             checkUpdate();
-
-            $timeout(function(){
-              $state.go('jym.jinbaoyin');
-            }, 5000);
         });
     })
     .run(function($rootScope, $ionicLoading) {

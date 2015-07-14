@@ -113,7 +113,7 @@ module.exports = function(grunt) {
         compress: {
             release: {
                 options: {
-                    archive: './publish/release.zip'
+                    archive: '../publish/release.zip'
                 },
                 expand: true,
                 cwd: 'release/',

@@ -44,7 +44,7 @@
                  ng-change="product.investCountChange()">
           <samp>份</samp>
         </label>
-        <button class="button button-small button-assertive" id="btn-narrow" ng-bind="product.viewModel.status.buttonText" ng-disabled="!product.goPurchaseButtonEnable()" ng-click="product.goPurchase()"></button>
+        <button class="button button-small button-assertive" id="btn-narrow" ng-bind="product.viewModel.statusText" ng-disabled="!product.goPurchaseButtonEnable()" ng-click="product.goPurchase()"></button>
       </ion-item>
       <ion-item class="item-divider">
         <p class="pull-right">投资金额：<span>&nbsp;</span><span ng-bind="product.viewModel.investAmount"></span><span>&nbsp;</span>元</p>
@@ -58,7 +58,7 @@
       <ion-item>
         <p class="pull-left">项目状态</p>
 
-        <p class="pull-right"><span ng-bind="product.viewModel.status.text"></span></p>
+        <p class="pull-right"><span ng-bind="product.viewModel.statusText"></span></p>
       </ion-item>
       <ion-item>
         <p class="pull-left">项目名称</p>

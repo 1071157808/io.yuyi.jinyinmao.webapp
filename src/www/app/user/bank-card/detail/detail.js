@@ -16,7 +16,7 @@ angular.module('jym.user.bank-card-detail', [
                 }
             });
     })
-    .controller('UserBankCardDetailCtrl', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserBankCardDetailCtrl', function($scope, $state, $stateParams, $timeout, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
         var card = this;
 
         card.model = {};
@@ -50,7 +50,7 @@ angular.module('jym.user.bank-card-detail', [
                         JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.REMOVE_SUCCESS);
 
                         $timeout(function() {
-                            JYMUtilityService.goWithDisableBack('jym.user-bank-card');
+                            $ionicHistory.goBack();
                         }, 1000);
                     });
             }

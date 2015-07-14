@@ -10,6 +10,7 @@ angular.module('jym.zhuanqu', [
                 url: '/zhuanqu',
                 views: {
                     zhuanqu: {
+                        controller: 'ZhuanquIndexCtrl as ctrl',
                         templateUrl: 'app/zhuanqu/index.tpl.html'
                     }
                 }
@@ -23,6 +24,13 @@ angular.module('jym.zhuanqu', [
                     }
                 }
             });
+    })
+    .controller('ZhuanquIndexCtrl', function(JYMUtilityService) {
+        var ctrl = this;
+
+        ctrl.go = function(url) {
+            JYMUtilityService.open(url);
+        };
     })
     .controller('ZhuanquListCtrl', function($scope, $stateParams, $filter, $timeout, ProductService) {
         var products = this;
