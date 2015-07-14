@@ -2,57 +2,57 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         BANKCARD: {
-            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADD_BANK_CARD: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
-            ADD_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADD_BANK_CARD: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
+            ADD_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoreproduct.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.1.1'
+            FETCH: 'https://jymstoretest.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.1.1'
         },
         INVESTING: {
-            JBY: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/JBY',
-            REGULAR: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/Regular'
+            JBY: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         JINBAOYIN: {
-            AGREEMENT: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
-            FETCH: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
+            FETCH: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         ORDER: {
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/Order/Info/',
-            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/Order/Index/'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         REGULARPRDUCT: {
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
-            AGREEMENT: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
         SETTLEACCOUNT: {
-            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
-            DEPOSIT: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
-            WITHDRAWAL: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
+            DEPOSIT: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
+            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
         USER: {
-            AUTHENTICATE: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
-            GETINFO: 'https://jym-product-api.jinyinmao.com.cn:443/User',
-            RESET_LOGIN_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESET_PAYMENT_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SEND_VERICODE: 'https://jym-product-api.jinyinmao.com.cn:443/SendVeriCode',
-            SET_PAYMENT_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            SINGUP: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SIGNIN: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            VERIFY_VERICODE: 'https://jym-product-api.jinyinmao.com.cn:443/VerifyVeriCode'
+            AUTHENTICATE: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
+            GETINFO: 'https://jym-test-api.jinyinmao.com.cn:443/User',
+            RESET_LOGIN_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SEND_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/SendVeriCode',
+            SET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            SINGUP: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SIGNIN: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            VERIFY_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/VerifyVeriCode'
         },
         USERJINBAOYIN: {
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         }
     })
     .constant('RESOURCES', {
@@ -67,7 +67,7 @@ angular.module('jym.constants', [])
                 CLOSED: '账户被禁用<br>如需帮助，请联系金银猫客服<br>4008-556-333',
                 HAS_NOT_SET_PAYMENT_PASSWORD: '请先设置支付密码',
                 PAYMENT_PASSWORD_NEED_RESET: '支付密码被锁定<br>请重置后使用',
-                TOO_MANY_VERI_CODE: '验证码发送次数过多<br>请稍后再试',
+                TOO_MANY_VERI_CODE: '验证码发送次数过多<br>请明天再试',
                 USER_LOGIN_FAIL: '用户名或者密码错误<br>请确认后再试',
                 USER_LOGIN_PASSWORD_LOCK: '登录密码被锁定<br>请重置后使用',
                 USER_LOGIN_PASSWORD_REMIAN_LESS: '用户名或者密码错误次数过多<br>请核实后再试',
@@ -119,8 +119,8 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.14',
-        ENV: 'product'
+        VERSION: '13.1.15-TEST',
+        ENV: 'test'
     });
 
 'use strict';
@@ -156,6 +156,10 @@ angular.module('jym.controllers', [
     .controller('TabsCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
         var indexPage = ['jym.jinbaoyin', 'jym.shangpiao', 'jym.user', 'jym.yinpiao', 'jym.zhuanqu'];
         $rootScope.$on('$ionicView.beforeEnter', function() {
+            var pageName = $state.current.name;
+            $rootScope.hideTabs = indexPage.indexOf(pageName) < 0;
+        });
+        $rootScope.$on('$ionicView.enter', function() {
             var pageName = $state.current.name;
             $rootScope.hideTabs = indexPage.indexOf(pageName) < 0;
         });
@@ -874,10 +878,16 @@ angular.module('jym.interceptors', [
             }
         };
     }])
-    .factory('loadingInterceptor', ['$rootScope', function($rootScope) {
+    .factory('loadingInterceptor', ['$rootScope', '$timeout', function($rootScope, $timeout) {
         return {
             request: function(config) {
-                $rootScope.$broadcast('loading:show');
+                if (config.method.toUpperCase() !== 'GET') {
+                    $rootScope.$broadcast('loading:show');
+                    $timeout(function() {
+                        $rootScope.$broadcast('loading:hide');
+                    }, 10000);
+                }
+
                 return config;
             },
             response: function(response) {
@@ -1066,7 +1076,7 @@ angular.module("app/jinbaoyin/purchase/purchase.tpl.html", []).run(["$templateCa
 
 angular.module("app/shangpiao/detail/detail.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/shangpiao/detail/detail.tpl.html",
-    "<ion-view title=商融保盈><ion-content><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=product.doRefresh()></ion-refresher><ion-list class=order-detail><ion-item><div class=row><div class=\"col col-50\"><div class=center><p>已售出</p><p><span ng-bind=product.viewModel.sellProgress></span><samp>%</samp></p><progress-arc class=circle-progress stroke=#facb3a size=100 stroke-width=5 complete=product.viewModel.sellProgressInCircleProgress background=#eee></progress-arc></div></div><div class=col><ul><li><samp ng-bind=product.viewModel.yield></samp><span>%</span></li><li><span ng-bind=product.viewModel.unitPrice></span>元起投</li><li><span ng-bind=product.viewModel.period></span>天</li><li><span ng-bind=product.viewModel.financingSumAmount></span>万元</li></ul></div></div></ion-item></ion-list><div class=card><ion-item class=item-divider><p class=pull-left>剩余份数：<span ng-bind=product.viewModel.remainCount></span>份（<span ng-bind=product.viewModel.unitPrice></span>元／份）</p></ion-item><ion-item class=item-input-inset><label class=item-input-wrapper><input type=number placeholder=投资份数 ng-model=product.viewModel.investCount required min=1 max=100000000 ng-change=product.investCountChange()> <samp>份</samp></label><button class=\"button button-small button-assertive\" id=btn-narrow ng-bind=product.viewModel.statusText ng-click=product.goPurchase() ng-disabled=!product.goPurchaseButtonEnable()></button></ion-item><ion-item class=item-divider><p class=pull-left>投资金额：<span>&nbsp;</span><span ng-bind=product.viewModel.investAmount></span><span>&nbsp;</span>元</p><p class=pull-right>预计收益：<span>&nbsp;</span><span ng-bind=product.viewModel.expectedInterest></span><span>&nbsp;</span>元</p></ion-item></div><ion-list><ion-item class=item-divider><p ng-bind=product.viewModel.productNo class=product-no></p></ion-item><ion-item><p class=pull-left>项目状态</p><p class=pull-right><span ng-bind=product.viewModel.statusText></span></p></ion-item><ion-item><p class=pull-left>项目名称</p><p class=pull-right><span ng-bind=product.viewModel.productName></span></p></ion-item><ion-item><p class=pull-left>项目期数</p><p class=pull-right><span>第&nbsp;</span><span ng-bind=product.viewModel.issueNo></span><span>&nbsp;期</span></p></ion-item><ion-item><p class=pull-left>项目类型</p><p class=pull-right><span ng-bind=product.viewModel.riskManagementMode></span></p></ion-item><ion-item><p class=pull-left>融资总额</p><p class=pull-right><span ng-bind=product.viewModel.financingSumAmount></span> 万元</p></ion-item><ion-item><p class=pull-left>投资单位</p><p class=pull-right><span ng-bind=product.viewModel.unitPrice></span>元</p></ion-item><ion-item><p class=pull-left>起息日期</p><p class=pull-right><span ng-bind=product.viewModel.valueDateText></span></p></ion-item><ion-item><p class=pull-left>结息日期</p><p class=pull-right><span ng-bind=\"product.viewModel.settleDate | time\"></span></p></ion-item><ion-item><p class=pull-left>最迟还款日</p><p class=pull-right><span ng-bind=\"product.viewModel.repaymentDeadline | time\"></span></p></ion-item></ion-list></ion-content></ion-view>");
+    "<ion-view title=商融保盈><ion-content><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=product.doRefresh()></ion-refresher><ion-list class=order-detail><ion-item><div class=row><div class=\"col col-50\"><div class=center><p>已售出</p><p><span ng-bind=product.viewModel.sellProgress></span><samp>%</samp></p><progress-arc class=circle-progress stroke=#facb3a size=100 stroke-width=5 complete=product.viewModel.sellProgressInCircleProgress background=#eee></progress-arc></div></div><div class=col><ul><li><samp ng-bind=product.viewModel.yield></samp><span>%</span></li><li><span ng-bind=product.viewModel.unitPrice></span>元起投</li><li><span ng-bind=product.viewModel.period></span>天</li><li><span ng-bind=product.viewModel.financingSumAmount></span>万元</li></ul></div></div></ion-item></ion-list><div class=card><ion-item class=item-divider><p class=pull-left>剩余份数：<span ng-bind=product.viewModel.remainCount></span>份（<span ng-bind=product.viewModel.unitPrice></span>元／份）</p></ion-item><ion-item class=item-input-inset><label class=item-input-wrapper><input type=number placeholder=投资份数 ng-model=product.viewModel.investCount required min=1 max=100000000 ng-change=product.investCountChange()> <samp>份</samp></label><button class=\"button button-small button-assertive\" id=btn-narrow ng-bind=product.viewModel.statusText ng-click=product.goPurchase() ng-disabled=!product.goPurchaseButtonEnable()></button></ion-item><ion-item class=item-divider><p class=pull-left>投资金额：<span>&nbsp;</span><span ng-bind=product.viewModel.investAmount></span><span>&nbsp;</span>元</p><p class=pull-right>预计收益：<span>&nbsp;</span><span ng-bind=product.viewModel.expectedInterest></span><span>&nbsp;</span>元</p></ion-item></div><ion-list><ion-item class=item-divider><p ng-bind=product.viewModel.productNo class=product-no></p></ion-item><ion-item><p class=pull-left>项目状态</p><p class=pull-right><span ng-bind=product.viewModel.statusText></span></p></ion-item><ion-item><p class=pull-left>项目名称</p><p class=pull-right><span ng-bind=product.viewModel.productName></span></p></ion-item><ion-item><p class=pull-left>项目期数</p><p class=pull-right><span>第&nbsp;</span><span ng-bind=product.viewModel.issueNo></span><span>&nbsp;期</span></p></ion-item><ion-item><p class=pull-left>项目类型</p><p class=pull-right><span ng-bind=product.viewModel.riskManagementMode></span></p></ion-item><ion-item><p class=pull-left>风控措施</p><p class=pull-right><span ng-bind=product.viewModel.riskManagement></span></p></ion-item><ion-item><p class=pull-left>融资总额</p><p class=pull-right><span ng-bind=product.viewModel.financingSumAmount></span> 万元</p></ion-item><ion-item><p class=pull-left>投资单位</p><p class=pull-right><span ng-bind=product.viewModel.unitPrice></span>元</p></ion-item><ion-item><p class=pull-left>起息日期</p><p class=pull-right><span ng-bind=product.viewModel.valueDateText></span></p></ion-item><ion-item><p class=pull-left>结息日期</p><p class=pull-right><span ng-bind=\"product.viewModel.settleDate | time\"></span></p></ion-item><ion-item><p class=pull-left>最迟还款日</p><p class=pull-right><span ng-bind=\"product.viewModel.repaymentDeadline | time\"></span></p></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
 angular.module("app/shangpiao/index.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1172,7 +1182,7 @@ angular.module("app/user/security/password/sendVeriCode.tpl.html", []).run(["$te
 
 angular.module("app/user/security/paymentPassword/paymentPassword.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/security/paymentPassword/paymentPassword.tpl.html",
-    "<ion-view title=设置新支付密码><ion-content><ion-list class=reset-payment-passsword><ion-item class=divider></ion-item><label class=\"item item-input\" ng-if=ctrl.viewModel.needUserInfo><span class=input-label>输入您的姓名</span> <input type=text placeholder=姓名 ng-model=ctrl.viewModel.realName required minlength=1 maxlength=8 ng-trim=true></label><label class=\"item item-input\" ng-if=ctrl.viewModel.needUserInfo><span class=input-label>确认您的证件号</span> <input type=text placeholder=证件号 ng-model=ctrl.viewModel.credentialNo required minlength=5 maxlength=30 ng-trim=true></label><label class=\"item item-input\"><span class=input-label>输入新支付密码</span> <input type=password placeholder=8-18位字符，必须包含大写字母 ng-model=ctrl.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^[a-zA-Z\\d~!@#$%^&*_]{6,18}$/\"></label><label class=\"item item-input\"><span class=input-label>确认新支付密码</span> <input type=password placeholder=再次输入新支付密码 ng-model=ctrl.viewModel.confirmPassword required minlength=8 maxlength=18 ng-pattern=\"/^[a-zA-Z\\d~!@#$%^&*_]{6,18}$/\"></label></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.resetPassword() ng-disabled=!ctrl.enableButton()>修 改</button></ion-content></ion-view>");
+    "<ion-view title=设置新支付密码><ion-content><ion-list class=reset-payment-passsword><ion-item class=divider></ion-item><label class=\"item item-input\" ng-if=ctrl.viewModel.needUserInfo><span class=input-label>输入您的姓名</span> <input type=text placeholder=姓名 ng-model=ctrl.viewModel.realName required minlength=1 maxlength=8 ng-trim=true></label><label class=\"item item-input\" ng-if=ctrl.viewModel.needUserInfo><span class=input-label>确认您的证件号</span> <input type=text placeholder=证件号 ng-model=ctrl.viewModel.credentialNo required minlength=5 maxlength=30 ng-trim=true></label><label class=\"item item-input\"><span class=input-label>输入新支付密码</span> <input type=password placeholder=8-18位字符，必须包含大写字母 ng-model=ctrl.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label><label class=\"item item-input\"><span class=input-label>确认新支付密码</span> <input type=password placeholder=再次输入新支付密码 ng-model=ctrl.viewModel.confirmPassword required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.resetPassword() ng-disabled=!ctrl.enableButton()>修 改</button></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/security/paymentPassword/sendVeriCode.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1327,7 +1337,7 @@ angular.module('jym.jinbaoyin.detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
+            }, 1500);
         };
 
         product.investCountChange = function() {
@@ -1452,14 +1462,12 @@ angular.module('jym.jinbaoyin', [
         product.model = {};
         product.viewModel = {};
 
-
-
         product.doRefresh = function() {
             product.refreshProduct();
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
+            }, 1500);
         };
 
         product.refreshProduct = function() {
@@ -2481,7 +2489,7 @@ angular.module('jym.shangpiao.detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
+            }, 1500);
         };
 
         product.investCountChange = function() {
@@ -2848,7 +2856,7 @@ angular.module('jym.shangpiao', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         products.loadMoreData = function() {
@@ -3098,7 +3106,7 @@ angular.module('jym.user.bank-card', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         cards.refreshBankCards = function() {
@@ -3162,7 +3170,7 @@ angular.module('jym.user.bank-card-detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         card.refreshBankCard = function() {
@@ -3357,7 +3365,7 @@ angular.module('jym.user.jinbaoyin-detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         transaction.go = function(toState, params) {
@@ -3457,7 +3465,7 @@ angular.module('jym.user.jinbaoyin', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         ctrl.refreshUser = function() {
@@ -3537,7 +3545,7 @@ angular.module('jym.user.jinbaoyin-list', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         account.loadMoreData = function() {
@@ -3840,7 +3848,7 @@ angular.module('jym.user.orders-detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         order.go = function(toState, params) {
@@ -4058,7 +4066,7 @@ angular.module('jym.user.orders', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         orders.loadMoreData = function() {
@@ -4155,14 +4163,20 @@ angular.module('jym.user.security-password', [])
             ctrl.doRefresh();
         });
     }])
-    .controller('UserSecurityPasswordSendVeriCodeCtrl', ['$timeout', 'RESOURCES', 'UserService', 'JYMUtilityService', function($timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSecurityPasswordSendVeriCodeCtrl', ['$scope', '$timeout', 'RESOURCES', 'UserService', 'JYMUtilityService', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
-        ctrl.viewModel.cellphone = undefined;
-        ctrl.viewModel.veriCode = undefined;
-
         ctrl.viewModel.remainSeconds = 0;
+
+        ctrl.doRefresh = function() {
+            ctrl.resetInput();
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.cellphone = '';
+            ctrl.viewModel.veriCode = '';
+        };
 
         ctrl.sendVeriCode = function() {
             if (ctrl.sendVeriCodeButtonEnable()) {
@@ -4200,6 +4214,7 @@ angular.module('jym.user.security-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
+                                ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-security-password', { token: result.token });
                             }, 1000);
                         }
@@ -4210,6 +4225,12 @@ angular.module('jym.user.security-password', [])
         ctrl.verifyVeriCodeButtonEnable = function() {
             return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
+
+        $scope.$on('$ionicView.enter', function() {
+            ctrl.doRefresh();
+        });
+
+        ctrl.doRefresh();
     }]);
 
 'use strict';
@@ -4355,10 +4376,10 @@ angular.module('jym.user.security-payment-password', [])
 
         ctrl.model = {};
         ctrl.viewModel = {};
+        ctrl.viewModel.remainSeconds = 0;
+
 
         ctrl.doRefresh = function() {
-            ctrl.viewModel.remainSeconds = 0;
-
             ctrl.resetInput();
 
             ctrl.refreshUser()
@@ -4624,7 +4645,7 @@ angular.module('jym.user.settle-account-deposit', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         account.refreshBankCards = function() {
@@ -4712,7 +4733,7 @@ angular.module('jym.user.settle-account-detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         transaction.go = function(toState, params) {
@@ -4803,7 +4824,7 @@ angular.module('jym.user.settle-account-list', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         account.loadMoreData = function() {
@@ -4874,7 +4895,7 @@ angular.module('jym.user.settle-account', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         user.refreshUser = function() {
@@ -5051,7 +5072,7 @@ angular.module('jym.user.settle-account-withdrawal', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         account.refreshBankCards = function() {
@@ -5275,7 +5296,7 @@ angular.module('jym.user', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         user.refreshUser = function() {
@@ -5357,7 +5378,7 @@ angular.module('jym.yinpiao.detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
+            }, 1500);
         };
 
         product.investCountChange = function() {
@@ -5723,7 +5744,7 @@ angular.module('jym.yinpiao', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         products.loadMoreData = function() {
@@ -5807,7 +5828,7 @@ angular.module('jym.zhuanqu.detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
+            }, 1500);
         };
 
         product.investCountChange = function() {
@@ -6253,7 +6274,7 @@ angular.module('jym.zhuanqu', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         products.loadMoreData = function() {
