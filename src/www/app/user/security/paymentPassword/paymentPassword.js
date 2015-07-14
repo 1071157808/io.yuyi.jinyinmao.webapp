@@ -141,10 +141,10 @@ angular.module('jym.user.security-payment-password', [])
 
         ctrl.model = {};
         ctrl.viewModel = {};
+        ctrl.viewModel.remainSeconds = 0;
+
 
         ctrl.doRefresh = function() {
-            ctrl.viewModel.remainSeconds = 0;
-
             ctrl.resetInput();
 
             ctrl.refreshUser()

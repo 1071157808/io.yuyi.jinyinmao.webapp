@@ -59,14 +59,20 @@ angular.module('jym.user.security-password', [])
             ctrl.doRefresh();
         });
     })
-    .controller('UserSecurityPasswordSendVeriCodeCtrl', function($timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSecurityPasswordSendVeriCodeCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
-        ctrl.viewModel.cellphone = undefined;
-        ctrl.viewModel.veriCode = undefined;
-
         ctrl.viewModel.remainSeconds = 0;
+
+        ctrl.doRefresh = function() {
+            ctrl.resetInput();
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.cellphone = '';
+            ctrl.viewModel.veriCode = '';
+        };
 
         ctrl.sendVeriCode = function() {
             if (ctrl.sendVeriCodeButtonEnable()) {
@@ -104,6 +110,7 @@ angular.module('jym.user.security-password', [])
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
 
                             $timeout(function() {
+                                ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-security-password', { token: result.token });
                             }, 1000);
                         }
@@ -114,4 +121,10 @@ angular.module('jym.user.security-password', [])
         ctrl.verifyVeriCodeButtonEnable = function() {
             return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
+
+        $scope.$on('$ionicView.enter', function() {
+            ctrl.doRefresh();
+        });
+
+        ctrl.doRefresh();
     });

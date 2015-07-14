@@ -67,7 +67,7 @@ angular.module('jym.constants', [])
                 CLOSED: '账户被禁用<br>如需帮助，请联系金银猫客服<br>4008-556-333',
                 HAS_NOT_SET_PAYMENT_PASSWORD: '请先设置支付密码',
                 PAYMENT_PASSWORD_NEED_RESET: '支付密码被锁定<br>请重置后使用',
-                TOO_MANY_VERI_CODE: '验证码发送次数过多<br>请稍后再试',
+                TOO_MANY_VERI_CODE: '验证码发送次数过多<br>请明天再试',
                 USER_LOGIN_FAIL: '用户名或者密码错误<br>请确认后再试',
                 USER_LOGIN_PASSWORD_LOCK: '登录密码被锁定<br>请重置后使用',
                 USER_LOGIN_PASSWORD_REMIAN_LESS: '用户名或者密码错误次数过多<br>请核实后再试',
