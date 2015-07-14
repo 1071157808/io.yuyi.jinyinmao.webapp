@@ -45,6 +45,7 @@ angular.module('JYM', [
         $urlRouterProvider.otherwise('/jinbaoyin');
     })
     .run(function($state, $timeout, $ionicPlatform, $ionicDeploy, APP) {
+        var checkTime = moment('1970-01-01');
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -52,8 +53,7 @@ angular.module('JYM', [
             }
 
             var checkUpdate = function() {
-                var checkTime;
-                if (checkTime && checkTime - moment() > 1000 * 60 * 60 * 24) {
+                if (moment() - checkTime > 1000 * 60 * 60 * 24) {
                     $ionicDeploy.setChannel(APP.ENV);
                     $ionicDeploy.check().then(function(hasUpdate) {
                         checkTime = moment();
