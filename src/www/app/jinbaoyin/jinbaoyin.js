@@ -22,8 +22,6 @@ angular.module('jym.jinbaoyin', [
         product.model = {};
         product.viewModel = {};
 
-
-
         product.doRefresh = function() {
             product.refreshProduct();
 

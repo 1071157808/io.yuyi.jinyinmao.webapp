@@ -133,7 +133,7 @@ angular.module('jym.services', [
 
         service.open = function(url) {
             if (service.isUrl(url)) {
-                $cordovaInAppBrowser.open(url, '_system');
+                $cordovaInAppBrowser.open(url, '_blank');
             } else {
                 $state.go(url);
             }
