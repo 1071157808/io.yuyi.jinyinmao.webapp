@@ -1,0 +1,39 @@
+<ion-view title="资金账户明细">
+  <ion-content>
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="account.doRefresh()">
+    </ion-refresher>
+    <ion-list class="settle-account-list">
+      <div ng-repeat="item in account.viewModel.items">
+        <ion-item class="item-icon-right" ui-sref="jym.user-settle-account-detail({
+        transactionIdentifier: item.transactionIdentifier})">
+          <p>
+            <span class="pull-left" ng-bind="item.tradeCode | tradeCodeForSettle"></span>
+            <span class="pull-right">
+              <span class="plus" ng-if="item.trade === 0"> + </span>
+              <span class="minus" ng-if="item.trade === 1"> - </span>
+            <span ng-bind="item.amount"></span>
+          </span>
+          </p>
+
+          <p>
+            <span class="pull-left" ng-bind="item.resultCode | resultText"></span>
+            <span class="pull-right">
+              <span ng-bind="item.transactionTime | time"></span>
+            </span>
+          </p>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+        <ion-item class="divider"></ion-item>
+      </div>
+    </ion-list>
+    <ion-infinite-scroll
+      ng-if="account.moreDataCanBeLoaded()"
+      on-infinite="account.loadMoreData()"
+      distance="1%"
+      spinner="spiral">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

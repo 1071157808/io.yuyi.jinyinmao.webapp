@@ -1,0 +1,27 @@
+<ion-view title="我的银行卡">
+  <ion-content>
+    <ion-refresher
+      pulling-icon="ion-arrow-down-c"
+      spinner="spiral"
+      on-refresh="cards.doRefresh()">
+    </ion-refresher>
+    <ion-list class="bank-card">
+      <ion-item ng-repeat="item in cards.viewModel.items" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-bank-card-detail({ bankCardNo: item.bankCardNo })">
+        <img ng-src="{{ item.bankName | bankImg }}">
+
+        <h2 ng-bind="item.bankName"></h2>
+        <p class="pull-right" ng-bind="item | bankCardStatus"></p>
+
+        <p>尾号 <em ng-bind="item.bankCardNo.substr(-4)"></em></p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="plus-card" ng-if="cards.showAddButton()">
+      <ion-item ui-sref="jym.user-bank-card-add-method-selector">
+        <i class="icon ion-ios-plus-outline"></i>
+        <span> 添加新银行卡</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
