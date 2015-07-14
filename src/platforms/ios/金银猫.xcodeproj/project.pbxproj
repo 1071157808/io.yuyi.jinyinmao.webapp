@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0434B29B7FE2492E81A1A26F /* UNIHTTPStringResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 302AA92C688344289049D7FF /* UNIHTTPStringResponse.m */; };
 		1200601AF80A43C38F4D3605 /* inftrees.c in Sources */ = {isa = PBXBuildFile; fileRef = 4156F35A57BA4290A0239878 /* inftrees.c */; };
@@ -665,7 +666,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mingzhou Yang (S6LGVQ5QF4)";
 				COMPRESS_PNG_FILES = NO;
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -674,6 +675,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "金银猫/金银猫-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
@@ -706,6 +708,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "金银猫/金银猫-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					CoreFoundation,
