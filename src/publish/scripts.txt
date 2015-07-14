@@ -1,1 +1,0 @@
-jarsigner -verbose -keystore .\jinyinmao.keystore -signedjar jinyinmao.13.1.9.apk ..\platforms\android\build\outputs\apk\android-release-unsigned.apk jinyinmao.keystore
