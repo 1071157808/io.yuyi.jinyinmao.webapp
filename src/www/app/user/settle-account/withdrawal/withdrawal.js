@@ -156,7 +156,7 @@ angular.module('jym.user.settle-account-withdrawal', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         account.refreshBankCards = function() {

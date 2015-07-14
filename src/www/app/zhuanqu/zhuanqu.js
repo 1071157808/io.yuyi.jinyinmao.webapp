@@ -147,7 +147,7 @@ angular.module('jym.zhuanqu', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         products.loadMoreData = function() {

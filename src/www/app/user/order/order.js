@@ -107,7 +107,7 @@ angular.module('jym.user.orders', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         orders.loadMoreData = function() {

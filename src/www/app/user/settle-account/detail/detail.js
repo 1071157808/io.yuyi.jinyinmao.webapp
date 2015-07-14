@@ -34,7 +34,7 @@ angular.module('jym.user.settle-account-detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         transaction.go = function(toState, params) {

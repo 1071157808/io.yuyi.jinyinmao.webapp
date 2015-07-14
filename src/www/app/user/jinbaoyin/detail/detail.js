@@ -61,7 +61,7 @@ angular.module('jym.user.jinbaoyin-detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         transaction.go = function(toState, params) {

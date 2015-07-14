@@ -70,7 +70,7 @@ angular.module('jym.user.orders-detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         order.go = function(toState, params) {

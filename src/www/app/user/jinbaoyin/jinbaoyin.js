@@ -40,7 +40,7 @@ angular.module('jym.user.jinbaoyin', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         ctrl.refreshUser = function() {

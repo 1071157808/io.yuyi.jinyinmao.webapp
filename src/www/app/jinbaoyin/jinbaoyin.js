@@ -29,7 +29,7 @@ angular.module('jym.jinbaoyin', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
+            }, 1500);
         };
 
         product.refreshProduct = function() {

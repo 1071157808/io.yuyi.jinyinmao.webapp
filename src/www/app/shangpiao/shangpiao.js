@@ -113,7 +113,7 @@ angular.module('jym.shangpiao', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         products.loadMoreData = function() {

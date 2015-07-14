@@ -33,7 +33,7 @@ angular.module('jym.user.settle-account', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         user.refreshUser = function() {

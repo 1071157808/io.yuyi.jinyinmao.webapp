@@ -46,7 +46,7 @@ angular.module('jym.user.settle-account-list', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         account.loadMoreData = function() {

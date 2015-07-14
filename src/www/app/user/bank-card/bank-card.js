@@ -42,7 +42,7 @@ angular.module('jym.user.bank-card', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         cards.refreshBankCards = function() {

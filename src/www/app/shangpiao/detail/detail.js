@@ -46,7 +46,7 @@ angular.module('jym.shangpiao.detail', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 500);
+            }, 1500);
         };
 
         product.investCountChange = function() {

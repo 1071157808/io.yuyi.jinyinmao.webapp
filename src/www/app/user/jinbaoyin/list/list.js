@@ -47,7 +47,7 @@ angular.module('jym.user.jinbaoyin-list', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         account.loadMoreData = function() {

@@ -137,7 +137,7 @@ angular.module('jym.user.settle-account-deposit', [
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
-            }, 1000);
+            }, 1500);
         };
 
         account.refreshBankCards = function() {
