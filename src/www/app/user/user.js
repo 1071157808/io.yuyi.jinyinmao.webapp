@@ -1,5 +1,8 @@
 'use strict';
 angular.module('jym.user', [
+    'ionic',
+    'ionic.service.core',
+    'ionic.service.deploy',
     'jym.services.user',
     'jym.user.about',
     'jym.user.bank-card',
@@ -21,13 +24,25 @@ angular.module('jym.user', [
                 }
             });
     })
-    .controller('UserCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserCtrl', function($scope, $timeout, $ionicDeploy, $ionicHistory, $ionicScrollDelegate, APP, RESOURCES, UserService, JYMUtilityService) {
         var user = this;
 
         user.model = {};
         user.viewModel = {};
 
+        user.checkUpdate = function() {
+            $ionicDeploy.setChannel(APP.ENV);
+            $ionicDeploy.check().then(function(hasUpdate) {
+                if (hasUpdate) {
+                    $ionicDeploy.update();
+                    $ionicHistory.clearCache();
+                }
+            });
+        };
+
         user.doRefresh = function() {
+            user.checkUpdate();
+
             user.refreshUser()
                 .then(function(result) {
                     user.model = result;
