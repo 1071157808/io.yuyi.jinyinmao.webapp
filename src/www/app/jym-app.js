@@ -52,6 +52,17 @@ angular.module('JYM', [
                 cordova.plugins.Keyboard.disableScroll(true);
             }
 
+            if (window.cordova && window.cordova.plugins.AppleAdvertising) {
+                cordova.plugins.AppleAdvertising.getIDFA(
+                    function(idfa) {
+                        console.log('got idfa: ' + idfa);
+                    },
+                    function() {
+                        console.log('error loading idfa');
+                    }
+                );
+            }
+
             var checkUpdate = function() {
                 if (moment() - checkTime > 1000 * 60 * 60 * 24) {
                     $ionicDeploy.setChannel(APP.ENV);

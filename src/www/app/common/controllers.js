@@ -29,7 +29,7 @@ angular.module('jym.controllers', [
         };
     })
     .controller('TabsCtrl', function($scope, $rootScope, $state) {
-        var indexPage = ['jym.jinbaoyin', 'jym.shangpiao', 'jym.user', 'jym.yinpiao', 'jym.zhuanqu'];
+        var indexPage = ['jym.jinbaoyin', 'jym.shangpiao', 'jym.user', 'jym.user-login', 'jym.yinpiao', 'jym.zhuanqu'];
         $rootScope.$on('$ionicView.beforeEnter', function() {
             var pageName = $state.current.name;
             $rootScope.hideTabs = indexPage.indexOf(pageName) < 0;

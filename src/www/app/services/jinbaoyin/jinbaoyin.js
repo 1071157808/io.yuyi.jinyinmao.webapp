@@ -34,7 +34,7 @@ angular.module('jym.services.jinbaoyin', [
         service.getInvestingAgreement = function() {
             return service.getIndex()
                 .then(function(result) {
-                    return service.getAgreement(result.productIdentifier, 1);
+                    return service.getAgreement(result.productIdentifier, 2);
                 });
 
         };
@@ -50,7 +50,7 @@ angular.module('jym.services.jinbaoyin', [
         service.getTransferAgreement = function() {
             return service.getIndex()
                 .then(function(result) {
-                    return service.getAgreement(result.productIdentifier, 2);
+                    return service.getAgreement(result.productIdentifier, 1);
                 });
         };
     });

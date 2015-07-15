@@ -1,6 +1,6 @@
 {
   "name": "jym",
-  "version": "13.1.16",
+  "version": "13.1.17",
   "description": "jym",
   "dependencies": {},
   "devDependencies": {
@@ -42,7 +42,5 @@
       "id": "com.ionic.deploy"
     }
   ],
-  "cordovaPlatforms": [
-    "android"
-  ]
+  "cordovaPlatforms": []
 }
