@@ -255,7 +255,7 @@ module.exports = function(grunt) {
         mbower: {
             copy: {
                 options: {
-                    cleanTargetDir: false,
+                    cleanTargetDir: true,
                     cleanBowerDir: true,
                     copy: true,
                     install: false,
