@@ -18,6 +18,7 @@ angular.module('JYM', [
 ])
     .config(function($ionicConfigProvider) {
         $ionicConfigProvider.views.transition('ios');
+        $ionicConfigProvider.views.maxCache(0);
         $ionicConfigProvider.tabs.position('bottom');
         $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back');
     })
@@ -44,7 +45,7 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     })
-    .run(function($state, $timeout, $ionicPlatform) {
+    .run(function($state, $timeout, $ionicDeploy, $ionicPlatform, APP) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -61,6 +62,21 @@ angular.module('JYM', [
                     }
                 );
             }
+
+            var checkUpdate = function() {
+                $ionicDeploy.watch().then(function() {
+                    }, function() {
+                    },
+                    function(hasUpdate) {
+                        if (hasUpdate) {
+                            $ionicDeploy.update().then(function() {
+                                $ionicDeploy.load();
+                            });
+                        }
+                    });
+            };
+
+            checkUpdate();
         });
     })
     .run(function($rootScope, $ionicLoading) {
