@@ -11,7 +11,7 @@ angular.module('jym.constants', [])
             ADD_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoreproduct.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.1.1'
+            FETCH: 'https://jymstoreproduct.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
         },
         INVESTING: {
             JBY: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/JBY',
@@ -119,7 +119,7 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.18',
+        VERSION: '13.1.30',
         ENV: 'product'
     });
 
@@ -1091,7 +1091,7 @@ angular.module("app/shangpiao/purchase/purchase.tpl.html", []).run(["$templateCa
 
 angular.module("app/user/about/about.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/about/about.tpl.html",
-    "<ion-view title=关于金银猫><ion-content><ion-list><ion-item><p class=pull-left>公司网站</p><p class=pull-right>www.jinyinmao.com.cn</p></ion-item><ion-item><p class=pull-left>客服热线</p><p class=pull-right>4008-556-333</p></ion-item><ion-item><p class=pull-left>新浪微博</p><p class=pull-right>金银猫</p></ion-item><ion-item><p class=pull-left>微信服务号</p><p class=pull-right>金银猫服务号</p></ion-item><ion-item><p class=pull-left>版本号</p><p class=pull-right ng-bind=ctrl.viewModel.version></p></ion-item></ion-list></ion-content></ion-view>");
+    "<ion-view title=关于金银猫><ion-content><ion-list><ion-item><p class=pull-left>平台网站</p><p class=pull-right>www.jinyinmao.com.cn</p></ion-item><ion-item><p class=pull-left>移动网站</p><p class=pull-right>m.jinyinmao.com.cn</p></ion-item><ion-item><p class=pull-left>客服热线</p><p class=pull-right>4008-556-333</p></ion-item><ion-item><p class=pull-left>新浪微博</p><p class=pull-right>金银猫</p></ion-item><ion-item><p class=pull-left>微信服务号</p><p class=pull-right>金银猫服务号</p></ion-item><ion-item><p class=pull-left>版本号</p><p class=pull-right ng-bind=ctrl.viewModel.version></p></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/bank-card/add/add.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1152,7 +1152,7 @@ angular.module("app/user/jinbaoyin/list/list.tpl.html", []).run(["$templateCache
 
 angular.module("app/user/jinbaoyin/withdrawal/withdrawal.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/jinbaoyin/withdrawal/withdrawal.tpl.html",
-    "<ion-view title=金包银赎回><ion-content><ion-list class=deposit><ion-item><span class=pull-left>可取资金（元）</span> <span class=pull-right><strong ng-bind=account.viewModel.jBYWithdrawalableAmount></strong></span></ion-item><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>今日可申请额度（元）：&nbsp;</span> <span class=pull-left ng-bind=account.viewModel.todayJBYWithdrawalableAmount>元</span></ion-item><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>取款金额</span> <input type=number placeholder=请输入取款金额（元） required min=0.01 max=1000000 ng-model=account.viewModel.amount></label><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=account.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=account.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!account.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=account.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=account.toggleAgreement()>《金包银自动交易授权委托书》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!account.withdrawButtonEnable() ng-click=account.withdraw()>同意协议并取现</button><br><br><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=account.viewModel.showAgreement><div ng-bind-html=account.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=account.toggleAgreement()>返回</button></div></ion-content></ion-view>");
+    "<ion-view title=金包银赎回><ion-content><ion-list class=deposit><ion-item><span class=pull-left>可取资金（元）</span> <span class=pull-right><strong ng-bind=account.viewModel.jBYWithdrawalableAmount></strong></span></ion-item><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>今日可申请额度（元）：&nbsp;</span> <span class=pull-left ng-bind=account.viewModel.todayJBYWithdrawalableAmount>元</span></ion-item><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>取款金额</span> <input type=number placeholder=请输入取款金额（元） required min=0.01 max=1000000 ng-model=account.viewModel.amount></label><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=account.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=account.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!account.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=account.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=account.toggleAgreement()>《金包银自动交易授权委托书》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!account.withdrawButtonEnable() ng-click=account.withdraw()>同意协议并取现</button><br><br><a ng-href=http://source.jinyinmao.com.cn/deal/certificate/29_1.html>提现规则</a><h4 id=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=account.viewModel.showAgreement><div ng-bind-html=account.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=account.toggleAgreement()>返回</button></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/login/login.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1609,6 +1609,7 @@ angular.module('JYM', [
 ])
     .config(['$ionicConfigProvider', function($ionicConfigProvider) {
         $ionicConfigProvider.views.transition('ios');
+        $ionicConfigProvider.views.maxCache(0);
         $ionicConfigProvider.tabs.position('bottom');
         $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back');
     }])
@@ -1635,35 +1636,25 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     }])
-    .run(['$state', '$timeout', '$ionicPlatform', '$ionicDeploy', 'APP', function($state, $timeout, $ionicPlatform, $ionicDeploy, APP) {
-        var checkTime = moment('1970-01-01');
+    .run(['$state', '$timeout', '$ionicDeploy', '$ionicPlatform', 'APP', function($state, $timeout, $ionicDeploy, $ionicPlatform, APP) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
 
-            if (window.cordova && window.cordova.plugins.AppleAdvertising) {
-                cordova.plugins.AppleAdvertising.getIDFA(
-                    function(idfa) {
-                        console.log('got idfa: ' + idfa);
-                    },
-                    function() {
-                        console.log('error loading idfa');
-                    }
-                );
-            }
-
             var checkUpdate = function() {
-                if (moment() - checkTime > 1000 * 60 * 60 * 24) {
-                    $ionicDeploy.setChannel(APP.ENV);
-                    $ionicDeploy.check().then(function(hasUpdate) {
-                        checkTime = moment();
+                $ionicDeploy.setChannel(APP.ENV);
+                $ionicDeploy.watch().then(function() {
+                    }, function() {
+                    },
+                    function(hasUpdate) {
                         if (hasUpdate) {
-                            $ionicDeploy.update();
+                            $ionicDeploy.update().then(function() {
+                                $ionicDeploy.load();
+                            });
                         }
                     });
-                }
             };
 
             checkUpdate();
@@ -6702,6 +6693,6 @@ window.paceOptions = {
     }) : "object" == typeof exports ? module.exports = j : D.startOnPageLoad && j.start()
 }).call(this);
 'use strict';
-if (window.location.protocol !== 'https:') {
+if (window.location.protocol === 'http:') {
     window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 }

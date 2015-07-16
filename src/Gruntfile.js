@@ -38,6 +38,7 @@ module.exports = function(grunt) {
         },
 
         clean: {
+            app: 'app/www/',
             bower: 'www/lib/',
             dist: 'dist/**/*',
             js: ['www/app/**/*.annotated.js'],
@@ -107,6 +108,12 @@ module.exports = function(grunt) {
                 cwd: 'release/',
                 src: ['**/*'],
                 dest: '../publish/jym-web-dev-m'
+            },
+            app: {
+                expand: true,
+                cwd: 'dist/',
+                src: ['**/*'],
+                dest: 'app/www/'
             }
         },
 
@@ -510,7 +517,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dev-js', ['jscs:app', 'jshint:app']);
     grunt.registerTask('dev-templates', ['compile-templates']);
 
-    grunt.registerTask('prepare-build', ['clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist', 'bump']);
+    grunt.registerTask('prepare-build', ['clean:app', 'clean:dist', 'jscs:grunt', 'jshint:grunt', 'clean:dist', 'bump']);
 
     grunt.registerTask('pre-dev-build', ['replace:dev']);
     grunt.registerTask('pre-test-build', ['replace:test']);
@@ -538,7 +545,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build-css-product', ['useminPrepare:cssProduct', 'autoprefixer:app', 'csscomb:app', 'csslint:app', 'cssmin:product', 'usemin:cssProduct']);
     grunt.registerTask('build-product', ['pre-product-build', 'build-js-product', 'build-css-product', 'post-product-build']);
 
-    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'copy:html', 'to-dev']);
+    grunt.registerTask('build', ['prepare-build', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'copy:html', 'copy:app', 'to-dev']);
 
     grunt.registerTask('release', ['copy:release', 'compress', 'copy:deployToDev']);
 
