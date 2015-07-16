@@ -232,7 +232,6 @@ node_modules
 
 # ionic project
 src/platforms/
-src/plugins/
 src/ionic.project
 src/www.zip
 
