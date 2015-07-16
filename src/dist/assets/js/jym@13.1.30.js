@@ -11,7 +11,7 @@ angular.module('jym.constants', [])
             ADD_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoreproduct.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
+            FETCH: 'https://jymstoreproduct.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.1.1'
         },
         INVESTING: {
             JBY: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/JBY',
@@ -6692,7 +6692,3 @@ window.paceOptions = {
         return j
     }) : "object" == typeof exports ? module.exports = j : D.startOnPageLoad && j.start()
 }).call(this);
-'use strict';
-if (window.location.protocol === 'http:') {
-    window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-}

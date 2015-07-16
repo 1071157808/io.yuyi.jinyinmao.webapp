@@ -11,7 +11,7 @@ angular.module('jym.constants', [])
             ADD_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
+            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/3.1.1'
         },
         INVESTING: {
             JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
