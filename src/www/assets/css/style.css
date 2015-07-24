@@ -1031,8 +1031,8 @@ ion-item img {
   color: #e74c3c;
 }
 .card .item-divider {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 .card {
   padding: 1px;
@@ -1960,6 +1960,37 @@ input[readonly]:not(.cloned-text-input) {
   line-height: 1.5em;
   color: #e74c3c;
 }
+/*#notice start*/
+#notice {
+  background: url("../img/payment/icon-auth-receive@171x154-58a5df.png") no-repeat 50% 30px;
+  background-size: 85px auto;
+}
+#notice .noticeDetail {
+  position: relative;
+  top: 130px;
+}
+.noticeDetail button {
+  font-size: 22px;
+}
+.noticeDetail h2 {
+  font-size: 22px;
+  text-align: center;
+}
+.noticeDetail p {
+  font-size: 16px;
+  text-align: center;
+  color: #999999;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.noticeDetail .attention {
+  color: #e74c3c;
+  font-size: 14px;
+  text-align: left;
+}
+/*#notice end */
+
+
 /* #yilian-notice start*/
 
 #yilian-notice {

@@ -1,13 +1,14 @@
 'use strict';
 angular.module('jym.user', [
     'jym.services.user',
-    'jym.user.about',
+    //'jym.user.about',
     'jym.user.bank-card',
     'jym.user.login',
     'jym.user.jinbaoyin',
     'jym.user.orders',
     'jym.user.security',
-    'jym.user.settle-account'
+    'jym.user.settle-account',
+    //'jym.user.userinfo-detail'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -48,7 +49,10 @@ angular.module('jym.user', [
             user.viewModel.cellphone = user.model.cellphone;
             user.viewModel.realName = user.model.realName || '未实名认证';
             user.viewModel.credentialNo = user.model.credentialNo || '未实名认证';
+          user.viewModel.balance = (user.model.balance / 100).toFixed(2);
+          user.viewModel.investingPrincipal = (user.model.investingPrincipal / 100).toFixed(2);
         };
+
 
         user.loginOut = function() {
             UserService.loginOut();

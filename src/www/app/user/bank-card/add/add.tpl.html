@@ -32,14 +32,24 @@
       <button class="btn button-yellow" ng-disabled="!card.buttonEnable()" ng-click="card.verify()" ng-if="card.viewModel.hasSetPaymentPassword">绑定银行卡</button>
       <p class="attention" ng-if="card.viewModel.hasSetPaymentPassword">认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p>
     </div>
-    <div ng-if="!card.viewModel.hasSetPaymentPassword">
-      <div class="space"></div>
-      <div class="space"></div>
-      <div class="space"></div>
-      <div class="space"></div>
-      <button class="btn button-yellow" ui-sref="jym.user-security-set-payment-password" ng-if="!card.viewModel.hasSetPaymentPassword">设置支付密码</button>
-      <p class="attention">为保证您能够正常使用支付功能，请先设置支付密码。</p>
-    </div>
+
+    <div ng-if="!card.viewModel.hasSetPaymentPassword" id="notice">
+      <div class="noticeDetail">
+        <h2>欢迎您成为金银猫的会员</h2>
+        <p>为了您的账户安全，请先完成以下设置</p>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <div class="space"></div>
+        <button class="btn button-yellow" ui-sref="jym.user-security-set-payment-password" ng-if="!card.viewModel.hasSetPaymentPassword">设置支付密码</button>
+        <div class="space"></div>
+        <div class="space"></div>
+        <button class="btn button-grey" ui-sref="jym.user">先逛逛</button>
+        <p class="attention">为保证您能够正常使用支付功能，请先设置支付密码。</p>
+      </div>
+      </div>
+
+
 
   </ion-content>
 </ion-view>

@@ -6,23 +6,30 @@
       on-refresh="user.doRefresh()">
     </ion-refresher>
     <ion-list>
-      <ion-item>
-        <p class="pull-left">手机号</p>
-        <p class="pull-right" ng-bind="user.viewModel.cellphone"></p>
-      </ion-item>
-      <ion-item>
-        <p class="pull-left">真实姓名</p>
-        <p class="pull-right" ng-bind="user.viewModel.realName"></p>
-      </ion-item>
-      <ion-item>
-        <p class="pull-left">身份证</p>
-        <p class="pull-right" ng-bind="user.viewModel.credentialNo"></p>
-      </ion-item>
-      <ion-item class="divider"></ion-item>
-      <ion-item class="item-icon-right" ui-sref="jym.user-settle-account">
-        <p>资金账户</p>
+      <ion-item class="item-thumbnail-left item-icon-right">
+        <img src="assets/img/payment/icon-auth-receive@171x154-58a5df.png" />
+        <p ng-bind="user.viewModel.cellphone"></p>
+        <a ng-if="user.viewModel.realName == '未实名认证'" ui-sref="">身份信息未认证</a>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
+      <ion-item class="item-icon-right" ui-sref="jym.user-settle-account">
+        <p class="pull-left">账户余额</p>
+        <p class="pull-right"><span ng-bind="user.viewModel.balance"></span> 元</p>
+        <i class="icon ion-chevron-right"></i>
+      </ion-item>
+      <!--<ion-item>-->
+        <!--<p class="pull-left">真实姓名</p>-->
+        <!--<p class="pull-right" ng-bind="user.viewModel.realName"></p>-->
+      <!--</ion-item>-->
+      <!--<ion-item>-->
+        <!--<p class="pull-left">身份证</p>-->
+        <!--<p class="pull-right" ng-bind="user.viewModel.credentialNo"></p>-->
+      <!--</ion-item>-->
+      <ion-item class="divider"></ion-item>
+      <!--<ion-item class="item-icon-right" ui-sref="jym.user-settle-account">-->
+        <!--<p>资金账户</p>-->
+        <!--<i class="icon ion-chevron-right"></i>-->
+      <!--</ion-item>-->
       <ion-item class="item-icon-right" ui-sref="jym.user-jinbaoyin">
         <p>金包银账户</p>
         <i class="icon ion-chevron-right"></i>
@@ -41,12 +48,12 @@
         <p>密码设置</p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
-      <ion-item class="divider">
-      </ion-item>
-      <ion-item class="item-icon-right" ui-sref="jym.user-about">
-        <p>关于金银猫</p>
-        <i class="icon ion-chevron-right"></i>
-      </ion-item>
+      <!--<ion-item class="divider">-->
+      <!--</ion-item>-->
+      <!--<ion-item class="item-icon-right" ui-sref="jym.user-about">-->
+      <!--<p>关于金银猫</p>-->
+      <!--<i class="icon ion-chevron-right"></i>-->
+      <!--</ion-item>-->
     </ion-list>
     <br>
     <button class="btn button-grey" ng-click="user.loginOut()">登出</button>
