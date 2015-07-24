@@ -513,7 +513,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dev', ['dev-css', 'dev-icon', 'dev-imge', 'dev-js', 'compile-templates']);
     grunt.registerTask('dev-css', ['autoprefixer:app', 'csscomb:app', 'csslint:app']);
     grunt.registerTask('dev-icon', ['compresse-icon']);
-    grunt.registerTask('dev-imge', ['compresse-image']);
+    grunt.registerTask('dev-img', ['compresse-image']);
     grunt.registerTask('dev-js', ['jscs:app', 'jshint:app']);
     grunt.registerTask('dev-templates', ['compile-templates']);
 

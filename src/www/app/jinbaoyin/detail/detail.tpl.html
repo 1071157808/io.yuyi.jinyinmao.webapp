@@ -44,7 +44,7 @@
                  ng-change="product.investCountChange()">
           <samp>份</samp>
         </label>
-        <button class="button button-small button-assertive" id="btn-narrow" ng-bind="product.viewModel.statusText" ng-disabled="!product.goPurchaseButtonEnable()" ng-click="product.goPurchase()"  ng-if="!card.viewModel.hasSetPaymentPassword" ui-sref="jym.user-bank-card-add"></button>
+        <button class="button button-small button-assertive" id="btn-narrow" ng-bind="product.viewModel.statusText" ng-disabled="!product.goPurchaseButtonEnable()" ng-click="product.goPurchase()"></button>
       </ion-item>
       <ion-item class="item-divider">
         <p class="pull-left">投资金额：<span ng-bind="product.viewModel.investAmount"></span><span>&nbsp;</span>元</p>
