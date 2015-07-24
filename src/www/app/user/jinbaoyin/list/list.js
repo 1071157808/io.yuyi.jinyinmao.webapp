@@ -8,7 +8,7 @@ angular.module('jym.user.jinbaoyin-list', [
             .state('jym.user-jinbaoyin-list', {
                 url: '/user/jinbaoyin/list',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserJinbaoyinListCtrl as account',
                         templateUrl: 'app/user/jinbaoyin/list/list.tpl.html'
                     }

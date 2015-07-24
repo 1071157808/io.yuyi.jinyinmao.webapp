@@ -12,7 +12,7 @@ angular.module('jym.shangpiao.detail', [
             .state('jym.shangpiao-detail', {
                 url: '/shangpiao/detail/{productIdentifier}',
                 views: {
-                    shangpiao: {
+                    '@': {
                         controller: 'ShangpiaoDetailCtrl as product',
                         templateUrl: 'app/shangpiao/detail/detail.tpl.html'
                     }
@@ -78,7 +78,9 @@ angular.module('jym.shangpiao.detail', [
                         $state.go('jym.shangpiao-purchase');
                     })
                     .catch(function(result) {
-                        JYMUtilityService.showAlert(result);
+                        if (Error.prototype.isPrototypeOf(result)) {
+                            JYMUtilityService.showAlert(result);
+                        }
                     });
             }
         };

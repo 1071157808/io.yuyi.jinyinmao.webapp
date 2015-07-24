@@ -7,7 +7,7 @@ angular.module('jym.user.bank-card-add', [
             .state('jym.user-bank-card-add', {
                 url: '/user/bank-card/add',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserBankCardAddCtrl as card',
                         templateUrl: 'app/user/bank-card/add/add.tpl.html'
                     }
@@ -16,7 +16,7 @@ angular.module('jym.user.bank-card-add', [
             .state('jym.user-bank-card-add-bank-selector', {
                 url: '/user/bank-card/add/select-bank',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserBankCardAddBankSelectorCtrl as ctrl',
                         templateUrl: 'app/user/bank-card/add/bankSelector.tpl.html'
                     }
@@ -25,7 +25,7 @@ angular.module('jym.user.bank-card-add', [
             .state('jym.user-bank-card-add-method-selector', {
                 url: '/user/bank-card/add/select-method',
                 views: {
-                    user: {
+                    '@': {
                         templateUrl: 'app/user/bank-card/add/methodSelector.tpl.html'
                     }
                 }

@@ -28,14 +28,51 @@ angular.module('jym.controllers', [
             }
         };
     })
-    .controller('TabsCtrl', function($scope, $rootScope, $state) {
-        var indexPage = ['jym.jinbaoyin', 'jym.shangpiao', 'jym.user', 'jym.user-login', 'jym.yinpiao', 'jym.zhuanqu'];
-        $rootScope.$on('$ionicView.beforeEnter', function() {
-            var pageName = $state.current.name;
-            $rootScope.hideTabs = indexPage.indexOf(pageName) < 0;
-        });
-        $rootScope.$on('$ionicView.enter', function() {
-            var pageName = $state.current.name;
-            $rootScope.hideTabs = indexPage.indexOf(pageName) < 0;
-        });
+    .controller('TabsCtrl', function($state, $ionicHistory) {
+        var ctrl = this;
+
+        ctrl.NavToJinbaoyin = function() {
+            $ionicHistory.nextViewOptions({
+                disableAnimate: true,
+                disableBack: true
+            });
+
+            $state.go('jym.jinbaoyin');
+        };
+
+        ctrl.NavToShangpiao = function() {
+            $ionicHistory.nextViewOptions({
+                disableAnimate: true,
+                disableBack: true
+            });
+
+            $state.go('jym.shangpiao');
+        };
+
+        ctrl.NavToUser = function() {
+            $ionicHistory.nextViewOptions({
+                disableAnimate: true,
+                disableBack: true
+            });
+
+            $state.go('jym.user');
+        };
+
+        ctrl.NavToYinpiao = function() {
+            $ionicHistory.nextViewOptions({
+                disableAnimate: true,
+                disableBack: true
+            });
+
+            $state.go('jym.yinpiao');
+        };
+
+        ctrl.NavToZhuanqu = function() {
+            $ionicHistory.nextViewOptions({
+                disableAnimate: true,
+                disableBack: true
+            });
+
+            $state.go('jym.zhuanqu');
+        };
     });

@@ -12,7 +12,7 @@ angular.module('jym.zhuanqu.detail', [
             .state('jym.zhuanqu-detail', {
                 url: '/zhuanqu/detail/{bankName}/{productIdentifier}',
                 views: {
-                    zhuanqu: {
+                    '@': {
                         controller: 'ZhuanquDetailCtrl as product',
                         templateUrl: 'app/zhuanqu/detail/detail.tpl.html'
                     }
@@ -89,7 +89,9 @@ angular.module('jym.zhuanqu.detail', [
                         $state.go('jym.zhuanqu-purchase', { bankName: $stateParams.bankName });
                     })
                     .catch(function(result) {
-                        JYMUtilityService.showAlert(result);
+                        if (Error.prototype.isPrototypeOf(result)) {
+                            JYMUtilityService.showAlert(result);
+                        }
                     });
             }
         };

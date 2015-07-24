@@ -7,7 +7,7 @@ angular.module('jym.user.settle-account-deposit', [
             .state('jym.user-settle-account-deposit', {
                 url: '/user/settle-account/deposit',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSettleAccountDepositCtrl as account',
                         templateUrl: 'app/user/settle-account/deposit/deposit.tpl.html'
                     }
@@ -16,7 +16,7 @@ angular.module('jym.user.settle-account-deposit', [
             .state('jym.user-settle-account-deposit-bank-card-selector', {
                 url: '/user/settle-account/deposit/select-bank-card',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSettleAccountDepositBankCardSeletorCtrl as account',
                         templateUrl: 'app/user/settle-account/deposit/bank-card-selector.tpl.html'
                     }
@@ -25,7 +25,7 @@ angular.module('jym.user.settle-account-deposit', [
             .state('jym.user-settle-account-deposit-success', {
                 url: '/user/settle-account/deposit/success/{transactionIdentifier}',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSettleAccountDepositSuccessCtrl as ctrl',
                         templateUrl: 'app/user/settle-account/deposit/deposit-success.tpl.html'
                     }

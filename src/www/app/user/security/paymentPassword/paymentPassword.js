@@ -5,7 +5,7 @@ angular.module('jym.user.security-payment-password', [])
             .state('jym.user-security-reset-payment-password', {
                 url: '/user/security-reset-payment-password/{token}',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSecurityPaymentPasswordCtrl as ctrl',
                         templateUrl: 'app/user/security/paymentPassword/paymentPassword.tpl.html'
                     }
@@ -14,7 +14,7 @@ angular.module('jym.user.security-payment-password', [])
             .state('jym.user-security-set-payment-password', {
                 url: '/user/security-set-payment-password',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSecuritySetPaymentPasswordCtrl as ctrl',
                         templateUrl: 'app/user/security/paymentPassword/setPaymentPassword.tpl.html'
                     }

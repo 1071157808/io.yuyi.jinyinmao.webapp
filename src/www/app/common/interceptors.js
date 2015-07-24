@@ -32,6 +32,14 @@ angular.module('jym.interceptors', [
                 var $ionicHistory = $injector.get('$ionicHistory');
                 var $ionicLoading = $injector.get('$ionicLoading');
 
+                if (rejection.status === 0) {
+                    $ionicLoading.show({
+                        template: '网络连接失败，请稍后再试',
+                        duration: 3000,
+                        hideOnStateChange: true
+                    });
+                }
+
                 if (rejection.status >= 400 && rejection.status < 500) {
                     if (rejection.data.message) {
                         var message = rejection.data.message.split(':');

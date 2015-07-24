@@ -18,7 +18,6 @@ angular.module('JYM', [
 ])
     .config(function($ionicConfigProvider) {
         $ionicConfigProvider.views.transition('ios');
-        $ionicConfigProvider.views.maxCache(0);
         $ionicConfigProvider.tabs.position('bottom');
         $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back');
     })
