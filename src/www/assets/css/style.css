@@ -1157,10 +1157,18 @@ ion-item img {
 }
 
 #user-index ion-item h2 {
-  height: 40px;
-  padding-top: 8px;
+  height: 60px;
+  padding: 30px 0 0 20px;
   font-size: 20px;
-  list-style: none;
+}
+/*#user-index .item img {*/
+  /*top: 0;*/
+/*}*/
+#user-index .item samp {
+  color: #e74c3c;
+  font-size: 14px;
+  float: left;
+  padding-left: 20px;
 }
 
 label.item-input > span {
@@ -1427,12 +1435,14 @@ label.item-input > span {
   top: 30px;
   right: 45px;
   color: #facb3a;
+  font-size: 14px;
 }
 
 .bank-card .item-thumbnail-left h2 {
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 18px;
+  margin-left: -10px;
 }
 
 .bank-card.item-thumbnail-left h2 {
@@ -1440,12 +1450,17 @@ label.item-input > span {
 }
 
 .bank-card p {
-  font-size: 15px;
+  font-size: 14px;
   color: #999;
+  margin-left: -10px;
+  width: 250px;
 }
-
+.bank-card small {
+  font-size: 70%;
+}
 .bank-card h1 {
-  padding-top: 20px;
+  padding-top: 13px;
+  margin-left: -10px;
   font-size: 22px;
   text-align: left;
 }

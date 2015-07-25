@@ -3,10 +3,10 @@
     <ion-list class="bank-card">
       <ion-item class="item-thumbnail-left item-icon-right" ng-if="!account.viewModel.noCard" ui-sref="jym.user-settle-account-deposit-bank-card-selector">
         <img ng-src="{{ account.viewModel.bankName | bankImg }}">
+        <h2><span ng-bind="account.viewModel.bankName"></span><small>&nbsp;&nbsp;尾号 <em ng-bind="account.viewModel.bankCardNo.substr(-4)"></em></small></h2>
 
-        <h2 ng-bind="account.viewModel.bankName"></h2>
 
-        <p>尾号 <em ng-bind="account.viewModel.bankCardNo.substr(-4)"></em></p>
+        <p ng-bind="account.viewModel.bankName | bankLimit"></p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
       <ion-item class="plus-card" ng-if="account.viewModel.noCard" ui-sref="jym.user-bank-card-add">

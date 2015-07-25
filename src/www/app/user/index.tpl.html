@@ -6,10 +6,10 @@
       on-refresh="user.doRefresh()">
     </ion-refresher>
     <ion-list>
-      <ion-item class="item-thumbnail-left item-icon-right">
+      <ion-item class="item-thumbnail-left item-icon-right" ui-sref="jym.user-userinfo-detail">
         <img src="assets/img/payment/icon-auth-receive@171x154-58a5df.png" />
-        <p ng-bind="user.viewModel.cellphone"></p>
-        <a ng-if="user.viewModel.realName == '未实名认证'" ui-sref="">身份信息未认证</a>
+        <h2 ng-bind="user.viewModel.cellphone"></h2>
+        <samp ng-if="user.viewModel.realName == '未实名认证'" >身份信息未认证!</samp>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
       <ion-item class="item-icon-right" ui-sref="jym.user-settle-account">

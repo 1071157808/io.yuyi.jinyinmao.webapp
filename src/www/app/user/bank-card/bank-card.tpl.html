@@ -10,7 +10,7 @@
         <img ng-src="{{ item.bankName | bankImg }}">
 
         <h2 ng-bind="item.bankName"></h2>
-        <p class="pull-right" ng-bind="item | bankCardStatus"></p>
+        <span class="pull-right" ng-bind="item | bankCardStatus"></span>
 
         <p>尾号 <em ng-bind="item.bankCardNo.substr(-4)"></em></p>
         <i class="icon ion-chevron-right"></i>
