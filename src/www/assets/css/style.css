@@ -1031,8 +1031,8 @@ ion-item img {
   color: #e74c3c;
 }
 .card .item-divider {
-  padding-left: 8px;
   padding-right: 8px;
+  padding-left: 8px;
 }
 .card {
   padding: 1px;
@@ -1992,15 +1992,15 @@ input[readonly]:not(.cloned-text-input) {
   text-align: center;
 }
 .noticeDetail p {
-  font-size: 16px;
-  text-align: center;
-  color: #999999;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 16px;
+  color: #999;
+  text-align: center;
 }
 .noticeDetail .attention {
-  color: #e74c3c;
   font-size: 14px;
+  color: #e74c3c;
   text-align: left;
 }
 /*#notice end */
@@ -2034,8 +2034,8 @@ input[readonly]:not(.cloned-text-input) {
 #yilian-notice p {
   margin: 8px 20px 8px 25px;
   font-size: 16px;
-  text-align: center;
   color: #999;
+  text-align: center;
 }
 
 #yilian-notice span {

@@ -9,7 +9,7 @@ angular.module('jym.jinbaoyin.purchase', [
             .state('jym.jinbaoyin-purchase', {
                 url: '/jinbaoyin/purchase/{productIdentifier}',
                 views: {
-                    jinbaoyin: {
+                    '@': {
                         controller: 'JinbaoyinPurchaseCtrl as purchase',
                         templateUrl: 'app/jinbaoyin/purchase/purchase.tpl.html'
                     }

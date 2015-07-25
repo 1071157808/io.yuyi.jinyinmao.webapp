@@ -1,6 +1,6 @@
 'use strict';
 window.paceOptions = {
-    document: true, // disabled
+    document: true,
     elements: true,
     eventLag: true,
     restartOnPushState: false,

@@ -10,7 +10,7 @@ angular.module('jym.user.settle-account', [
             .state('jym.user-settle-account', {
                 url: '/user/settle-account',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSettleAccountCtrl as user',
                         templateUrl: 'app/user/settle-account/settle-account.tpl.html'
                     }

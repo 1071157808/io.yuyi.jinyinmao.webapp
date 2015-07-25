@@ -12,7 +12,7 @@ angular.module('jym.yinpiao.detail', [
             .state('jym.yinpiao-detail', {
                 url: '/yinpiao/detail/{productIdentifier}',
                 views: {
-                    yinpiao: {
+                    '@': {
                         controller: 'YinpiaoDetailCtrl as product',
                         templateUrl: 'app/yinpiao/detail/detail.tpl.html'
                     }
@@ -78,7 +78,9 @@ angular.module('jym.yinpiao.detail', [
                         $state.go('jym.yinpiao-purchase');
                     })
                     .catch(function(result) {
-                        JYMUtilityService.showAlert(result);
+                        if (Error.prototype.isPrototypeOf(result)) {
+                            JYMUtilityService.showAlert(result);
+                        }
                     });
             }
         };

@@ -7,7 +7,7 @@ angular.module('jym.user.bank-card-upgrade', [
             .state('jym.user-bank-card-upgrade', {
                 url: '/user/bank-card-upgrade/{bankCardNo}',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserBankCardUpgradeCtrl as card',
                         templateUrl: 'app/user/bank-card/upgrade/upgrade.tpl.html'
                     }

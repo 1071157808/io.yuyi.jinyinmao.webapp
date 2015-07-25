@@ -8,7 +8,7 @@ angular.module('jym.user.security', [
             .state('jym.user-security', {
                 url: '/user/security',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSecurityCtrl as ctrl',
                         templateUrl: 'app/user/security/security.tpl.html'
                     }

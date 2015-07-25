@@ -5,7 +5,7 @@ angular.module('jym.user.signup', [])
             .state('jym.user-signup', {
                 url: '/user/signup/{token}',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSignUpCtrl as ctrl',
                         templateUrl: 'app/user/signup/signup.tpl.html'
                     }
@@ -14,7 +14,7 @@ angular.module('jym.user.signup', [])
             .state('jym.user-signup-send-veri-code', {
                 url: '/user/signup-send-veri-code',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSignUpSendVeriCodeCtrl as ctrl',
                         templateUrl: 'app/user/signup/sendVeriCode.tpl.html'
                     }

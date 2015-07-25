@@ -9,7 +9,7 @@ angular.module('jym.zhuanqu', [
             .state('jym.zhuanqu', {
                 url: '/zhuanqu',
                 views: {
-                    zhuanqu: {
+                    '@': {
                         controller: 'ZhuanquIndexCtrl as ctrl',
                         templateUrl: 'app/zhuanqu/index.tpl.html'
                     }
@@ -18,7 +18,7 @@ angular.module('jym.zhuanqu', [
             .state('jym.zhuanqu-list', {
                 url: '/zhuanqu/list/{bankName}',
                 views: {
-                    zhuanqu: {
+                    '@': {
                         controller: 'ZhuanquListCtrl as products',
                         templateUrl: 'app/zhuanqu/list.tpl.html'
                     }

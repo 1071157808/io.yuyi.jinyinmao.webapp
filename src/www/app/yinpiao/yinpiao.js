@@ -9,7 +9,7 @@ angular.module('jym.yinpiao', [
             .state('jym.yinpiao', {
                 url: '/yinpiao',
                 views: {
-                    yinpiao: {
+                    '@': {
                         controller: 'YinpiaoIndexCtrl as products',
                         templateUrl: 'app/yinpiao/index.tpl.html'
                     }

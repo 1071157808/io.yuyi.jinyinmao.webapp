@@ -13,7 +13,7 @@ angular.module('jym.jinbaoyin.detail', [
             .state('jym.jinbaoyin-detail', {
                 url: '/jinbaoyin/detail',
                 views: {
-                    jinbaoyin: {
+                    '@': {
                         controller: 'JinbaoyinDetailCtrl as product',
                         templateUrl: 'app/jinbaoyin/detail/detail.tpl.html'
                     }
@@ -74,7 +74,9 @@ angular.module('jym.jinbaoyin.detail', [
                         $state.go('jym.jinbaoyin-purchase', { productIdentifier: product.model.productIdentifier });
                     })
                     .catch(function(result) {
-                        JYMUtilityService.showAlert(result);
+                        if (Error.prototype.isPrototypeOf(result)) {
+                            JYMUtilityService.showAlert(result);
+                        }
                     });
             }
         };

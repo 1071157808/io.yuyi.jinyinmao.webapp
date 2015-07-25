@@ -9,7 +9,7 @@ angular.module('jym.user.bank-card', [
             .state('jym.user-bank-card', {
                 url: '/user/bank-card',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserBankCardCtrl as cards',
                         templateUrl: 'app/user/bank-card/bank-card.tpl.html'
                     }
@@ -18,7 +18,7 @@ angular.module('jym.user.bank-card', [
             .state('jym.user-bank-card-yilian-notice', {
                 url: '/user/bank-card/yilian-notice',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserBankCardYilianNoticeCtrl as ctrl',
                         templateUrl: 'app/user/bank-card/yilian-notice.tpl.html'
                     }

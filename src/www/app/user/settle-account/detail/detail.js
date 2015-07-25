@@ -7,7 +7,7 @@ angular.module('jym.user.settle-account-detail', [
             .state('jym.user-settle-account-detail', {
                 url: '/user/settle-account/detail/{transactionIdentifier}',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSettleAccountDetailCtrl as transaction',
                         templateUrl: 'app/user/settle-account/detail/detail.tpl.html'
                     }

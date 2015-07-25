@@ -8,7 +8,7 @@ angular.module('jym.user.jinbaoyin-detail', [
             .state('jym.user-jinbaoyin-detail', {
                 url: '/user/jinbaoyin/detail/{transactionIdentifier}',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserJinbaoyinDetailCtrl as transaction',
                         templateUrl: 'app/user/jinbaoyin/detail/detail.tpl.html'
                     }

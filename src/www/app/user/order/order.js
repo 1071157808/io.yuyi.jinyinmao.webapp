@@ -10,7 +10,7 @@ angular.module('jym.user.orders', [
             .state('jym.user-orders', {
                 url: '/user/orders',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserOrdersCtrl as orders',
                         templateUrl: 'app/user/order/order.tpl.html'
                     }
