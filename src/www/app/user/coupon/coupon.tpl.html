@@ -1,4 +1,9 @@
 <ion-view title="管理优惠券">
+  <ion-refresher
+    pulling-icon="ion-arrow-down-c"
+    spinner="spiral"
+    on-refresh="coupon.doRefresh()">
+  </ion-refresher>
   <ion-content class="coupon">
     <ion-list>
       <ion-item>

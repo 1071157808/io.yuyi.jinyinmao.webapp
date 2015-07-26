@@ -15,5 +15,28 @@ angular.module('jym.user.coupon', [])
   .controller('CouponCtrl', function($timeout, UserService) {
     var coupon  = this;
 
+    coupon.model = {};
+    coupon.viewModel = {};
+
+    //coupon.doRefresh = function() {
+    //  coupon.refreshCoupon()
+    //    .then(function(result) {
+    //      coupon.model = result;
+    //      coupon.refreshViewModel();
+    //      return result;
+    //    });
+    //
+    //  $timeout(function() {
+    //    $scope.$broadcast('scroll.refreshComplete');
+    //  }, 1500);
+    //};
+    //
+    //$scope.$on('$ionicView.enter', function() {
+    //  coupon.doRefresh();
+    //});
+    //
+    //coupon.doRefresh();
+
+
 
   });

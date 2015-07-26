@@ -49,7 +49,6 @@ angular.module('jym.yinpiao.purchase', [
                         credentialNo: purchase.model.user.credentialNo,
                         realName: purchase.model.user.realName
                     };
-
                     purchase.refreshAgreement(1)
                         .then(function(result) {
                             purchase.viewModel.agreement1 = ProductService.fillDataForAgreement(result.content, agreementData);

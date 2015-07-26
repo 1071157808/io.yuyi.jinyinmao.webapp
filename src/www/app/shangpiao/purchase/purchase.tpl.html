@@ -2,18 +2,37 @@
   <ion-content class="has-header">
     <ion-list class="deposit">
       <ion-item>
-        <span class="pull-left">订单金额</span>
-        <span class="pull-right"><strong ng-bind="purchase.viewModel.amount"></strong> &nbsp;元</span>
+        <p>
+          <span class="pull-left">订单金额</span>
+          <span class="pull-right"><strong ng-bind="purchase.viewModel.amount"></strong>&nbsp;元</span>
+        </p>
+        <p>预期收益：<span ng-bind="purchase.viewModel.expectedInterest"></span>
+          <span ng-if="item.extraInterest > 0">&nbsp;&nbsp;&nbsp;+</span>
+          <span ng-if="item.extraInterest > 0" ng-bind="item.extraInterest"></span>&nbsp;元
+        </p>
       </ion-item>
     </ion-list>
     <ion-list>
       <ion-item class="card deposit">
         <ion-item class="item">
-          <span class="pull-left">账户余额&nbsp;&nbsp;</span>
-          <span class="pull-left"><strong ng-bind="purchase.viewModel.balance"></strong> &nbsp;&nbsp;元</span>
-          <!--<span class="pull-right" ui-sref="jym.user-settle-account-deposit">去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></span>-->
+          <p>
+            <span class="pull-left">可用余额&nbsp;&nbsp;</span>
+            <span class="pull-right"><strong ng-bind="purchase.viewModel.balance"></strong>&nbsp;元</span>
+          </p>
+          <p ng-if="!(purchase.model.user.balance >= purchase.model.order.amount)" class="pull-right" ui-sref="jym.user-settle-account-deposit">
+            <em class="attention">余额不足!</em><em>&nbsp;&nbsp;去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></em>
+          </p>
         </ion-item>
+        <ion-item class="item-toogle usecoupon">
+          <span class="pull-left">使用 <samp class="attention" >1000</samp> 元本金券</span>
 
+          <label class="toggle toggle-energized pull-right">
+            <input type="checkbox">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </ion-item>
         <label class="item item-input">
           <span class="input-label">输入密码</span>
           <input type="password" placeholder="请输入您的支付密码" ng-model="purchase.viewModel.password" required minlength="8" maxlength="18" ng-pattern="/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/">
