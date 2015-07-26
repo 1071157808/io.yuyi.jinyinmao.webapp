@@ -16,7 +16,7 @@ angular.module('jym.user.bank-card-detail', [
                 }
             });
     })
-    .controller('UserBankCardDetailCtrl', function($scope, $state, $stateParams, $timeout, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserBankCardDetailCtrl', function($scope, $state, $stateParams, $timeout, $ionicHistory, RESOURCES, UserService, JYMUtilityService, $ionicPopup) {
         var card = this;
 
         card.model = {};

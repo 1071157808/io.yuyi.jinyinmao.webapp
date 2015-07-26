@@ -785,6 +785,7 @@ ion-footer-bar button .icon-right {
 
 .item p {
   line-height: 20px;
+  padding-top: 5px;
 }
 
 @media only screen and (max-width: 320px) {
@@ -2032,10 +2033,12 @@ input[readonly]:not(.cloned-text-input) {
 }
 
 #yilian-notice p {
-  margin: 8px 20px 8px 25px;
   font-size: 16px;
   color: #999;
-  text-align: center;
+
+}
+#yilian-notice p em {
+  color: #e74c3c;
 }
 
 #yilian-notice span {
@@ -2047,6 +2050,18 @@ input[readonly]:not(.cloned-text-input) {
   margin-left: 25px;
   font-size: 20px;
   color: #facb3a;
+}
+#yilian-notice ul {
+  list-style-type: disc;
+  position: relative;
+  left: 9%;
+  color: #facb3a;
+  padding-left: 10px;
+}
+#yilian-notice li {
+  width: 70%;
+  position: relative;
+  left: 30px;
 }
 /* #yilian-notice end*/
 
@@ -2178,4 +2193,21 @@ input[readonly]:not(.cloned-text-input) {
     padding-left: 0;
     margin-left: -10px;
   }
+}
+ #avatar {
+   top: 0;
+ }
+
+.coupon p {
+   font-size: 14px;
+ }
+.coupon p > em {
+  color: #e74c3c;
+  font-size: 24px;
+}
+
+.coupon .pull-right {
+  font-size: 16px;
+  padding-top: 15px;
+  color: #acb5bd;
 }
