@@ -35,8 +35,8 @@
     <button class="btn button-yellow" ng-disabled="!account.withdrawButtonEnable()" ng-click="account.withdraw()">同意协议并取现</button>
     <br>
     <br>
-    <a ng-href="http://source.jinyinmao.com.cn/deal/certificate/29_1.html">提现规则</a>
-    <h4 id="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>
+    <h4 class="tel">个人取现额度：每日两次，限额5万元。</h4>
+    <h4 class="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>
 
     <div class="agreement" ng-if="account.viewModel.showAgreement">
       <div ng-bind-html="account.viewModel.agreement"></div>

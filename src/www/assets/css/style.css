@@ -1699,7 +1699,7 @@ label.item-input > span {
   vertical-align: text-top;
 }
 
-#tel {
+.tel {
   position: relative;
   width: 90%;
   margin: 0 auto;
@@ -1988,7 +1988,7 @@ input[readonly]:not(.cloned-text-input) {
 
 .attention {
   padding-top: 10px;
-  /*margin: 0 20px;*/
+  margin: 0 20px;
   font-size: 14px;
   line-height: 1.5em;
   color: #e74c3c;
@@ -2051,6 +2051,8 @@ input[readonly]:not(.cloned-text-input) {
 }
 
 #yilian-notice p {
+  margin: 20px 0 5px;
+  text-align: center;
   font-size: 16px;
   color: #999;
 
@@ -2249,7 +2251,7 @@ input[readonly]:not(.cloned-text-input) {
 .popup-head {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  background-color: #F1F2F3;
+  background-color: #edefef;
   height: 34px;
 }
 .popup-body {
