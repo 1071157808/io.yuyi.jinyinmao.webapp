@@ -1,5 +1,5 @@
 <ion-view title="我的金银猫">
-  <ion-content id="user-index">
+  <ion-content id="user-index" class="has-footer">
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
@@ -66,6 +66,7 @@
     </ion-list>
     <br>
     <button class="btn button-grey" ng-click="user.loginOut()">登出</button>
+    <div class="space"></div>
   </ion-content>
   <div ng-include="'app/common/templates/tabs.tpl.html'"></div>
 </ion-view>
