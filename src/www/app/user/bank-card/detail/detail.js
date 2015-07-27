@@ -2,7 +2,8 @@
 angular.module('jym.user.bank-card-detail', [
     'jym.services',
     'jym.services.user',
-    'jym.user.bank-card-upgrade'
+    'jym.user.bank-card-upgrade',
+    'ionic'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -55,6 +56,25 @@ angular.module('jym.user.bank-card-detail', [
                     });
             }
         };
+
+    card.showConfirm = function() {
+      var confirmPopup = $ionicPopup.confirm({
+        title: ' ',
+        template: '是否删除该银行卡？',
+        okText: '是',
+        cancelText: '否',
+
+        //templateUrl: 'app/common/templates/confirm.tpl.html'
+      });
+      confirmPopup.then(function(res) {
+        if(res) {
+          console.log('You are sure');
+          card.removeCard();
+        } else {
+          console.log('You are not sure');
+        }
+      });
+    };
 
         $scope.$on('$ionicView.enter', function() {
             card.doRefresh();

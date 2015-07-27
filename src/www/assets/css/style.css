@@ -2229,3 +2229,50 @@ input[readonly]:not(.cloned-text-input) {
   padding-top: 15px;
   color: #acb5bd;
 }
+
+
+/*.black-back {*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+  /*z-index: 2;*/
+/*}*/
+
+.popup-container {
+  background: rgba(0, 0, 0, .3);
+}
+.popup-container .popup {
+  border-radius: 5px;
+  font-size: 24px;
+  /*width: 465px;*/
+  /*height: 254px;*/
+}
+.popup-head {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #F1F2F3;
+  height: 34px;
+}
+.popup-body {
+  margin-top: 15px;
+  height: 100%;
+  font-size: 18px;
+  text-align: center;
+
+}
+.popup .button {
+  min-height: 20px;
+  margin: 10px 10px 0 0;
+  height: 34px;
+  min-width: 40px;
+  width: 80%;
+}
+.popup .button.button-positive {
+  background-color: #facb3a;
+  border-color: #facb3a;
+}
+.popup .button.button-default {
+  background-color: #c3d0d7;
+  border: 0 solid #a8b6bf;
+  color: #fff;
+  font-size: 16px;
+}

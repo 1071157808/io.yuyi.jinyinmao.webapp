@@ -1,0 +1,14 @@
+<div class="popup-container popup-showing active" ng-class="cssClass">
+  <div class="black-back"></div>
+  <div class="popup">
+    <div class="popup-head">
+      <h3 class="popup-title ng-binding" ng-bind-html="title">您是否确认放弃该银行卡</h3>
+    </div>
+    <!--<div class="popup-body">-->
+    <!--<span>Are you sure you want to eat this ice cream?</span>-->
+    <!--</div>-->
+    <div class="popup-buttons" ng-show="buttons.length">
+      <button ng-repeat="button in buttons" ng-click="$buttonTapped(button, $event)" class="button ng-binding button-default" ng-class="button.type || 'button-default'" ng-bind-html="button.text"></button>
+    </div>
+  </div>
+</div>
