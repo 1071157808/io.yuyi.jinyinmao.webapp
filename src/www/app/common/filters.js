@@ -62,7 +62,6 @@ angular.module('jym.filters', [])
     })
     .filter('bankLimit', function() {
         return function(bankName) {
-
             switch (bankName) {
                 case '浦发银行':
                     return '限额单笔49999元，单日49999元。';
@@ -102,7 +101,6 @@ angular.module('jym.filters', [])
                     return '限额单笔50万元，单日50万元。';
                 default:
                     return '限额单笔50万元，单日50万元。';
-
             }
         };
     })

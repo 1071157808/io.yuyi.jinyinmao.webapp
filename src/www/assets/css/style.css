@@ -1038,7 +1038,9 @@ ion-item img {
 .card {
   padding: 1px;
 }
-
+.card.deposit span > samp {
+  color: #e74c3c;
+}
 #login-card {
   margin-bottom: 5px;
 }
@@ -2213,7 +2215,8 @@ input[readonly]:not(.cloned-text-input) {
     margin-left: -10px;
   }
 }
-.item-thumbnail-left .item-content > img.avatar {
+
+.item-thumbnail-left .item-content > img {
   top: 0;
 }
 
