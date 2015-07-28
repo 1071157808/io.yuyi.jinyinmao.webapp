@@ -20,7 +20,7 @@ angular.module('jym.jinbaoyin.detail', [
                 }
             });
     })
-    .controller('JinbaoyinDetailCtrl', function($scope, $state, $timeout, $q, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinDetailCtrl', function($scope, $state, $timeout, $q, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -43,7 +43,18 @@ angular.module('jym.jinbaoyin.detail', [
             ctrl.viewModel.investCount = ctrl.viewModel.investCount || 10;
             ctrl.viewModel.investAmount = 0;
 
-            ctrl.refreshProduct();
+            ctrl.refreshProduct()
+                .then(function(result) {
+                    ctrl.model.product = result;
+                    ctrl.refreshViewModel();
+                    ctrl.refreshInvestViewModel();
+                    return result;
+                });
+
+            ctrl.refreshUser()
+                .then(function(result) {
+                    ctrl.model.user = result;
+                });
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
@@ -65,20 +76,22 @@ angular.module('jym.jinbaoyin.detail', [
         ctrl.goPurchase = function() {
             if (ctrl.goPurchaseButtonEnable()) {
                 var amount = ctrl.viewModel.investCount * ctrl.model.unitPrice;
-                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(ctrl.refreshProduct(), amount);
-                var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
+                try {
+                    if (user.model.hasSetPaymentPassword === false) {
+                        $timeout(function() {
+                            JYMUtilityService.go('jym.user-bank-card-add');
+                        }, 3000);
+                    }
 
-                $q.all([checkProductPurchaseStatus, checkUserPurchaseStatus])
-                    .then(function(result) {
-                        PurchaseService.buildNewJBYOrder(amount, ctrl.viewModel.expectedInterest, result[0].productIdentifier);
+                    ProductService.checkProductPurchaseStatus(ctrl.model.product, amount);
+                    UserService.checkUserPurchaseStatus();
 
-                        $state.go('jym.jinbaoyin-purchase', { productIdentifier: ctrl.model.productIdentifier });
-                    })
-                    .catch(function(error) {
-                        if (Error.prototype.isPrototypeOf(error)) {
-                            JYMUtilityService.showAlert(error.message);
-                        }
-                    });
+                    PurchaseService.buildNewJBYOrder(amount, ctrl.viewModel.expectedInterest, ctrl.model.product.productIdentifier);
+
+                    $state.go('jym.jinbaoyin-purchase', { productIdentifier: ctrl.model.productIdentifier });
+                } catch (e) {
+                    JYMUtilityService.showAlert(error.message);
+                }
             }
         };
 
@@ -97,33 +110,31 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         ctrl.refreshProduct = function() {
-            return JinbaoyinService.getIndex()
-                .then(function(result) {
-                    ctrl.model = result;
-                    ctrl.refreshViewModel();
-                    ctrl.refreshInvestViewModel();
-                    return result;
-                });
+            return JinbaoyinService.getIndex();
+        };
+
+        ctrl.refreshUser = function() {
+            return UserService.getUserInfo();
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.endSellTime = ctrl.model.endSellTime;
-            ctrl.viewModel.financingSumAmount = (ctrl.model.financingSumAmount / 1000000).toFixed(0);
-            ctrl.viewModel.issueNo = parseInt(ctrl.model.issueNo, 10);
-            ctrl.viewModel.issueTime = ctrl.model.issueTime;
-            ctrl.viewModel.paidAmount = ctrl.model.paidAmount;
-            ctrl.viewModel.productCategory = ctrl.model.productCategory;
-            ctrl.viewModel.productIdentifier = ctrl.model.productIdentifier;
-            ctrl.viewModel.productName = ctrl.model.productName;
-            ctrl.viewModel.productNo = ctrl.model.productNo;
-            ctrl.viewModel.productTitle = ctrl.model.productName + ' 第' + ctrl.model.issueNo + '期';
-            ctrl.viewModel.remainCount = ((ctrl.model.financingSumAmount - ctrl.model.paidAmount) / ctrl.model.unitPrice).toFixed(0);
+            ctrl.viewModel.endSellTime = ctrl.model.product.endSellTime;
+            ctrl.viewModel.financingSumAmount = (ctrl.model.product.financingSumAmount / 1000000).toFixed(0);
+            ctrl.viewModel.issueNo = parseInt(ctrl.model.product.issueNo, 10);
+            ctrl.viewModel.issueTime = ctrl.model.product.issueTime;
+            ctrl.viewModel.paidAmount = ctrl.model.product.paidAmount;
+            ctrl.viewModel.productCategory = ctrl.model.product.productCategory;
+            ctrl.viewModel.productIdentifier = ctrl.model.product.productIdentifier;
+            ctrl.viewModel.productName = ctrl.model.product.productName;
+            ctrl.viewModel.productNo = ctrl.model.product.productNo;
+            ctrl.viewModel.productTitle = ctrl.model.product.productName + ' 第' + ctrl.model.product.issueNo + '期';
+            ctrl.viewModel.remainCount = ((ctrl.model.product.financingSumAmount - ctrl.model.product.paidAmount) / ctrl.model.product.unitPrice).toFixed(0);
             ctrl.viewModel.sellProgress = getSaleProgress(ctrl.model);
             ctrl.viewModel.sellProgressInCircleProgress = ctrl.viewModel.sellProgress / 100;
             ctrl.viewModel.status = getSaleStatus(ctrl.model);
-            ctrl.viewModel.unitPrice = (ctrl.model.unitPrice / 100).toFixed(0);
-            ctrl.viewModel.valueDateMode = getValueDateModeText(ctrl.model.valueDateMode);
-            ctrl.viewModel.yield = ctrl.model.yield / 100;
+            ctrl.viewModel.unitPrice = (ctrl.model.product.unitPrice / 100).toFixed(0);
+            ctrl.viewModel.valueDateMode = getValueDateModeText(ctrl.model.product.valueDateMode);
+            ctrl.viewModel.yield = ctrl.model.product.yield / 100;
 
             if (ctrl.viewModel.status !== 20) {
                 ctrl.viewModel.remainCount = 0;

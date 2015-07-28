@@ -44,10 +44,11 @@ angular.module('jym.user.jinbaoyin-detail', [
 
             $q.all([refreshTransaction, refreshUser])
                 .then(function() {
+                    var orderTime = transaction.viewModel.trade === 0 ? transaction.viewModel.resultTime : transaction.viewModel.transactionTime;
                     var agreementData = {
                         cellphone: transaction.model.user.cellphone,
                         credentialNo: transaction.model.user.credentialNo,
-                        orderTime: transaction.viewModel.resultTime,
+                        orderTime: orderTime,
                         principal: transaction.viewModel.amount,
                         realName: transaction.model.user.realName
                     };

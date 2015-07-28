@@ -43,16 +43,16 @@ angular.module('jym.user.jinbaoyin', [
             }, 1500);
         };
 
-        ctrl.refreshUser = function() {
-            return UserService.getUserInfo();
-        };
-
         ctrl.refreshProduct = function() {
             return JinbaoyinService.getIndex();
         };
 
         ctrl.refreshProductViewModel = function() {
             ctrl.viewModel.jBYYield = ctrl.model.product.yield / 100;
+        };
+
+        ctrl.refreshUser = function() {
+            return UserService.getUserInfo();
         };
 
         ctrl.refreshUserViewModel = function() {

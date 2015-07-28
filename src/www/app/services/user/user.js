@@ -3,7 +3,7 @@ angular.module('jym.services.user', [
     'ionic',
     'jym.services'
 ])
-    .service('UserService', function($http, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
+    .service('UserService', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
         var service = this;
 
         service.sharedData = {};
@@ -98,23 +98,20 @@ angular.module('jym.services.user', [
                 });
         };
 
-        service.checkUserPurchaseStatus = function() {
-            return service.getUserInfo()
-                .then(function(user) {
-                    if (user.closed === true) {
-                        throw new Error(RESOURCES.ALERT.USER.CLOSED);
-                    }
+        service.checkUserPurchaseStatus = function(user) {
+            if (user.closed === true) {
+                throw new Error(RESOURCES.ALERT.USER.CLOSED);
+            }
 
-                    if (user.hasSetPaymentPassword === false) {
-                        throw new Error(RESOURCES.ALERT.USER.HAS_NOT_SET_PAYMENT_PASSWORD);
-                    }
+            if (user.hasSetPaymentPassword === false) {
+                throw new Error(RESOURCES.ALERT.USER.HAS_NOT_SET_PAYMENT_PASSWORD);
+            }
 
-                    if (user.hasSetPaymentPassword >= 5) {
-                        throw new Error(RESOURCES.ALERT.USER.PAYMENT_PASSWORD_NEED_RESET);
-                    }
+            if (user.hasSetPaymentPassword >= 5) {
+                throw new Error(RESOURCES.ALERT.USER.PAYMENT_PASSWORD_NEED_RESET);
+            }
 
-                    return user;
-                });
+            return user;
         };
 
         service.depositByYilian = function(amount, bankCardNo, paymentPassword) {

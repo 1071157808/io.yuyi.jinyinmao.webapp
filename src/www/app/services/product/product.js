@@ -5,29 +5,27 @@ angular.module('jym.services.product', [
     .service('ProductService', function($http, $filter, RESOURCES, URLS, JYMCacheService, JYMTimeService) {
         var service = this;
 
-        service.checkProductPurchaseStatus = function(getProductInfo, amount) {
-            return getProductInfo.then(function(product) {
-                var repaid = product.repaid || false;
+        service.checkProductPurchaseStatus = function(product, amount) {
+            var repaid = product.repaid || false;
 
-                var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, repaid);
-                if (status === 10) {
-                    throw new Error(RESOURCES.ALERT.PRODUCT.NOT_ON_SALE);
-                }
+            var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, repaid);
+            if (status === 10) {
+                throw new Error(RESOURCES.ALERT.PRODUCT.NOT_ON_SALE);
+            }
 
-                if (status === 30) {
-                    throw new Error(RESOURCES.ALERT.PRODUCT.SOLD_OUT);
-                }
+            if (status === 30) {
+                throw new Error(RESOURCES.ALERT.PRODUCT.SOLD_OUT);
+            }
 
-                if (product.financingSumAmount - product.paidAmount < amount) {
-                    throw new Error(RESOURCES.ALERT.PRODUCT.SHARE_INSUFFICIENT);
-                }
+            if (product.financingSumAmount - product.paidAmount < amount) {
+                throw new Error(RESOURCES.ALERT.PRODUCT.SHARE_INSUFFICIENT);
+            }
 
-                if (amount % product.unitPrice !== 0) {
-                    throw new Error(RESOURCES.ALERT.PRODUCT.AMOUNT_INCORRECT);
-                }
+            if (amount % product.unitPrice !== 0) {
+                throw new Error(RESOURCES.ALERT.PRODUCT.AMOUNT_INCORRECT);
+            }
 
-                return product;
-            });
+            return product;
         };
 
         service.fillDataForAgreement = function(content, data) {
