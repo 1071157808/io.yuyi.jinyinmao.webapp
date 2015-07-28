@@ -60,52 +60,50 @@ angular.module('jym.filters', [])
             }
         };
     })
-  .filter('bankLimit', function() {
-    return function(bankName) {
-
-      switch (bankName) {
-        case '浦发银行':
-          return '限额单笔49999元，单日49999元。';
-        case '深发银行':
-          return '限额单笔50万元，单日50万元。';
-        case '平安银行':
-          return '限额单笔50万元，单日50万元。';
-        case '民生银行':
-          return '限额单笔50万元，单日50万元。';
-        case '工商银行':
-          return '限额单笔5万元，单日5万元。';
-        case '农业银行':
-          return '限额单笔5000元，单日5000元。';
-        case '建设银行':
-          return '限额单笔50万元，单日50万元。';
-        case '招商银行':
-          return '限额单笔5万元，单日不限。';
-        case '广发银行':
-          return '限额单笔50万元，单日50万元。';
-        case '广州银行':
-          return '限额单笔50万元，单日50万元。';
-        case '邮储银行':
-          return '限额单笔1万元，单日不限。';
-        case '兴业银行':
-          return '限额单笔2万元，单日5万元。';
-        case '光大银行':
-          return '限额单笔50万元，单日50万元。';
-        case '华夏银行':
-          return '限额单笔100万元，单日100万元。';
-        case '中信银行':
-          return '限额单笔100万元，单日100万元。';
-        case '广州农商行':
-          return '限额单笔100万元，单日100万元。';
-        case '中国银行':
-          return '限额单笔1万元，单日1万元。';
-        case '富滇银行':
-          return '限额单笔50万元，单日50万元。';
-        default:
-          return '限额单笔50万元，单日50万元。';
-
-      }
-    };
-  })
+    .filter('bankLimit', function() {
+        return function(bankName) {
+            switch (bankName) {
+                case '浦发银行':
+                    return '限额单笔49999元，单日49999元。';
+                case '深发银行':
+                    return '限额单笔50万元，单日50万元。';
+                case '平安银行':
+                    return '限额单笔50万元，单日50万元。';
+                case '民生银行':
+                    return '限额单笔50万元，单日50万元。';
+                case '工商银行':
+                    return '限额单笔5万元，单日5万元。';
+                case '农业银行':
+                    return '限额单笔5000元，单日5000元。';
+                case '建设银行':
+                    return '限额单笔50万元，单日50万元。';
+                case '招商银行':
+                    return '限额单笔5万元，单日不限。';
+                case '广发银行':
+                    return '限额单笔50万元，单日50万元。';
+                case '广州银行':
+                    return '限额单笔50万元，单日50万元。';
+                case '邮储银行':
+                    return '限额单笔1万元，单日不限。';
+                case '兴业银行':
+                    return '限额单笔2万元，单日5万元。';
+                case '光大银行':
+                    return '限额单笔50万元，单日50万元。';
+                case '华夏银行':
+                    return '限额单笔100万元，单日100万元。';
+                case '中信银行':
+                    return '限额单笔100万元，单日100万元。';
+                case '广州农商行':
+                    return '限额单笔100万元，单日100万元。';
+                case '中国银行':
+                    return '限额单笔1万元，单日1万元。';
+                case '富滇银行':
+                    return '限额单笔50万元，单日50万元。';
+                default:
+                    return '限额单笔50万元，单日50万元。';
+            }
+        };
+    })
     .filter('city', function() {
         return function(cityId) {
             if (!isFinite(cityId)) {
