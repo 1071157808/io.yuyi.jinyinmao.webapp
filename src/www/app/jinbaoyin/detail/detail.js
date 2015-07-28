@@ -39,6 +39,12 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && ctrl.viewModel.refreshTime < Date.now() + 1000) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.expectedInterest = 0;
             ctrl.viewModel.investCount = ctrl.viewModel.investCount || 10;
             ctrl.viewModel.investAmount = 0;
@@ -77,7 +83,7 @@ angular.module('jym.jinbaoyin.detail', [
             if (ctrl.goPurchaseButtonEnable()) {
                 var amount = ctrl.viewModel.investCount * ctrl.model.unitPrice;
                 try {
-                    if (user.model.hasSetPaymentPassword === false) {
+                    if (ctrl.model.user.hasSetPaymentPassword === false) {
                         $timeout(function() {
                             JYMUtilityService.go('jym.user-bank-card-add');
                         }, 3000);
@@ -90,7 +96,7 @@ angular.module('jym.jinbaoyin.detail', [
 
                     $state.go('jym.jinbaoyin-purchase', { productIdentifier: ctrl.model.productIdentifier });
                 } catch (e) {
-                    JYMUtilityService.showAlert(error.message);
+                    JYMUtilityService.showAlert(e.message);
                 }
             }
         };
@@ -129,9 +135,9 @@ angular.module('jym.jinbaoyin.detail', [
             ctrl.viewModel.productNo = ctrl.model.product.productNo;
             ctrl.viewModel.productTitle = ctrl.model.product.productName + ' 第' + ctrl.model.product.issueNo + '期';
             ctrl.viewModel.remainCount = ((ctrl.model.product.financingSumAmount - ctrl.model.product.paidAmount) / ctrl.model.product.unitPrice).toFixed(0);
-            ctrl.viewModel.sellProgress = getSaleProgress(ctrl.model);
+            ctrl.viewModel.sellProgress = getSaleProgress(ctrl.model.product);
             ctrl.viewModel.sellProgressInCircleProgress = ctrl.viewModel.sellProgress / 100;
-            ctrl.viewModel.status = getSaleStatus(ctrl.model);
+            ctrl.viewModel.status = getSaleStatus(ctrl.model.product);
             ctrl.viewModel.unitPrice = (ctrl.model.product.unitPrice / 100).toFixed(0);
             ctrl.viewModel.valueDateMode = getValueDateModeText(ctrl.model.product.valueDateMode);
             ctrl.viewModel.yield = ctrl.model.product.yield / 100;
