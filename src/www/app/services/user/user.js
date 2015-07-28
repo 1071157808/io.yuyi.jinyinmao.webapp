@@ -102,15 +102,15 @@ angular.module('jym.services.user', [
             return service.getUserInfo()
                 .then(function(user) {
                     if (user.closed === true) {
-                        throw RESOURCES.ALERT.USER.CLOSED;
+                        throw new Error(RESOURCES.ALERT.USER.CLOSED);
                     }
 
                     if (user.hasSetPaymentPassword === false) {
-                        throw RESOURCES.ALERT.USER.HAS_NOT_SET_PAYMENT_PASSWORD;
+                        throw new Error(RESOURCES.ALERT.USER.HAS_NOT_SET_PAYMENT_PASSWORD);
                     }
 
                     if (user.hasSetPaymentPassword >= 5) {
-                        throw RESOURCES.ALERT.USER.PAYMENT_PASSWORD_NEED_RESET;
+                        throw new Error(RESOURCES.ALERT.USER.PAYMENT_PASSWORD_NEED_RESET);
                     }
 
                     return user;

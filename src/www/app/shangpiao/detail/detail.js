@@ -13,17 +13,17 @@ angular.module('jym.shangpiao.detail', [
                 url: '/shangpiao/detail/{productIdentifier}',
                 views: {
                     '@': {
-                        controller: 'ShangpiaoDetailCtrl as product',
+                        controller: 'ShangpiaoDetailCtrl as ctrl',
                         templateUrl: 'app/shangpiao/detail/detail.tpl.html'
                     }
                 }
             });
     })
     .controller('ShangpiaoDetailCtrl', function($scope, $state, $stateParams, $q, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
-        var product = this;
+        var ctrl = this;
 
-        product.model = {};
-        product.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
         var getSaleProgress = function(product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
@@ -37,43 +37,43 @@ angular.module('jym.shangpiao.detail', [
             return ProductService.getValueDateModeText(valueDateMode);
         };
 
-        product.doRefresh = function() {
-            product.viewModel.investCount = product.viewModel.investCount || 10;
-            product.viewModel.investAmount = 0;
-            product.viewModel.expectedInterest = 0;
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.investCount = ctrl.viewModel.investCount || 10;
+            ctrl.viewModel.investAmount = 0;
+            ctrl.viewModel.expectedInterest = 0;
 
-            product.refreshProduct();
+            ctrl.refreshProduct();
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };
 
-        product.investCountChange = function() {
-            if (product.viewModel.investCount < 0) {
-                product.viewModel.investCount = 0;
+        ctrl.investCountChange = function() {
+            if (ctrl.viewModel.investCount < 0) {
+                ctrl.viewModel.investCount = 0;
             }
 
-            if (product.viewModel.investCount > product.viewModel.remainCount) {
-                product.viewModel.investCount = parseInt(product.viewModel.remainCount, 10);
+            if (ctrl.viewModel.investCount > ctrl.viewModel.remainCount) {
+                ctrl.viewModel.investCount = parseInt(ctrl.viewModel.remainCount, 10);
             }
 
-            product.refreshInvestViewModel();
+            ctrl.refreshInvestViewModel();
         };
 
-        product.getAccrualDuration = function() {
-            var diff = (moment(product.model.settleDate) - moment(product.model.currentValueDate)) / (1000 * 60 * 60 * 24);
+        ctrl.getAccrualDuration = function() {
+            var diff = (moment(ctrl.model.settleDate) - moment(ctrl.model.currentValueDate)) / (1000 * 60 * 60 * 24);
             return parseInt(diff, 10);
         };
 
-        product.goPurchase = function() {
-            if (product.goPurchaseButtonEnable()) {
-                var amount = product.viewModel.investCount * product.model.unitPrice;
+        ctrl.goPurchase = function() {
+            if (ctrl.goPurchaseButtonEnable()) {
+                var amount = ctrl.viewModel.investCount * ctrl.model.unitPrice;
                 var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
-                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), amount);
+                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(ctrl.refreshProduct(), amount);
                 $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
                     .then(function(result) {
-                        PurchaseService.buildRegularOrder(amount, result[1].productIdentifier, 100000020);
+                        PurchaseService.buildRegularOrder(amount, ctrl.viewModel.expectedInterest, result[1].productIdentifier, 100000020);
 
                         $state.go('jym.shangpiao-purchase');
                     })
@@ -85,93 +85,92 @@ angular.module('jym.shangpiao.detail', [
             }
         };
 
-        product.goPurchaseButtonEnable = function() {
-            return product.viewModel.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
+        ctrl.goPurchaseButtonEnable = function() {
+            return ctrl.viewModel.status === 20 && ctrl.viewModel.investAmount && ctrl.viewModel.investAmount >= ctrl.viewModel.unitPrice;
         };
 
-        product.refreshInvestViewModel = function() {
-            if (isFinite(product.viewModel.investCount)) {
-                product.viewModel.investAmount = product.viewModel.investCount * product.viewModel.unitPrice;
+        ctrl.refreshInvestViewModel = function() {
+            if (isFinite(ctrl.viewModel.investCount)) {
+                ctrl.viewModel.investAmount = ctrl.viewModel.investCount * ctrl.viewModel.unitPrice;
             } else {
-                product.viewModel.investAmount = 0;
+                ctrl.viewModel.investAmount = 0;
             }
 
-            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, product.getAccrualDuration()) / 100).toFixed(2);
+            ctrl.viewModel.expectedInterest = (ProductService.getInterest(ctrl.viewModel.investAmount * 100, ctrl.model.yield, ctrl.getAccrualDuration()) / 100).toFixed(2);
         };
 
-        product.refreshProduct = function() {
+        ctrl.refreshProduct = function() {
             return ProductService.getRegularProductInfo($stateParams.productIdentifier)
                 .then(function(result) {
-                    product.model = result;
-                    product.refreshViewModel();
-                    product.refreshInvestViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
+                    ctrl.refreshInvestViewModel();
                     return result;
                 });
         };
 
-        product.refreshViewModel = function() {
-            product.viewModel.bankName = product.model.bankName;
-            product.viewModel.currentValueDate = product.model.currentValueDate;
-            product.viewModel.drawee = product.model.drawee;
-            product.viewModel.draweeInfo = product.model.draweeInfo;
-            product.viewModel.endorseImageLink = product.model.endorseImageLink;
-            product.viewModel.endSellTime = product.model.endSellTime;
-            product.viewModel.enterpriseInfo = product.model.enterpriseInfo;
-            product.viewModel.enterpriseLicense = product.model.enterpriseLicense;
-            product.viewModel.enterpriseName = product.model.enterpriseName;
-            product.viewModel.financingSumAmount = product.model.financingSumAmount / 1000000;
-            product.viewModel.issueNo = product.model.issueNo;
-            product.viewModel.issueTime = product.model.issueTime;
-            product.viewModel.paidAmount = product.model.paidAmount;
-            product.viewModel.period = product.model.period;
-            product.viewModel.productCategory = product.model.productCategory;
-            product.viewModel.productIdentifier = product.model.productIdentifier;
-            product.viewModel.productName = product.model.productName;
-            product.viewModel.productNo = product.model.productNo;
-            product.viewModel.remainCount = ((product.model.financingSumAmount - product.model.paidAmount) / product.model.unitPrice).toFixed(0);
-            product.viewModel.repaid = product.model.repaid;
-            product.viewModel.repaidTime = product.model.repaidTime;
-            product.viewModel.repaymentDeadline = product.model.repaymentDeadline;
-            product.viewModel.riskManagement = product.model.riskManagement;
-            product.viewModel.riskManagementInfo = product.model.riskManagementInfo;
-            product.viewModel.riskManagementMode = product.model.riskManagementMode;
-            product.viewModel.sellProgress = getSaleProgress(product.model);
-            product.viewModel.sellProgressInCircleProgress = product.viewModel.sellProgress / 100;
-            product.viewModel.settleDate = product.model.settleDate;
-            product.viewModel.soldOut = product.model.soldOut;
-            product.viewModel.soldOutTime = product.model.soldOutTime;
-            product.viewModel.specifyValueDate = product.model.specifyValueDate;
-            product.viewModel.startSellTime = product.model.startSellTime;
-            product.viewModel.status = getSaleStatus(product.model);
-            product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
-            product.viewModel.usage = product.model.usage;
-            product.viewModel.valueDate = product.model.valueDate;
-            product.viewModel.valueDateMode = product.model.valueDateMode;
-            product.viewModel.valueDateText = getValueDateModeText(product.model.valueDateMode, product.model.valueDate, product.model.specifyValueDate);
-            product.viewModel.yield = product.model.yield / 100;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.bankName = ctrl.model.bankName;
+            ctrl.viewModel.currentValueDate = ctrl.model.currentValueDate;
+            ctrl.viewModel.drawee = ctrl.model.drawee;
+            ctrl.viewModel.draweeInfo = ctrl.model.draweeInfo;
+            ctrl.viewModel.endorseImageLink = ctrl.model.endorseImageLink;
+            ctrl.viewModel.endSellTime = ctrl.model.endSellTime;
+            ctrl.viewModel.enterpriseInfo = ctrl.model.enterpriseInfo;
+            ctrl.viewModel.enterpriseLicense = ctrl.model.enterpriseLicense;
+            ctrl.viewModel.enterpriseName = ctrl.model.enterpriseName;
+            ctrl.viewModel.financingSumAmount = ctrl.model.financingSumAmount / 1000000;
+            ctrl.viewModel.issueNo = ctrl.model.issueNo;
+            ctrl.viewModel.issueTime = ctrl.model.issueTime;
+            ctrl.viewModel.paidAmount = ctrl.model.paidAmount;
+            ctrl.viewModel.period = ctrl.model.period;
+            ctrl.viewModel.productCategory = ctrl.model.productCategory;
+            ctrl.viewModel.productIdentifier = ctrl.model.productIdentifier;
+            ctrl.viewModel.productName = ctrl.model.productName;
+            ctrl.viewModel.productNo = ctrl.model.productNo;
+            ctrl.viewModel.remainCount = ((ctrl.model.financingSumAmount - ctrl.model.paidAmount) / ctrl.model.unitPrice).toFixed(0);
+            ctrl.viewModel.repaid = ctrl.model.repaid;
+            ctrl.viewModel.repaidTime = ctrl.model.repaidTime;
+            ctrl.viewModel.repaymentDeadline = ctrl.model.repaymentDeadline;
+            ctrl.viewModel.riskManagement = ctrl.model.riskManagement;
+            ctrl.viewModel.riskManagementInfo = ctrl.model.riskManagementInfo;
+            ctrl.viewModel.riskManagementMode = ctrl.model.riskManagementMode;
+            ctrl.viewModel.sellProgress = getSaleProgress(ctrl.model);
+            ctrl.viewModel.sellProgressInCircleProgress = ctrl.viewModel.sellProgress / 100;
+            ctrl.viewModel.settleDate = ctrl.model.settleDate;
+            ctrl.viewModel.soldOut = ctrl.model.soldOut;
+            ctrl.viewModel.soldOutTime = ctrl.model.soldOutTime;
+            ctrl.viewModel.specifyValueDate = ctrl.model.specifyValueDate;
+            ctrl.viewModel.startSellTime = ctrl.model.startSellTime;
+            ctrl.viewModel.status = getSaleStatus(ctrl.model);
+            ctrl.viewModel.unitPrice = (ctrl.model.unitPrice / 100).toFixed(0);
+            ctrl.viewModel.usage = ctrl.model.usage;
+            ctrl.viewModel.valueDate = ctrl.model.valueDate;
+            ctrl.viewModel.valueDateMode = ctrl.model.valueDateMode;
+            ctrl.viewModel.valueDateText = getValueDateModeText(ctrl.model.valueDateMode, ctrl.model.valueDate, ctrl.model.specifyValueDate);
+            ctrl.viewModel.yield = ctrl.model.yield / 100;
 
-
-            if (product.viewModel.status !== 20) {
-                product.viewModel.remainCount = 0;
+            if (ctrl.viewModel.status !== 20) {
+                ctrl.viewModel.remainCount = 0;
             }
 
-            switch (product.viewModel.status) {
+            switch (ctrl.viewModel.status) {
                 case 10:
-                    product.viewModel.statusText = '待售';
+                    ctrl.viewModel.statusText = '待售';
                     break;
                 case 20:
-                    product.viewModel.statusText = '抢购';
+                    ctrl.viewModel.statusText = '抢购';
                     break;
                 case 30:
-                    product.viewModel.statusText = '售罄';
+                    ctrl.viewModel.statusText = '售罄';
                     break;
                 case 40:
-                    product.viewModel.statusText = '结束';
+                    ctrl.viewModel.statusText = '结束';
                     break;
                 default :
-                    product.viewModel.statusText = '';
+                    ctrl.viewModel.statusText = '';
             }
         };
 
-        product.doRefresh();
+        ctrl.doRefresh();
     });

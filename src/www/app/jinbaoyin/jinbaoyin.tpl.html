@@ -3,18 +3,18 @@
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
-      on-refresh="product.doRefresh()">
+      on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <div ng-include="'app/common/templates/index-slide-box.tpl.html'"></div>
     <div class="jinbaoyin-index-product padding">
-      <h4 class="padding" ng-bind="product.viewModel.title"></h4>
+      <h4 class="padding" ng-bind="ctrl.viewModel.title"></h4>
       <h5>承兑汇票抵押</h5>
       <strong class="jinbaoyin-yield">
-        <em ng-bind="product.viewModel.yield"></em><samp>%</samp>
+        <em ng-bind="ctrl.viewModel.yield"></em><samp>%</samp>
       </strong>
 
       <div class="clearfix">
-        <span><em ng-bind="product.viewModel.unitPrice"></em>元起</span>
+        <span><em ng-bind="ctrl.viewModel.unitPrice"></em>元起</span>
         <span>随时存取</span>
         <span>灵活投资</span>
       </div>

@@ -4,9 +4,9 @@
       <ion-item>
         <p>
           <span class="pull-left">订单金额</span>
-          <span class="pull-right"><strong ng-bind="purchase.viewModel.amount"></strong>&nbsp;元</span>
+          <span class="pull-right"><strong ng-bind="ctrl.viewModel.amount"></strong>&nbsp;元</span>
         </p>
-        <p>预期收益：<span ng-bind="purchase.viewModel.expectedInterest"></span>
+        <p>预期收益：<span ng-bind="ctrl.viewModel.expectedInterest"></span>
           <span ng-if="item.extraInterest > 0">&nbsp;&nbsp;&nbsp;+</span>
           <span ng-if="item.extraInterest > 0" ng-bind="item.extraInterest"></span>&nbsp;元
         </p>
@@ -17,9 +17,9 @@
         <ion-item class="item">
           <p>
             <span class="pull-left">可用余额&nbsp;&nbsp;</span>
-            <span class="pull-right"><strong ng-bind="purchase.viewModel.balance"></strong>&nbsp;元</span>
+            <span class="pull-right"><strong ng-bind="ctrl.viewModel.balance"></strong>&nbsp;元</span>
           </p>
-          <p ng-if="!(purchase.model.user.balance >= purchase.model.order.amount)" class="pull-right" ui-sref="jym.user-settle-account-deposit">
+          <p ng-if="!(ctrl.model.user.balance >= ctrl.model.order.amount)" class="pull-right" ui-sref="jym.user-settle-account-deposit">
             <em class="attention">余额不足!</em><em>&nbsp;&nbsp;去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></em>
           </p>
         </ion-item>
@@ -35,40 +35,40 @@
         </ion-item>
         <label class="item item-input">
           <span class="input-label">输入密码</span>
-          <input type="password" placeholder="请输入您的支付密码" ng-model="purchase.viewModel.password" required minlength="8" maxlength="18" ng-pattern="/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/">
+          <input type="password" placeholder="请输入您的支付密码" ng-model="ctrl.viewModel.password" required minlength="8" maxlength="18" ng-pattern="/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/">
         </label>
       </ion-item>
 
       <div class="narrow">
-        <button ng-click="purchase.check()">
+        <button ng-click="ctrl.check()">
           <span>
-            <i class="icon ion-android-checkbox-outline-blank" ng-if="!purchase.viewModel.checked"></i>
-            <i class="icon ion-android-checkbox-outline" ng-if="purchase.viewModel.checked"></i>
+            <i class="icon ion-android-checkbox-outline-blank" ng-if="!ctrl.viewModel.checked"></i>
+            <i class="icon ion-android-checkbox-outline" ng-if="ctrl.viewModel.checked"></i>
           </span>
           <span>同意</span>
         </button>
-        <span ng-click="purchase.toggleAgreement1()">《委托协议》</span>
+        <span ng-click="ctrl.toggleAgreement1()">《委托协议》</span>
         <span>及</span>
-        <span ng-click="purchase.toggleAgreement2()">《借款协议》</span>
+        <span ng-click="ctrl.toggleAgreement2()">《借款协议》</span>
       </div>
     </ion-list>
-    <button class="btn button-yellow" ng-disabled="!purchase.purchaseButtonEnable()" ng-click="purchase.purchase()">同意协议并付款</button>
+    <button class="btn button-yellow" ng-disabled="!ctrl.purchaseButtonEnable()" ng-click="ctrl.purchase()">同意协议并付款</button>
     <br>
     <br>
     <h4 class="tel">如有问题，请垂询&nbsp;4008-556-333。</h4>
 
-    <div class="agreement" ng-if="purchase.viewModel.showAgreement1">
-      <div ng-bind-html="purchase.viewModel.agreement1"></div>
+    <div class="agreement" ng-if="ctrl.viewModel.showAgreement1">
+      <div ng-bind-html="ctrl.viewModel.agreement1"></div>
       <div class="space"></div>
       <div class="space"></div>
-      <button class="btn button-yellow" ng-click="purchase.toggleAgreement1()">返回</button>
+      <button class="btn button-yellow" ng-click="ctrl.toggleAgreement1()">返回</button>
     </div>
 
-    <div class="agreement" ng-if="purchase.viewModel.showAgreement2">
-      <div ng-bind-html="purchase.viewModel.agreement2"></div>
+    <div class="agreement" ng-if="ctrl.viewModel.showAgreement2">
+      <div ng-bind-html="ctrl.viewModel.agreement2"></div>
       <div class="space"></div>
       <div class="space"></div>
-      <button class="btn button-yellow" ng-click="purchase.toggleAgreement2()">返回</button>
+      <button class="btn button-yellow" ng-click="ctrl.toggleAgreement2()">返回</button>
     </div>
 
   </ion-content>

@@ -10,7 +10,7 @@ angular.module('jym.user.bank-card', [
                 url: '/user/bank-card',
                 views: {
                     '@': {
-                        controller: 'UserBankCardCtrl as cards',
+                        controller: 'UserBankCardCtrl as ctrl',
                         templateUrl: 'app/user/bank-card/bank-card.tpl.html'
                     }
                 }
@@ -26,17 +26,17 @@ angular.module('jym.user.bank-card', [
             });
     })
     .controller('UserBankCardCtrl', function($scope, $state, $timeout, RESOURCES, UserService) {
-        var cards = this;
+        var ctrl = this;
 
-        cards.model = {};
-        cards.viewModel = {};
-        cards.viewModel.items = [];
+        ctrl.model = {};
+        ctrl.viewModel = {};
+        ctrl.viewModel.items = [];
 
-        cards.doRefresh = function() {
-            cards.refreshBankCards()
+        ctrl.doRefresh = function() {
+            ctrl.refreshBankCards()
                 .then(function(result) {
-                    cards.model = result;
-                    cards.refreshViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
 
@@ -45,23 +45,23 @@ angular.module('jym.user.bank-card', [
             }, 1500);
         };
 
-        cards.refreshBankCards = function() {
+        ctrl.refreshBankCards = function() {
             return UserService.getBankCards();
         };
 
-        cards.refreshViewModel = function() {
-            cards.viewModel.items = cards.model;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.items = ctrl.model;
         };
 
-        cards.showAddButton = function() {
-            return cards.viewModel.items.length < 10;
+        ctrl.showAddButton = function() {
+            return ctrl.viewModel.items.length < 10;
         };
 
         $scope.$on('$ionicView.enter', function() {
-            cards.doRefresh();
+            ctrl.doRefresh();
         });
 
-        cards.doRefresh();
+        ctrl.doRefresh();
     })
     .controller('UserBankCardYilianNoticeCtrl', function(JYMUtilityService) {
         var ctrl = this;

@@ -5,6 +5,7 @@ angular.module('jym.interceptors', [
     .factory('globalInterceptor', function($rootScope, $injector, $q) {
         var authService = $injector.get('JYMAuthService');
         var timeService = $injector.get('JYMTimeService');
+
         return {
             request: function(config) {
                 config.headers['x-jym-auth'] = authService.getToken();

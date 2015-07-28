@@ -12,77 +12,77 @@ angular.module('jym.shangpiao.purchase', [
                 url: '/shangpiao/purchase',
                 views: {
                     '@': {
-                        controller: 'ShangpiaoPurchaseCtrl as purchase',
+                        controller: 'ShangpiaoPurchaseCtrl as ctrl',
                         templateUrl: 'app/shangpiao/purchase/purchase.tpl.html'
                     }
                 }
             });
     })
     .controller('ShangpiaoPurchaseCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, ProductService, PurchaseService, UserService, JYMUtilityService) {
-        var purchase = this;
+        var ctrl = this;
 
-        purchase.model = {};
-        purchase.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        purchase.check = function() {
-            purchase.viewModel.checked = !purchase.viewModel.checked;
+        ctrl.check = function() {
+            ctrl.viewModel.checked = !ctrl.viewModel.checked;
         };
 
-        purchase.doRefresh = function() {
-            purchase.viewModel.agreement1 = '委托协议';
-            purchase.viewModel.agreement2 = '借款协议';
-            purchase.viewModel.showAgreement1 = false;
-            purchase.viewModel.showAgreement2 = false;
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.agreement1 = '委托协议';
+            ctrl.viewModel.agreement2 = '借款协议';
+            ctrl.viewModel.showAgreement1 = false;
+            ctrl.viewModel.showAgreement2 = false;
 
-            purchase.resetInput();
+            ctrl.resetInput();
 
-            purchase.refreshUserInfo()
+            ctrl.refreshUserInfo()
                 .then(function(result) {
-                    purchase.model.user = result;
-                    purchase.model.order = PurchaseService.getRegularOrder(100000020);
-                    purchase.refreshViewModel();
+                    ctrl.model.user = result;
+                    ctrl.model.order = PurchaseService.getRegularOrder(100000020);
+                    ctrl.refreshViewModel();
                     return result;
                 })
                 .then(function() {
                     var agreementData = {
-                        cellphone: purchase.model.user.cellphone,
-                        credentialNo: purchase.model.user.credentialNo,
-                        realName: purchase.model.user.realName
+                        cellphone: ctrl.model.user.cellphone,
+                        credentialNo: ctrl.model.user.credentialNo,
+                        realName: ctrl.model.user.realName
                     };
 
-                    purchase.refreshAgreement(1)
+                    ctrl.refreshAgreement(1)
                         .then(function(result) {
-                            purchase.viewModel.agreement1 = ProductService.fillDataForAgreement(result.content, agreementData);
+                            ctrl.viewModel.agreement1 = ProductService.fillDataForAgreement(result.content, agreementData);
                         });
 
-                    purchase.refreshAgreement(2)
+                    ctrl.refreshAgreement(2)
                         .then(function(result) {
-                            purchase.viewModel.agreement2 = ProductService.fillDataForAgreement(result.content, agreementData);
+                            ctrl.viewModel.agreement2 = ProductService.fillDataForAgreement(result.content, agreementData);
                         });
                 });
         };
 
-        purchase.refreshAgreement = function(agreementIndex) {
-            return ProductService.getAgreementContent(purchase.model.order.productIdentifier, agreementIndex);
+        ctrl.refreshAgreement = function(agreementIndex) {
+            return ProductService.getAgreementContent(ctrl.model.order.productIdentifier, agreementIndex);
         };
 
-        purchase.refreshUserInfo = function() {
+        ctrl.refreshUserInfo = function() {
             return UserService.getUserInfo();
         };
 
-        purchase.refreshViewModel = function() {
-            purchase.viewModel.balance = (purchase.model.user.balance / 100).toFixed(2);
-            purchase.viewModel.amount = (purchase.model.order.amount / 100).toFixed(2);
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.balance = (ctrl.model.user.balance / 100).toFixed(2);
+            ctrl.viewModel.amount = (ctrl.model.order.amount / 100).toFixed(2);
         };
 
-        purchase.purchaseButtonEnable = function() {
-            return purchase.viewModel.checked && purchase.viewModel.amount && purchase.viewModel.password && purchase.model.user.balance >= purchase.model.order.amount;
+        ctrl.purchaseButtonEnable = function() {
+            return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
         };
 
-        purchase.purchase = function() {
-            if (purchase.purchaseButtonEnable()) {
-                var amount = purchase.model.order.amount;
-                UserService.investingRegular(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
+        ctrl.purchase = function() {
+            if (ctrl.purchaseButtonEnable()) {
+                var amount = ctrl.model.order.amount;
+                UserService.investingRegular(amount, ctrl.viewModel.password, ctrl.model.order.productIdentifier)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.REGULAR);
@@ -90,7 +90,7 @@ angular.module('jym.shangpiao.purchase', [
                             PurchaseService.clearRegularOrder();
 
                             $timeout(function() {
-                                purchase.resetInput();
+                                ctrl.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-orders-detail', { orderIdentifier: result.orderIdentifier });
                             }, 1000);
                         }
@@ -98,26 +98,26 @@ angular.module('jym.shangpiao.purchase', [
             }
         };
 
-        purchase.resetInput = function() {
-            purchase.viewModel.checked = true;
-            purchase.viewModel.password = '';
+        ctrl.resetInput = function() {
+            ctrl.viewModel.checked = true;
+            ctrl.viewModel.password = '';
         };
 
-        purchase.toggleAgreement1 = function() {
-            purchase.viewModel.showAgreement2 = false;
+        ctrl.toggleAgreement1 = function() {
+            ctrl.viewModel.showAgreement2 = false;
             $ionicScrollDelegate.scrollTop();
-            purchase.viewModel.showAgreement1 = !purchase.viewModel.showAgreement1;
+            ctrl.viewModel.showAgreement1 = !ctrl.viewModel.showAgreement1;
         };
 
-        purchase.toggleAgreement2 = function() {
-            purchase.viewModel.showAgreement1 = false;
+        ctrl.toggleAgreement2 = function() {
+            ctrl.viewModel.showAgreement1 = false;
             $ionicScrollDelegate.scrollTop();
-            purchase.viewModel.showAgreement2 = !purchase.viewModel.showAgreement2;
+            ctrl.viewModel.showAgreement2 = !ctrl.viewModel.showAgreement2;
         };
 
         $scope.$on('$ionicView.enter', function() {
-            purchase.doRefresh();
+            ctrl.doRefresh();
         });
 
-        purchase.doRefresh();
+        ctrl.doRefresh();
     });

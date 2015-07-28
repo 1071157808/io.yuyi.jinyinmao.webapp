@@ -10,16 +10,16 @@ angular.module('jym.shangpiao', [
                 url: '/shangpiao',
                 views: {
                     '@': {
-                        controller: 'ShangpiaoIndexCtrl as products',
-                        templateUrl: 'app/shangpiao/index.tpl.html'
+                        controller: 'ShangpiaoIndexCtrl as ctrl',
+                        templateUrl: 'app/shangpiao/shangpiao.tpl.html'
                     }
                 }
             });
     })
     .controller('ShangpiaoIndexCtrl', function($scope, $timeout, $filter, ProductService) {
-        var products = this;
+        var ctrl = this;
 
-        products.viewModel = {};
+        ctrl.viewModel = {};
 
         var getSaleProgress = function(product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime, product.repaid);
@@ -100,51 +100,51 @@ angular.module('jym.shangpiao', [
             return item;
         };
 
-        products.doRefresh = function() {
-            products.viewModel.items = [];
-            products.viewModel.currentPageIndex = 0;
-            products.viewModel.nextPageIndex = 0;
-            products.viewModel.pageSize = 10;
-            products.viewModel.totalCount = 0;
-            products.viewModel.totalPageCount = 1;
-            products.viewModel.loading = false;
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.items = [];
+            ctrl.viewModel.currentPageIndex = 0;
+            ctrl.viewModel.nextPageIndex = 0;
+            ctrl.viewModel.pageSize = 10;
+            ctrl.viewModel.totalCount = 0;
+            ctrl.viewModel.totalPageCount = 1;
+            ctrl.viewModel.loading = false;
 
-            products.loadMoreData();
+            ctrl.loadMoreData();
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };
 
-        products.loadMoreData = function() {
-            if (products.viewModel.loading) {
+        ctrl.loadMoreData = function() {
+            if (ctrl.viewModel.loading) {
                 return;
             }
 
-            products.viewModel.loading = true;
+            ctrl.viewModel.loading = true;
 
-            ProductService.getShangpiaoPage(products.viewModel.nextPageIndex)
+            ProductService.getShangpiaoPage(ctrl.viewModel.nextPageIndex)
                 .then(function(result) {
-                    products.viewModel.currentPageIndex = result.pageIndex;
-                    products.viewModel.nextPageIndex = result.pageIndex + 1;
-                    products.viewModel.pageSize = result.pageSize;
-                    products.viewModel.totalCount = result.totalCount;
-                    products.viewModel.totalPageCount = result.totalPageCount;
+                    ctrl.viewModel.currentPageIndex = result.pageIndex;
+                    ctrl.viewModel.nextPageIndex = result.pageIndex + 1;
+                    ctrl.viewModel.pageSize = result.pageSize;
+                    ctrl.viewModel.totalCount = result.totalCount;
+                    ctrl.viewModel.totalPageCount = result.totalPageCount;
 
                     _.forEach(result.items, function(i) {
-                        products.viewModel.items.push(getViewItem(i));
+                        ctrl.viewModel.items.push(getViewItem(i));
                     });
 
-                    products.viewModel.loading = false;
+                    ctrl.viewModel.loading = false;
                 });
             $timeout(function() {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             }, 1000);
         };
 
-        products.moreDataCanBeLoaded = function() {
-            return products.viewModel.nextPageIndex < products.viewModel.totalPageCount;
+        ctrl.moreDataCanBeLoaded = function() {
+            return ctrl.viewModel.nextPageIndex < ctrl.viewModel.totalPageCount;
         };
 
-        products.doRefresh();
+        ctrl.doRefresh();
     });

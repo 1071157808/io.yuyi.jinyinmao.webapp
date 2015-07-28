@@ -11,19 +11,19 @@ angular.module('jym.services.product', [
 
                 var status = service.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime, repaid);
                 if (status === 10) {
-                    throw RESOURCES.ALERT.PRODUCT.NOT_ON_SALE;
+                    throw new Error(RESOURCES.ALERT.PRODUCT.NOT_ON_SALE);
                 }
 
                 if (status === 30) {
-                    throw RESOURCES.ALERT.PRODUCT.SOLD_OUT;
+                    throw new Error(RESOURCES.ALERT.PRODUCT.SOLD_OUT);
                 }
 
                 if (product.financingSumAmount - product.paidAmount < amount) {
-                    throw RESOURCES.ALERT.PRODUCT.SHARE_INSUFFICIENT;
+                    throw new Error(RESOURCES.ALERT.PRODUCT.SHARE_INSUFFICIENT);
                 }
 
                 if (amount % product.unitPrice !== 0) {
-                    throw RESOURCES.ALERT.PRODUCT.AMOUNT_INCORRECT;
+                    throw new Error(RESOURCES.ALERT.PRODUCT.AMOUNT_INCORRECT);
                 }
 
                 return product;

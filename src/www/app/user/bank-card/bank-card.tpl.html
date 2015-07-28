@@ -3,10 +3,10 @@
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
-      on-refresh="cards.doRefresh()">
+      on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list class="bank-card">
-      <ion-item ng-repeat="item in cards.viewModel.items" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-bank-card-detail({ bankCardNo: item.bankCardNo })">
+      <ion-item ng-repeat="item in ctrl.viewModel.items" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-bank-card-detail({ bankCardNo: item.bankCardNo })">
         <img ng-src="{{ item.bankName | bankImg }}">
 
         <h2 ng-bind="item.bankName"></h2>
@@ -17,7 +17,7 @@
       </ion-item>
     </ion-list>
 
-    <ion-list class="plus-card" ng-if="cards.showAddButton()">
+    <ion-list class="plus-card" ng-if="ctrl.showAddButton()">
       <ion-item class="divider"></ion-item>
       <ion-item ui-sref="jym.user-bank-card-add-method-selector">
         <i class="icon ion-ios-plus-outline"></i>

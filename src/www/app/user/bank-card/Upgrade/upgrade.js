@@ -8,66 +8,66 @@ angular.module('jym.user.bank-card-upgrade', [
                 url: '/user/bank-card-upgrade/{bankCardNo}',
                 views: {
                     '@': {
-                        controller: 'UserBankCardUpgradeCtrl as card',
+                        controller: 'UserBankCardUpgradeCtrl as ctrl',
                         templateUrl: 'app/user/bank-card/upgrade/upgrade.tpl.html'
                     }
                 }
             });
     })
     .controller('UserBankCardUpgradeCtrl', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
-        var card = this;
+        var ctrl = this;
 
-        card.model = {};
-        card.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        card.buttonEnable = function() {
-            return card.viewModel.cellphone && card.viewModel.realName && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
+        ctrl.buttonEnable = function() {
+            return ctrl.viewModel.cellphone && ctrl.viewModel.realName && ctrl.viewModel.credentialNo && ctrl.viewModel.bankCardNo && ctrl.viewModel.bankName;
         };
 
-        card.doRefresh = function() {
-            card.refreshUser()
+        ctrl.doRefresh = function() {
+            ctrl.refreshUser()
                 .then(function(result) {
-                    card.model.user = result;
+                    ctrl.model.user = result;
                     return result;
                 }).then(function() {
-                    card.refreshBankCard()
+                    ctrl.refreshBankCard()
                         .then(function(result) {
-                            card.model.card = result;
-                            card.refreshViewModel();
+                            ctrl.model.card = result;
+                            ctrl.refreshViewModel();
 
                         });
                 });
         };
 
-        card.refreshBankCard = function() {
+        ctrl.refreshBankCard = function() {
             return UserService.getBankCard($stateParams.bankCardNo);
         };
 
-        card.refreshUser = function() {
+        ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
-        card.refreshViewModel = function() {
-            card.viewModel.verified = card.model.user.verified;
-            card.viewModel.cellphone = card.model.user.cellphone;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.verified = ctrl.model.user.verified;
+            ctrl.viewModel.cellphone = ctrl.model.user.cellphone;
 
-            if (card.viewModel.verified) {
-                card.viewModel.credentialNo = card.model.user.credentialNo;
-                card.viewModel.realName = card.model.user.realName;
+            if (ctrl.viewModel.verified) {
+                ctrl.viewModel.credentialNo = ctrl.model.user.credentialNo;
+                ctrl.viewModel.realName = ctrl.model.user.realName;
             } else {
-                card.viewModel.credentialNo = card.viewModel.credentialNo || '';
-                card.viewModel.realName = card.viewModel.realName || '';
+                ctrl.viewModel.credentialNo = ctrl.viewModel.credentialNo || '';
+                ctrl.viewModel.realName = ctrl.viewModel.realName || '';
             }
 
-            card.viewModel.bankCardNo = card.model.card.bankCardNo;
-            card.viewModel.bankName = card.model.card.bankName;
+            ctrl.viewModel.bankCardNo = ctrl.model.ctrl.bankCardNo;
+            ctrl.viewModel.bankName = ctrl.model.ctrl.bankName;
         };
 
-        card.verify = function() {
-            if (card.buttonEnable()) {
+        ctrl.verify = function() {
+            if (ctrl.buttonEnable()) {
 
-                if (card.viewModel.verified) {
-                    UserService.verifyBankCardByYilian(card.viewModel.bankCardNo)
+                if (ctrl.viewModel.verified) {
+                    UserService.verifyBankCardByYilian(ctrl.viewModel.bankCardNo)
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
@@ -78,7 +78,7 @@ angular.module('jym.user.bank-card-upgrade', [
                             }
                         });
                 } else {
-                    UserService.authenticate(card.viewModel.bankCardNo, card.viewModel.bankName, card.viewModel.credentialNo, card.viewModel.realName)
+                    UserService.authenticate(ctrl.viewModel.bankCardNo, ctrl.viewModel.bankName, ctrl.viewModel.credentialNo, ctrl.viewModel.realName)
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
@@ -93,8 +93,8 @@ angular.module('jym.user.bank-card-upgrade', [
         };
 
         $scope.$on('$ionicView.enter', function() {
-            card.doRefresh();
+            ctrl.doRefresh();
         });
 
-        card.doRefresh();
+        ctrl.doRefresh();
     });

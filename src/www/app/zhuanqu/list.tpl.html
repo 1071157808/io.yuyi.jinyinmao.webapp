@@ -3,11 +3,11 @@
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
-      on-refresh="products.doRefresh()">
+      on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list>
-      <div ng-repeat="item in products.viewModel.items">
-        <ion-item ui-sref="jym.zhuanqu-detail({ productIdentifier: item.productIdentifier, bankName: products.viewModel.bankName })">
+      <div ng-repeat="item in ctrl.viewModel.items">
+        <ion-item ui-sref="jym.zhuanqu-detail({ productIdentifier: item.productIdentifier, bankName: ctrl.viewModel.bankName })">
           <div class="row">
             <div class="col col-33">
               <em ng-bind="item.yield"></em><samp>%</samp>
@@ -31,8 +31,8 @@
       </div>
     </ion-list>
     <ion-infinite-scroll
-      ng-if="products.moreDataCanBeLoaded()"
-      on-infinite="products.loadMoreData()"
+      ng-if="ctrl.moreDataCanBeLoaded()"
+      on-infinite="ctrl.loadMoreData()"
       distance="1%"
       spinner="spiral">
     </ion-infinite-scroll>

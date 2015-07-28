@@ -2,7 +2,7 @@
   <ion-refresher
     pulling-icon="ion-arrow-down-c"
     spinner="spiral"
-    on-refresh="coupon.doRefresh()">
+    on-refresh="ctrl.doRefresh()">
   </ion-refresher>
   <ion-content class="coupon">
     <ion-list>
@@ -11,7 +11,7 @@
           <p><em>500</em>&nbsp;元本金券</p>
           <p>2015-07-07 到期</p>
         </div>
-        <p class="pull-right" ng-click="coupon.showConfirm()">放弃</p>
+        <p class="pull-right" ng-click="ctrl.showConfirm()">放弃</p>
       </ion-item>
       <ion-item>
         <div class="pull-left">

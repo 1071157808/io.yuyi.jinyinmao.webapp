@@ -9,13 +9,15 @@ angular.module('jym.services.purchase', [
         var jbyOrder = {};
         var regularOrder = {};
 
-        service.buildNewJBYOrder = function(amount, productIdentifier) {
+        service.buildNewJBYOrder = function(amount, expectedInterest, productIdentifier) {
             jbyOrder.amount = amount;
+            jbyOrder.expectedInterest = expectedInterest;
             jbyOrder.productIdentifier = productIdentifier;
         };
 
-        service.buildRegularOrder = function(amount, productIdentifier, productCategory) {
+        service.buildRegularOrder = function(amount, expectedInterest, productIdentifier, productCategory) {
             regularOrder.amount = amount;
+            regularOrder.expectedInterest = expectedInterest;
             regularOrder.productIdentifier = productIdentifier;
             regularOrder.productCategory = productCategory;
         };

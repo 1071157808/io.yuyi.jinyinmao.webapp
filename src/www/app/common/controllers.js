@@ -5,8 +5,8 @@ angular.module('jym.controllers', [
     .controller('SlidesCtrl', function($timeout, $ionicSlideBoxDelegate, JYMConfigService, JYMUtilityService) {
         var ctrl = this;
 
-        ctrl.slides = [];
         ctrl.activeSlideIndex = 0;
+        ctrl.slides = [];
 
         JYMConfigService.getSlidesConfig()
             .then(function(result) {

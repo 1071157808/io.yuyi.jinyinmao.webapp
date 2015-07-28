@@ -53,9 +53,9 @@ angular.module('jym.user.signup', [])
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_SUCCESS);
-                            UserService.loginOut();
-                            ctrl.viewModel.password = '';
-                            ctrl.viewModel.confirmPassword = '';
+
+                            ctrl.resetInput();
+
                             $timeout(function() {
                                 JYMUtilityService.goWithDisableBack('jym.user-login');
                             }, 1000);

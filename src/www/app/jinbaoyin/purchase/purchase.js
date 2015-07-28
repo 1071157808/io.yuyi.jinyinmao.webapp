@@ -10,67 +10,68 @@ angular.module('jym.jinbaoyin.purchase', [
                 url: '/jinbaoyin/purchase/{productIdentifier}',
                 views: {
                     '@': {
-                        controller: 'JinbaoyinPurchaseCtrl as purchase',
+                        controller: 'JinbaoyinPurchaseCtrl as ctrl',
                         templateUrl: 'app/jinbaoyin/purchase/purchase.tpl.html'
                     }
                 }
             });
     })
     .controller('JinbaoyinPurchaseCtrl', function($scope, $stateParams, $timeout, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
-        var purchase = this;
+        var ctrl = this;
 
-        purchase.model = {};
-        purchase.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        purchase.check = function() {
-            purchase.viewModel.checked = !purchase.viewModel.checked;
+        ctrl.check = function() {
+            ctrl.viewModel.checked = !ctrl.viewModel.checked;
         };
 
-        purchase.doRefresh = function() {
-            purchase.viewModel.agreement = '金银猫金包银投资协议';
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.agreement = '金银猫金包银投资协议';
 
-            purchase.resetInput();
+            ctrl.resetInput();
 
-            purchase.refreshUserInfo()
+            ctrl.refreshUserInfo()
                 .then(function(result) {
-                    purchase.model.user = result;
-                    purchase.model.order = PurchaseService.getNewJBYOrder();
-                    purchase.refreshViewModel();
+                    ctrl.model.user = result;
+                    ctrl.model.order = PurchaseService.getNewJBYOrder();
+                    ctrl.refreshViewModel();
                     return result;
                 })
                 .then(function() {
-                    purchase.refreshAgreement()
+                    ctrl.refreshAgreement()
                         .then(function(result) {
-                            purchase.viewModel.agreement = ProductService.fillDataForAgreement(result.content, {
-                                cellphone: purchase.model.user.cellphone,
-                                credentialNo: purchase.model.user.credentialNo,
-                                realName: purchase.model.user.realName
+                            ctrl.viewModel.agreement = ProductService.fillDataForAgreement(result.content, {
+                                cellphone: ctrl.model.user.cellphone,
+                                credentialNo: ctrl.model.user.credentialNo,
+                                realName: ctrl.model.user.realName
                             });
                         });
                 });
         };
 
-        purchase.refreshAgreement = function() {
+        ctrl.refreshAgreement = function() {
             return JinbaoyinService.getAgreement($stateParams.productIdentifier, 1);
         };
 
-        purchase.refreshUserInfo = function() {
+        ctrl.refreshUserInfo = function() {
             return UserService.getUserInfo();
         };
 
-        purchase.refreshViewModel = function() {
-            purchase.viewModel.balance = (purchase.model.user.balance / 100).toFixed(2);
-            purchase.viewModel.amount = (purchase.model.order.amount / 100).toFixed(2);
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.amount = (ctrl.model.order.amount / 100).toFixed(2);
+            ctrl.viewModel.balance = (ctrl.model.user.balance / 100).toFixed(2);
+            ctrl.viewModel.expectedInterest = ctrl.model.order.expectedInterest;
         };
 
-        purchase.purchaseButtonEnable = function() {
-            return purchase.viewModel.checked && purchase.viewModel.amount && purchase.viewModel.password && purchase.model.user.balance >= purchase.model.order.amount;
+        ctrl.purchaseButtonEnable = function() {
+            return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
         };
 
-        purchase.purchase = function() {
-            if (purchase.purchaseButtonEnable()) {
-                var amount = purchase.model.order.amount;
-                UserService.investingJBY(amount, purchase.viewModel.password, purchase.model.order.productIdentifier)
+        ctrl.purchase = function() {
+            if (ctrl.purchaseButtonEnable()) {
+                var amount = ctrl.model.order.amount;
+                UserService.investingJBY(amount, ctrl.viewModel.password, ctrl.model.order.productIdentifier)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.JBY);
@@ -78,7 +79,7 @@ angular.module('jym.jinbaoyin.purchase', [
                             PurchaseService.clearJBYOrder();
 
                             $timeout(function() {
-                                purchase.resetInput();
+                                ctrl.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', { transactionIdentifier: result.transactionIdentifier });
                             }, 1000);
                         }
@@ -86,19 +87,19 @@ angular.module('jym.jinbaoyin.purchase', [
             }
         };
 
-        purchase.resetInput = function() {
-            purchase.viewModel.checked = true;
-            purchase.viewModel.password = '';
+        ctrl.resetInput = function() {
+            ctrl.viewModel.checked = true;
+            ctrl.viewModel.password = '';
         };
 
-        purchase.toggleAgreement = function() {
+        ctrl.toggleAgreement = function() {
             $ionicScrollDelegate.scrollTop();
-            purchase.viewModel.showAgreement = !purchase.viewModel.showAgreement;
+            ctrl.viewModel.showAgreement = !ctrl.viewModel.showAgreement;
         };
 
         $scope.$on('$ionicView.enter', function() {
-            purchase.doRefresh();
+            ctrl.doRefresh();
         });
 
-        purchase.doRefresh();
+        ctrl.doRefresh();
     });

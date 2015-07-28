@@ -8,7 +8,7 @@ angular.module('jym.user.bank-card-add', [
                 url: '/user/bank-card/add',
                 views: {
                     '@': {
-                        controller: 'UserBankCardAddCtrl as card',
+                        controller: 'UserBankCardAddCtrl as ctrl',
                         templateUrl: 'app/user/bank-card/add/add.tpl.html'
                     }
                 }
@@ -32,76 +32,76 @@ angular.module('jym.user.bank-card-add', [
             });
     })
     .controller('UserBankCardAddCtrl', function($scope, $state, $timeout, RESOURCES, UserService, JYMUtilityService) {
-        var card = this;
+        var ctrl = this;
 
-        card.model = {};
-        card.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        card.buttonEnable = function() {
-            return card.viewModel.cellphone && card.viewModel.realName && card.viewModel.credentialNo && card.viewModel.bankCardNo && card.viewModel.bankName;
+        ctrl.buttonEnable = function() {
+            return ctrl.viewModel.cellphone && ctrl.viewModel.realName && ctrl.viewModel.credentialNo && ctrl.viewModel.bankCardNo && ctrl.viewModel.bankName;
         };
 
-        card.doRefresh = function() {
-            card.refreshUser()
+        ctrl.doRefresh = function() {
+            ctrl.refreshUser()
                 .then(function(result) {
-                    card.model.user = result;
-                    card.refreshViewModel();
+                    ctrl.model.user = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
         };
 
-        card.refreshUser = function() {
+        ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
-        card.refreshViewModel = function() {
-            card.viewModel.cellphone = card.model.user.cellphone;
-            card.viewModel.bankCardsCount = card.model.user.bankCardsCount;
-            card.viewModel.hasSetPaymentPassword = card.model.user.hasSetPaymentPassword;
-            card.viewModel.shouldAddBankCard = card.viewModel.bankCardsCount <= 0;
-            card.viewModel.verified = card.model.user.verified;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.cellphone = ctrl.model.user.cellphone;
+            ctrl.viewModel.bankCardsCount = ctrl.model.user.bankCardsCount;
+            ctrl.viewModel.hasSetPaymentPassword = ctrl.model.user.hasSetPaymentPassword;
+            ctrl.viewModel.shouldAddBankCard = ctrl.viewModel.bankCardsCount <= 0;
+            ctrl.viewModel.verified = ctrl.model.user.verified;
 
-            if (card.viewModel.verified) {
-                card.viewModel.credentialNo = card.model.user.credentialNo;
-                card.viewModel.realName = card.model.user.realName;
+            if (ctrl.viewModel.verified) {
+                ctrl.viewModel.credentialNo = ctrl.model.user.credentialNo;
+                ctrl.viewModel.realName = ctrl.model.user.realName;
             } else {
-                card.viewModel.credentialNo = card.viewModel.credentialNo || '';
-                card.viewModel.realName = card.viewModel.realName || '';
+                ctrl.viewModel.credentialNo = ctrl.viewModel.credentialNo || '';
+                ctrl.viewModel.realName = ctrl.viewModel.realName || '';
             }
 
-            card.viewModel.bankCardNo = card.viewModel.bankCardNo || '';
-            card.viewModel.bankName = UserService.sharedData.addBankName || '工商银行';
+            ctrl.viewModel.bankCardNo = ctrl.viewModel.bankCardNo || '';
+            ctrl.viewModel.bankName = UserService.sharedData.addBankName || '工商银行';
         };
 
-        card.resetInput = function() {
-            card.viewModel.bankCardNo = '';
-            card.viewModel.cellphone = '';
-            card.viewModel.credentialNo = '';
-            card.viewModel.realName = '';
+        ctrl.resetInput = function() {
+            ctrl.viewModel.bankCardNo = '';
+            ctrl.viewModel.cellphone = '';
+            ctrl.viewModel.credentialNo = '';
+            ctrl.viewModel.realName = '';
         };
 
-        card.verify = function() {
-            if (card.buttonEnable()) {
-                if (card.viewModel.verified) {
-                    UserService.addBankCardByYilian(card.viewModel.bankCardNo, card.viewModel.bankName)
+        ctrl.verify = function() {
+            if (ctrl.buttonEnable()) {
+                if (ctrl.viewModel.verified) {
+                    UserService.addBankCardByYilian(ctrl.viewModel.bankCardNo, ctrl.viewModel.bankName)
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
 
                                 $timeout(function() {
-                                    card.resetInput();
+                                    ctrl.resetInput();
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);
                             }
                         });
                 } else {
-                    UserService.authenticate(card.viewModel.bankCardNo, card.viewModel.bankName, card.viewModel.credentialNo, card.viewModel.realName)
+                    UserService.authenticate(ctrl.viewModel.bankCardNo, ctrl.viewModel.bankName, ctrl.viewModel.credentialNo, ctrl.viewModel.realName)
                         .then(function(result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
 
                                 $timeout(function() {
-                                    card.resetInput();
+                                    ctrl.resetInput();
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);
                             }
@@ -111,10 +111,10 @@ angular.module('jym.user.bank-card-add', [
         };
 
         $scope.$on('$ionicView.enter', function() {
-            card.doRefresh();
+            ctrl.doRefresh();
         });
 
-        card.doRefresh();
+        ctrl.doRefresh();
     })
     .controller('UserBankCardAddBankSelectorCtrl', function($ionicHistory, UserService) {
         var ctrl = this;

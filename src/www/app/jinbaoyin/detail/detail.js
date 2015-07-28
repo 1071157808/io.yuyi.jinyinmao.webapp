@@ -14,17 +14,17 @@ angular.module('jym.jinbaoyin.detail', [
                 url: '/jinbaoyin/detail',
                 views: {
                     '@': {
-                        controller: 'JinbaoyinDetailCtrl as product',
+                        controller: 'JinbaoyinDetailCtrl as ctrl',
                         templateUrl: 'app/jinbaoyin/detail/detail.tpl.html'
                     }
                 }
             });
     })
     .controller('JinbaoyinDetailCtrl', function($scope, $state, $timeout, $q, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
-        var product = this;
+        var ctrl = this;
 
-        product.model = {};
-        product.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
         var getSaleProgress = function(product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
@@ -38,114 +38,118 @@ angular.module('jym.jinbaoyin.detail', [
             return ProductService.getValueDateModeText(valueDateMode);
         };
 
-        product.doRefresh = function() {
-            product.viewModel.investCount = product.viewModel.investCount || 10;
-            product.viewModel.investAmount = 0;
-            product.viewModel.expectedInterest = 0;
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.expectedInterest = 0;
+            ctrl.viewModel.investCount = ctrl.viewModel.investCount || 10;
+            ctrl.viewModel.investAmount = 0;
 
-            product.refreshProduct();
+            ctrl.refreshProduct();
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };
 
-        product.investCountChange = function() {
-            if (product.viewModel.investCount < 0) {
-                product.viewModel.investCount = 0;
+        ctrl.investCountChange = function() {
+            if (ctrl.viewModel.investCount < 0) {
+                ctrl.viewModel.investCount = 0;
             }
 
-            if (product.viewModel.investCount > product.viewModel.remainCount) {
-                product.viewModel.investCount = parseInt(product.viewModel.remainCount, 10);
+            if (ctrl.viewModel.investCount > ctrl.viewModel.remainCount) {
+                ctrl.viewModel.investCount = parseInt(ctrl.viewModel.remainCount, 10);
             }
 
-            product.refreshInvestViewModel();
+            ctrl.refreshInvestViewModel();
         };
 
-        product.goPurchase = function() {
-            if (product.goPurchaseButtonEnable()) {
-                var amount = product.viewModel.investCount * product.model.unitPrice;
+        ctrl.goPurchase = function() {
+            if (ctrl.goPurchaseButtonEnable()) {
+                var amount = ctrl.viewModel.investCount * ctrl.model.unitPrice;
+                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(ctrl.refreshProduct(), amount);
                 var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
-                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(product.refreshProduct(), amount);
-                $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
-                    .then(function(result) {
-                        PurchaseService.buildNewJBYOrder(amount, result[1].productIdentifier);
 
-                        $state.go('jym.jinbaoyin-purchase', { productIdentifier: product.model.productIdentifier });
+                $q.all([checkProductPurchaseStatus, checkUserPurchaseStatus])
+                    .then(function(result) {
+                        PurchaseService.buildNewJBYOrder(amount, ctrl.viewModel.expectedInterest, result[0].productIdentifier);
+
+                        $state.go('jym.jinbaoyin-purchase', { productIdentifier: ctrl.model.productIdentifier });
                     })
-                    .catch(function(result) {
-                        if (Error.prototype.isPrototypeOf(result)) {
-                            JYMUtilityService.showAlert(result);
+                    .catch(function(error) {
+                        if (Error.prototype.isPrototypeOf(error)) {
+                            JYMUtilityService.showAlert(error.message);
                         }
                     });
             }
         };
 
-        product.goPurchaseButtonEnable = function() {
-            return product.viewModel.status === 20 && product.viewModel.investAmount && product.viewModel.investAmount >= product.viewModel.unitPrice;
+        ctrl.goPurchaseButtonEnable = function() {
+            return ctrl.viewModel.status === 20 && ctrl.viewModel.investAmount && ctrl.viewModel.investAmount >= ctrl.viewModel.unitPrice;
         };
 
-        product.refreshInvestViewModel = function() {
-            if (isFinite(product.viewModel.investCount)) {
-                product.viewModel.investAmount = product.viewModel.investCount * product.viewModel.unitPrice;
+        ctrl.refreshInvestViewModel = function() {
+            if (isFinite(ctrl.viewModel.investCount)) {
+                ctrl.viewModel.investAmount = ctrl.viewModel.investCount * ctrl.viewModel.unitPrice;
             } else {
-                product.viewModel.investAmount = 0;
+                ctrl.viewModel.investAmount = 0;
             }
 
-            product.viewModel.expectedInterest = (ProductService.getInterest(product.viewModel.investAmount * 100, product.model.yield, 30) / 100).toFixed(2);
+            ctrl.viewModel.expectedInterest = (ProductService.getInterest(ctrl.viewModel.investAmount * 100, ctrl.model.yield, 30) / 100).toFixed(2);
         };
 
-        product.refreshProduct = function() {
+        ctrl.refreshProduct = function() {
             return JinbaoyinService.getIndex()
                 .then(function(result) {
-                    product.model = result;
-                    product.refreshViewModel();
-                    product.refreshInvestViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
+                    ctrl.refreshInvestViewModel();
                     return result;
                 });
         };
 
-        product.refreshViewModel = function() {
-            product.viewModel.endSellTime = product.model.endSellTime;
-            product.viewModel.financingSumAmount = (product.model.financingSumAmount / 1000000).toFixed(0);
-            product.viewModel.issueNo = parseInt(product.model.issueNo, 10);
-            product.viewModel.issueTime = product.model.issueTime;
-            product.viewModel.paidAmount = product.model.paidAmount;
-            product.viewModel.productCategory = product.model.productCategory;
-            product.viewModel.productIdentifier = product.model.productIdentifier;
-            product.viewModel.productName = product.model.productName;
-            product.viewModel.productNo = product.model.productNo;
-            product.viewModel.productTitle = product.model.productName + ' 第' + product.model.issueNo + '期';
-            product.viewModel.remainCount = ((product.model.financingSumAmount - product.model.paidAmount) / product.model.unitPrice).toFixed(0);
-            product.viewModel.sellProgress = getSaleProgress(product.model);
-            product.viewModel.sellProgressInCircleProgress = product.viewModel.sellProgress / 100;
-            product.viewModel.status = getSaleStatus(product.model);
-            product.viewModel.unitPrice = (product.model.unitPrice / 100).toFixed(0);
-            product.viewModel.valueDateMode = getValueDateModeText(product.model.valueDateMode);
-            product.viewModel.yield = product.model.yield / 100;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.endSellTime = ctrl.model.endSellTime;
+            ctrl.viewModel.financingSumAmount = (ctrl.model.financingSumAmount / 1000000).toFixed(0);
+            ctrl.viewModel.issueNo = parseInt(ctrl.model.issueNo, 10);
+            ctrl.viewModel.issueTime = ctrl.model.issueTime;
+            ctrl.viewModel.paidAmount = ctrl.model.paidAmount;
+            ctrl.viewModel.productCategory = ctrl.model.productCategory;
+            ctrl.viewModel.productIdentifier = ctrl.model.productIdentifier;
+            ctrl.viewModel.productName = ctrl.model.productName;
+            ctrl.viewModel.productNo = ctrl.model.productNo;
+            ctrl.viewModel.productTitle = ctrl.model.productName + ' 第' + ctrl.model.issueNo + '期';
+            ctrl.viewModel.remainCount = ((ctrl.model.financingSumAmount - ctrl.model.paidAmount) / ctrl.model.unitPrice).toFixed(0);
+            ctrl.viewModel.sellProgress = getSaleProgress(ctrl.model);
+            ctrl.viewModel.sellProgressInCircleProgress = ctrl.viewModel.sellProgress / 100;
+            ctrl.viewModel.status = getSaleStatus(ctrl.model);
+            ctrl.viewModel.unitPrice = (ctrl.model.unitPrice / 100).toFixed(0);
+            ctrl.viewModel.valueDateMode = getValueDateModeText(ctrl.model.valueDateMode);
+            ctrl.viewModel.yield = ctrl.model.yield / 100;
 
-
-            if (product.viewModel.status !== 20) {
-                product.viewModel.remainCount = 0;
+            if (ctrl.viewModel.status !== 20) {
+                ctrl.viewModel.remainCount = 0;
             }
 
-            switch (product.viewModel.status) {
+            switch (ctrl.viewModel.status) {
                 case 10:
-                    product.viewModel.statusText = '待售';
+                    ctrl.viewModel.statusText = '待售';
                     break;
                 case 20:
-                    product.viewModel.statusText = '抢购';
+                    ctrl.viewModel.statusText = '抢购';
                     break;
                 case 30:
-                    product.viewModel.statusText = '售罄';
+                    ctrl.viewModel.statusText = '售罄';
                     break;
                 case 40:
-                    product.viewModel.statusText = '结束';
+                    ctrl.viewModel.statusText = '结束';
                     break;
                 default :
-                    product.viewModel.statusText = '';
+                    ctrl.viewModel.statusText = '';
             }
         };
 
-        product.doRefresh();
+        $scope.$on('$ionicView.enter', function() {
+            ctrl.doRefresh();
+        });
+
+        ctrl.doRefresh();
     });

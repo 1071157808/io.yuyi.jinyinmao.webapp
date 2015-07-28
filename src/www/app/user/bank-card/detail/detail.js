@@ -2,8 +2,7 @@
 angular.module('jym.user.bank-card-detail', [
     'jym.services',
     'jym.services.user',
-    'jym.user.bank-card-upgrade',
-    'ionic'
+    'jym.user.bank-card-upgrade'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -11,23 +10,23 @@ angular.module('jym.user.bank-card-detail', [
                 url: '/user/bank-card-detail/{bankCardNo}',
                 views: {
                     '@': {
-                        controller: 'UserBankCardDetailCtrl as card',
+                        controller: 'UserBankCardDetailCtrl as ctrl',
                         templateUrl: 'app/user/bank-card/detail/detail.tpl.html'
                     }
                 }
             });
     })
     .controller('UserBankCardDetailCtrl', function($scope, $state, $stateParams, $timeout, $ionicHistory, RESOURCES, UserService, JYMUtilityService, $ionicPopup) {
-        var card = this;
+        var ctrl = this;
 
-        card.model = {};
-        card.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        card.doRefresh = function() {
-            card.refreshBankCard()
+        ctrl.doRefresh = function() {
+            ctrl.refreshBankCard()
                 .then(function(result) {
-                    card.model = result;
-                    card.refreshViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
 
@@ -36,17 +35,17 @@ angular.module('jym.user.bank-card-detail', [
             }, 1500);
         };
 
-        card.refreshBankCard = function() {
+        ctrl.refreshBankCard = function() {
             return UserService.getBankCard($stateParams.bankCardNo);
         };
 
-        card.refreshViewModel = function() {
-            card.viewModel = card.model;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel = ctrl.model;
         };
 
-        card.removeCard = function() {
-            if (card.model.bankCardNo) {
-                UserService.removeCard(card.model.bankCardNo)
+        ctrl.removeCard = function() {
+            if (ctrl.model.bankCardNo) {
+                UserService.removeCard(ctrl.model.bankCardNo)
                     .then(function() {
                         JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.REMOVE_SUCCESS);
 
@@ -57,28 +56,23 @@ angular.module('jym.user.bank-card-detail', [
             }
         };
 
-    card.showConfirm = function() {
-      var confirmPopup = $ionicPopup.confirm({
-        title: ' ',
-        template: '是否删除该银行卡？',
-        okText: '是',
-        cancelText: '否',
-
-        //templateUrl: 'app/common/templates/confirm.tpl.html'
-      });
-      confirmPopup.then(function(res) {
-        if(res) {
-          console.log('You are sure');
-          card.removeCard();
-        } else {
-          console.log('You are not sure');
-        }
-      });
-    };
+        ctrl.showConfirm = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: ' ',
+                template: '是否删除该银行卡？',
+                okText: '是',
+                cancelText: '否'
+            });
+            confirmPopup.then(function(res) {
+                if (res) {
+                    ctrl.removeCard();
+                }
+            });
+        };
 
         $scope.$on('$ionicView.enter', function() {
-            card.doRefresh();
+            ctrl.doRefresh();
         });
 
-        card.doRefresh();
+        ctrl.doRefresh();
     });

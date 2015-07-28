@@ -10,36 +10,36 @@ angular.module('jym.jinbaoyin', [
                 url: '/jinbaoyin',
                 views: {
                     '@': {
-                        controller: 'JinbaoyinCtrl as product',
-                        templateUrl: 'app/jinbaoyin/index.tpl.html'
+                        controller: 'JinbaoyinCtrl as ctrl',
+                        templateUrl: 'app/jinbaoyin/jinbaoyin.tpl.html'
                     }
                 }
             });
     })
     .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy, APP, JinbaoyinService) {
-        var product = this;
+        var ctrl = this;
 
-        product.model = {};
-        product.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        product.doRefresh = function() {
-            product.refreshProduct();
+        ctrl.doRefresh = function() {
+            ctrl.refreshProduct();
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };
 
-        product.refreshProduct = function() {
+        ctrl.refreshProduct = function() {
             JinbaoyinService.getIndex()
                 .then(function(result) {
-                    product.model = result;
+                    ctrl.model = result;
 
-                    product.viewModel.title = result.productName + ' ' + '第' + result.issueNo + '期';
-                    product.viewModel.yield = result.yield / 100;
-                    product.viewModel.unitPrice = (result.unitPrice / 100).toFixed(0);
+                    ctrl.viewModel.title = result.productName + ' ' + '第' + result.issueNo + '期';
+                    ctrl.viewModel.yield = result.yield / 100;
+                    ctrl.viewModel.unitPrice = (result.unitPrice / 100).toFixed(0);
                 });
         };
 
-        product.doRefresh();
+        ctrl.doRefresh();
     });
