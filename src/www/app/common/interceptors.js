@@ -30,7 +30,6 @@ angular.module('jym.interceptors', [
 
             responseError: function(rejection) {
                 var $state = $injector.get('$state');
-                var $ionicHistory = $injector.get('$ionicHistory');
                 var $ionicLoading = $injector.get('$ionicLoading');
 
                 if (rejection.status === 0) {
@@ -55,11 +54,7 @@ angular.module('jym.interceptors', [
 
                 if (rejection.status === 401 || rejection.status === 403) {
                     authService.clearToken();
-
-                    $ionicHistory.nextViewOptions({
-                        disableBack: true
-                    });
-                    $state.go('jym.user-login', { backState: $state.current.name });
+                    $state.go('jym.user-login');
                 }
 
                 if (rejection.status >= 500) {

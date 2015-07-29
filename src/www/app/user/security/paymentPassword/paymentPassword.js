@@ -123,7 +123,6 @@ angular.module('jym.user.security-payment-password', [])
                                 } else {
                                     JYMUtilityService.goWithDisableBack('jym.user');
                                 }
-
                             }, 1000);
                         }
                     });

@@ -6,27 +6,28 @@ angular.module('jym.user.login', [
     .config(function($stateProvider) {
         $stateProvider
             .state('jym.user-login', {
-                url: '/user/login/{backState}',
+                url: '/user/login',
                 views: {
                     '@': {
-                        controller: 'UserLoginCtrl as user',
+                        controller: 'UserLoginCtrl as ctrl',
                         templateUrl: 'app/user/login/login.tpl.html'
                     }
                 }
             });
     })
-    .controller('UserLoginCtrl', function($scope, $stateParams, $timeout, RESOURCES, REGEX, UserService, JYMUtilityService) {
-        var user = this;
+    .controller('UserLoginCtrl', function($scope, $stateParams, $timeout, $ionicHistory, $ionicNavBarDelegate, RESOURCES, REGEX, UserService, JYMUtilityService) {
+        var ctrl = this;
 
-        user.viewModel = {};
+        ctrl.viewModel = {};
 
-        user.doRefresh = function() {
-            user.resetInput();
+        ctrl.doRefresh = function() {
+            $ionicNavBarDelegate.showBackButton(false);
+            ctrl.resetInput();
         };
 
-        user.login = function() {
-            if (user.loginButtonEnable()) {
-                UserService.login(user.viewModel.cellphone, user.viewModel.password)
+        ctrl.login = function() {
+            if (ctrl.loginButtonEnable()) {
+                UserService.login(ctrl.viewModel.cellphone, ctrl.viewModel.password)
                     .then(function(result) {
                         if (!result.userExist) {
                             JYMUtilityService.showAlert(RESOURCES.ALERT.USER.USER_NOT_EXIST);
@@ -51,31 +52,34 @@ angular.module('jym.user.login', [
                         JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_SUCCESS);
 
                         $timeout(function() {
-                            user.resetInput();
-
-                            var backState = 'jym.user';
-                            if ($stateParams.backState) {
-                                backState = $stateParams.backState;
+                            ctrl.resetInput();
+                            if ($ionicHistory.backView()) {
+                                $ionicHistory.goBack();
+                            } else {
+                                JYMUtilityService.goWithDisableBack('jym.user');
                             }
-                            JYMUtilityService.goWithDisableBack(backState);
                         }, 1000);
                     });
 
             }
         };
 
-        user.loginButtonEnable = function() {
-            return user.viewModel.cellphone && user.viewModel.password;
+        ctrl.loginButtonEnable = function() {
+            return ctrl.viewModel.cellphone && ctrl.viewModel.password;
         };
 
-        user.resetInput = function() {
-            user.viewModel.cellphone = user.viewModel.cellphone || '';
-            user.viewModel.password = '';
+        ctrl.resetInput = function() {
+            ctrl.viewModel.cellphone = ctrl.viewModel.cellphone || '';
+            ctrl.viewModel.password = '';
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            user.doRefresh();
+            ctrl.doRefresh();
         });
 
-        user.doRefresh();
+        $scope.$on('$ionicView.beforeLeave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
+        ctrl.doRefresh();
     });
