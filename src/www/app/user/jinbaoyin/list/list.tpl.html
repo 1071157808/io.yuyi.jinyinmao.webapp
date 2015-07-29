@@ -6,7 +6,7 @@
       on-refresh="account.doRefresh()">
     </ion-refresher>
     <ion-list class="jinbaoyin-list">
-      <div ng-repeat="item in account.viewModel.items">
+      <div ng-repeat="item in ctrl.viewModel.items">
         <ion-item class="item-icon-right" ui-sref="jym.user-jinbaoyin-detail({
         transactionIdentifier: item.transactionIdentifier})">
           <p>
