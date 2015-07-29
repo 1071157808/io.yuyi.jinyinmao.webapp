@@ -1506,10 +1506,14 @@ label.item-input > span {
 @media only screen and (max-width: 320px) {
   .bank-card p {
     font-size: 12px;
+    padding-top: 0;
   }
   .bank-card h2 {
     padding-top: 8px;
     font-size: 16px;
+  }
+  .bank-card.detail img{
+    margin-top: 10px;
   }
 }
 /*bank-card end*/
@@ -2092,6 +2096,9 @@ input[readonly]:not(.cloned-text-input) {
   #yilian-notice ul {
     position: relative;
     left: 7%;
+  }
+  #yilian-notice p {
+    margin-left: 20px;
   }
 }
   /* #yilian-notice end*/
