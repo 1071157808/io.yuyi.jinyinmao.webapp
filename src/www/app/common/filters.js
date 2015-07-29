@@ -78,13 +78,13 @@ angular.module('jym.filters', [])
                 case '建设银行':
                     return '限额单笔50万元，单日50万元。';
                 case '招商银行':
-                    return '限额单笔5万元，单日不限。';
+                    return '限额单笔5万元，单日50万元。';
                 case '广发银行':
                     return '限额单笔50万元，单日50万元。';
                 case '广州银行':
                     return '限额单笔50万元，单日50万元。';
                 case '邮储银行':
-                    return '限额单笔1万元，单日不限。';
+                    return '限额单笔1万元，单日10万元。';
                 case '兴业银行':
                     return '限额单笔2万元，单日5万元。';
                 case '光大银行':

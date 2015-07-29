@@ -1458,6 +1458,9 @@ label.item-input > span {
   font-size: 14px;
   color: #999;
 }
+.bank-card .item-content p {
+  padding-top: 0;
+}
 .bank-card small {
   font-size: 70%;
 }
@@ -2216,7 +2219,7 @@ input[readonly]:not(.cloned-text-input) {
   }
 }
 
-.item-thumbnail-left .item-content > img {
+#avatar {
   top: 0;
 }
 
