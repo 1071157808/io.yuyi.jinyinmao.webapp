@@ -33,6 +33,12 @@ angular.module('jym.user.bank-card', [
         ctrl.viewModel.items = [];
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.refreshBankCards()
                 .then(function(result) {
                     ctrl.model = result;

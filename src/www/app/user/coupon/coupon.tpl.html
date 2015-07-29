@@ -6,32 +6,14 @@
   </ion-refresher>
   <ion-content class="coupon">
     <ion-list>
-      <ion-item>
+      <ion-item collection-repeat="item in ctrl.viewModel.items">
         <div class="pull-left">
-          <p><em>500</em>&nbsp;元本金券</p>
-          <p>2015-07-07 到期</p>
+          <p><em ng-bind="item.amount"></em>&nbsp;元本金券</p>
+
+          <p><span ng-bind="item.effectiveEndTime | time"></span> 到期</p>
         </div>
-        <p class="pull-right" ng-click="ctrl.showConfirm()">放弃</p>
+        <p class="pull-right" ng-click="ctrl.showConfirm(item.id)">放弃</p>
       </ion-item>
-      <ion-item>
-        <div class="pull-left">
-          <p><em>500</em>&nbsp;元本金券</p>
-          <p>2015-07-07 到期</p>
-        </div>
-        <p class="pull-right">放弃</p>
-      </ion-item><ion-item>
-      <div class="pull-left">
-        <p><em>500</em>&nbsp;元本金券</p>
-        <p>2015-07-07 到期</p>
-      </div>
-      <p class="pull-right">放弃</p>
-    </ion-item><ion-item>
-      <div class="pull-left">
-        <p><em>500</em>&nbsp;元本金券</p>
-        <p>2015-07-07 到期</p>
-      </div>
-      <p class="pull-right">放弃</p>
-    </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

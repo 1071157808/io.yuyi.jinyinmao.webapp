@@ -13,6 +13,11 @@ angular.module('jym.constants', [])
         CONFIG: {
             FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
         },
+        COUPON: {
+            INDEX: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Index',
+            AVAILABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon',
+            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Remove/'
+        },
         INVESTING: {
             JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
             REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
@@ -32,7 +37,7 @@ angular.module('jym.constants', [])
             SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
             AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
-        SETTLEACCOUNT: {
+        SETTLE_ACCOUNT: {
             LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
             DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
@@ -77,15 +82,19 @@ angular.module('jym.constants', [])
             }
         },
         TIP: {
-            USER: {
-                INVALID_CELLPHONE: '请填写正确的手机号',
-                INVALID_PASSWORD: '请输入正确的密码',
-                LOGIN_OUT: '退出成功',
-                LOGIN_SUCCESS: '登录成功'
-            },
             BANKCARD: {
                 REMOVE_SUCCESS: '删除银行卡成功',
                 SIGN: '认证申请已经提交<br>请耐心等待'
+            },
+            COUPON: {
+                REMOVE_SUCCESS: '删除成功'
+            },
+            INVESTING: {
+                JBY: '认购成功',
+                REGULAR: '购买成功'
+            },
+            JINBAOYIN: {
+                WITHDRAWAL_SUCCESS: '赎回申请已经提交<br>我们将尽快处理'
             },
             MISC: {
                 SEND_VERI_CODE: '发送成功',
@@ -96,19 +105,18 @@ angular.module('jym.constants', [])
                 SET_PAYMENT_PASSWORD: '设置成功',
                 RESET_PAYMENT_PASSWORD: '支付密码修改成功'
             },
-            SIGNUP: {
-                SIGNUP_SUCCESS: '注册成功<br>请登录使用'
-            },
-            SETTLEACCOUNT: {
+            SETTLE_ACCOUNT: {
                 DEPOSIT_SUCCESS: '充值申请已经提交<br>请耐心等待支付结果',
                 WITHDRAWAL_SUCCESS: '提现申请已经提交<br>我们将尽快处理'
             },
-            JINBAOYIN: {
-                WITHDRAWAL_SUCCESS: '赎回申请已经提交<br>我们将尽快处理'
+            SIGNUP: {
+                SIGNUP_SUCCESS: '注册成功<br>请登录使用'
             },
-            INVESTING: {
-                JBY: '认购成功',
-                REGULAR: '购买成功'
+            USER: {
+                INVALID_CELLPHONE: '请填写正确的手机号',
+                INVALID_PASSWORD: '请输入正确的密码',
+                LOGIN_OUT: '退出成功',
+                LOGIN_SUCCESS: '登录成功'
             }
         }
     })

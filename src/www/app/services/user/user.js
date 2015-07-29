@@ -115,7 +115,7 @@ angular.module('jym.services.user', [
         };
 
         service.depositByYilian = function(amount, bankCardNo, paymentPassword) {
-            var url = URLS.SETTLEACCOUNT.DEPOSIT;
+            var url = URLS.SETTLE_ACCOUNT.DEPOSIT;
 
             return $http.post(url, {
                 amount: amount,
@@ -170,6 +170,25 @@ angular.module('jym.services.user', [
             });
         };
 
+        service.getCoupon = function() {
+            var url = URLS.COUPON.AVAILABLE;
+
+            return $http.get(url)
+                .then(function(result) {
+                    return result.data;
+                });
+        };
+
+        service.getCoupons = function() {
+            var url = URLS.COUPON.INDEX;
+
+            return $http.get(url, {
+                cache: JYMCacheService.get('userCache')
+            }).then(function(result) {
+                return result.data;
+            });
+        };
+
         service.getCurrentUser = function() {
             service.getUserInfo();
             return currentUser;
@@ -216,7 +235,7 @@ angular.module('jym.services.user', [
         };
 
         service.getSettelAccountList = function(pageIndex) {
-            var url = URLS.SETTLEACCOUNT.LIST + pageIndex;
+            var url = URLS.SETTLE_ACCOUNT.LIST + pageIndex;
 
             return $http.get(url, {
                 cache: JYMCacheService.get('userCache')
@@ -226,7 +245,7 @@ angular.module('jym.services.user', [
         };
 
         service.getSettelAccountTransaction = function(transactionIdentifier) {
-            var url = URLS.SETTLEACCOUNT.INFO + transactionIdentifier;
+            var url = URLS.SETTLE_ACCOUNT.INFO + transactionIdentifier;
 
             return $http.get(url, {
                 cache: JYMCacheService.get('userCache')
@@ -237,7 +256,7 @@ angular.module('jym.services.user', [
 
         service.getUserInfo = function() {
             return $http.get(URLS.USER.GETINFO, {
-                cache: JYMCacheService.get('userCache')
+                cache: JYMCacheService.get('userInfoCache')
             }).then(function(result) {
                 currentUser = result.data;
                 return currentUser;
@@ -289,6 +308,15 @@ angular.module('jym.services.user', [
             })
                 .then(function(result) {
                     return result.status === 200;
+                });
+        };
+
+        service.removeCoupon = function(couponId) {
+            var url = URLS.COUPON.REMOVE + couponId;
+
+            return $http.get(url)
+                .then(function(result) {
+                    return result.data;
                 });
         };
 
@@ -413,7 +441,7 @@ angular.module('jym.services.user', [
         };
 
         service.withdrawal = function(amount, bankCardNo, paymentPassword) {
-            var url = URLS.SETTLEACCOUNT.WITHDRAWAL;
+            var url = URLS.SETTLE_ACCOUNT.WITHDRAWAL;
 
             return $http.post(url, {
                 amount: amount,
