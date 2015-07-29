@@ -6,9 +6,13 @@
           <span class="pull-left">订单金额</span>
           <span class="pull-right"><strong ng-bind="ctrl.viewModel.amount"></strong>&nbsp;元</span>
         </p>
-        <p>预期收益：<span ng-bind="ctrl.viewModel.expectedInterest"></span>
-          <span ng-if="item.extraInterest > 0">&nbsp;&nbsp;&nbsp;+</span>
-          <span ng-if="item.extraInterest > 0" ng-bind="item.extraInterest"></span>&nbsp;元
+
+        <p>
+          <span>预期收益：</span>
+          <span ng-bind="ctrl.viewModel.expectedInterest"></span>
+          <span ng-if="ctrl.viewModel.extraInterest > 0">&nbsp;&nbsp;+</span>
+          <span ng-if="ctrl.viewModel.extraInterest > 0" ng-bind="ctrl.viewModel.extraInterest"></span>
+          <span>&nbsp;&nbsp;元</span>
         </p>
       </ion-item>
     </ion-list>
@@ -19,19 +23,15 @@
             <span class="pull-left">可用余额&nbsp;&nbsp;</span>
             <span class="pull-right"><strong ng-bind="ctrl.viewModel.balance"></strong>&nbsp;元</span>
           </p>
+
           <p ng-if="!(ctrl.model.user.balance >= ctrl.model.order.amount)" class="pull-right" ui-sref="jym.user-settle-account-deposit">
             <em class="attention">余额不足!</em><em>&nbsp;&nbsp;去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></em>
           </p>
         </ion-item>
-        <ion-item class="item-toogle usecoupon">
-          <span class="pull-left">使用 <samp>1000</samp> 元本金券</span>
-
-          <label class="toggle toggle-energized pull-right">
-            <input type="checkbox">
-            <div class="track">
-              <div class="handle"></div>
-            </div>
-          </label>
+        <ion-item class="item-toogle usecoupon" ng-if="ctrl.viewModel.showCoupon">
+          <ion-toggle ng-model="ctrl.viewModel.useCoupon" toggle-class="toggle-balanced" ng-change="ctrl.toggleUseCoupon()">
+            <span class="pull-left">使用 <samp ng-bind="ctrl.viewModel.couponAmount"></samp> 元本金券</span>
+          </ion-toggle>
         </ion-item>
         <label class="item item-input">
           <span class="input-label">输入密码</span>

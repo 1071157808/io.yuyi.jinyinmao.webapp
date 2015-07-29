@@ -11,14 +11,14 @@ angular.module('jym.user.orders', [
                 url: '/user/orders',
                 views: {
                     '@': {
-                        controller: 'UserOrdersCtrl as orders',
+                        controller: 'UserOrdersCtrl as ctrl',
                         templateUrl: 'app/user/order/order.tpl.html'
                     }
                 }
             });
     })
     .controller('UserOrdersCtrl', function($scope, $timeout, UserService, JYMTimeService) {
-        var orders = this;
+        var ctrl = this;
 
         var getViewItem = function(modelItem) {
             var item = {};
@@ -92,53 +92,53 @@ angular.module('jym.user.orders', [
             return item;
         };
 
-        orders.viewModel = {};
+        ctrl.viewModel = {};
 
-        orders.doRefresh = function() {
-            orders.viewModel.items = [];
-            orders.viewModel.currentPageIndex = 0;
-            orders.viewModel.nextPageIndex = 0;
-            orders.viewModel.pageSize = 10;
-            orders.viewModel.totalCount = 0;
-            orders.viewModel.totalPageCount = 1;
-            orders.viewModel.loading = false;
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.items = [];
+            ctrl.viewModel.currentPageIndex = 0;
+            ctrl.viewModel.nextPageIndex = 0;
+            ctrl.viewModel.pageSize = 10;
+            ctrl.viewModel.totalCount = 0;
+            ctrl.viewModel.totalPageCount = 1;
+            ctrl.viewModel.loading = false;
 
-            orders.loadMoreData();
+            ctrl.loadMoreData();
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };
 
-        orders.loadMoreData = function() {
-            if (orders.viewModel.loading) {
+        ctrl.loadMoreData = function() {
+            if (ctrl.viewModel.loading) {
                 return;
             }
 
-            orders.viewModel.loading = true;
+            ctrl.viewModel.loading = true;
 
-            UserService.getOrderList(orders.viewModel.nextPageIndex)
+            UserService.getOrderList(ctrl.viewModel.nextPageIndex)
                 .then(function(result) {
-                    orders.viewModel.currentPageIndex = result.pageIndex;
-                    orders.viewModel.nextPageIndex = result.pageIndex + 1;
-                    orders.viewModel.pageSize = result.pageSize;
-                    orders.viewModel.totalCount = result.totalCount;
-                    orders.viewModel.totalPageCount = result.totalPageCount;
+                    ctrl.viewModel.currentPageIndex = result.pageIndex;
+                    ctrl.viewModel.nextPageIndex = result.pageIndex + 1;
+                    ctrl.viewModel.pageSize = result.pageSize;
+                    ctrl.viewModel.totalCount = result.totalCount;
+                    ctrl.viewModel.totalPageCount = result.totalPageCount;
 
                     _.forEach(result.items, function(i) {
-                        orders.viewModel.items.push(getViewItem(i));
+                        ctrl.viewModel.items.push(getViewItem(i));
                     });
 
-                    orders.viewModel.loading = false;
+                    ctrl.viewModel.loading = false;
                 });
             $timeout(function() {
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             }, 1000);
         };
 
-        orders.moreDataCanBeLoaded = function() {
-            return orders.viewModel.nextPageIndex < orders.viewModel.totalPageCount;
+        ctrl.moreDataCanBeLoaded = function() {
+            return ctrl.viewModel.nextPageIndex < ctrl.viewModel.totalPageCount;
         };
 
-        orders.doRefresh();
+        ctrl.doRefresh();
     });

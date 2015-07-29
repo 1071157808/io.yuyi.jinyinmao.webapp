@@ -138,13 +138,15 @@ angular.module('jym.services.user', [
             });
         };
 
-        service.investingRegular = function(amount, paymentPassword, productIdentifier) {
+        service.investingRegular = function(amount, paymentPassword, productIdentifier, couponId) {
             var url = URLS.INVESTING.REGULAR;
+            couponId = (couponId === undefined || couponId === 0) ? null : couponId;
 
             return $http.post(url, {
                 amount: amount,
                 paymentPassword: paymentPassword,
-                productIdentifier: productIdentifier
+                productIdentifier: productIdentifier,
+                couponId: couponId
             }).then(function(result) {
                 return result.data;
             });
@@ -175,7 +177,11 @@ angular.module('jym.services.user', [
 
             return $http.get(url)
                 .then(function(result) {
-                    return result.data;
+                    if (result.data.id) {
+                        return result.data;
+                    }
+
+                    return null;
                 });
         };
 

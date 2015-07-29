@@ -13,6 +13,7 @@ angular.module('jym.services.purchase', [
             jbyOrder.amount = amount;
             jbyOrder.expectedInterest = expectedInterest;
             jbyOrder.productIdentifier = productIdentifier;
+            jbyOrder.productCategory = 100000030;
         };
 
         service.buildRegularOrder = function(amount, expectedInterest, productIdentifier, productCategory) {

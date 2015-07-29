@@ -23,6 +23,12 @@ angular.module('jym.jinbaoyin', [
         ctrl.viewModel = {};
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.refreshProduct();
 
             $timeout(function() {

@@ -6,10 +6,11 @@
           <span class="pull-left">订单金额</span>
           <span class="pull-right"><strong ng-bind="ctrl.viewModel.amount"></strong>&nbsp;元</span>
         </p>
+
         <p>
-          <span >30天收益：</span>
+          <span>30天收益：</span>
           <span ng-bind="ctrl.viewModel.expectedInterest"></span>
-          <span >&nbsp;元</span>
+          <span>&nbsp;元</span>
         </p>
       </ion-item>
     </ion-list>
@@ -20,17 +21,16 @@
             <span class="pull-left">可用余额&nbsp;&nbsp;</span>
             <span class="pull-right"><strong ng-bind="ctrl.viewModel.balance"></strong>&nbsp;元</span>
           </p>
+
           <p ng-if="!(ctrl.model.user.balance >= ctrl.model.order.amount)" class="pull-right" ui-sref="jym.user-settle-account-deposit">
             <em class="attention">余额不足!</em><em>&nbsp;&nbsp;去充值 &nbsp;&nbsp;<i class="icon ion-chevron-right"></i></em>
           </p>
         </ion-item>
-
         <label class="item item-input">
           <span class="input-label">输入密码</span>
           <input type="password" placeholder="请输入您的支付密码" ng-model="ctrl.viewModel.password" required minlength="8" maxlength="18" ng-pattern="/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/">
         </label>
       </ion-item>
-
       <div class="narrow">
         <button ng-click="ctrl.check()">
           <span>
@@ -55,6 +55,5 @@
       <div class="space"></div>
       <div class="space"></div>
     </div>
-
   </ion-content>
 </ion-view>

@@ -6,7 +6,7 @@
       on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list>
-      <div ng-repeat="item in ctrl.viewModel.items" >
+      <div collection-repeat="item in ctrl.viewModel.items">
         <ion-item ui-sref="jym.shangpiao-detail({ productIdentifier: item.productIdentifier })">
           <div class="row">
             <div class="col col-33">

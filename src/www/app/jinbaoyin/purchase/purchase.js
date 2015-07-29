@@ -7,7 +7,7 @@ angular.module('jym.jinbaoyin.purchase', [
     .config(function($stateProvider) {
         $stateProvider
             .state('jym.jinbaoyin-purchase', {
-                url: '/jinbaoyin/purchase/{productIdentifier}',
+                url: '/jinbaoyin/purchase',
                 views: {
                     '@': {
                         controller: 'JinbaoyinPurchaseCtrl as ctrl',
@@ -16,7 +16,7 @@ angular.module('jym.jinbaoyin.purchase', [
                 }
             });
     })
-    .controller('JinbaoyinPurchaseCtrl', function($scope, $stateParams, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -57,7 +57,7 @@ angular.module('jym.jinbaoyin.purchase', [
         };
 
         ctrl.refreshAgreement = function() {
-            return JinbaoyinService.getAgreement($stateParams.productIdentifier, 2);
+            return JinbaoyinService.getAgreement(ctrl.model.order.productIdentifier, 2);
         };
 
         ctrl.refreshUserInfo = function() {

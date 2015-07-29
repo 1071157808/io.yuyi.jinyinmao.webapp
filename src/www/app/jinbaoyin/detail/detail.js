@@ -94,7 +94,7 @@ angular.module('jym.jinbaoyin.detail', [
 
                     PurchaseService.buildNewJBYOrder(amount, ctrl.viewModel.expectedInterest, ctrl.model.product.productIdentifier);
 
-                    $state.go('jym.jinbaoyin-purchase', { productIdentifier: ctrl.model.product.productIdentifier });
+                    $state.go('jym.jinbaoyin-purchase');
                 } catch (e) {
                     JYMUtilityService.showAlert(e.message);
                 }

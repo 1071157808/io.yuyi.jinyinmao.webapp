@@ -18,7 +18,7 @@ angular.module('jym.zhuanqu.purchase', [
                 }
             });
     })
-    .controller('ZhuanquPurchaseCtrl', function($scope, $stateParams, $timeout, $ionicScrollDelegate, RESOURCES, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ZhuanquPurchaseCtrl', function($scope, $stateParams, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, RESOURCES, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};

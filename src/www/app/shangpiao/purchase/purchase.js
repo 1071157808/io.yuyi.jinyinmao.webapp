@@ -18,7 +18,7 @@ angular.module('jym.shangpiao.purchase', [
                 }
             });
     })
-    .controller('ShangpiaoPurchaseCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ShangpiaoPurchaseCtrl', function($scope, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, RESOURCES, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -29,10 +29,18 @@ angular.module('jym.shangpiao.purchase', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.agreement1 = '委托协议';
             ctrl.viewModel.agreement2 = '借款协议';
+            ctrl.viewModel.extraInterest = 0;
             ctrl.viewModel.showAgreement1 = false;
             ctrl.viewModel.showAgreement2 = false;
+            ctrl.viewModel.useCoupon = false;
 
             ctrl.resetInput();
 
@@ -40,7 +48,18 @@ angular.module('jym.shangpiao.purchase', [
                 .then(function(result) {
                     ctrl.model.user = result;
                     ctrl.model.order = PurchaseService.getRegularOrder(100000020);
-                    ctrl.refreshViewModel();
+
+                    if (ctrl.model.order.amount >= 500000) {
+                        UserService.getCoupon()
+                            .then(function(result) {
+                                ctrl.model.coupon = result;
+                                ctrl.refreshViewModel();
+                            });
+                    } else {
+                        ctrl.model.coupon = null;
+                        ctrl.refreshViewModel();
+                    }
+
                     return result;
                 })
                 .then(function() {
@@ -71,8 +90,23 @@ angular.module('jym.shangpiao.purchase', [
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.balance = (ctrl.model.user.balance / 100).toFixed(2);
             ctrl.viewModel.amount = (ctrl.model.order.amount / 100).toFixed(2);
+            ctrl.viewModel.balance = (ctrl.model.user.balance / 100).toFixed(2);
+            ctrl.viewModel.expectedInterest = ctrl.model.order.expectedInterest;
+
+            if (ctrl.model.order.amount >= 500000 && ctrl.model.coupon) {
+                ctrl.viewModel.couponAmount = parseInt((ctrl.model.coupon.amount / 100), 10);
+                ctrl.viewModel.couponId = ctrl.model.coupon.id;
+                ctrl.viewModel.showCoupon = true;
+                ctrl.viewModel.useCoupon = true;
+            } else {
+                ctrl.viewModel.couponAmount = 0;
+                ctrl.viewModel.couponId = 0;
+                ctrl.viewModel.showCoupon = false;
+                ctrl.viewModel.useCoupon = false;
+            }
+
+            ctrl.toggleUseCoupon();
         };
 
         ctrl.purchaseButtonEnable = function() {
@@ -82,7 +116,8 @@ angular.module('jym.shangpiao.purchase', [
         ctrl.purchase = function() {
             if (ctrl.purchaseButtonEnable()) {
                 var amount = ctrl.model.order.amount;
-                UserService.investingRegular(amount, ctrl.viewModel.password, ctrl.model.order.productIdentifier)
+                var couponId = ctrl.viewModel.useCoupon ? ctrl.viewModel.couponId : 0;
+                UserService.investingRegular(amount, ctrl.viewModel.password, ctrl.model.order.productIdentifier, couponId)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.REGULAR);
@@ -115,6 +150,14 @@ angular.module('jym.shangpiao.purchase', [
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement2 = !ctrl.viewModel.showAgreement2;
             $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement2);
+        };
+
+        ctrl.toggleUseCoupon = function() {
+            if (ctrl.viewModel.showCoupon && ctrl.viewModel.useCoupon) {
+                ctrl.viewModel.extraInterest = (ctrl.viewModel.expectedInterest * ctrl.model.coupon.amount / ctrl.model.order.amount).toFixed(2);
+            } else {
+                ctrl.viewModel.extraInterest = 0;
+            }
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {

@@ -22,7 +22,7 @@ angular.module('jym.user.coupon', ['ionic'])
         var getViewItem = function(modelItem) {
             var item = {};
             item.addTime = modelItem.addTime;
-            item.amount = parseInt(modelItem.amount / 100);
+            item.amount = parseInt(modelItem.amount / 100, 10);
             item.effectiveEndTime = modelItem.effectiveEndTime;
             item.effectiveStartTime = modelItem.effectiveStartTime;
             item.id = modelItem.id;
@@ -58,9 +58,9 @@ angular.module('jym.user.coupon', ['ionic'])
 
         ctrl.refreshViewModel = function() {
             ctrl.viewModel.items = ctrl.model;
-            _.forEach(result.items, function(i) {
+            _.forEach(ctrl.model.items, function(i) {
                 ctrl.viewModel.items.push(getViewItem(i));
-            })
+            });
         };
 
         ctrl.removeCoupon = function(couponId) {

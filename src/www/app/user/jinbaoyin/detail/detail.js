@@ -27,6 +27,12 @@ angular.module('jym.user.jinbaoyin-detail', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.agreement = '';
             ctrl.viewModel.showAgreement = false;
 

@@ -8,94 +8,94 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
                 url: '/user/jinbaoyin/withdrawal',
                 views: {
                     '@': {
-                        controller: 'UserJinbaoyinWithdrawalCtrl as account',
+                        controller: 'UserJinbaoyinWithdrawalCtrl as ctrl',
                         templateUrl: 'app/user/jinbaoyin/withdrawal/withdrawal.tpl.html'
                     }
                 }
             });
     })
-    .controller('UserJinbaoyinWithdrawalCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, UserService, JYMUtilityService) {
-        var account = this;
+    .controller('UserJinbaoyinWithdrawalCtrl', function($scope, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, UserService, JYMUtilityService) {
+        var ctrl = this;
 
-        account.model = {};
-        account.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        account.check = function() {
-            account.viewModel.checked = !account.viewModel.checked;
+        ctrl.check = function() {
+            ctrl.viewModel.checked = !ctrl.viewModel.checked;
         };
 
-        account.doRefresh = function() {
-            account.viewModel.agreement = '金包银自动交易授权委托书';
-            account.viewModel.amount = null;
-            account.viewModel.showAgreement = false;
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.agreement = '金包银自动交易授权委托书';
+            ctrl.viewModel.amount = null;
+            ctrl.viewModel.showAgreement = false;
 
-            account.resetInput();
+            ctrl.resetInput();
 
-            account.refreshUser()
+            ctrl.refreshUser()
                 .then(function(result) {
-                    account.model.user = result;
-                    account.refreshViewModel();
+                    ctrl.model.user = result;
+                    ctrl.refreshViewModel();
                     return result;
                 })
                 .then(function() {
-                    account.refreshAgreement()
+                    ctrl.refreshAgreement()
                         .then(function(result) {
                             var agreementData = {
-                                cellphone: account.model.user.cellphone,
-                                credentialNo: account.model.user.credentialNo,
-                                realName: account.model.user.realName
+                                cellphone: ctrl.model.user.cellphone,
+                                credentialNo: ctrl.model.user.credentialNo,
+                                realName: ctrl.model.user.realName
                             };
 
-                            account.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
+                            ctrl.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
                         });
 
                 });
         };
 
-        account.refreshAgreement = function() {
+        ctrl.refreshAgreement = function() {
             return JinbaoyinService.getTransferAgreement();
         };
 
-        account.refreshUser = function() {
+        ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
-        account.refreshViewModel = function() {
-            account.viewModel.userBalance = (account.model.user.balance / 100).toFixed(2);
-            account.viewModel.jBYLastInterest = (account.model.user.jBYLastInterest / 100).toFixed(2);
-            account.viewModel.jBYTotalAmount = (account.model.user.jBYTotalAmount / 100).toFixed(2);
-            account.viewModel.jBYTotalInterest = (account.model.user.jBYTotalInterest / 100).toFixed(2);
-            account.viewModel.jBYTotalPricipal = (account.model.user.jBYTotalPricipal / 100).toFixed(2);
-            account.viewModel.jBYWithdrawalableAmount = (account.model.user.jBYWithdrawalableAmount / 100).toFixed(2);
-            account.viewModel.todayJBYWithdrawalAmount = (account.model.user.todayJBYWithdrawalAmount / 100).toFixed(2);
-            account.viewModel.todayJBYWithdrawalableAmount = 100000 - account.viewModel.todayJBYWithdrawalAmount;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.userBalance = (ctrl.model.user.balance / 100).toFixed(2);
+            ctrl.viewModel.jBYLastInterest = (ctrl.model.user.jBYLastInterest / 100).toFixed(2);
+            ctrl.viewModel.jBYTotalAmount = (ctrl.model.user.jBYTotalAmount / 100).toFixed(2);
+            ctrl.viewModel.jBYTotalInterest = (ctrl.model.user.jBYTotalInterest / 100).toFixed(2);
+            ctrl.viewModel.jBYTotalPricipal = (ctrl.model.user.jBYTotalPricipal / 100).toFixed(2);
+            ctrl.viewModel.jBYWithdrawalableAmount = (ctrl.model.user.jBYWithdrawalableAmount / 100).toFixed(2);
+            ctrl.viewModel.todayJBYWithdrawalAmount = (ctrl.model.user.todayJBYWithdrawalAmount / 100).toFixed(2);
+            ctrl.viewModel.todayJBYWithdrawalableAmount = 100000 - ctrl.viewModel.todayJBYWithdrawalAmount;
 
-            if (account.viewModel.todayJBYWithdrawalableAmount > account.viewModel.jBYWithdrawalableAmount) {
-                account.viewModel.todayJBYWithdrawalableAmount = account.viewModel.jBYWithdrawalableAmount;
+            if (ctrl.viewModel.todayJBYWithdrawalableAmount > ctrl.viewModel.jBYWithdrawalableAmount) {
+                ctrl.viewModel.todayJBYWithdrawalableAmount = ctrl.viewModel.jBYWithdrawalableAmount;
             }
         };
 
-        account.resetInput = function() {
-            account.viewModel.amount = null;
-            account.viewModel.checked = true;
-            account.viewModel.password = '';
+        ctrl.resetInput = function() {
+            ctrl.viewModel.amount = null;
+            ctrl.viewModel.checked = true;
+            ctrl.viewModel.password = '';
         };
 
-        account.toggleAgreement = function() {
+        ctrl.toggleAgreement = function() {
             $ionicScrollDelegate.scrollTop();
-            account.viewModel.showAgreement = !account.viewModel.showAgreement;
-            $ionicNavBarDelegate.showBackButton(!account.viewModel.showAgreement1);
+            ctrl.viewModel.showAgreement = !ctrl.viewModel.showAgreement;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement1);
         };
 
-        account.withdraw = function() {
-            var amount = parseInt(account.viewModel.amount * 100, 10);
-            if (account.withdrawButtonEnable()) {
-                UserService.jBYWithdrawal(amount, account.viewModel.password)
+        ctrl.withdraw = function() {
+            var amount = parseInt(ctrl.viewModel.amount * 100, 10);
+            if (ctrl.withdrawButtonEnable()) {
+                UserService.jBYWithdrawal(amount, ctrl.viewModel.password)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.JINBAOYIN.WITHDRAWAL_SUCCESS);
                             $timeout(function() {
-                                account.resetInput();
+                                ctrl.resetInput();
 
                                 JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', {
                                     transactionIdentifier: result.transactionIdentifier
@@ -106,13 +106,13 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
             }
         };
 
-        account.withdrawButtonEnable = function() {
-            return account.viewModel.checked && account.viewModel.amount && account.viewModel.password && account.viewModel.amount <= account.viewModel.todayJBYWithdrawalableAmount;
+        ctrl.withdrawButtonEnable = function() {
+            return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.viewModel.amount <= ctrl.viewModel.todayJBYWithdrawalableAmount;
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            account.doRefresh();
+            ctrl.doRefresh();
         });
 
-        account.doRefresh();
+        ctrl.doRefresh();
     });
