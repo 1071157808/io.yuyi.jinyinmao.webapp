@@ -84,6 +84,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         account.toggleAgreement = function() {
             $ionicScrollDelegate.scrollTop();
             account.viewModel.showAgreement = !account.viewModel.showAgreement;
+            $ionicNavBarDelegate.showBackButton(!account.viewModel.showAgreement1);
         };
 
         account.withdraw = function() {

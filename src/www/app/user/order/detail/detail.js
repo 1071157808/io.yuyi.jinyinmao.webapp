@@ -164,12 +164,14 @@ angular.module('jym.user.orders-detail', [
             order.viewModel.showAgreement2 = false;
             $ionicScrollDelegate.scrollTop();
             order.viewModel.showAgreement1 = !order.viewModel.showAgreement1;
+            $ionicNavBarDelegate.showBackButton(!order.viewModel.showAgreement1);
         };
 
         order.toggleAgreement2 = function() {
             order.viewModel.showAgreement1 = false;
             $ionicScrollDelegate.scrollTop();
             order.viewModel.showAgreement2 = !order.viewModel.showAgreement2;
+            $ionicNavBarDelegate.showBackButton(!order.viewModel.showAgreement2);
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {

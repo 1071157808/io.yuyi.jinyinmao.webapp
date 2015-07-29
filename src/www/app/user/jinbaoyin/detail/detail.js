@@ -111,6 +111,7 @@ angular.module('jym.user.jinbaoyin-detail', [
         transaction.toggleAgreement = function() {
             $ionicScrollDelegate.scrollTop();
             transaction.viewModel.showAgreement = !transaction.viewModel.showAgreement;
+            $ionicNavBarDelegate.showBackButton(!transaction.viewModel.showAgreement);
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
