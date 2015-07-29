@@ -23,6 +23,7 @@
         <span>同意</span>
       </button>
       <span ng-click="ctrl.toggleAgreement1()">《金银猫会员注册协议》</span>
+      <span>&nbsp;及&nbsp;</span>
       <span ng-click="ctrl.toggleAgreement2()">《隐私政策》</span>
     </div>
     <button class="btn button-yellow" ng-click="ctrl.resetPassword()" ng-disabled="!ctrl.enableButton()">确 认</button>
@@ -140,6 +141,8 @@
       <div class="space"></div>
       <div class="space"></div>
       <button class="btn button-yellow" ng-click="ctrl.toggleAgreement1()">返回</button>
+      <div class="space"></div>
+      <div class="space"></div>
     </div>
 
     <div class="agreement" ng-if="ctrl.viewModel.showAgreement2">
@@ -160,6 +163,8 @@
       <div class="space"></div>
       <div class="space"></div>
       <button class="btn button-yellow" ng-click="ctrl.toggleAgreement2()">返回</button>
+      <div class="space"></div>
+      <div class="space"></div>
     </div>
 
   </ion-content>

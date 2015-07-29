@@ -1,30 +1,30 @@
 <ion-view title="充值">
   <ion-content>
     <ion-list class="bank-card">
-      <ion-item class="item-thumbnail-left item-icon-right" ng-if="!account.viewModel.noCard" ui-sref="jym.user-settle-account-deposit-bank-card-selector">
-        <img ng-src="{{ account.viewModel.bankName | bankImg }}">
-        <h2><span ng-bind="account.viewModel.bankName"></span><small>&nbsp;&nbsp;尾号 <em ng-bind="account.viewModel.bankCardNo.substr(-4)"></em></small></h2>
+      <ion-item class="item-thumbnail-left item-icon-right" ng-if="!ctrl.viewModel.noCard" ui-sref="jym.user-settle-account-deposit-bank-card-selector">
+        <img ng-src="{{ ctrl.viewModel.bankName | bankImg }}">
+        <h2><span ng-bind="ctrl.viewModel.bankName"></span><small>&nbsp;&nbsp;尾号 <em ng-bind="ctrl.viewModel.bankCardNo.substr(-4)"></em></small></h2>
 
 
-        <p ng-bind="account.viewModel.bankName | bankLimit"></p>
+        <p ng-bind="ctrl.viewModel.bankName | bankLimit"></p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
-      <ion-item class="plus-card" ng-if="account.viewModel.noCard" ui-sref="jym.user-bank-card-add">
+      <ion-item class="plus-card" ng-if="ctrl.viewModel.noCard" ui-sref="jym.user-bank-card-add">
         <i class="icon ion-ios-plus-outline"></i>
         <span> 添加新银行卡</span>
       </ion-item>
       <ion-item class="divider"></ion-item>
       <ion-item class="item-input">
         <span class="input-label">金额</span>
-        <input type="number" placeholder="请填写充值金额（元）" required min="1" max="1000000" ng-model="account.viewModel.amount">
+        <input type="number" placeholder="请填写充值金额（元）" required min="1" max="1000000" ng-model="ctrl.viewModel.amount">
       </ion-item>
       <ion-item class="item-input">
         <span class="input-label">密码</span>
-        <input type="password" placeholder="请填写支付密码" required minlength="8" maxlength="18" ng-model="account.viewModel.password">
+        <input type="password" placeholder="请填写支付密码" required minlength="8" maxlength="18" ng-model="ctrl.viewModel.password">
       </ion-item>
     </ion-list>
     <div class="space"></div>
     <div class="space"></div>
-    <button class="btn button-yellow" ng-disabled="!account.buttonEnable()" ng-click="account.deposit()">付款</button>
+    <button class="btn button-yellow" ng-disabled="!ctrl.buttonEnable()" ng-click="ctrl.deposit()">付款</button>
   </ion-content>
 </ion-view>

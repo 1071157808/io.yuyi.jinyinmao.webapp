@@ -113,7 +113,7 @@ angular.module('jym.user.jinbaoyin-detail', [
             transaction.viewModel.showAgreement = !transaction.viewModel.showAgreement;
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             transaction.doRefresh();
         });
 

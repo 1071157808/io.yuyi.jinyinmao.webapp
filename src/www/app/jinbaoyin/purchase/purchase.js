@@ -16,7 +16,7 @@ angular.module('jym.jinbaoyin.purchase', [
                 }
             });
     })
-    .controller('JinbaoyinPurchaseCtrl', function($scope, $stateParams, $timeout, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinPurchaseCtrl', function($scope, $stateParams, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -27,6 +27,12 @@ angular.module('jym.jinbaoyin.purchase', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 1000) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.agreement = '金银猫金包银投资协议';
 
             ctrl.resetInput();
@@ -51,7 +57,7 @@ angular.module('jym.jinbaoyin.purchase', [
         };
 
         ctrl.refreshAgreement = function() {
-            return JinbaoyinService.getAgreement($stateParams.productIdentifier, 1);
+            return JinbaoyinService.getAgreement($stateParams.productIdentifier, 2);
         };
 
         ctrl.refreshUserInfo = function() {
@@ -95,9 +101,10 @@ angular.module('jym.jinbaoyin.purchase', [
         ctrl.toggleAgreement = function() {
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement = !ctrl.viewModel.showAgreement;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement);
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 

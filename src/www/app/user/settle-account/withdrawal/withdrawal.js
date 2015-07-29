@@ -121,7 +121,7 @@ angular.module('jym.user.settle-account-withdrawal', [
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             account.doRefresh();
         });
 
@@ -180,7 +180,7 @@ angular.module('jym.user.settle-account-withdrawal', [
             return UserService.sharedData.withdrawalBankCardNo === bankCardNo;
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             account.doRefresh();
         });
 

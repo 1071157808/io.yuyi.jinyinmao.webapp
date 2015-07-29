@@ -52,7 +52,12 @@ angular.module('jym.user.login', [
 
                         $timeout(function() {
                             user.resetInput();
-                            JYMUtilityService.goWithDisableBack('jym.user');
+
+                            var backState = 'jym.user';
+                            if ($stateParams.backState) {
+                                backState = $stateParams.backState;
+                            }
+                            JYMUtilityService.goWithDisableBack(backState);
                         }, 1000);
                     });
 
@@ -68,7 +73,7 @@ angular.module('jym.user.login', [
             user.viewModel.password = '';
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             user.doRefresh();
         });
 

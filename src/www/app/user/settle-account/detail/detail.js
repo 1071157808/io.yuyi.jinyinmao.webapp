@@ -70,7 +70,7 @@ angular.module('jym.user.settle-account-detail', [
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             transaction.doRefresh();
         });
 

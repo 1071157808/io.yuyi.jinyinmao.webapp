@@ -55,7 +55,7 @@ angular.module('jym.user.security-password', [])
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
     })
@@ -122,7 +122,7 @@ angular.module('jym.user.security-password', [])
             return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 

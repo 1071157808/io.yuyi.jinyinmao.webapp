@@ -115,7 +115,7 @@ angular.module('jym.shangpiao.purchase', [
             ctrl.viewModel.showAgreement2 = !ctrl.viewModel.showAgreement2;
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 

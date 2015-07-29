@@ -11,7 +11,7 @@ angular.module('jym.zhuanqu', [
                 views: {
                     '@': {
                         controller: 'ZhuanquIndexCtrl as ctrl',
-                        templateUrl: 'app/zhuanqu/index.tpl.html'
+                        templateUrl: 'app/zhuanqu/zhuanqu.tpl.html'
                     }
                 }
             })

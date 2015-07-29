@@ -50,6 +50,10 @@ angular.module('jym.user.bank-card-add', [
                 });
         };
 
+        ctrl.backHome = function() {
+            JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
+        };
+
         ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
@@ -110,7 +114,7 @@ angular.module('jym.user.bank-card-add', [
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 

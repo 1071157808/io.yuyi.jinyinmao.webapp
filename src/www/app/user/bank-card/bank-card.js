@@ -57,7 +57,7 @@ angular.module('jym.user.bank-card', [
             return ctrl.viewModel.items.length < 10;
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 

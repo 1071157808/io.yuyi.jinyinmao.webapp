@@ -92,7 +92,7 @@ angular.module('jym.user.bank-card-upgrade', [
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 

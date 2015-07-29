@@ -45,7 +45,7 @@ angular.module('jym.user.settle-account', [
             user.viewModel.investingPrincipal = (user.model.investingPrincipal / 100).toFixed(2);
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             user.doRefresh();
         });
 

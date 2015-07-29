@@ -23,7 +23,7 @@ angular.module('jym.user.security-payment-password', [])
             .state('jym.user-security-payment-password-send-veri-code', {
                 url: '/user/security-payment-password-send-veri-code',
                 views: {
-                    user: {
+                    '@': {
                         controller: 'UserSecurityPaymentPasswordSendVeriCodeCtrl as ctrl',
                         templateUrl: 'app/user/security/paymentPassword/sendVeriCode.tpl.html'
                     }
@@ -86,7 +86,7 @@ angular.module('jym.user.security-payment-password', [])
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 
@@ -130,7 +130,7 @@ angular.module('jym.user.security-payment-password', [])
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 
@@ -217,7 +217,7 @@ angular.module('jym.user.security-payment-password', [])
             return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 

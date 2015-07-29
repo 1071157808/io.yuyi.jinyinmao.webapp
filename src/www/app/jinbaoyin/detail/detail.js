@@ -39,7 +39,7 @@ angular.module('jym.jinbaoyin.detail', [
         };
 
         ctrl.doRefresh = function() {
-            if (ctrl.viewModel.refreshTime && ctrl.viewModel.refreshTime < Date.now() + 1000) {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
                 return;
             }
 
@@ -81,20 +81,20 @@ angular.module('jym.jinbaoyin.detail', [
 
         ctrl.goPurchase = function() {
             if (ctrl.goPurchaseButtonEnable()) {
-                var amount = ctrl.viewModel.investCount * ctrl.model.unitPrice;
+                var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {
                         $timeout(function() {
                             JYMUtilityService.go('jym.user-bank-card-add');
-                        }, 3000);
+                        }, 1000);
                     }
 
                     ProductService.checkProductPurchaseStatus(ctrl.model.product, amount);
-                    UserService.checkUserPurchaseStatus();
+                    UserService.checkUserPurchaseStatus(ctrl.model.user);
 
                     PurchaseService.buildNewJBYOrder(amount, ctrl.viewModel.expectedInterest, ctrl.model.product.productIdentifier);
 
-                    $state.go('jym.jinbaoyin-purchase', { productIdentifier: ctrl.model.productIdentifier });
+                    $state.go('jym.jinbaoyin-purchase', { productIdentifier: ctrl.model.product.productIdentifier });
                 } catch (e) {
                     JYMUtilityService.showAlert(e.message);
                 }
@@ -112,7 +112,7 @@ angular.module('jym.jinbaoyin.detail', [
                 ctrl.viewModel.investAmount = 0;
             }
 
-            ctrl.viewModel.expectedInterest = (ProductService.getInterest(ctrl.viewModel.investAmount * 100, ctrl.model.yield, 30) / 100).toFixed(2);
+            ctrl.viewModel.expectedInterest = (ProductService.getInterest(ctrl.viewModel.investAmount * 100, ctrl.model.product.yield, 30) / 100).toFixed(2);
         };
 
         ctrl.refreshProduct = function() {
@@ -164,7 +164,7 @@ angular.module('jym.jinbaoyin.detail', [
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 

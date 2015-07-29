@@ -121,6 +121,7 @@ angular.module('jym.services', [
         };
 
         service.goWithDisableBack = function(to, params, options) {
+            $ionicHistory.clearHistory();
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });

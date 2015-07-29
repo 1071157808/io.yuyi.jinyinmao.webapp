@@ -172,7 +172,7 @@ angular.module('jym.user.orders-detail', [
             order.viewModel.showAgreement2 = !order.viewModel.showAgreement2;
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             order.doRefresh();
         });
 

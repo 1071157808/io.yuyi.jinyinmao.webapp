@@ -21,7 +21,7 @@ angular.module('jym.user.signup', [])
                 }
             });
     })
-    .controller('UserSignUpCtrl', function($scope, $stateParams, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserSignUpCtrl', function($scope, $stateParams, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.viewModel = {};
@@ -54,10 +54,9 @@ angular.module('jym.user.signup', [])
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_SUCCESS);
 
-                            ctrl.resetInput();
-
                             $timeout(function() {
-                                JYMUtilityService.goWithDisableBack('jym.user-login');
+                                ctrl.resetInput();
+                                JYMUtilityService.goWithDisableBack('jym.user-bank-card-add');
                             }, 1000);
                         }
                     });
@@ -68,15 +67,17 @@ angular.module('jym.user.signup', [])
             ctrl.viewModel.showAgreement2 = false;
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement1 = !ctrl.viewModel.showAgreement1;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement1);
         };
 
         ctrl.toggleAgreement2 = function() {
             ctrl.viewModel.showAgreement1 = false;
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement2 = !ctrl.viewModel.showAgreement2;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement2);
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 
@@ -145,7 +146,7 @@ angular.module('jym.user.signup', [])
             return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
 
