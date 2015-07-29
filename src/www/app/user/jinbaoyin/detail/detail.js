@@ -15,7 +15,7 @@ angular.module('jym.user.jinbaoyin-detail', [
                 }
             });
     })
-    .controller('UserJinbaoyinDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicHistory, $ionicScrollDelegate, JinbaoyinService, ProductService, UserService, JYMUtilityService) {
+    .controller('UserJinbaoyinDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicHistory, $ionicScrollDelegate, JinbaoyinService, ProductService, UserService, JYMUtilityService, $ionicNavBarDelegate) {
         var transaction = this;
 
         transaction.model = {};
