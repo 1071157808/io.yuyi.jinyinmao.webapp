@@ -106,7 +106,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                 UserService.withdrawal(amount, account.viewModel.bankCardNo, account.viewModel.password)
                     .then(function(result) {
                         if (result) {
-                            JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.WITHDRAWAL_SUCCESS);
+                            JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_SUCCESS);
 
                             UserService.sharedData.withdrawalBankCardNo = undefined;
 

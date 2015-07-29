@@ -59,7 +59,7 @@ angular.module('jym.user.settle-account-deposit', [
                 UserService.depositByYilian(amount, ctrl.viewModel.bankCardNo, ctrl.viewModel.password)
                     .then(function(result) {
                         if (result) {
-                            JYMUtilityService.showAlert(RESOURCES.TIP.SETTLEACCOUNT.DEPOSIT_SUCCESS);
+                            JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.DEPOSIT_SUCCESS);
 
                             UserService.sharedData.depositBankCardNo = undefined;
 

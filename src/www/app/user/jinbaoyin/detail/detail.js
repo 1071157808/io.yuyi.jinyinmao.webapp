@@ -9,53 +9,53 @@ angular.module('jym.user.jinbaoyin-detail', [
                 url: '/user/jinbaoyin/detail/{transactionIdentifier}',
                 views: {
                     '@': {
-                        controller: 'UserJinbaoyinDetailCtrl as transaction',
+                        controller: 'UserJinbaoyinDetailCtrl as ctrl',
                         templateUrl: 'app/user/jinbaoyin/detail/detail.tpl.html'
                     }
                 }
             });
     })
     .controller('UserJinbaoyinDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicHistory, $ionicScrollDelegate, JinbaoyinService, ProductService, UserService, JYMUtilityService) {
-        var transaction = this;
+        var ctrl = this;
 
-        transaction.model = {};
-        transaction.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        transaction.canBack = function() {
+        ctrl.canBack = function() {
             return $ionicHistory.backView();
         };
 
-        transaction.doRefresh = function() {
-            transaction.viewModel.agreement = '';
-            transaction.viewModel.showAgreement = false;
+        ctrl.doRefresh = function() {
+            ctrl.viewModel.agreement = '';
+            ctrl.viewModel.showAgreement = false;
 
-            var refreshTransaction = transaction.refreshTransaction()
+            var refreshTransaction = ctrl.refreshTransaction()
                 .then(function(result) {
-                    transaction.model.transaction = result;
-                    transaction.refreshViewModel();
+                    ctrl.model.transaction = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
 
-            var refreshUser = transaction.refreshUser()
+            var refreshUser = ctrl.refreshUser()
                 .then(function(result) {
-                    transaction.model.user = result;
+                    ctrl.model.user = result;
                     return result;
                 });
 
             $q.all([refreshTransaction, refreshUser])
                 .then(function() {
-                    var orderTime = transaction.viewModel.trade === 0 ? transaction.viewModel.resultTime : transaction.viewModel.transactionTime;
+                    var orderTime = ctrl.viewModel.trade === 0 ? ctrl.viewModel.resultTime : ctrl.viewModel.transactionTime;
                     var agreementData = {
-                        cellphone: transaction.model.user.cellphone,
-                        credentialNo: transaction.model.user.credentialNo,
+                        cellphone: ctrl.model.user.cellphone,
+                        credentialNo: ctrl.model.user.credentialNo,
                         orderTime: orderTime,
-                        principal: transaction.viewModel.amount,
-                        realName: transaction.model.user.realName
+                        principal: ctrl.viewModel.amount,
+                        realName: ctrl.model.user.realName
                     };
 
-                    transaction.refreshAgreement()
+                    ctrl.refreshAgreement()
                         .then(function(result) {
-                            transaction.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
+                            ctrl.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
                         });
                 });
 
@@ -65,57 +65,57 @@ angular.module('jym.user.jinbaoyin-detail', [
             }, 1500);
         };
 
-        transaction.go = function(toState, params) {
+        ctrl.go = function(toState, params) {
             params = params || {};
             JYMUtilityService.goWithDisableBack(toState, params);
         };
 
-        transaction.refreshTransaction = function() {
+        ctrl.refreshTransaction = function() {
             return UserService.getJBYAccountTransaction($stateParams.transactionIdentifier);
         };
 
-        transaction.refreshAgreement = function() {
-            if (transaction.viewModel.trade === 0) {
+        ctrl.refreshAgreement = function() {
+            if (ctrl.viewModel.trade === 0) {
                 return JinbaoyinService.getInvestingAgreement();
             } else {
                 return JinbaoyinService.getTransferAgreement();
             }
         };
 
-        transaction.refreshViewModel = function() {
-            transaction.viewModel.amount = (transaction.model.transaction.amount / 100).toFixed(2);
-            transaction.viewModel.predeterminedResultDate = transaction.model.transaction.predeterminedResultDate;
-            transaction.viewModel.resultCode = transaction.model.transaction.resultCode;
-            transaction.viewModel.resultTime = transaction.model.transaction.resultTime;
-            transaction.viewModel.settleAccountTranscationId = transaction.model.transaction.settleAccountTranscationId;
-            transaction.viewModel.trade = transaction.model.transaction.trade;
-            transaction.viewModel.tradeCode = transaction.model.transaction.tradeCode;
-            transaction.viewModel.transactionIdentifier = transaction.model.transaction.transactionIdentifier;
-            transaction.viewModel.transactionTime = transaction.model.transaction.transactionTime;
-            transaction.viewModel.transDesc = transaction.model.transaction.transDesc;
-            transaction.viewModel.resultStyle = { color: '#444' };
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.amount = (ctrl.model.transaction.amount / 100).toFixed(2);
+            ctrl.viewModel.predeterminedResultDate = ctrl.model.transaction.predeterminedResultDate;
+            ctrl.viewModel.resultCode = ctrl.model.transaction.resultCode;
+            ctrl.viewModel.resultTime = ctrl.model.transaction.resultTime;
+            ctrl.viewModel.settleAccountTranscationId = ctrl.model.transaction.settleAccountTranscationId;
+            ctrl.viewModel.trade = ctrl.model.transaction.trade;
+            ctrl.viewModel.tradeCode = ctrl.model.transaction.tradeCode;
+            ctrl.viewModel.transactionIdentifier = ctrl.model.transaction.transactionIdentifier;
+            ctrl.viewModel.transactionTime = ctrl.model.transaction.transactionTime;
+            ctrl.viewModel.transDesc = ctrl.model.transaction.transDesc;
+            ctrl.viewModel.resultStyle = { color: '#444' };
 
-            if (transaction.viewModel.resultCode === 1) {
-                transaction.viewModel.resultStyle = { color: '#47B28B' };
+            if (ctrl.viewModel.resultCode === 1) {
+                ctrl.viewModel.resultStyle = { color: '#47B28B' };
             }
 
-            if (transaction.viewModel.resultCode === -1) {
-                transaction.viewModel.resultStyle = { color: '#E74C3C' };
+            if (ctrl.viewModel.resultCode === -1) {
+                ctrl.viewModel.resultStyle = { color: '#E74C3C' };
             }
         };
 
-        transaction.refreshUser = function() {
+        ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
-        transaction.toggleAgreement = function() {
+        ctrl.toggleAgreement = function() {
             $ionicScrollDelegate.scrollTop();
-            transaction.viewModel.showAgreement = !transaction.viewModel.showAgreement;
+            ctrl.viewModel.showAgreement = !ctrl.viewModel.showAgreement;
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            transaction.doRefresh();
+            ctrl.doRefresh();
         });
 
-        transaction.doRefresh();
+        ctrl.doRefresh();
     });

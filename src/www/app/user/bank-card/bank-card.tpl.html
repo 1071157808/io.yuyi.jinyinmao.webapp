@@ -6,7 +6,7 @@
       on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list class="bank-card">
-      <ion-item ng-repeat="item in ctrl.viewModel.items" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-bank-card-detail({ bankCardNo: item.bankCardNo })">
+      <ion-item collection-repeat="item in ctrl.viewModel.items" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-bank-card-detail({ bankCardNo: item.bankCardNo })">
         <img ng-src="{{ item.bankName | bankImg }}">
 
         <h2 ng-bind="item.bankName"></h2>

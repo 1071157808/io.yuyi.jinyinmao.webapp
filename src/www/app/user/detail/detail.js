@@ -8,23 +8,29 @@ angular.module('jym.user.detail', [
                 url: '/user/detail',
                 views: {
                     '@': {
-                        controller: 'DetailCtrl as user',
+                        controller: 'DetailCtrl as ctrl',
                         templateUrl: 'app/user/detail/detail.tpl.html'
                     }
                 }
             });
     })
     .controller('DetailCtrl', function($scope, $timeout, UserService) {
-        var user = this;
+        var ctrl = this;
 
-        user.model = {};
-        user.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        user.doRefresh = function() {
-            user.refreshUser()
+        ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
+            ctrl.refreshUser()
                 .then(function(result) {
-                    user.model = result;
-                    user.refreshViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
 
@@ -33,23 +39,19 @@ angular.module('jym.user.detail', [
             }, 1500);
         };
 
-        user.refreshUser = function() {
+        ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
-        user.refreshViewModel = function() {
-            user.viewModel.cellphone = user.model.cellphone;
-            user.viewModel.realName = user.model.realName;
-            user.viewModel.credentialNo = user.model.credentialNo;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.cellphone = ctrl.model.cellphone;
+            ctrl.viewModel.realName = ctrl.model.realName;
+            ctrl.viewModel.credentialNo = ctrl.model.credentialNo;
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            user.doRefresh();
+            ctrl.doRefresh();
         });
 
-        $scope.$on('$ionicView.beforeEnter', function() {
-            user.doRefresh();
-        });
-
-        user.doRefresh();
+        ctrl.doRefresh();
     });

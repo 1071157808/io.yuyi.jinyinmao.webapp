@@ -43,6 +43,12 @@ angular.module('jym.services', [
         });
 
         CacheFactory('userCache', {
+            maxAge: 3 * 1000,
+            deleteOnExpire: 'aggressive',
+            storageMode: 'memory'
+        });
+
+        CacheFactory('userInfoCache', {
             maxAge: 10 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'memory'
@@ -114,6 +120,7 @@ angular.module('jym.services', [
             JYMCacheService.get('configCache').removeAll();
             JYMCacheService.get('productCache').removeAll();
             JYMCacheService.get('userCache').removeAll();
+            JYMCacheService.get('userInfoCache').removeAll();
         };
 
         service.go = function(to, params, options) {
