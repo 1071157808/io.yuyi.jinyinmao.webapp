@@ -15,7 +15,7 @@ angular.module('jym.user.jinbaoyin-detail', [
                 }
             });
     })
-    .controller('UserJinbaoyinDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicHistory, $ionicScrollDelegate, JinbaoyinService, ProductService, UserService, JYMUtilityService) {
+    .controller('UserJinbaoyinDetailCtrl', function($scope, $stateParams, $timeout, $q, $ionicHistory, $ionicNavBarDelegate, $ionicScrollDelegate, JinbaoyinService, ProductService, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -111,6 +111,7 @@ angular.module('jym.user.jinbaoyin-detail', [
         ctrl.toggleAgreement = function() {
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement = !ctrl.viewModel.showAgreement;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement);
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {

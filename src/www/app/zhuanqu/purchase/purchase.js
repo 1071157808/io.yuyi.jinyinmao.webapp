@@ -123,12 +123,14 @@ angular.module('jym.zhuanqu.purchase', [
             ctrl.viewModel.showAgreement2 = false;
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement1 = !ctrl.viewModel.showAgreement1;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement1);
         };
 
         ctrl.toggleAgreement2 = function() {
             ctrl.viewModel.showAgreement1 = false;
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement2 = !ctrl.viewModel.showAgreement2;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement2);
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {

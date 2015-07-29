@@ -1458,6 +1458,9 @@ label.item-input > span {
   font-size: 14px;
   color: #999;
 }
+.bank-card .item-content p, .bank-card.detail p {
+  padding-top: 0;
+}
 .bank-card small {
   font-size: 70%;
 }
@@ -1503,10 +1506,14 @@ label.item-input > span {
 @media only screen and (max-width: 320px) {
   .bank-card p {
     font-size: 12px;
+    padding-top: 0;
   }
   .bank-card h2 {
     padding-top: 8px;
     font-size: 16px;
+  }
+  .bank-card.detail img{
+    margin-top: 10px;
   }
 }
 /*bank-card end*/
@@ -2056,7 +2063,7 @@ input[readonly]:not(.cloned-text-input) {
   margin: 20px 0 5px;
   font-size: 16px;
   color: #999;
-  text-align: center;
+  text-align: left;
 }
 #yilian-notice p em {
   color: #e74c3c;
@@ -2084,7 +2091,17 @@ input[readonly]:not(.cloned-text-input) {
   left: 30px;
   width: 70%;
 }
-/* #yilian-notice end*/
+
+@media only screen and (max-width: 320px) {
+  #yilian-notice ul {
+    position: relative;
+    left: 7%;
+  }
+  #yilian-notice p {
+    margin-left: 20px;
+  }
+}
+  /* #yilian-notice end*/
 
 @media only screen and (min-width: 768px) {
   .item-content .col.col-33 {
@@ -2216,7 +2233,7 @@ input[readonly]:not(.cloned-text-input) {
   }
 }
 
-.item-thumbnail-left .item-content > img {
+#avatar {
   top: 0;
 }
 
@@ -2257,7 +2274,6 @@ input[readonly]:not(.cloned-text-input) {
   border-top-right-radius: 5px;
 }
 .popup-body {
-  height: 100%;
   margin-top: 15px;
   font-size: 18px;
   text-align: center;
