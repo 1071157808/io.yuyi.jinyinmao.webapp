@@ -118,7 +118,7 @@ angular.module('jym.user.settle-account-withdrawal', [
 
                             $timeout(function() {
                                 ctrl.resetInput();
-                                JYMUtilityService.go('jym.user-settle-account-detail', {
+                                JYMUtilityService.goWithDisableBack('jym.user-settle-account-detail', {
                                     transactionIdentifier: result.transactionIdentifier
                                 });
                             }, 1000);
