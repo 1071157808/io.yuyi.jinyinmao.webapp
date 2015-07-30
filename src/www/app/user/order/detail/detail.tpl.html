@@ -14,9 +14,9 @@
         <p>
           <span class="pull-left">预期收益： </span>
           <span ng-bind="ctrl.viewModel.interest"></span>
-          <span ng-if="ctrl.viewModel.extraInterest > 0">&nbsp;&nbsp;+</span>
+          <span ng-if="ctrl.viewModel.extraInterest > 0">+</span>
           <span ng-if="ctrl.viewModel.extraInterest > 0" ng-bind="ctrl.viewModel.extraInterest"></span>
-          <span>&nbsp;&nbsp;元</span>
+          <span>&nbsp;元</span>
           <span class="pull-right" ng-bind="ctrl.viewModel.statusText"></span>
         </p>
       </ion-item>
