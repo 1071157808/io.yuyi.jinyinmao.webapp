@@ -3,7 +3,7 @@
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
-      on-refresh="orders.doRefresh()">
+      on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list class="order-list">
       <div collection-repeat="item in ctrl.viewModel.items" ui-sref="jym.user-orders-detail({ orderIdentifier: item.orderIdentifier })">

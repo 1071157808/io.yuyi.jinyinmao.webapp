@@ -29,7 +29,6 @@ angular.module('jym.user.coupon', ['ionic'])
             item.remark = modelItem.remark;
             item.useFlag = modelItem.useFlag;
             item.useTime = modelItem.useTime;
-
             return item;
         };
 
@@ -57,7 +56,6 @@ angular.module('jym.user.coupon', ['ionic'])
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.items = ctrl.model;
             _.forEach(ctrl.model.items, function(i) {
                 ctrl.viewModel.items.push(getViewItem(i));
             });

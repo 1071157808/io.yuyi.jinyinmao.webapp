@@ -18,6 +18,8 @@ angular.module('jym.user.jinbaoyin-list', [
     .controller('UserJinbaoyinListCtrl', function($scope, $timeout, UserService) {
         var ctrl = this;
 
+        ctrl.viewModel = {};
+
         var getViewItem = function(modelItem) {
             var item = {};
             item.amount = (modelItem.amount / 100).toFixed(2);
@@ -31,8 +33,6 @@ angular.module('jym.user.jinbaoyin-list', [
             item.transDesc = modelItem.transDesc;
             return item;
         };
-
-        ctrl.viewModel = {};
 
         ctrl.doRefresh = function() {
             if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {

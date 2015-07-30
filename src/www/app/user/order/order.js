@@ -89,6 +89,7 @@ angular.module('jym.user.orders', [
             } else {
                 item.statusText = '下单成功';
             }
+
             return item;
         };
 
