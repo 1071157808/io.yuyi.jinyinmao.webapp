@@ -83,7 +83,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'www/h5/',
                 src: ['**/*'],
-                dest: 'dist/'
+                dest: 'dist/h5'
             },
             htmlDev: {
                 src: 'www/index.html',

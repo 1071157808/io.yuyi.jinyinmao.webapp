@@ -1,0 +1,36 @@
+@media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
+	.links-pl015{
+		display: none;
+	}
+	.page-footer{
+		display: none;
+	}
+	.iphone5s-page2{
+		display: none;
+	}
+	.iphone4-page2{
+		display: block;
+	}
+	.page-5-1-table td{
+		padding: 5px;
+	}
+	.setColor, .defaultColor{
+	font-size:1.02rem ;
+}
+.page-4img{
+	padding-top: 5px;
+	}
+	.page-2 .div-title2 , .page-3 .div-title2{
+		margin: 5px 0;
+		font-size: 1.1rem;
+}
+.page-2 .div-title , .page-3 .div-title{
+	font-size: 1.5rem;
+}
+.page-1 .trendChart .p-img{
+	display: none;
+}
+.page-1 .trendChart .p-imgiphone{
+	display: block;
+}
+}

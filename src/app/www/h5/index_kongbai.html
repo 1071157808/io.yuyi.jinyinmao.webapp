@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, Chrome=1, requiresActiveX=true">
+    <meta name="keywords" content="票据理财,银行票据,银行承兑汇票,低风险理财,商票贷,票据贷,银行理财,p2b理财,互联网投融资">
+    <meta name="description" content="金银猫是国内首家互联网票据理财平台，为个人及机构客户提供涵盖票据贷、银行理财等专业投融资金融服务在线交易平台">
+    <title>金银猫全国最大的互联网票据理财平台</title>
+    <link rel="shortcut icon" href="https://www.jinyinmao.com.cn/favicon.ico" type="image/x-icon">
+    <script>
+        (function set_cookie() {
+            var contractIdQueryString = location.search.match(new RegExp("[\?\&]" + 'contractId' + "=([^\&]+)", "i"));
+
+            if (contractIdQueryString !== null && contractIdQueryString.length > 0) {
+
+                var contractId = contractIdQueryString[1];
+
+                if (!isNaN(contractId) && contractId.length >= 8 && contractId.length <= 18) {
+                    var exdate = new Date();
+                    exdate.setHours(exdate.getHours() + 1);
+                    document.cookie = "JYM_contract_id=" + contractId + ";expires=" + exdate.toString() + ";path=/;domain=.jinyinmao.com.cn";
+                }
+            }
+
+            if (contractIdQueryString == null) {
+                var contractId = "999920150101100000";
+                document.cookie = "JYM_contract_id=" + contractId;
+            }
+
+            var moreContractIdQueryString = location.search.match(new RegExp("[\?\&]" + 'moreS1' + "=([^\&]+)", "i"));
+            if (moreContractIdQueryString !== null && moreContractIdQueryString.length > 0) {
+                var moreContractId = moreContractIdQueryString[1];
+                var moreContractIdQueryStringValue = location.search.match(new RegExp("[\?\&]" + moreContractId + "=([^\&]+)", "i"));
+
+                if (moreContractIdQueryStringValue !== null && moreContractIdQueryStringValue.length > 0) {
+                    var moreContractIdValue = moreContractIdQueryStringValue[1];
+                    if (moreContractIdValue !== null && moreContractIdValue !== undefined) {
+                        var exdate = new Date();
+                        exdate.setHours(exdate.getHours() + 1);
+                        document.cookie = "JYM_more_s1=" + moreContractIdValue + ";expires=" + exdate.toString() + ";path=/;domain=.jinyinmao.com.cn";
+                    }
+                }
+            }
+            return;
+        })();
+        location.href = "/";
+    </script>
+    </head>
+<body>
+    </body>
+</html>
