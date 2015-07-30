@@ -45,14 +45,16 @@
         <button class="button button-small button-assertive" id="btn-narrow" ng-bind="ctrl.viewModel.statusText" ng-click="ctrl.goPurchase()" ng-disabled="!ctrl.goPurchaseButtonEnable()"></button>
       </ion-item>
       <ion-item class="item-divider">
-        <p class="pull-left">投资金额：<span ng-bind="ctrl.viewModel.investAmount"></span>元</p>
+        <p class="pull-left">投资金额：<span ng-bind="ctrl.viewModel.investAmount"></span><span>&nbsp;</span>元</p>
 
-        <p class="pull-right">预期收益：<samp ng-bind="ctrl.viewModel.expectedInterest"></samp>元</p>
+        <p class="pull-right">预期收益：<samp ng-bind="ctrl.viewModel.expectedInterest"></samp><span>&nbsp; </span>元</p>
       </ion-item>
     </div>
 
     <ion-list>
-      <ion-item class="item-divider"><p ng-bind="ctrl.viewModel.productNo" class="product-no"></p></ion-item>
+      <ion-item class="item-divider">
+        <p ng-bind="ctrl.viewModel.productNo" class="product-no"></p>
+      </ion-item>
       <ion-item>
         <p class="pull-left">项目状态</p>
 

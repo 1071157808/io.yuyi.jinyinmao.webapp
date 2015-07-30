@@ -1,9 +1,11 @@
 <ion-view title="选择开户行">
   <ion-content>
     <ion-list class="bank-card">
-      <ion-item ng-repeat="item in ctrl.items" class="item-thumbnail-left item-icon-right" ng-click="ctrl.select(item)">
+      <ion-item collection-repeat="item in ctrl.items" class="item-thumbnail-left item-icon-right" ng-click="ctrl.select(item)">
         <img ng-src="{{ item | bankImg }}">
+
         <h1 ng-bind="item"></h1>
+
         <p ng-bind="item | bankLimit"></p>
       </ion-item>
     </ion-list>

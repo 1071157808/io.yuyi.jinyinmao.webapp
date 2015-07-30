@@ -19,7 +19,7 @@ angular.module('jym.yinpiao.detail', [
                 }
             });
     })
-    .controller('YinpiaoDetailCtrl', function($scope, $state, $stateParams, $q, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('YinpiaoDetailCtrl', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -38,11 +38,28 @@ angular.module('jym.yinpiao.detail', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.investCount = ctrl.viewModel.investCount || 10;
             ctrl.viewModel.investAmount = 0;
             ctrl.viewModel.expectedInterest = 0;
 
-            ctrl.refreshProduct();
+            ctrl.refreshProduct()
+                .then(function(result) {
+                    ctrl.model.product = result;
+                    ctrl.refreshViewModel();
+                    ctrl.refreshInvestViewModel();
+                    return result;
+                });
+
+            ctrl.refreshUser()
+                .then(function(result) {
+                    ctrl.model.user = result;
+                });
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
@@ -69,19 +86,21 @@ angular.module('jym.yinpiao.detail', [
         ctrl.goPurchase = function() {
             if (ctrl.goPurchaseButtonEnable()) {
                 var amount = ctrl.viewModel.investCount * ctrl.model.unitPrice;
-                var checkUserPurchaseStatus = UserService.checkUserPurchaseStatus();
-                var checkProductPurchaseStatus = ProductService.checkProductPurchaseStatus(ctrl.refreshProduct(), amount);
-                $q.all([checkUserPurchaseStatus, checkProductPurchaseStatus])
-                    .then(function(result) {
-                        PurchaseService.buildRegularOrder(amount, result[1].productIdentifier, 100000010);
+                try {
+                    if (ctrl.model.user.hasSetPaymentPassword === false) {
+                        $timeout(function() {
+                            JYMUtilityService.go('jym.user-bank-card-add');
+                        }, 1000);
+                    }
 
-                        $state.go('jym.yinpiao-purchase');
-                    })
-                    .catch(function(result) {
-                        if (Error.prototype.isPrototypeOf(result)) {
-                            JYMUtilityService.showAlert(result);
-                        }
-                    });
+                    ProductService.checkProductPurchaseStatus(ctrl.model.product, amount);
+                    UserService.checkUserPurchaseStatus(ctrl.model.user);
+
+                    PurchaseService.buildRegularOrder(amount, ctrl.viewModel.expectedInterest, ctrl.model.product.productIdentifier, 100000010);
+                    $state.go('jym.yinpiao-purchase');
+                } catch (e) {
+                    JYMUtilityService.showAlert(e.message);
+                }
             }
         };
 
@@ -100,55 +119,53 @@ angular.module('jym.yinpiao.detail', [
         };
 
         ctrl.refreshProduct = function() {
-            return ProductService.getRegularProductInfo($stateParams.productIdentifier)
-                .then(function(result) {
-                    ctrl.model = result;
-                    ctrl.refreshViewModel();
-                    ctrl.refreshInvestViewModel();
-                    return result;
-                });
+            return ProductService.getRegularProductInfo($stateParams.productIdentifier);
+        };
+
+        ctrl.refreshUser = function() {
+            return UserService.getUserInfo();
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.bankName = ctrl.model.bankName;
-            ctrl.viewModel.currentValueDate = ctrl.model.currentValueDate;
-            ctrl.viewModel.drawee = ctrl.model.drawee;
-            ctrl.viewModel.draweeInfo = ctrl.model.draweeInfo;
-            ctrl.viewModel.endorseImageLink = ctrl.model.endorseImageLink;
-            ctrl.viewModel.endSellTime = ctrl.model.endSellTime;
-            ctrl.viewModel.enterpriseInfo = ctrl.model.enterpriseInfo;
-            ctrl.viewModel.enterpriseLicense = ctrl.model.enterpriseLicense;
-            ctrl.viewModel.enterpriseName = ctrl.model.enterpriseName;
-            ctrl.viewModel.financingSumAmount = ctrl.model.financingSumAmount / 1000000;
-            ctrl.viewModel.issueNo = ctrl.model.issueNo;
-            ctrl.viewModel.issueTime = ctrl.model.issueTime;
-            ctrl.viewModel.paidAmount = ctrl.model.paidAmount;
-            ctrl.viewModel.period = ctrl.model.period;
-            ctrl.viewModel.productCategory = ctrl.model.productCategory;
-            ctrl.viewModel.productIdentifier = ctrl.model.productIdentifier;
-            ctrl.viewModel.productName = ctrl.model.productName;
-            ctrl.viewModel.productNo = ctrl.model.productNo;
-            ctrl.viewModel.remainCount = ((ctrl.model.financingSumAmount - ctrl.model.paidAmount) / ctrl.model.unitPrice).toFixed(0);
-            ctrl.viewModel.repaid = ctrl.model.repaid;
-            ctrl.viewModel.repaidTime = ctrl.model.repaidTime;
-            ctrl.viewModel.repaymentDeadline = ctrl.model.repaymentDeadline;
-            ctrl.viewModel.riskManagement = ctrl.model.riskManagement;
-            ctrl.viewModel.riskManagementInfo = ctrl.model.riskManagementInfo;
-            ctrl.viewModel.riskManagementMode = ctrl.model.riskManagementMode;
-            ctrl.viewModel.sellProgress = getSaleProgress(ctrl.model);
+            ctrl.viewModel.bankName = ctrl.model.product.bankName;
+            ctrl.viewModel.currentValueDate = ctrl.model.product.currentValueDate;
+            ctrl.viewModel.drawee = ctrl.model.product.drawee;
+            ctrl.viewModel.draweeInfo = ctrl.model.product.draweeInfo;
+            ctrl.viewModel.endorseImageLink = ctrl.model.product.endorseImageLink;
+            ctrl.viewModel.endSellTime = ctrl.model.product.endSellTime;
+            ctrl.viewModel.enterpriseInfo = ctrl.model.product.enterpriseInfo;
+            ctrl.viewModel.enterpriseLicense = ctrl.model.product.enterpriseLicense;
+            ctrl.viewModel.enterpriseName = ctrl.model.product.enterpriseName;
+            ctrl.viewModel.financingSumAmount = ctrl.model.product.financingSumAmount / 1000000;
+            ctrl.viewModel.issueNo = ctrl.model.product.issueNo;
+            ctrl.viewModel.issueTime = ctrl.model.product.issueTime;
+            ctrl.viewModel.paidAmount = ctrl.model.product.paidAmount;
+            ctrl.viewModel.period = ctrl.model.product.period;
+            ctrl.viewModel.productCategory = ctrl.model.product.productCategory;
+            ctrl.viewModel.productIdentifier = ctrl.model.product.productIdentifier;
+            ctrl.viewModel.productName = ctrl.model.product.productName;
+            ctrl.viewModel.productNo = ctrl.model.product.productNo;
+            ctrl.viewModel.remainCount = ((ctrl.model.product.financingSumAmount - ctrl.model.product.paidAmount) / ctrl.model.product.unitPrice).toFixed(0);
+            ctrl.viewModel.repaid = ctrl.model.product.repaid;
+            ctrl.viewModel.repaidTime = ctrl.model.product.repaidTime;
+            ctrl.viewModel.repaymentDeadline = ctrl.model.product.repaymentDeadline;
+            ctrl.viewModel.riskManagement = ctrl.model.product.riskManagement;
+            ctrl.viewModel.riskManagementInfo = ctrl.model.product.riskManagementInfo;
+            ctrl.viewModel.riskManagementMode = ctrl.model.product.riskManagementMode;
+            ctrl.viewModel.sellProgress = getSaleProgress(ctrl.model.product);
             ctrl.viewModel.sellProgressInCircleProgress = ctrl.viewModel.sellProgress / 100;
-            ctrl.viewModel.settleDate = ctrl.model.settleDate;
-            ctrl.viewModel.soldOut = ctrl.model.soldOut;
-            ctrl.viewModel.soldOutTime = ctrl.model.soldOutTime;
-            ctrl.viewModel.specifyValueDate = ctrl.model.specifyValueDate;
-            ctrl.viewModel.startSellTime = ctrl.model.startSellTime;
-            ctrl.viewModel.status = getSaleStatus(ctrl.model);
-            ctrl.viewModel.unitPrice = (ctrl.model.unitPrice / 100).toFixed(0);
-            ctrl.viewModel.usage = ctrl.model.usage;
-            ctrl.viewModel.valueDate = ctrl.model.valueDate;
-            ctrl.viewModel.valueDateMode = ctrl.model.valueDateMode;
-            ctrl.viewModel.valueDateText = getValueDateModeText(ctrl.model.valueDateMode, ctrl.model.valueDate, ctrl.model.specifyValueDate);
-            ctrl.viewModel.yield = ctrl.model.yield / 100;
+            ctrl.viewModel.settleDate = ctrl.model.product.settleDate;
+            ctrl.viewModel.soldOut = ctrl.model.product.soldOut;
+            ctrl.viewModel.soldOutTime = ctrl.model.product.soldOutTime;
+            ctrl.viewModel.specifyValueDate = ctrl.model.product.specifyValueDate;
+            ctrl.viewModel.startSellTime = ctrl.model.product.startSellTime;
+            ctrl.viewModel.status = getSaleStatus(ctrl.model.product);
+            ctrl.viewModel.unitPrice = (ctrl.model.product.unitPrice / 100).toFixed(0);
+            ctrl.viewModel.usage = ctrl.model.product.usage;
+            ctrl.viewModel.valueDate = ctrl.model.product.valueDate;
+            ctrl.viewModel.valueDateMode = ctrl.model.product.valueDateMode;
+            ctrl.viewModel.valueDateText = getValueDateModeText(ctrl.model.product.valueDateMode, ctrl.model.product.valueDate, ctrl.model.product.specifyValueDate);
+            ctrl.viewModel.yield = ctrl.model.product.yield / 100;
 
             if (ctrl.viewModel.status !== 20) {
                 ctrl.viewModel.remainCount = 0;
@@ -171,6 +188,10 @@ angular.module('jym.yinpiao.detail', [
                     ctrl.viewModel.statusText = '';
             }
         };
+
+        $scope.$on('$ionicView.beforeEnter', function() {
+            ctrl.doRefresh();
+        });
 
         ctrl.doRefresh();
     });

@@ -8,8 +8,10 @@
     <ion-list class="bank-card detail">
       <ion-item class="item-thumbnail-left">
         <img ng-src="{{ ctrl.viewModel.bankName | bankImg }}">
+
         <h2 ng-bind="ctrl.viewModel.bankName"></h2>
         <span class="pull-right" ng-bind="ctrl.viewModel | bankCardStatus"></span>
+
         <p>尾号 <em ng-bind="ctrl.viewModel.bankCardNo.substr(-4)"></em></p>
       </ion-item>
     </ion-list>
@@ -18,7 +20,7 @@
     <div class="space"></div>
     <div class="space"></div>
     <button class="btn button-yellow" ng-click="ctrl.showConfirm()">删除银行卡</button>
-
-
+    <div class="space"></div>
+    <div class="space"></div>
   </ion-content>
 </ion-view>

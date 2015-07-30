@@ -42,6 +42,12 @@ angular.module('jym.user.bank-card-add', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.refreshUser()
                 .then(function(result) {
                     ctrl.model.user = result;

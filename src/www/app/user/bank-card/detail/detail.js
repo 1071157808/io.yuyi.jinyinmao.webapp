@@ -23,6 +23,12 @@ angular.module('jym.user.bank-card-detail', [
         ctrl.viewModel = {};
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.refreshBankCard()
                 .then(function(result) {
                     ctrl.model = result;

@@ -29,6 +29,12 @@ angular.module('jym.zhuanqu.purchase', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.agreement1 = '委托协议';
             ctrl.viewModel.agreement2 = '借款协议';
             ctrl.viewModel.bankName = $stateParams.bankName || ctrl.viewModel.bankName || 'fudian';
@@ -89,15 +95,7 @@ angular.module('jym.zhuanqu.purchase', [
         ctrl.refreshViewModel = function() {
             ctrl.viewModel.amount = (ctrl.model.order.amount / 100).toFixed(2);
             ctrl.viewModel.balance = (ctrl.model.user.balance / 100).toFixed(2);
-        };
-
-        ctrl.resetInput = function() {
-            ctrl.viewModel.checked = true;
-            ctrl.viewModel.password = '';
-        };
-
-        ctrl.purchaseButtonEnable = function() {
-            return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
+            ctrl.viewModel.expectedInterest = ctrl.model.order.expectedInterest;
         };
 
         ctrl.purchase = function() {
@@ -117,6 +115,15 @@ angular.module('jym.zhuanqu.purchase', [
                         }
                     });
             }
+        };
+
+        ctrl.purchaseButtonEnable = function() {
+            return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
+        };
+
+        ctrl.resetInput = function() {
+            ctrl.viewModel.checked = true;
+            ctrl.viewModel.password = '';
         };
 
         ctrl.toggleAgreement1 = function() {

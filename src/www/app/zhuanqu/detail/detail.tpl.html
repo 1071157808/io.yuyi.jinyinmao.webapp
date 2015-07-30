@@ -52,7 +52,9 @@
     </div>
 
     <ion-list>
-      <ion-item class="item-divider"><p ng-bind="ctrl.viewModel.productNo" class="product-no"></p></ion-item>
+      <ion-item class="item-divider">
+        <p ng-bind="ctrl.viewModel.productNo" class="product-no"></p>
+      </ion-item>
       <ion-item>
         <p class="pull-left">项目状态</p>
 
@@ -73,7 +75,7 @@
 
         <p class="pull-right"><span ng-bind="ctrl.viewModel.bankName"></span></p>
       </ion-item>
-      <ion-item  ng-if="ctrl.viewModel.isShangpiao">
+      <ion-item ng-if="ctrl.viewModel.isShangpiao">
         <p class="pull-left">项目类型</p>
 
         <p class="pull-right"><span ng-bind="ctrl.viewModel.riskManagementMode"></span></p>

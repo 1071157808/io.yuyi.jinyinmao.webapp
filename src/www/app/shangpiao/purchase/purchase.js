@@ -40,6 +40,7 @@ angular.module('jym.shangpiao.purchase', [
             ctrl.viewModel.extraInterest = 0;
             ctrl.viewModel.showAgreement1 = false;
             ctrl.viewModel.showAgreement2 = false;
+            ctrl.viewModel.showCoupon = false;
             ctrl.viewModel.useCoupon = false;
 
             ctrl.resetInput();
@@ -109,10 +110,6 @@ angular.module('jym.shangpiao.purchase', [
             ctrl.toggleUseCoupon();
         };
 
-        ctrl.purchaseButtonEnable = function() {
-            return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
-        };
-
         ctrl.purchase = function() {
             if (ctrl.purchaseButtonEnable()) {
                 var amount = ctrl.model.order.amount;
@@ -131,6 +128,10 @@ angular.module('jym.shangpiao.purchase', [
                         }
                     });
             }
+        };
+
+        ctrl.purchaseButtonEnable = function() {
+            return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
         };
 
         ctrl.resetInput = function() {

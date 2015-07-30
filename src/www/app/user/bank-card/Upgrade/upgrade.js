@@ -25,6 +25,12 @@ angular.module('jym.user.bank-card-upgrade', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.refreshUser()
                 .then(function(result) {
                     ctrl.model.user = result;
@@ -65,7 +71,6 @@ angular.module('jym.user.bank-card-upgrade', [
 
         ctrl.verify = function() {
             if (ctrl.buttonEnable()) {
-
                 if (ctrl.viewModel.verified) {
                     UserService.verifyBankCardByYilian(ctrl.viewModel.bankCardNo)
                         .then(function(result) {
