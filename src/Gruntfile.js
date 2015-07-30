@@ -79,6 +79,12 @@ module.exports = function(grunt) {
                 src: 'www/status.html',
                 dest: 'dist/status.html'
             },
+            htmlLanding: {
+                expand: true,
+                cwd: 'www/h5/',
+                src: ['**/*'],
+                dest: 'dist/'
+            },
             htmlDev: {
                 src: 'www/index.html',
                 dest: 'dist/<%= pkg.name %>@<%= pkg.version %>-dev.html'
@@ -527,7 +533,7 @@ module.exports = function(grunt) {
     grunt.registerTask('post-product-build', ['replace:buildProduct']);
 
     grunt.registerTask('build-fonts', ['copy:fonts']);
-    grunt.registerTask('build-html', ['copy:htmlStatus', 'copy:htmlDev', 'copy:htmlTest', 'copy:htmlProduct']);
+    grunt.registerTask('build-html', ['copy:htmlStatus', 'copy:htmlLanding', 'copy:htmlDev', 'copy:htmlTest', 'copy:htmlProduct']);
     grunt.registerTask('build-icon', ['copy:icon', 'copy:favicon']);
     grunt.registerTask('build-img', ['copy:img']);
     grunt.registerTask('build-packages', ['copy:packages']);
