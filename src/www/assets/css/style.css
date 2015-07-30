@@ -2106,7 +2106,7 @@ input[readonly]:not(.cloned-text-input) {
     left: 7%;
   }
   #yilian-notice p {
-    margin-left: 20px;
+    margin-left: 15px;
   }
 }
 /* #yilian-notice end*/
@@ -2302,4 +2302,7 @@ input[readonly]:not(.cloned-text-input) {
   color: #fff;
   background-color: #c3d0d7;
   border: 0 solid #a8b6bf;
+}
+.list {
+  padding-top: 0;
 }
