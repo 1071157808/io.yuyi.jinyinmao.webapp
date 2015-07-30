@@ -96,7 +96,7 @@ angular.module('jym.zhuanqu.detail', [
             }
 
             if (ctrl.goPurchaseButtonEnable()) {
-                var amount = ctrl.viewModel.investCount * ctrl.model.unitPrice;
+                var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {
                         $timeout(function() {

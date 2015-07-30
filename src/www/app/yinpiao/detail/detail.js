@@ -85,7 +85,7 @@ angular.module('jym.yinpiao.detail', [
 
         ctrl.goPurchase = function() {
             if (ctrl.goPurchaseButtonEnable()) {
-                var amount = ctrl.viewModel.investCount * ctrl.model.unitPrice;
+                var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {
                         $timeout(function() {

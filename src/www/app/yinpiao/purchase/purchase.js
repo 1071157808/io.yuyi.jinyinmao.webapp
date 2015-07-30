@@ -50,7 +50,7 @@ angular.module('jym.yinpiao.purchase', [
                     ctrl.model.user = result;
                     ctrl.model.order = PurchaseService.getRegularOrder(100000010);
 
-                    if (ctrl.model.order.amount >= 500000) {
+                    if (ctrl.model.order.amount >= 5000) {
                         UserService.getCoupon()
                             .then(function(result) {
                                 ctrl.model.coupon = result;
