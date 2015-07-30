@@ -126,7 +126,7 @@ angular.module('jym.zhuanqu.detail', [
                 ctrl.viewModel.investAmount = 0;
             }
 
-            ctrl.viewModel.expectedInterest = (ProductService.getInterest(ctrl.viewModel.investAmount * 100, ctrl.model.yield, ctrl.getAccrualDuration()) / 100).toFixed(2);
+            ctrl.viewModel.expectedInterest = (ProductService.getInterest(ctrl.viewModel.investAmount * 100, ctrl.model.product.yield, ctrl.getAccrualDuration()) / 100).toFixed(2);
         };
 
         ctrl.refreshProduct = function() {
