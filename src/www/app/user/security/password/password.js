@@ -27,6 +27,12 @@ angular.module('jym.user.security-password', [])
         ctrl.viewModel = {};
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.resetInput();
         };
 
@@ -45,7 +51,9 @@ angular.module('jym.user.security-password', [])
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PASSWORD);
+
                             UserService.loginOut();
+
                             $timeout(function() {
                                 ctrl.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-login');
@@ -58,6 +66,8 @@ angular.module('jym.user.security-password', [])
         $scope.$on('$ionicView.beforeEnter', function() {
             ctrl.doRefresh();
         });
+
+        ctrl.doRefresh();
     })
     .controller('UserSecurityPasswordSendVeriCodeCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
@@ -66,6 +76,12 @@ angular.module('jym.user.security-password', [])
         ctrl.viewModel.remainSeconds = 0;
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.resetInput();
         };
 

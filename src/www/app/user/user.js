@@ -3,13 +3,13 @@ angular.module('jym.user', [
     'jym.services.user',
     'jym.user.about',
     'jym.user.bank-card',
+    'jym.user.coupon',
+    'jym.user.detail',
     'jym.user.login',
     'jym.user.jinbaoyin',
     'jym.user.orders',
     'jym.user.security',
-    'jym.user.settle-account',
-    'jym.user.detail',
-    'jym.user.coupon'
+    'jym.user.settle-account'
 ])
     .config(function($stateProvider) {
         $stateProvider
@@ -17,23 +17,23 @@ angular.module('jym.user', [
                 url: '/user',
                 views: {
                     '@': {
-                        controller: 'UserCtrl as user',
+                        controller: 'UserCtrl as ctrl',
                         templateUrl: 'app/user/index.tpl.html'
                     }
                 }
             });
     })
     .controller('UserCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
-        var user = this;
+        var ctrl = this;
 
-        user.model = {};
-        user.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        user.doRefresh = function() {
-            user.refreshUser()
+        ctrl.doRefresh = function() {
+            ctrl.refreshUser()
                 .then(function(result) {
-                    user.model = result;
-                    user.refreshViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
 
@@ -42,20 +42,20 @@ angular.module('jym.user', [
             }, 1500);
         };
 
-        user.refreshUser = function() {
+        ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
-        user.refreshViewModel = function() {
-            user.viewModel.cellphone = user.model.cellphone;
-            user.viewModel.realName = user.model.realName || '未实名认证';
-            user.viewModel.credentialNo = user.model.credentialNo || '未实名认证';
-            user.viewModel.balance = (user.model.balance / 100).toFixed(2);
-            user.viewModel.investingPrincipal = (user.model.investingPrincipal / 100).toFixed(2);
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.cellphone = ctrl.model.cellphone;
+            ctrl.viewModel.realName = ctrl.model.realName || '未实名认证';
+            ctrl.viewModel.credentialNo = ctrl.model.credentialNo || '未实名认证';
+            ctrl.viewModel.balance = (ctrl.model.balance / 100).toFixed(2);
+            ctrl.viewModel.investingPrincipal = (ctrl.model.investingPrincipal / 100).toFixed(2);
         };
 
 
-        user.loginOut = function() {
+        ctrl.loginOut = function() {
             UserService.loginOut();
 
             JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_OUT);
@@ -66,12 +66,12 @@ angular.module('jym.user', [
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            user.doRefresh();
+            ctrl.doRefresh();
         });
 
         $scope.$on('$ionicView.leave', function() {
             $ionicScrollDelegate.scrollTop();
         });
 
-        user.doRefresh();
+        ctrl.doRefresh();
     });

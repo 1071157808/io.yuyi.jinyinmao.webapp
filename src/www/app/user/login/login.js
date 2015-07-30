@@ -21,6 +21,12 @@ angular.module('jym.user.login', [
         ctrl.viewModel = {};
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             $ionicNavBarDelegate.showBackButton(false);
             ctrl.resetInput();
         };

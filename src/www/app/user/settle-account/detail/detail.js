@@ -8,27 +8,33 @@ angular.module('jym.user.settle-account-detail', [
                 url: '/user/settle-account/detail/{transactionIdentifier}',
                 views: {
                     '@': {
-                        controller: 'UserSettleAccountDetailCtrl as transaction',
+                        controller: 'UserSettleAccountDetailCtrl as ctrl',
                         templateUrl: 'app/user/settle-account/detail/detail.tpl.html'
                     }
                 }
             });
     })
     .controller('UserSettleAccountDetailCtrl', function($scope, $stateParams, $timeout, $ionicHistory, UserService, JYMUtilityService) {
-        var transaction = this;
+        var ctrl = this;
 
-        transaction.model = {};
-        transaction.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        transaction.canBack = function() {
+        ctrl.canBack = function() {
             return $ionicHistory.backView();
         };
 
-        transaction.doRefresh = function() {
-            transaction.refresh()
+        ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
+            ctrl.refresh()
                 .then(function(result) {
-                    transaction.model = result;
-                    transaction.refreshViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
 
@@ -37,42 +43,42 @@ angular.module('jym.user.settle-account-detail', [
             }, 1500);
         };
 
-        transaction.go = function(toState, params) {
+        ctrl.go = function(toState, params) {
             params = params || {};
             JYMUtilityService.goWithDisableBack(toState, params);
         };
 
-        transaction.refresh = function() {
+        ctrl.refresh = function() {
             return UserService.getSettelAccountTransaction($stateParams.transactionIdentifier);
         };
 
-        transaction.refreshViewModel = function() {
-            transaction.viewModel.amount = (transaction.model.amount / 100).toFixed(2);
-            transaction.viewModel.bankCardNo = transaction.model.bankCardNo;
-            transaction.viewModel.channelCode = transaction.model.channelCode;
-            transaction.viewModel.resultCode = transaction.model.resultCode;
-            transaction.viewModel.resultTime = transaction.model.resultTime;
-            transaction.viewModel.showBankCard = transaction.viewModel.bankCardNo.length > 0;
-            transaction.viewModel.trade = transaction.model.trade;
-            transaction.viewModel.tradeCode = transaction.model.tradeCode;
-            transaction.viewModel.transactionIdentifier = transaction.model.transactionIdentifier;
-            transaction.viewModel.transactionTime = transaction.model.transactionTime;
-            transaction.viewModel.transDesc = transaction.model.transDesc;
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.amount = (ctrl.model.amount / 100).toFixed(2);
+            ctrl.viewModel.bankCardNo = ctrl.model.bankCardNo;
+            ctrl.viewModel.channelCode = ctrl.model.channelCode;
+            ctrl.viewModel.resultCode = ctrl.model.resultCode;
+            ctrl.viewModel.resultTime = ctrl.model.resultTime;
+            ctrl.viewModel.showBankCard = ctrl.viewModel.bankCardNo.length > 0;
+            ctrl.viewModel.trade = ctrl.model.trade;
+            ctrl.viewModel.tradeCode = ctrl.model.tradeCode;
+            ctrl.viewModel.transactionIdentifier = ctrl.model.transactionIdentifier;
+            ctrl.viewModel.transactionTime = ctrl.model.transactionTime;
+            ctrl.viewModel.transDesc = ctrl.model.transDesc;
 
-            transaction.viewModel.resultStyle = { color: '#444' };
+            ctrl.viewModel.resultStyle = { color: '#444' };
 
-            if (transaction.viewModel.resultCode === 1) {
-                transaction.viewModel.resultStyle = { color: '#47B28B' };
+            if (ctrl.viewModel.resultCode === 1) {
+                ctrl.viewModel.resultStyle = { color: '#47B28B' };
             }
 
-            if (transaction.viewModel.resultCode === -1) {
-                transaction.viewModel.resultStyle = { color: '#E74C3C' };
+            if (ctrl.viewModel.resultCode === -1) {
+                ctrl.viewModel.resultStyle = { color: '#E74C3C' };
             }
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            transaction.doRefresh();
+            ctrl.doRefresh();
         });
 
-        transaction.doRefresh();
+        ctrl.doRefresh();
     });

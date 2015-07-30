@@ -25,6 +25,12 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.agreement = '金包银自动交易授权委托书';
             ctrl.viewModel.amount = null;
             ctrl.viewModel.showAgreement = false;
@@ -84,7 +90,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         ctrl.toggleAgreement = function() {
             $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showAgreement = !ctrl.viewModel.showAgreement;
-            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement1);
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement);
         };
 
         ctrl.withdraw = function() {
@@ -94,9 +100,9 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.JINBAOYIN.WITHDRAWAL_SUCCESS);
+
                             $timeout(function() {
                                 ctrl.resetInput();
-
                                 JYMUtilityService.goWithDisableBack('jym.user-jinbaoyin-detail', {
                                     transactionIdentifier: result.transactionIdentifier
                                 });

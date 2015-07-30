@@ -3,10 +3,10 @@
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
-      on-refresh="account.doRefresh()">
+      on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list class="jinbaoyin-list">
-      <div ng-repeat="item in ctrl.viewModel.items">
+      <div collection-repeat="item in ctrl.viewModel.items">
         <ion-item class="item-icon-right" ui-sref="jym.user-jinbaoyin-detail({
         transactionIdentifier: item.transactionIdentifier})">
           <p>
@@ -30,8 +30,8 @@
       </div>
     </ion-list>
     <ion-infinite-scroll
-      ng-if="account.moreDataCanBeLoaded()"
-      on-infinite="account.loadMoreData()"
+      ng-if="ctrl.moreDataCanBeLoaded()"
+      on-infinite="ctrl.loadMoreData()"
       distance="1%"
       spinner="spiral">
     </ion-infinite-scroll>

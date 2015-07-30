@@ -129,7 +129,7 @@ angular.module('jym.yinpiao.purchase', [
                     });
             }
         };
-        
+
         ctrl.purchaseButtonEnable = function() {
             return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
         };

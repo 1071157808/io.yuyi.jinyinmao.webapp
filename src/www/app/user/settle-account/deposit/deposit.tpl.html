@@ -3,9 +3,10 @@
     <ion-list class="bank-card">
       <ion-item class="item-thumbnail-left item-icon-right" ng-if="!ctrl.viewModel.noCard" ui-sref="jym.user-settle-account-deposit-bank-card-selector">
         <img ng-src="{{ ctrl.viewModel.bankName | bankImg }}">
-        <h2><span ng-bind="ctrl.viewModel.bankName"></span><small>&nbsp;&nbsp;尾号 <em ng-bind="ctrl.viewModel.bankCardNo.substr(-4)"></em></small></h2>
 
-
+        <h2><span ng-bind="ctrl.viewModel.bankName"></span>
+          <small>&nbsp;&nbsp;尾号 <em ng-bind="ctrl.viewModel.bankCardNo.substr(-4)"></em></small>
+        </h2>
         <p ng-bind="ctrl.viewModel.bankName | bankLimit"></p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
@@ -26,5 +27,7 @@
     <div class="space"></div>
     <div class="space"></div>
     <button class="btn button-yellow" ng-disabled="!ctrl.buttonEnable()" ng-click="ctrl.deposit()">付款</button>
+    <div class="space"></div>
+    <div class="space"></div>
   </ion-content>
 </ion-view>

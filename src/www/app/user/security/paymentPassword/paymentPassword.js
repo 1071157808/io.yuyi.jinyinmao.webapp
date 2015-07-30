@@ -38,6 +38,12 @@ angular.module('jym.user.security-payment-password', [])
 
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.resetInput();
 
             ctrl.refreshUser()
@@ -77,7 +83,9 @@ angular.module('jym.user.security-payment-password', [])
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.RESET_PAYMENT_PASSWORD);
+
                             ctrl.resetInput();
+
                             $timeout(function() {
                                 JYMUtilityService.goWithDisableBack('jym.user');
                             }, 1000);
@@ -98,6 +106,12 @@ angular.module('jym.user.security-payment-password', [])
         ctrl.viewModel = {};
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.resetInput();
         };
 
@@ -116,6 +130,7 @@ angular.module('jym.user.security-payment-password', [])
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SET_PAYMENT_PASSWORD);
+
                             $timeout(function() {
                                 ctrl.resetInput();
                                 if ($ionicHistory.backView()) {
@@ -144,6 +159,12 @@ angular.module('jym.user.security-payment-password', [])
 
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.resetInput();
 
             ctrl.refreshUser()

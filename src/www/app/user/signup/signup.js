@@ -31,6 +31,12 @@ angular.module('jym.user.signup', [])
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.checked = true;
             ctrl.viewModel.showAgreement1 = false;
             ctrl.viewModel.showAgreement2 = false;
@@ -90,6 +96,12 @@ angular.module('jym.user.signup', [])
         ctrl.viewModel.remainSeconds = 0;
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.resetInput();
         };
 

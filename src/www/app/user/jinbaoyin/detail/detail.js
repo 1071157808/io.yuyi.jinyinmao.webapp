@@ -77,16 +77,20 @@ angular.module('jym.user.jinbaoyin-detail', [
             JYMUtilityService.goWithDisableBack(toState, params);
         };
 
-        ctrl.refreshTransaction = function() {
-            return UserService.getJBYAccountTransaction($stateParams.transactionIdentifier);
-        };
-
         ctrl.refreshAgreement = function() {
             if (ctrl.viewModel.trade === 0) {
                 return JinbaoyinService.getInvestingAgreement();
             } else {
                 return JinbaoyinService.getTransferAgreement();
             }
+        };
+
+        ctrl.refreshTransaction = function() {
+            return UserService.getJBYAccountTransaction($stateParams.transactionIdentifier);
+        };
+
+        ctrl.refreshUser = function() {
+            return UserService.getUserInfo();
         };
 
         ctrl.refreshViewModel = function() {
@@ -109,10 +113,6 @@ angular.module('jym.user.jinbaoyin-detail', [
             if (ctrl.viewModel.resultCode === -1) {
                 ctrl.viewModel.resultStyle = { color: '#E74C3C' };
             }
-        };
-
-        ctrl.refreshUser = function() {
-            return UserService.getUserInfo();
         };
 
         ctrl.toggleAgreement = function() {

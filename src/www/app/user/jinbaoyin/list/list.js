@@ -35,6 +35,12 @@ angular.module('jym.user.jinbaoyin-list', [
         ctrl.viewModel = {};
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.items = [];
             ctrl.viewModel.currentPageIndex = 0;
             ctrl.viewModel.nextPageIndex = 0;

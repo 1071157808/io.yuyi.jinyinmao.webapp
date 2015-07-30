@@ -8,7 +8,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                 url: '/user/settle-account/withdrawal',
                 views: {
                     '@': {
-                        controller: 'UserSettleAccountWithdrawalCtrl as account',
+                        controller: 'UserSettleAccountWithdrawalCtrl as ctrl',
                         templateUrl: 'app/user/settle-account/withdrawal/withdrawal.tpl.html'
                     }
                 }
@@ -17,43 +17,49 @@ angular.module('jym.user.settle-account-withdrawal', [
                 url: '/user/settle-account/withdrawal/select-bank-card',
                 views: {
                     '@': {
-                        controller: 'UserSettleAccountWithdrawalBankCardSeletorCtrl as account',
+                        controller: 'UserSettleAccountWithdrawalBankCardSeletorCtrl as ctrl',
                         templateUrl: 'app/user/settle-account/withdrawal/bank-card-selector.tpl.html'
                     }
                 }
             });
     })
     .controller('UserSettleAccountWithdrawalCtrl', function($scope, $timeout, $q, RESOURCES, UserService, JYMUtilityService) {
-        var account = this;
+        var ctrl = this;
 
-        account.model = {};
-        account.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        account.buttonEnable = function() {
-            return account.viewModel.bankCardNo && account.viewModel.amount && account.viewModel.password;
+        ctrl.buttonEnable = function() {
+            return ctrl.viewModel.bankCardNo && ctrl.viewModel.amount && ctrl.viewModel.password;
         };
 
-        account.doRefresh = function() {
-            account.resetInput();
+        ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
 
-            var refreshBankCard = account.refreshBankCard()
+            ctrl.viewModel.refreshTime = Date.now();
+
+            ctrl.resetInput();
+
+            var refreshBankCard = ctrl.refreshBankCard()
                 .then(function(result) {
-                    account.model.bankCard = result;
+                    ctrl.model.bankCard = result;
                     return result;
                 });
 
-            var refreshUser = account.refreshUser()
+            var refreshUser = ctrl.refreshUser()
                 .then(function(result) {
-                    account.model.user = result;
+                    ctrl.model.user = result;
                 });
 
             $q.all([refreshBankCard, refreshUser])
                 .then(function() {
-                    account.refreshViewModel();
+                    ctrl.refreshViewModel();
                 });
         };
 
-        account.refreshBankCard = function() {
+        ctrl.refreshBankCard = function() {
             if (UserService.sharedData.withdrawalBankCardNo) {
                 return UserService.getBankCard(UserService.sharedData.withdrawalBankCardNo);
             } else {
@@ -69,41 +75,41 @@ angular.module('jym.user.settle-account-withdrawal', [
             }
         };
 
-        account.refreshUser = function() {
+        ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
-        account.refreshViewModel = function() {
-            if (account.model.bankCard === null) {
-                account.viewModel.noCard = true;
+        ctrl.refreshViewModel = function() {
+            if (ctrl.model.bankCard === null) {
+                ctrl.viewModel.noCard = true;
             } else {
-                account.viewModel.bankCardNo = account.model.bankCard.bankCardNo;
-                account.viewModel.bankName = account.model.bankCard.bankName;
-                account.viewModel.cellphone = account.model.bankCard.cellphone;
-                account.viewModel.cityName = account.model.bankCard.cityName;
-                account.viewModel.verified = account.model.bankCard.verified;
-                account.viewModel.verifiedByYilian = account.model.bankCard.verifiedByYilian;
-                account.viewModel.verifiedTime = account.model.bankCard.verifiedTime;
-                account.viewModel.withdrawAmount = (account.model.bankCard.withdrawAmount / 100).toFixed(2);
-                account.viewModel.noCard = false;
+                ctrl.viewModel.bankCardNo = ctrl.model.bankCard.bankCardNo;
+                ctrl.viewModel.bankName = ctrl.model.bankCard.bankName;
+                ctrl.viewModel.cellphone = ctrl.model.bankCard.cellphone;
+                ctrl.viewModel.cityName = ctrl.model.bankCard.cityName;
+                ctrl.viewModel.verified = ctrl.model.bankCard.verified;
+                ctrl.viewModel.verifiedByYilian = ctrl.model.bankCard.verifiedByYilian;
+                ctrl.viewModel.verifiedTime = ctrl.model.bankCard.verifiedTime;
+                ctrl.viewModel.withdrawAmount = (ctrl.model.bankCard.withdrawAmount / 100).toFixed(2);
+                ctrl.viewModel.noCard = false;
 
-                account.viewModel.withdrawalableAmount = (account.model.user.withdrawalableAmount / 100).toFixed(2);
+                ctrl.viewModel.withdrawalableAmount = (ctrl.model.user.withdrawalableAmount / 100).toFixed(2);
             }
         };
 
-        account.resetInput = function() {
-            account.viewModel.amount = null;
-            account.viewModel.password = '';
+        ctrl.resetInput = function() {
+            ctrl.viewModel.amount = null;
+            ctrl.viewModel.password = '';
         };
 
-        account.selectAll = function() {
-            account.viewModel.amount = account.viewModel.withdrawAmount;
+        ctrl.selectAll = function() {
+            ctrl.viewModel.amount = ctrl.viewModel.withdrawAmount;
         };
 
-        account.withdraw = function() {
-            var amount = parseInt(account.viewModel.amount * 100, 10);
-            if (account.buttonEnable()) {
-                UserService.withdrawal(amount, account.viewModel.bankCardNo, account.viewModel.password)
+        ctrl.withdraw = function() {
+            var amount = parseInt(ctrl.viewModel.amount * 100, 10);
+            if (ctrl.buttonEnable()) {
+                UserService.withdrawal(amount, ctrl.viewModel.bankCardNo, ctrl.viewModel.password)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_SUCCESS);
@@ -111,7 +117,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                             UserService.sharedData.withdrawalBankCardNo = undefined;
 
                             $timeout(function() {
-                                account.resetInput();
+                                ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-settle-account-detail', {
                                     transactionIdentifier: result.transactionIdentifier
                                 });
@@ -122,35 +128,35 @@ angular.module('jym.user.settle-account-withdrawal', [
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            account.doRefresh();
+            ctrl.doRefresh();
         });
 
-        account.doRefresh();
+        ctrl.doRefresh();
     })
     .controller('UserSettleAccountWithdrawalBankCardSeletorCtrl', function($scope, $timeout, $ionicHistory, UserService) {
-        var account = this;
+        var ctrl = this;
 
         var getViewItem = function(modelItem) {
-            var card = {};
-            card.bankCardNo = modelItem.bankCardNo;
-            card.bankName = modelItem.bankName;
-            card.cellphone = modelItem.cellphone;
-            card.cityName = modelItem.cityName;
-            card.verified = modelItem.verified;
-            card.verifiedByYilian = modelItem.verifiedByYilian;
-            card.verifiedTime = modelItem.verifiedTime;
-            card.withdrawAmount = (modelItem.withdrawAmount / 100).toFixed(2);
-            return card;
+            var item = {};
+            item.bankCardNo = modelItem.bankCardNo;
+            item.bankName = modelItem.bankName;
+            item.cellphone = modelItem.cellphone;
+            item.cityName = modelItem.cityName;
+            item.verified = modelItem.verified;
+            item.verifiedByYilian = modelItem.verifiedByYilian;
+            item.verifiedTime = modelItem.verifiedTime;
+            item.withdrawAmount = (modelItem.withdrawAmount / 100).toFixed(2);
+            return item;
         };
 
-        account.model = {};
-        account.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        account.doRefresh = function() {
-            account.refreshBankCards()
+        ctrl.doRefresh = function() {
+            ctrl.refreshBankCards()
                 .then(function(result) {
-                    account.model = result;
-                    account.refreshViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
 
@@ -159,30 +165,30 @@ angular.module('jym.user.settle-account-withdrawal', [
             }, 1500);
         };
 
-        account.refreshBankCards = function() {
+        ctrl.refreshBankCards = function() {
             return UserService.getWithdrawalableBankCards();
         };
 
-        account.refreshViewModel = function() {
-            account.viewModel.items = [];
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.items = [];
 
-            _.forEach(account.model, function(c) {
-                account.viewModel.items.push(getViewItem(c));
+            _.forEach(ctrl.model, function(i) {
+                ctrl.viewModel.items.push(getViewItem(i));
             });
         };
 
-        account.select = function(bankCardNo) {
+        ctrl.select = function(bankCardNo) {
             UserService.sharedData.withdrawalBankCardNo = bankCardNo;
             $ionicHistory.goBack();
         };
 
-        account.selected = function(bankCardNo) {
+        ctrl.selected = function(bankCardNo) {
             return UserService.sharedData.withdrawalBankCardNo === bankCardNo;
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            account.doRefresh();
+            ctrl.doRefresh();
         });
 
-        account.doRefresh();
+        ctrl.doRefresh();
     });

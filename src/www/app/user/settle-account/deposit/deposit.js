@@ -43,6 +43,12 @@ angular.module('jym.user.settle-account-deposit', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.resetInput();
 
             ctrl.refresh()
@@ -127,7 +133,26 @@ angular.module('jym.user.settle-account-deposit', [
         ctrl.viewModel = {};
         ctrl.viewModel.items = [];
 
+        var getViewItem = function(modelItem) {
+            var item = {};
+            item.bankCardNo = modelItem.bankCardNo;
+            item.bankName = modelItem.bankName;
+            item.cellphone = modelItem.cellphone;
+            item.cityName = modelItem.cityName;
+            item.verified = modelItem.verified;
+            item.verifiedByYilian = modelItem.verifiedByYilian;
+            item.verifiedTime = modelItem.verifiedTime;
+            item.withdrawAmount = (modelItem.withdrawAmount / 100).toFixed(2);
+            return item;
+        };
+
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.refreshBankCards()
                 .then(function(result) {
                     ctrl.model = result;
@@ -147,18 +172,8 @@ angular.module('jym.user.settle-account-deposit', [
         ctrl.refreshViewModel = function() {
             ctrl.viewModel.items = [];
 
-            _.forEach(ctrl.model, function(c) {
-                var card = {};
-
-                card.bankCardNo = c.bankCardNo;
-                card.bankName = c.bankName;
-                card.cellphone = c.cellphone;
-                card.cityName = c.cityName;
-                card.verified = c.verified;
-                card.verifiedByYilian = c.verifiedByYilian;
-                card.verifiedTime = c.verifiedTime;
-                card.withdrawAmount = (c.withdrawAmount / 100).toFixed(2);
-                ctrl.viewModel.items.push(c);
+            _.forEach(ctrl.model, function(i) {
+                ctrl.viewModel.items.push(getViewItem(i));
             });
         };
 

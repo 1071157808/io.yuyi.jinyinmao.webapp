@@ -27,6 +27,12 @@ angular.module('jym.user.orders-detail', [
         };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.agreement1 = '委托协议';
             ctrl.viewModel.agreement2 = '借款协议';
             ctrl.viewModel.showAgreement1 = false;

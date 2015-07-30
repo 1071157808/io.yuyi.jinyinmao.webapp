@@ -3,15 +3,15 @@
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
-      on-refresh="user.doRefresh()">
+      on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list>
       <ion-item class="item-icon-right" ui-sref="jym.user-settle-account-list">
-        <p><strong ng-bind="user.viewModel.balance"></strong> 元</p>
+        <p><strong ng-bind="ctrl.viewModel.balance"></strong> 元</p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
       <ion-item>
-        <p>投资中金额（元）：<em ng-bind="user.viewModel.investingPrincipal"></em></p>
+        <p>投资中金额（元）：<em ng-bind="ctrl.viewModel.investingPrincipal"></em></p>
       </ion-item>
       <ion-item class="divider"></ion-item>
       <ion-item class="item-icon-right" ui-sref="jym.user-settle-account-deposit">

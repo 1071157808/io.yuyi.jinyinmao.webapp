@@ -3,38 +3,29 @@
     <ion-refresher
       pulling-icon="ion-arrow-down-c"
       spinner="spiral"
-      on-refresh="user.doRefresh()">
+      on-refresh="ctrl.doRefresh()">
     </ion-refresher>
     <ion-list>
-      <ion-item ng-if="!(user.viewModel.realName == '未实名认证')" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-detail">
-        <img id="avatar" src="assets/img/common/avatar@128x128-acece9.png" />
-        <h2 ng-bind="user.viewModel.cellphone"></h2>
+      <ion-item ng-if="!(ctrl.viewModel.realName == '未实名认证')" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-detail">
+        <img id="avatar" src="assets/img/common/avatar@128x128-acece9.png"/>
+
+        <h2 ng-bind="ctrl.viewModel.cellphone"></h2>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
-      <ion-item ng-if="user.viewModel.realName == '未实名认证'" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-bank-card-add">
-        <img class="avatar" src="assets/img/common/avatar@128x128-acece9.png" />
-        <h2 ng-bind="user.viewModel.cellphone"></h2>
-        <samp  ui-sref="jym-user/bank-card/add/select-method">尚未实名认证</samp>
+      <ion-item ng-if="ctrl.viewModel.realName == '未实名认证'" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-bank-card-add">
+        <img class="avatar" src="assets/img/common/avatar@128x128-acece9.png"/>
+
+        <h2 ng-bind="ctrl.viewModel.cellphone"></h2>
+        <samp ui-sref="jym-user/bank-card/add/select-method">尚未实名认证</samp>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
       <ion-item class="item-icon-right" ui-sref="jym.user-settle-account">
         <p class="pull-left">账户余额</p>
-        <p class="pull-right"><span ng-bind="user.viewModel.balance"></span> 元</p>
+
+        <p class="pull-right"><span ng-bind="ctrl.viewModel.balance"></span> 元</p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
-      <!--<ion-item>-->
-        <!--<p class="pull-left">真实姓名</p>-->
-        <!--<p class="pull-right" ng-bind="user.viewModel.realName"></p>-->
-      <!--</ion-item>-->
-      <!--<ion-item>-->
-        <!--<p class="pull-left">身份证</p>-->
-        <!--<p class="pull-right" ng-bind="user.viewModel.credentialNo"></p>-->
-      <!--</ion-item>-->
       <ion-item class="divider"></ion-item>
-      <!--<ion-item class="item-icon-right" ui-sref="jym.user-settle-account">-->
-        <!--<p>资金账户</p>-->
-        <!--<i class="icon ion-chevron-right"></i>-->
-      <!--</ion-item>-->
       <ion-item class="item-icon-right" ui-sref="jym.user-jinbaoyin">
         <p>金包银账户</p>
         <i class="icon ion-chevron-right"></i>
@@ -44,7 +35,7 @@
         <i class="icon ion-chevron-right"></i>
       </ion-item>
       <ion-item class="item-icon-right" ui-sref="jym.user-bank-card">
-        <p><span class="pull-left">我的银行卡</span> <span class="pull-right" ng-if="user.viewModel.realName == '未实名认证'"><samp>未绑定</samp></span></p>
+        <p><span class="pull-left">我的银行卡</span> <span class="pull-right" ng-if="ctrl.viewModel.realName == '未实名认证'"><samp>未绑定</samp></span></p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
       <ion-item class="divider">
@@ -57,15 +48,9 @@
         <p>我的优惠券</p>
         <i class="icon ion-chevron-right"></i>
       </ion-item>
-      <!--<ion-item class="divider">-->
-      <!--</ion-item>-->
-      <!--<ion-item class="item-icon-right" ui-sref="jym.user-about">-->
-      <!--<p>关于金银猫</p>-->
-      <!--<i class="icon ion-chevron-right"></i>-->
-      <!--</ion-item>-->
     </ion-list>
     <br>
-    <button class="btn button-grey" ng-click="user.loginOut()">登出</button>
+    <button class="btn button-grey" ng-click="ctrl.loginOut()">登出</button>
     <div class="space"></div>
   </ion-content>
   <div ng-include="'app/common/templates/tabs.tpl.html'"></div>

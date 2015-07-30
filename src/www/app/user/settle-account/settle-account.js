@@ -11,23 +11,29 @@ angular.module('jym.user.settle-account', [
                 url: '/user/settle-account',
                 views: {
                     '@': {
-                        controller: 'UserSettleAccountCtrl as user',
+                        controller: 'UserSettleAccountCtrl as ctrl',
                         templateUrl: 'app/user/settle-account/settle-account.tpl.html'
                     }
                 }
             });
     })
     .controller('UserSettleAccountCtrl', function($scope, $state, $timeout, RESOURCES, UserService) {
-        var user = this;
+        var ctrl = this;
 
-        user.model = {};
-        user.viewModel = {};
+        ctrl.model = {};
+        ctrl.viewModel = {};
 
-        user.doRefresh = function() {
-            user.refreshUser()
+        ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
+            ctrl.refreshUser()
                 .then(function(result) {
-                    user.model = result;
-                    user.refreshViewModel();
+                    ctrl.model = result;
+                    ctrl.refreshViewModel();
                     return result;
                 });
 
@@ -36,18 +42,18 @@ angular.module('jym.user.settle-account', [
             }, 1500);
         };
 
-        user.refreshUser = function() {
+        ctrl.refreshUser = function() {
             return UserService.getUserInfo();
         };
 
-        user.refreshViewModel = function() {
-            user.viewModel.balance = (user.model.balance / 100).toFixed(2);
-            user.viewModel.investingPrincipal = (user.model.investingPrincipal / 100).toFixed(2);
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.balance = (ctrl.model.balance / 100).toFixed(2);
+            ctrl.viewModel.investingPrincipal = (ctrl.model.investingPrincipal / 100).toFixed(2);
         };
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            user.doRefresh();
+            ctrl.doRefresh();
         });
 
-        user.doRefresh();
+        ctrl.doRefresh();
     });

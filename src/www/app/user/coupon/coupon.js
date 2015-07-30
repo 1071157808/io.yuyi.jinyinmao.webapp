@@ -22,7 +22,7 @@ angular.module('jym.user.coupon', ['ionic'])
         var getViewItem = function(modelItem) {
             var item = {};
             item.addTime = modelItem.addTime;
-            item.amount = parseInt(modelItem.amount / 100, 10);
+            item.amount = (modelItem.amount / 100).toFixed();
             item.effectiveEndTime = modelItem.effectiveEndTime;
             item.effectiveStartTime = modelItem.effectiveStartTime;
             item.id = modelItem.id;
