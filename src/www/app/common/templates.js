@@ -200,8 +200,8 @@ angular.module("app/user/settle-account/settle-account.tpl.html", []).run(["$tem
 
 angular.module("app/user/settle-account/withdrawal/bank-card-selector.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/settle-account/withdrawal/bank-card-selector.tpl.html",
-    "<ion-view title=选择银行卡><ion-content><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=account.doRefresh()></ion-refresher><ion-list class=bank-card-select><ion-item ng-repeat=\"item in account.viewModel.items\" class=\"item-thumbnail-left item-icon-right\" ng-click=account.select(item.bankCardNo) ng-class=\"{\n" +
-    "      'border-bottom-yellow': account.selected(item.bankCardNo) }\"><img ng-src=\"{{ item.bankName | bankImg }}\"><h2 ng-bind=item.bankName></h2><p>尾号 <em ng-bind=item.bankCardNo.substr(-4)></em><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><samp ng-bind=\"item | bankCardStatus\"></samp></p><p>取现额度（元）<span ng-bind=item.withdrawAmount></span></p><i class=\"icon ion-checkmark-round\" ng-hide=!account.selected(item.bankCardNo)></i></ion-item></ion-list></ion-content></ion-view>");
+    "<ion-view title=选择银行卡><ion-content><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=ctrl.doRefresh()></ion-refresher><ion-list class=bank-card-select><ion-item ng-repeat=\"item in ctrl.viewModel.items\" class=\"item-thumbnail-left item-icon-right\" ng-click=ctrl.select(item.bankCardNo) ng-class=\"{\n" +
+    "      'border-bottom-yellow': ctrl.selected(item.bankCardNo) }\"><img ng-src=\"{{ item.bankName | bankImg }}\"><h2 ng-bind=item.bankName></h2><p>尾号 <em ng-bind=item.bankCardNo.substr(-4)></em><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><samp ng-bind=\"item | bankCardStatus\"></samp></p><p>取现额度（元）<span ng-bind=item.withdrawAmount></span></p><i class=\"icon ion-checkmark-round\" ng-hide=!ctrl.selected(item.bankCardNo)></i></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/settle-account/withdrawal/withdrawal.tpl.html", []).run(["$templateCache", function($templateCache) {

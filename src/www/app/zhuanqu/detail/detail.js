@@ -79,7 +79,7 @@ angular.module('jym.zhuanqu.detail', [
         };
 
         ctrl.getAccrualDuration = function() {
-            var diff = (moment(ctrl.model.settleDate) - moment(ctrl.model.currentValueDate)) / (1000 * 60 * 60 * 24);
+            var diff = (moment(ctrl.model.product.settleDate) - moment(ctrl.model.product.currentValueDate)) / (1000 * 60 * 60 * 24);
             return parseInt(diff, 10);
         };
 
