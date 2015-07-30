@@ -1671,11 +1671,12 @@ label.item-input > span {
   padding-bottom: 8px;
 }
 .usecoupon {
-  padding-bottom: 10px;
+  padding: 10px 0 5px 0;
   font-size: 18px;
 }
 .usecoupon .pull-left {
-  margin-top: 5px;
+  margin-top: 0;
+  font-size: 18px;
 }
 
 .narrow {
