@@ -2066,6 +2066,13 @@ input[readonly]:not(.cloned-text-input) {
   color: #999;
   text-align: left;
 }
+.deposit-success #yilian-notice p {
+  margin: 20px 20px 5px 20px;
+  font-size: 16px;
+  color: #999;
+  text-align: center;
+}
+
 #yilian-notice p em {
   color: #e74c3c;
 }
