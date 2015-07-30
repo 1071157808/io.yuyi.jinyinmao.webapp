@@ -20,6 +20,8 @@ angular.module('jym.user.orders', [
     .controller('UserOrdersCtrl', function($scope, $timeout, UserService, JYMTimeService) {
         var ctrl = this;
 
+        ctrl.viewModel = {};
+
         var getViewItem = function(modelItem) {
             var item = {};
             item.accountTransactionIdentifier = modelItem.accountTransactionIdentifier;
@@ -92,8 +94,6 @@ angular.module('jym.user.orders', [
 
             return item;
         };
-
-        ctrl.viewModel = {};
 
         ctrl.doRefresh = function() {
             if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {

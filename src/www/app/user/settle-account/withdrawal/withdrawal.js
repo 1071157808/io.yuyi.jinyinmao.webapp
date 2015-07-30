@@ -155,7 +155,7 @@ angular.module('jym.user.settle-account-withdrawal', [
         ctrl.doRefresh = function() {
             ctrl.refreshBankCards()
                 .then(function(result) {
-                    ctrl.model = result;
+                    ctrl.model.items = result;
                     ctrl.refreshViewModel();
                     return result;
                 });
@@ -172,7 +172,7 @@ angular.module('jym.user.settle-account-withdrawal', [
         ctrl.refreshViewModel = function() {
             ctrl.viewModel.items = [];
 
-            _.forEach(ctrl.model, function(i) {
+            _.forEach(ctrl.model.items, function(i) {
                 ctrl.viewModel.items.push(getViewItem(i));
             });
         };

@@ -41,7 +41,7 @@ angular.module('jym.user.coupon', ['ionic'])
 
             ctrl.refreshCoupons()
                 .then(function(result) {
-                    ctrl.model = result;
+                    ctrl.model.items = result;
                     ctrl.refreshViewModel();
                     return result;
                 });
