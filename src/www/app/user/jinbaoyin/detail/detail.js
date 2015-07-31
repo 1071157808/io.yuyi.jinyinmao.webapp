@@ -77,16 +77,16 @@ angular.module('jym.user.jinbaoyin-detail', [
             JYMUtilityService.goWithDisableBack(toState, params);
         };
 
+        ctrl.refreshTransaction = function() {
+            return UserService.getJBYAccountTransaction($stateParams.transactionIdentifier);
+        };
+
         ctrl.refreshAgreement = function() {
             if (ctrl.viewModel.trade === 0) {
                 return JinbaoyinService.getInvestingAgreement();
             } else {
                 return JinbaoyinService.getTransferAgreement();
             }
-        };
-
-        ctrl.refreshTransaction = function() {
-            return UserService.getJBYAccountTransaction($stateParams.transactionIdentifier);
         };
 
         ctrl.refreshUser = function() {
