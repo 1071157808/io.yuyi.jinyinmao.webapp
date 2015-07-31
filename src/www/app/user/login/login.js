@@ -79,7 +79,7 @@ angular.module('jym.user.login', [
             ctrl.viewModel.password = '';
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

@@ -32,6 +32,19 @@ angular.module('jym.user.bank-card', [
         ctrl.viewModel = {};
         ctrl.viewModel.items = [];
 
+        var getViewItem = function(modelItem) {
+            var item = {};
+            item.bankCardNo = modelItem.bankCardNo;
+            item.bankName = modelItem.bankName;
+            item.cellphone = modelItem.cellphone;
+            item.cityName = modelItem.cityName;
+            item.verified = modelItem.verified;
+            item.verifiedByYilian = modelItem.verifiedByYilian;
+            item.verifiedTime = modelItem.verifiedTime;
+            item.withdrawAmount = modelItem.withdrawAmount;
+            return item;
+        };
+
         ctrl.doRefresh = function() {
             if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
                 return;
@@ -41,7 +54,7 @@ angular.module('jym.user.bank-card', [
 
             ctrl.refreshBankCards()
                 .then(function(result) {
-                    ctrl.model = result;
+                    ctrl.model.items = result;
                     ctrl.refreshViewModel();
                     return result;
                 });
@@ -56,14 +69,18 @@ angular.module('jym.user.bank-card', [
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.items = ctrl.model;
+            ctrl.viewModel.items = [];
+
+            _.forEach(ctrl.model.items, function(i) {
+                ctrl.viewModel.items.push(getViewItem(i));
+            });
         };
 
         ctrl.showAddButton = function() {
             return ctrl.viewModel.items.length < 10;
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

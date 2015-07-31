@@ -56,6 +56,8 @@ angular.module('jym.user.bank-card-add', [
 
             ctrl.viewModel.refreshTime = Date.now();
 
+            ctrl.viewModel.hasSetPaymentPassword = undefined;
+
             ctrl.refreshUser()
                 .then(function(result) {
                     ctrl.model.user = result;
@@ -124,7 +126,7 @@ angular.module('jym.user.bank-card-add', [
             }
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

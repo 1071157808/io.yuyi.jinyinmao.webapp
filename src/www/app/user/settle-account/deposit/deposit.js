@@ -119,7 +119,7 @@ angular.module('jym.user.settle-account-deposit', [
             ctrl.viewModel.password = '';
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 
@@ -186,7 +186,7 @@ angular.module('jym.user.settle-account-deposit', [
             return UserService.sharedData.depositBankCardNo === bankCardNo;
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

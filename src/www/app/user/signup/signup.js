@@ -83,7 +83,7 @@ angular.module('jym.user.signup', [])
             $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement2);
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 
@@ -158,7 +158,7 @@ angular.module('jym.user.signup', [])
             return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

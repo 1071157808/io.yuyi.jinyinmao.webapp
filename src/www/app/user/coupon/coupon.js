@@ -56,6 +56,8 @@ angular.module('jym.user.coupon', ['ionic'])
         };
 
         ctrl.refreshViewModel = function() {
+            ctrl.viewModel.items = [];
+
             _.forEach(ctrl.model.items, function(i) {
                 ctrl.viewModel.items.push(getViewItem(i));
             });
@@ -86,7 +88,7 @@ angular.module('jym.user.coupon', ['ionic'])
             });
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

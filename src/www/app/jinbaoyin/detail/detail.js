@@ -164,7 +164,7 @@ angular.module('jym.jinbaoyin.detail', [
             }
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

@@ -121,7 +121,7 @@ angular.module('jym.user.jinbaoyin-detail', [
             $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement);
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

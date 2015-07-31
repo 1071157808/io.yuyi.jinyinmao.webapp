@@ -49,7 +49,7 @@ angular.module('jym.user.detail', [
             ctrl.viewModel.credentialNo = ctrl.model.credentialNo;
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

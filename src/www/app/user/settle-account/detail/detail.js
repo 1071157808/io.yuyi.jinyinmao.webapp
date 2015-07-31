@@ -76,7 +76,7 @@ angular.module('jym.user.settle-account-detail', [
             }
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

@@ -116,7 +116,7 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
             return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.viewModel.amount <= ctrl.viewModel.todayJBYWithdrawalableAmount;
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

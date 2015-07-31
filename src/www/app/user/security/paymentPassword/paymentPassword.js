@@ -94,7 +94,7 @@ angular.module('jym.user.security-payment-password', [])
             }
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 
@@ -144,7 +144,7 @@ angular.module('jym.user.security-payment-password', [])
             }
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 
@@ -237,7 +237,7 @@ angular.module('jym.user.security-payment-password', [])
             return ctrl.viewModel.cellphone && ctrl.viewModel.veriCode;
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

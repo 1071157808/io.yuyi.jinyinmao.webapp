@@ -161,7 +161,7 @@ angular.module('jym.shangpiao.purchase', [
             }
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

@@ -180,7 +180,7 @@ angular.module('jym.user.orders-detail', [
             $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showAgreement2);
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 

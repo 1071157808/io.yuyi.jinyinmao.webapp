@@ -44,7 +44,7 @@ angular.module('jym.user.security', [
             ctrl.viewModel.hasSetPaymentPassword = ctrl.model.user.hasSetPaymentPassword;
         };
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
 
