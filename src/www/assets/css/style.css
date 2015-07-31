@@ -1788,6 +1788,7 @@ ion-item .divider,
   height: 2px;
   padding: 4px;
   background-color: #fbf7ed;
+  border-bottom-style: none;
 }
 
 .ion-chevron-right {
