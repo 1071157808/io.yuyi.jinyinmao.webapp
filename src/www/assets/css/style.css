@@ -1697,6 +1697,12 @@ label.item-input > span {
   color: #e74c3c;
 }
 
+@media  only screen and (max-width: 320px) {
+  .narrow {
+    font-size: 12px;
+  }
+}
+
 .col.col-75 p {
   margin-top: 9px;
   font-size: 14px;
@@ -2010,7 +2016,7 @@ input[readonly]:not(.cloned-text-input) {
 }
 #notice .noticeDetail {
   position: relative;
-  top: 130px;
+  top: 190px;
 }
 .noticeDetail button {
   font-size: 22px;

@@ -32,13 +32,14 @@
       <p class="attention" ng-if="ctrl.viewModel.hasSetPaymentPassword">认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p>
     </div>
     <div ng-if="ctrl.viewModel.hasSetPaymentPassword === false" id="notice">
+      <div class="space"></div>
+      <div class="space"></div>
       <div class="noticeDetail">
+
         <h2>欢迎您成为金银猫的会员</h2>
 
         <p>为了您的账户安全，请先完成以下设置</p>
 
-        <div class="space"></div>
-        <div class="space"></div>
         <div class="space"></div>
         <div class="space"></div>
         <button class="btn button-yellow" ui-sref="jym.user-security-set-payment-password" ng-if="!ctrl.viewModel.hasSetPaymentPassword">设置支付密码</button>
