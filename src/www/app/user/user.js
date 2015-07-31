@@ -18,7 +18,7 @@ angular.module('jym.user', [
                 views: {
                     '@': {
                         controller: 'UserCtrl as ctrl',
-                        templateUrl: 'app/user/index.tpl.html'
+                        templateUrl: 'app/user/user.tpl.html'
                     }
                 }
             });
@@ -47,13 +47,13 @@ angular.module('jym.user', [
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.cellphone = ctrl.model.cellphone;
-            ctrl.viewModel.realName = ctrl.model.realName || '未实名认证';
-            ctrl.viewModel.credentialNo = ctrl.model.credentialNo || '未实名认证';
             ctrl.viewModel.balance = (ctrl.model.balance / 100).toFixed(2);
+            ctrl.viewModel.cellphone = ctrl.model.cellphone;
+            ctrl.viewModel.credentialNo = ctrl.model.credentialNo || '未实名认证';
             ctrl.viewModel.investingPrincipal = (ctrl.model.investingPrincipal / 100).toFixed(2);
+            ctrl.viewModel.realName = ctrl.model.realName || '未实名认证';
+            ctrl.viewModel.verified = ctrl.model.verified;
         };
-
 
         ctrl.loginOut = function() {
             UserService.loginOut();
