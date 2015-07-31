@@ -2241,8 +2241,8 @@ input[readonly]:not(.cloned-text-input) {
   }
 }
 
-#avatar {
-  top: 0;
+.list .item-thumbnail-left .avatar {
+   margin-top: 2px;
 }
 
 .coupon p {
