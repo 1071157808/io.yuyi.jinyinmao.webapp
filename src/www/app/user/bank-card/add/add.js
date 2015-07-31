@@ -31,14 +31,22 @@ angular.module('jym.user.bank-card-add', [
                 }
             });
     })
-    .controller('UserBankCardAddCtrl', function($scope, $state, $timeout, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserBankCardAddCtrl', function($scope, $state, $timeout, $ionicHistory, RESOURCES, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
         ctrl.viewModel = {};
 
+        ctrl.backHome = function() {
+            JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
+        };
+
         ctrl.buttonEnable = function() {
             return ctrl.viewModel.cellphone && ctrl.viewModel.realName && ctrl.viewModel.credentialNo && ctrl.viewModel.bankCardNo && ctrl.viewModel.bankName;
+        };
+
+        ctrl.canBack = function() {
+            return $ionicHistory.backView();
         };
 
         ctrl.doRefresh = function() {
@@ -54,10 +62,6 @@ angular.module('jym.user.bank-card-add', [
                     ctrl.refreshViewModel();
                     return result;
                 });
-        };
-
-        ctrl.backHome = function() {
-            JYMUtilityService.goWithDisableBack('jym.jinbaoyin');
         };
 
         ctrl.refreshUser = function() {

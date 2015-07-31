@@ -49,7 +49,7 @@ angular.module('jym.services', [
         });
 
         CacheFactory('userInfoCache', {
-            maxAge: 10 * 1000,
+            maxAge: 5 * 1000,
             deleteOnExpire: 'aggressive',
             storageMode: 'memory'
         });
