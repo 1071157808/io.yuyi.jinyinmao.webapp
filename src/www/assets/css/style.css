@@ -1149,6 +1149,12 @@ ion-item img {
   background-color: inherit;
   border: none;
 }
+
+@media only screen and (max-width: 320px)  {
+  .veri-code-refresh button {
+    padding-right: 15px;
+  }
+}
 /*user-index start*/
 
 #user-index {
