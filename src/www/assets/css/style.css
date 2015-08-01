@@ -743,6 +743,9 @@ ion-slide img {
     padding-top: 10px;
     font-size: 40px;
   }
+  .has-footer {
+    bottom: 70px;
+  }
 }
 /*pad 竖屏*/
 /*ion-footer-bar start*/
