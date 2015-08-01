@@ -118,7 +118,7 @@ module.exports = function(grunt) {
             app: {
                 expand: true,
                 cwd: 'dist/',
-                src: ['**/*', '!activities/'],
+                src: ['**/*', '!activities', '!activities/**/*'],
                 dest: 'app/www/'
             }
         },
