@@ -81,9 +81,9 @@ module.exports = function(grunt) {
             },
             htmlLanding: {
                 expand: true,
-                cwd: 'www/h5/',
+                cwd: 'www/activities/',
                 src: ['**/*'],
-                dest: 'dist/h5'
+                dest: 'dist/activities/'
             },
             htmlDev: {
                 src: 'www/index.html',
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
             app: {
                 expand: true,
                 cwd: 'dist/',
-                src: ['**/*', '!h5/**/*'],
+                src: ['**/*', '!activities/'],
                 dest: 'app/www/'
             }
         },

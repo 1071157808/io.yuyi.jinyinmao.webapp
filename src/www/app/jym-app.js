@@ -17,7 +17,6 @@ angular.module('JYM', [
     'jym.zhuanqu'
 ])
     .config(function($ionicConfigProvider) {
-        $ionicConfigProvider.views.swipeBackEnabled(false);
         $ionicConfigProvider.views.transition('ios');
         $ionicConfigProvider.tabs.position('bottom');
         $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back');

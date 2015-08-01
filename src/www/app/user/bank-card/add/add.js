@@ -56,7 +56,7 @@ angular.module('jym.user.bank-card-add', [
 
             ctrl.viewModel.refreshTime = Date.now();
 
-            ctrl.viewModel.hasSetPaymentPassword = undefined;
+            ctrl.viewModel.showPart = 0;
 
             ctrl.refreshUser()
                 .then(function(result) {
@@ -71,8 +71,10 @@ angular.module('jym.user.bank-card-add', [
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.cellphone = ctrl.model.user.cellphone;
             ctrl.viewModel.bankCardsCount = ctrl.model.user.bankCardsCount;
+            ctrl.viewModel.bankCardNo = ctrl.viewModel.bankCardNo || '';
+            ctrl.viewModel.bankName = UserService.sharedData.addBankName || '工商银行';
+            ctrl.viewModel.cellphone = ctrl.model.user.cellphone;
             ctrl.viewModel.hasSetPaymentPassword = ctrl.model.user.hasSetPaymentPassword;
             ctrl.viewModel.shouldAddBankCard = ctrl.viewModel.bankCardsCount <= 0;
             ctrl.viewModel.verified = ctrl.model.user.verified;
@@ -85,8 +87,12 @@ angular.module('jym.user.bank-card-add', [
                 ctrl.viewModel.realName = ctrl.viewModel.realName || '';
             }
 
-            ctrl.viewModel.bankCardNo = ctrl.viewModel.bankCardNo || '';
-            ctrl.viewModel.bankName = UserService.sharedData.addBankName || '工商银行';
+            if (ctrl.viewModel.hasSetPaymentPassword) {
+                ctrl.viewModel.showPart = 1;
+            } else {
+                ctrl.viewModel.showPart = 2;
+            }
+
         };
 
         ctrl.resetInput = function() {

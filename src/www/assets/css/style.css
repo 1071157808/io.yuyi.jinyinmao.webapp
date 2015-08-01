@@ -2017,7 +2017,7 @@ input[readonly]:not(.cloned-text-input) {
 }
 #notice .noticeDetail {
   position: relative;
-  top: 190px;
+  top: 130px;
 }
 .noticeDetail button {
   font-size: 22px;

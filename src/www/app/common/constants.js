@@ -127,6 +127,6 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.45-DEV',
+        VERSION: '13.1.47-DEV',
         ENV: 'dev'
     });
