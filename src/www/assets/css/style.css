@@ -842,9 +842,11 @@ ion-item .col-67 > .detail > li {
   padding-top: 3px;
   font-size: 14px;
   color: #83817c;
-  word-break: break-all;
-  word-wrap: break-word;
-  white-space: normal;
+  /*word-break: break-all;*/
+  /*word-wrap: break-word;*/
+  /*white-space: normal;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 ion-item .col-67 > li {
@@ -2322,3 +2324,4 @@ input[readonly]:not(.cloned-text-input) {
 .list {
   padding-top: 0;
 }
+
