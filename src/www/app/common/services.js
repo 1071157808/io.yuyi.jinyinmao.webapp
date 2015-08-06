@@ -68,6 +68,10 @@ angular.module('jym.services', [
 
             return CacheFactory.get(cacheName);
         };
+
+        service.clearAll = function () {
+            CacheFactory.clearAll();
+        };
     })
     .service('JYMConfigService', function($http, $q, URLS, JYMCacheService) {
         var service = this;
@@ -115,12 +119,8 @@ angular.module('jym.services', [
     .service('JYMUtilityService', function($state, $timeout, $ionicLoading, $ionicHistory, $cordovaInAppBrowser, $cordovaToast, REGEX, JYMCacheService) {
         var service = this;
 
-        service.clearCache = function() {
-            JYMCacheService.get('authTokenCache').removeAll();
-            JYMCacheService.get('configCache').removeAll();
-            JYMCacheService.get('productCache').removeAll();
-            JYMCacheService.get('userCache').removeAll();
-            JYMCacheService.get('userInfoCache').removeAll();
+        service.clearCache = function () {
+            JYMCacheService.clearAll();
         };
 
         service.go = function(to, params, options) {

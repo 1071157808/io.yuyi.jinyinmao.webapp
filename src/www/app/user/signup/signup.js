@@ -45,7 +45,8 @@ angular.module('jym.user.signup', [])
         };
 
         ctrl.enableButton = function() {
-            return ctrl.viewModel.checked && ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
+            /*return ctrl.viewModel.checked && ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;*/
+            return ctrl.viewModel.password && ctrl.viewModel.confirmPassword;
         };
 
         ctrl.resetInput = function() {
@@ -55,11 +56,27 @@ angular.module('jym.user.signup', [])
 
         ctrl.resetPassword = function() {
             if (ctrl.enableButton()) {
+                var rgexp = /^[a-zA-Z\d~!@#$%^&*_]{6,18}$/;
+                if (!rgexp.test(ctrl.viewModel.password)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_PASSWORD);
+                    return false;
+                }
+                if (!rgexp.test(ctrl.viewModel.confirmPassword)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_CONFIRMPASSWORD);
+                    return false;
+                }
+                if (ctrl.viewModel.password !== ctrl.viewModel.confirmPassword) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_COMPAREPASSWORD);
+                    return false;
+                }
+                if (!ctrl.viewModel.checked) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_CHECKED);
+                    return false;
+                }
                 UserService.signUp(ctrl.viewModel.password, $stateParams.token)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SIGNUP.SIGNUP_SUCCESS);
-
                             $timeout(function() {
                                 ctrl.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-bank-card-add');
@@ -140,12 +157,15 @@ angular.module('jym.user.signup', [])
 
         ctrl.verifyVeriCode = function() {
             if (ctrl.verifyVeriCodeButtonEnable()) {
+                if (ctrl.viewModel.veriCode.length !== 6) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE_RANGE);
+                    return false;
+                }
                 UserService.verifyVeriCode(ctrl.viewModel.cellphone, ctrl.viewModel.veriCode, 10)
-                    .then(function(result) {
+                    .then(function (result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
-
-                            $timeout(function() {
+                            $timeout(function () {
                                 ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-signup', { token: result.token });
                             }, 1000);

@@ -383,7 +383,7 @@ angular.module('jym.services.user', [
                 });
         };
 
-        service.signUp = function(password, token) {
+        service.signUp = function (password, token) {
             var url = URLS.USER.SINGUP;
 
             var clientType;
@@ -395,16 +395,21 @@ angular.module('jym.services.user', [
             } else {
                 clientType = 903;
             }
-
+            var contractId = 0;
+            var arrCookies;
+            var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
+            if (arrCookies = document.cookie.match(reg)) {
+                contractId = arrCookies[2].toUpperCase();
+            }
             return $http.post(url, {
                 clientType: clientType,
-                contractId: 0,
+                contractId: contractId,
                 inviteBy: 'jinyinmao',
                 outletCode: 'jinyinmao',
                 password: password,
                 token: token
             })
-                .then(function(result) {
+                .then(function (result) {
                     return result.data;
                 });
         };

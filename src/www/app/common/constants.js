@@ -84,32 +84,46 @@ angular.module('jym.constants', [])
         TIP: {
             BANKCARD: {
                 REMOVE_SUCCESS: '删除银行卡成功',
-                SIGN: '认证申请已经提交<br>请耐心等待'
+                SIGN: '认证申请已经提交<br>请耐心等待',
+                CREDENTIALNO: '请输入正确身份证号',
+                BANKCARDNO: '请输入正确卡号'
             },
             COUPON: {
                 REMOVE_SUCCESS: '删除成功'
             },
             INVESTING: {
                 JBY: '认购成功',
-                REGULAR: '购买成功'
+                REGULAR: '购买成功',
+                INVESTING_PASSWORD: '请输入正确密码',
+                INVESTING_CHECKED: '请确认服务协议'
             },
             JINBAOYIN: {
                 WITHDRAWAL_SUCCESS: '赎回申请已经提交<br>我们将尽快处理'
             },
             MISC: {
                 SEND_VERI_CODE: '发送成功',
-                VERIFY_VERI_CODE: '验证通过'
+                VERIFY_VERI_CODE: '验证通过',
+                VERIFY_VERI_CODE_RANGE: '请输入正确验证码'
             },
             SECURITY: {
                 RESET_PASSWORD: '登录密码修改成功<br>请用新密码登录',
                 SET_PAYMENT_PASSWORD: '设置成功',
-                RESET_PAYMENT_PASSWORD: '支付密码修改成功'
+                RESET_PAYMENT_PASSWORD: '支付密码修改成功',
+                SECURITY_PASSWORD: '请输入正确密码',
+                SECURITY_CONFIRMPASSWORD: '请输入正确的确认密码',
+                SECURITY_COMPAREPASSWORD: '请确认输入的密码是否相同'
             },
             SETTLE_ACCOUNT: {
                 DEPOSIT_SUCCESS: '充值申请已经提交<br>请耐心等待支付结果',
-                WITHDRAWAL_SUCCESS: '提现申请已经提交<br>我们将尽快处理'
+                WITHDRAWAL_SUCCESS: '提现申请已经提交<br>我们将尽快处理',
+                WITHDRAWAL_MAX: '您的提现超出可取金额',
+                WITHDRAWAL_PASSWORD: '请输入正确密码'
             },
             SIGNUP: {
+                SIGNUP_PASSWORD: '请输入正确密码',
+                SIGNUP_CONFIRMPASSWORD: '请输入正确的确认密码',
+                SIGNUP_COMPAREPASSWORD: '请确认输入的密码是否相同',
+                SIGNUP_CHECKED: '请确认服务协议',
                 SIGNUP_SUCCESS: '注册成功<br>请登录使用'
             },
             USER: {

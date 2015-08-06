@@ -71,11 +71,23 @@ angular.module('jym.jinbaoyin.purchase', [
         };
 
         ctrl.purchaseButtonEnable = function() {
-            return ctrl.viewModel.checked && ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
+            return ctrl.viewModel.amount && ctrl.viewModel.password && ctrl.model.user.balance >= ctrl.model.order.amount;
         };
 
         ctrl.purchase = function() {
             if (ctrl.purchaseButtonEnable()) {
+
+                var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/;
+                if (!rgexp.test(ctrl.viewModel.password)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.INVESTING_PASSWORD);
+                    return false;
+                }
+
+                if (!ctrl.viewModel.checked) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.INVESTING_CHECKED);
+                    return false;
+                }
+
                 var amount = ctrl.model.order.amount;
                 UserService.investingJBY(amount, ctrl.viewModel.password, ctrl.model.order.productIdentifier)
                     .then(function(result) {

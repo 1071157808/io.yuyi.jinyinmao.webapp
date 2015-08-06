@@ -29,15 +29,14 @@ angular.module('jym.user', [
         ctrl.model = {};
         ctrl.viewModel = {};
 
-        ctrl.doRefresh = function() {
+        ctrl.doRefresh = function () {
             ctrl.refreshUser()
-                .then(function(result) {
+                .then(function (result) {
                     ctrl.model = result;
                     ctrl.refreshViewModel();
                     return result;
                 });
-
-            $timeout(function() {
+            $timeout(function () {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };

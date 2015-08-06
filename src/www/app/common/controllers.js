@@ -28,51 +28,25 @@ angular.module('jym.controllers', [
             }
         };
     })
-    .controller('TabsCtrl', function($state, $ionicHistory) {
+    .controller('TabsCtrl', function ($state) {
         var ctrl = this;
-
         ctrl.NavToJinbaoyin = function() {
-            $ionicHistory.nextViewOptions({
-                disableAnimate: true,
-                disableBack: true
-            });
-
             $state.go('jym.jinbaoyin');
         };
 
         ctrl.NavToShangpiao = function() {
-            $ionicHistory.nextViewOptions({
-                disableAnimate: true,
-                disableBack: true
-            });
-
             $state.go('jym.shangpiao');
         };
 
         ctrl.NavToUser = function() {
-            $ionicHistory.nextViewOptions({
-                disableAnimate: true,
-                disableBack: true
-            });
-
             $state.go('jym.user');
         };
 
         ctrl.NavToYinpiao = function() {
-            $ionicHistory.nextViewOptions({
-                disableAnimate: true,
-                disableBack: true
-            });
-
             $state.go('jym.yinpiao');
         };
 
         ctrl.NavToZhuanqu = function() {
-            $ionicHistory.nextViewOptions({
-                disableAnimate: true,
-                disableBack: true
-            });
-
             $state.go('jym.zhuanqu');
         };
     });

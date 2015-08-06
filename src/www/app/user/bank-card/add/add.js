@@ -81,6 +81,7 @@ angular.module('jym.user.bank-card-add', [
 
             if (ctrl.viewModel.verified) {
                 ctrl.viewModel.credentialNo = ctrl.model.user.credentialNo;
+                ctrl.viewModel.credentialNo = ctrl.replaceCredentialNo();
                 ctrl.viewModel.realName = ctrl.model.user.realName;
             } else {
                 ctrl.viewModel.credentialNo = ctrl.viewModel.credentialNo || '';
@@ -94,7 +95,14 @@ angular.module('jym.user.bank-card-add', [
             }
 
         };
-
+        ctrl.replaceCredentialNo = function () {
+            var rChar = '';
+            var lgth = ctrl.viewModel.credentialNo.length - 4;
+            for (var i = 4; i < lgth; i++) {
+                rChar = rChar + '*';
+            }
+            return ctrl.model.user.credentialNo.substring(0, 4) + rChar + ctrl.model.user.credentialNo.substring(lgth);
+        };
         ctrl.resetInput = function() {
             ctrl.viewModel.bankCardNo = '';
             ctrl.viewModel.cellphone = '';
@@ -102,15 +110,30 @@ angular.module('jym.user.bank-card-add', [
             ctrl.viewModel.realName = '';
         };
 
-        ctrl.verify = function() {
+        ctrl.verify = function () {
             if (ctrl.buttonEnable()) {
+
+                if (!ctrl.viewModel.verified) {
+                    var rgex = /^(\d{18,18}|\d{15,15}|\d{17,17}x)$/;
+                    if (!rgex.test(ctrl.viewModel.credentialNo)) {
+                        JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.CREDENTIALNO);
+                        return false;
+                    }
+                }
+
+                var rgexNo = /^\d{15,19}$/;
+                if (!rgexNo.test(ctrl.viewModel.bankCardNo)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.BANKCARDNO);
+                    return false;
+                }
+
                 if (ctrl.viewModel.verified) {
                     UserService.addBankCardByYilian(ctrl.viewModel.bankCardNo, ctrl.viewModel.bankName)
-                        .then(function(result) {
+                        .then(function (result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
 
-                                $timeout(function() {
+                                $timeout(function () {
                                     ctrl.resetInput();
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);
@@ -118,11 +141,10 @@ angular.module('jym.user.bank-card-add', [
                         });
                 } else {
                     UserService.authenticate(ctrl.viewModel.bankCardNo, ctrl.viewModel.bankName, ctrl.viewModel.credentialNo, ctrl.viewModel.realName)
-                        .then(function(result) {
+                        .then(function (result) {
                             if (result) {
                                 JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
-
-                                $timeout(function() {
+                                $timeout(function () {
                                     ctrl.resetInput();
                                     JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
                                 }, 1000);

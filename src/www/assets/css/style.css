@@ -840,12 +840,12 @@ ion-item .col-67 {
 ion-item .col-67 > .detail > li {
   width: 125%;
   padding-top: 3px;
-  font-size: 14px;
-  color: #83817c;
   /*word-break: break-all;*/
   /*word-wrap: break-word;*/
   /*white-space: normal;*/
   overflow: hidden;
+  font-size: 14px;
+  color: #83817c;
   text-overflow: ellipsis;
 }
 
@@ -2324,4 +2324,3 @@ input[readonly]:not(.cloned-text-input) {
 .list {
   padding-top: 0;
 }
-

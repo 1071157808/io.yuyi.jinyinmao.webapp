@@ -8,7 +8,7 @@
         <button class="button button-small" ng-click="ctrl.sendVeriCode()" ng-if="!ctrl.showVeriCodeButton()" ng-disabled="!ctrl.sendVeriCodeButtonEnable()">&nbsp;&nbsp;重新发送（<span ng-bind="ctrl.viewModel.remainSeconds"></span>）&nbsp;&nbsp;</button>
       </ion-item>
       <ion-item class="item item-input veri-code-refresh">
-        <input type="text" placeholder="请输入验证码" ng-model="ctrl.viewModel.veriCode" required minlength="6" maxlength="6" ng-trim="true">
+        <input type="text" placeholder="请输入验证码" ng-model="ctrl.viewModel.veriCode" required minlength="1" maxlength="6" ng-trim="true">
       </ion-item>
       <div class="space"></div>
       <div class="space"></div>

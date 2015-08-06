@@ -65,8 +65,8 @@ angular.module('jym.user.bank-card-upgrade', [
                 ctrl.viewModel.realName = ctrl.viewModel.realName || '';
             }
 
-            ctrl.viewModel.bankCardNo = ctrl.model.ctrl.bankCardNo;
-            ctrl.viewModel.bankName = ctrl.model.ctrl.bankName;
+            ctrl.viewModel.bankCardNo = ctrl.model.card.bankCardNo;
+            ctrl.viewModel.bankName = ctrl.model.card.bankName;
         };
 
         ctrl.verify = function() {
