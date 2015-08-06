@@ -29,8 +29,8 @@ angular.module('jym.user.settle-account-withdrawal', [
         ctrl.model = {};
         ctrl.viewModel = {};
 
-        ctrl.buttonEnable = function() {
-            return ctrl.viewModel.bankCardNo && ctrl.viewModel.amount && ctrl.viewModel.password;
+        ctrl.buttonEnable = function () {         
+           return ctrl.viewModel.bankCardNo && ctrl.viewModel.amount && ctrl.viewModel.password;           
         };
 
         ctrl.doRefresh = function() {
@@ -94,7 +94,7 @@ angular.module('jym.user.settle-account-withdrawal', [
                 ctrl.viewModel.noCard = false;
 
                 ctrl.viewModel.withdrawalableAmount = (ctrl.model.user.withdrawalableAmount / 100).toFixed(2);
-            }
+            }            
         };
 
         ctrl.resetInput = function() {
@@ -106,17 +106,28 @@ angular.module('jym.user.settle-account-withdrawal', [
             ctrl.viewModel.amount = ctrl.viewModel.withdrawAmount;
         };
 
-        ctrl.withdraw = function() {
-            var amount = parseInt(ctrl.viewModel.amount * 100, 10);
-            if (ctrl.buttonEnable()) {
+        ctrl.withdraw = function () {
+            if (ctrl.buttonEnable()) {             
+
+                if (ctrl.viewModel.amount > ctrl.viewModel.withdrawAmount) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_MAX);
+                    return false;
+                }
+                var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/;
+                if (!rgexp.test(ctrl.viewModel.password)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_PASSWORD);
+                    return false;
+                }
+                var amount = parseInt(ctrl.viewModel.amount * 100, 10);
+
                 UserService.withdrawal(amount, ctrl.viewModel.bankCardNo, ctrl.viewModel.password)
-                    .then(function(result) {
+                    .then(function (result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_SUCCESS);
 
                             UserService.sharedData.withdrawalBankCardNo = undefined;
 
-                            $timeout(function() {
+                            $timeout(function () {
                                 ctrl.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-settle-account-detail', {
                                     transactionIdentifier: result.transactionIdentifier

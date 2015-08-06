@@ -116,7 +116,8 @@ angular.module('jym.user.security-payment-password', [])
         };
 
         ctrl.enableButton = function() {
-            return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
+            //return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;
+            return ctrl.viewModel.password && ctrl.viewModel.confirmPassword;
         };
 
         ctrl.resetInput = function() {
@@ -124,8 +125,21 @@ angular.module('jym.user.security-payment-password', [])
             ctrl.viewModel.password = '';
         };
 
-        ctrl.setPassword = function() {
+        ctrl.setPassword = function () {           
             if (ctrl.enableButton()) {
+                var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/;
+                if (!rgexp.test(ctrl.viewModel.password)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SECURITY_PASSWORD);
+                    return false;
+                }
+                if (!rgexp.test(ctrl.viewModel.confirmPassword)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SECURITY_CONFIRMPASSWORD);
+                    return false;
+                }
+                if (ctrl.viewModel.password != ctrl.viewModel.confirmPassword) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SECURITY_COMPAREPASSWORD);
+                    return false;
+                }                
                 UserService.setPaymentPassword(ctrl.viewModel.password)
                     .then(function(result) {
                         if (result) {
@@ -217,14 +231,18 @@ angular.module('jym.user.security-payment-password', [])
             }
         };
 
-        ctrl.verifyVeriCode = function() {
+        ctrl.verifyVeriCode = function () {         
             if (ctrl.verifyVeriCodeButtonEnable()) {
+                if (ctrl.viewModel.veriCode.length != 6) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE_RANGE);
+                    return false;
+                }
                 UserService.verifyVeriCode(ctrl.viewModel.cellphone, ctrl.viewModel.veriCode, 30)
                     .then(function(result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
-
-                            $timeout(function() {
+                            $timeout(function () {
+                                alert("d");
                                 ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-security-reset-payment-password', { token: result.token });
                             }, 1000);
