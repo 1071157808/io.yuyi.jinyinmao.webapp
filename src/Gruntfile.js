@@ -126,7 +126,7 @@ module.exports = function(grunt) {
         compress: {
             release: {
                 options: {
-                    archive: '../publish/release.zip'
+                    archive: '../publish/<%= pkg.version %>.zip'
                 },
                 expand: true,
                 cwd: 'release/',
