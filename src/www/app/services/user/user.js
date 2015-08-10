@@ -387,6 +387,9 @@ angular.module('jym.services.user', [
             var url = URLS.USER.SINGUP;
 
             var clientType;
+            var contractId = 0;
+            var arrCookies;
+            var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
 
             if (ionic.Platform.isIOS()) {
                 clientType = 901;
@@ -395,12 +398,11 @@ angular.module('jym.services.user', [
             } else {
                 clientType = 903;
             }
-            var contractId = 0;
-            var arrCookies;
-            var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
+
             if (arrCookies = document.cookie.match(reg)) {
                 contractId = arrCookies[2].toUpperCase();
             }
+
             return $http.post(url, {
                 clientType: clientType,
                 contractId: contractId,

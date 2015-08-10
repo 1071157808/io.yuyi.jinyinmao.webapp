@@ -16,7 +16,7 @@ angular.module('jym.jinbaoyin.purchase', [
                 }
             });
     })
-    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinPurchaseCtrl', function($scope, $timeout, $ionicNavBarDelegate, $ionicScrollDelegate, REGEX, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -76,9 +76,7 @@ angular.module('jym.jinbaoyin.purchase', [
 
         ctrl.purchase = function() {
             if (ctrl.purchaseButtonEnable()) {
-
-                var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/;
-                if (!rgexp.test(ctrl.viewModel.password)) {
+                if (REGEX.PAYMENT_PASSWORD.test(ctrl.viewModel.password)) {
                     JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.INVESTING_PASSWORD);
                     return false;
                 }

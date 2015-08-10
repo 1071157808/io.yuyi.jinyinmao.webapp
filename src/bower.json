@@ -6,10 +6,10 @@
     "angular-cache": "~4.2.2",
     "angular-progress-arc": "~1.0.0",
     "angular-sanitize": "~1.3.13",
-    "lodash": "~3.10.0",
-    "moment": "~2.10.3",
-    "ngCordova": "~0.1.17-alpha",
-    "ionic-service-deploy": "~0.1.1",
+    "lodash": "~3.10.1",
+    "moment": "~2.10.6",
+    "ngCordova": "~0.1.19-alpha",
+    "ionic-service-deploy": "~0.1.3",
     "ionic": "~1.0.1"
   },
   "resolutions": {
