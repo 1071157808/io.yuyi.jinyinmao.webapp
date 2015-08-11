@@ -17,7 +17,7 @@ angular.module('jym.user.jinbaoyin', [
                 }
             });
     })
-    .controller('UserJinbaoyinCtrl', function($scope, $state, $timeout, $q, RESOURCES, JinbaoyinService, UserService) {
+    .controller('UserJinbaoyinCtrl', function($scope, $state, $timeout, $ionicPopup, $q, RESOURCES, JinbaoyinService, UserService, JYMTimeService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -68,6 +68,28 @@ angular.module('jym.user.jinbaoyin', [
             ctrl.viewModel.jBYTotalPricipal = (ctrl.model.user.jBYTotalPricipal / 100).toFixed(2);
             ctrl.viewModel.jBYWithdrawalableAmount = (ctrl.model.user.jBYWithdrawalableAmount / 100).toFixed(2);
             ctrl.viewModel.todayJBYWithdrawalAmount = (ctrl.model.user.todayJBYWithdrawalAmount / 100).toFixed(2);
+        };
+
+
+        ctrl.goWithdrawal = function() {
+            var now = JYMTimeService.getTime();
+
+            if(now.hour() >= 0 && now.hour() < 5) {
+                ctrl.showAlert();
+            }
+            else {
+                JYMUtilityService.go('jym.user-jinbaoyin-withdrawal')
+            }
+        };
+
+        ctrl.showAlert = function() {
+            var alertPopup = $ionicPopup.alert({
+                title: ' ',
+                template: '每日0:00~05:00期间金包银暂停赎回服务'
+            });
+            alertPopup.then(function(res) {
+                console.log('');
+            });
         };
 
         $scope.$on('$ionicView.enter', function() {
