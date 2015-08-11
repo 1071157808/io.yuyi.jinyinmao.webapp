@@ -9,7 +9,8 @@ angular.module('jym.user', [
     'jym.user.jinbaoyin',
     'jym.user.orders',
     'jym.user.security',
-    'jym.user.settle-account'
+    'jym.user.settle-account',
+    'jym.user.investment'
 ])
     .config(function($stateProvider) {
         $stateProvider
