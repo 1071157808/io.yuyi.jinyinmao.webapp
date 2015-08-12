@@ -24,11 +24,14 @@ angular.module('jym.user', [
                 }
             });
     })
-    .controller('UserCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService) {
+    .controller('UserCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService, $ionicNavBarDelegate) {
         var ctrl = this;
 
         ctrl.model = {};
         ctrl.viewModel = {};
+
+        ctrl.viewModel.showQian1 = false;
+        ctrl.viewModel.showQian2 = false;
 
         ctrl.doRefresh = function () {
             ctrl.refreshUser()
@@ -63,6 +66,20 @@ angular.module('jym.user', [
             $timeout(function() {
                 JYMUtilityService.goWithDisableBack('jym.user-login');
             }, 1000);
+        };
+
+        ctrl.toggleQian1 = function() {
+            ctrl.viewModel.showQian2 = false;
+            $ionicScrollDelegate.scrollTop();
+            ctrl.viewModel.showQian1 = !ctrl.viewModel.showQian1;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian1);
+        };
+
+        ctrl.toggleQian2 = function() {
+            ctrl.viewModel.showQian1 = false;
+            $ionicScrollDelegate.scrollTop();
+            ctrl.viewModel.showQian2 = !ctrl.viewModel.showQian2;
+            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian2);
         };
 
         $scope.$on('$ionicView.enter', function() {

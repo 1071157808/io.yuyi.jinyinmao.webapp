@@ -54,4 +54,5 @@ angular.module('jym.user.investment', [
         });
 
         ctrl.doRefresh();
+
     });

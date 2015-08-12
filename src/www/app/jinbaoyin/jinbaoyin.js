@@ -46,6 +46,6 @@ angular.module('jym.jinbaoyin', [
                     ctrl.viewModel.unitPrice = (result.unitPrice / 100).toFixed(0);
                 });
         };
-        
+
         ctrl.doRefresh();
     });

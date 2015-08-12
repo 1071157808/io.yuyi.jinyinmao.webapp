@@ -1092,6 +1092,15 @@ ion-item img {
   border: 0 solid #cead52;
 }
 
+.button-yellow-round {
+  background-color: #facb3a;
+  border: 0 solid #cead52;
+  border-radius: 20px;
+  width: 50%;
+  margin-left: -25%;
+  left: 50%;
+}
+
 .button-yellow:disabled {
   background-color: rgba(250, 203, 58, .6);
 }
@@ -2323,4 +2332,39 @@ input[readonly]:not(.cloned-text-input) {
 }
 .list {
   padding-top: 0;
+}
+.qian {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: auto;
+}
+.qian button {
+  position: absolute;
+  bottom: 30%;
+  color: brown;
+}
+@media only screen and (max-width: 320px) and (max-height: 480px)  {
+  .qian,img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.reward {
+  position: absolute;
+  width: 50%;
+  top: 48%;
+  left: 50%;
+  text-align: center;
+  margin-left: -25%;
+  color: yellow;
+  font-size: 20px;
+}
+.reward span {
+  font-size: 34px;
+  font-weight: 800;
 }
