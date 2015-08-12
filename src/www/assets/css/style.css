@@ -1189,7 +1189,8 @@ ion-item img {
 /*}*/
 #user-index .item samp {
   float: left;
-  padding-left: 20px;
+  padding-top: 2px;
+  clear: both;
   font-size: 14px;
   color: #e74c3c;
 }
@@ -2367,4 +2368,14 @@ input[readonly]:not(.cloned-text-input) {
 .reward span {
   font-size: 34px;
   font-weight: 800;
+}
+ion-item.row .col-33 img {
+  width: 70%;
+}
+ion-item.row .col-67 {
+  padding-top: 30px;
+}
+ion-item.row .col-67 span {
+  font-size: 20px;
+  color: #666;
 }

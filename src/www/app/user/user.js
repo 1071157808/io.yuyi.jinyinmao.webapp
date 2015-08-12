@@ -32,6 +32,7 @@ angular.module('jym.user', [
 
         ctrl.viewModel.showQian1 = false;
         ctrl.viewModel.showQian2 = false;
+        ctrl.viewModel.qian = false;
 
         ctrl.doRefresh = function () {
             ctrl.refreshUser()

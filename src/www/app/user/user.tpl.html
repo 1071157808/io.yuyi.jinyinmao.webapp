@@ -7,13 +7,22 @@
     </ion-refresher>
 
     <ion-list>
-      <ion-item class="row" ng-if="!ctrl.viewModel.verified">
-        <div class="col col-33" ng-click="ctrl.toggleQian1()">
+      <ion-item class="row">
+        <div class="col col-33" ng-if="!ctrl.viewModel.qian" ng-click="ctrl.toggleQian1()">
           <img class="avatar" src="assets/img/common/qian@128x128-173b5c.png">
         </div>
-        <div class="col col-67" ui-sref="jym.user-detail">
+        <div class="col col-33" ng-if="ctrl.viewModel.qian">
+          <img src="assets/img/common/avatar@128x128-acece9.png"/>
+        </div>
+
+        <div ng-if="ctrl.viewModel.verified" ui-sref="jym.user-detail" class="col col-67">
           <span class="pull-left" ng-bind="ctrl.viewModel.cellphone"></span>
           <i class="icon ion-chevron-right pull-right"></i>
+        </div>
+        <div ng-if="!ctrl.viewModel.verified" class="col col-67" ui-sref="jym.user-bank-card-add-method-selector" >
+          <span class="pull-left" ng-bind="ctrl.viewModel.cellphone"></span>
+          <i class="icon ion-chevron-right pull-right"></i>
+          <samp>尚未实名认证</samp>
         </div>
       </ion-item>
 
@@ -23,22 +32,20 @@
       <!--<ion-item ng-if="ctrl.viewModel.verified" class="row item-thumbnail-left item-icon-right" ui-sref="jym.user-detail">-->
 
         <!--<img class="col col-33 avatar" src="assets/img/common/avatar@128x128-acece9.png"/>-->
-        <!--&lt;!&ndash;&ndash;&gt;-->
+
         <!--<div class="col col-67">-->
           <!--<h2 ng-bind="ctrl.viewModel.cellphone"></h2>-->
           <!--<i class="icon ion-chevron-right"></i>-->
         <!--</div>-->
       <!--</ion-item>-->
-      <ion-item ng-if="!ctrl.viewModel.verified" class="item-thumbnail-left item-icon-right" ng-click="ctrl.toggleQian1()">
-        <img class="avatar" src="assets/img/common/avatar@128x128-acece9.png"/>
+      <!--<ion-item ng-if="!ctrl.viewModel.verified" class="item-thumbnail-left item-icon-right">-->
+        <!--<img class="avatar" src="assets/img/common/avatar@128x128-acece9.png"/>-->
 
-        <h2 ng-bind="ctrl.viewModel.cellphone"></h2>
-        <samp ui-sref="jym-user/bank-card/add/select-method">尚未实名认证</samp>
-        <i class="icon ion-chevron-right"></i>
-      </ion-item>
-      <!--<ion-item ng-click="ctrl.toggleQian()">-->
-       <!--<img src="assets/img/common/qian@128x128-173b5c.png">-->
+        <!--<h2 ng-bind="ctrl.viewModel.cellphone"></h2>-->
+        <!--<samp ui-sref="jym-user/bank-card/add/select-method">尚未实名认证</samp>-->
+        <!--<i class="icon ion-chevron-right"></i>-->
       <!--</ion-item>-->
+
       <ion-item class="item-icon-right" ui-sref="jym.user-investment">
         <p class="pull-left">在投资产</p>
 
