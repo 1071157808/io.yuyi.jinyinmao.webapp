@@ -8,10 +8,10 @@
 
     <ion-list>
       <ion-item class="row">
-        <div class="col col-33" ng-if="!ctrl.viewModel.qian" ng-click="ctrl.toggleQian1()">
+        <div class="col col-33" ng-if="ctrl.viewModel.qian" ng-click="ctrl.toggleQian1()">
           <img class="avatar" src="assets/img/common/qian@128x128-173b5c.png">
         </div>
-        <div class="col col-33" ng-if="ctrl.viewModel.qian">
+        <div class="col col-33" ng-if="!ctrl.viewModel.qian">
           <img src="assets/img/common/avatar@128x128-acece9.png"/>
         </div>
 
