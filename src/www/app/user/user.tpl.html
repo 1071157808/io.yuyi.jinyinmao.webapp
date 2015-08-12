@@ -5,25 +5,30 @@
       spinner="spiral"
       on-refresh="ctrl.doRefresh()">
     </ion-refresher>
+
     <ion-list>
-
-        <div class="row">
-          <div class="col col-33">
-            <img class="avatar" src="assets/img/common/qian@128x128-173b5c.png">
-          </div>
-          <div class="col col-67">
-            <span class="pull-left" ng-bind="ctrl.viewModel.cellphone"></span>
-            <i class="icon ion-chevron-right pull-right"></i>
-          </div>
+      <ion-item class="row" ng-if="!ctrl.viewModel.verified">
+        <div class="col col-33" ng-click="ctrl.toggleQian1()">
+          <img class="avatar" src="assets/img/common/qian@128x128-173b5c.png">
         </div>
-     
-      <ion-item ng-if="ctrl.viewModel.verified" class="item-thumbnail-left item-icon-right" ui-sref="jym.user-detail">
-        <img class="avatar" src="assets/img/common/avatar@128x128-acece9.png"/>
-        <!---->
-
-        <h2 ng-bind="ctrl.viewModel.cellphone"></h2>
-        <i class="icon ion-chevron-right"></i>
+        <div class="col col-67" ui-sref="jym.user-detail">
+          <span class="pull-left" ng-bind="ctrl.viewModel.cellphone"></span>
+          <i class="icon ion-chevron-right pull-right"></i>
+        </div>
       </ion-item>
+
+
+
+
+      <!--<ion-item ng-if="ctrl.viewModel.verified" class="row item-thumbnail-left item-icon-right" ui-sref="jym.user-detail">-->
+
+        <!--<img class="col col-33 avatar" src="assets/img/common/avatar@128x128-acece9.png"/>-->
+        <!--&lt;!&ndash;&ndash;&gt;-->
+        <!--<div class="col col-67">-->
+          <!--<h2 ng-bind="ctrl.viewModel.cellphone"></h2>-->
+          <!--<i class="icon ion-chevron-right"></i>-->
+        <!--</div>-->
+      <!--</ion-item>-->
       <ion-item ng-if="!ctrl.viewModel.verified" class="item-thumbnail-left item-icon-right" ng-click="ctrl.toggleQian1()">
         <img class="avatar" src="assets/img/common/avatar@128x128-acece9.png"/>
 
