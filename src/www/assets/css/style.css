@@ -1093,12 +1093,12 @@ ion-item img {
 }
 
 .button-yellow-round {
+  left: 50%;
+  width: 50%;
+  margin-left: -25%;
   background-color: #facb3a;
   border: 0 solid #cead52;
   border-radius: 20px;
-  width: 50%;
-  margin-left: -25%;
-  left: 50%;
 }
 
 .button-yellow:disabled {
@@ -1189,7 +1189,8 @@ ion-item img {
 /*}*/
 #user-index .item samp {
   float: left;
-  padding-left: 20px;
+  padding-top: 2px;
+  clear: both;
   font-size: 14px;
   color: #e74c3c;
 }
@@ -2345,7 +2346,7 @@ input[readonly]:not(.cloned-text-input) {
   bottom: 30%;
   color: brown;
 }
-@media only screen and (max-width: 320px) and (max-height: 480px)  {
+@media only screen and (max-width: 320px) and (max-height: 480px) {
   .qian,img {
     position: absolute;
     top: 0;
@@ -2356,15 +2357,25 @@ input[readonly]:not(.cloned-text-input) {
 
 .reward {
   position: absolute;
-  width: 50%;
   top: 48%;
   left: 50%;
-  text-align: center;
+  width: 50%;
   margin-left: -25%;
-  color: yellow;
   font-size: 20px;
+  color: yellow;
+  text-align: center;
 }
 .reward span {
   font-size: 34px;
   font-weight: 800;
+}
+ion-item.row .col-33 img {
+  width: 70%;
+}
+ion-item.row .col-67 {
+  padding-top: 30px;
+}
+ion-item.row .col-67 span {
+  font-size: 20px;
+  color: #666;
 }

@@ -52,7 +52,8 @@ angular.module('jym.constants', [])
             SET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
             SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
             SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode'
+            VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            USER_SIGN:"https://jym-dev-api.jinyinmao.com.cn:443/User/Sign"
         },
         USERJINBAOYIN: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
@@ -137,7 +138,7 @@ angular.module('jym.constants', [])
     .constant('REGEX', {
         CELLPHONE: /^(13|14|15|17|18)\d{9}$/,
         PASSWORD: /^[a-zA-Z\d~!@#$%^&*_]{6,18}$/,
-        PAYMENT_PASSWORD: /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/,
+        PAYMENT_PASSWORD: /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/,                          
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {

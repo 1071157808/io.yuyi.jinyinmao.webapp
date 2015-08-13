@@ -1,7 +1,7 @@
 'use strict';
 angular.module('jym.user.investment', [
-    'jym.services.user'
-])
+        'jym.services.user'
+    ])
     .config(function($stateProvider) {
         $stateProvider
             .state('jym.user-investment', {
@@ -44,9 +44,11 @@ angular.module('jym.user.investment', [
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.cellphone = ctrl.model.cellphone;
-            ctrl.viewModel.realName = ctrl.model.realName;
-            ctrl.viewModel.credentialNo = ctrl.model.credentialNo;
+            ctrl.viewModel.toTalAmount = ((ctrl.model.jBYTotalAmount + ctrl.model.investingPrincipal) / 100).toFixed(2);
+            ctrl.viewModel.investingPrincipal = (ctrl.model.investingPrincipal / 100).toFixed(2);
+            ctrl.viewModel.yinInvestingPrincipal = (ctrl.model.yinInvestingPrincipal / 100).toFixed(2);           
+            ctrl.viewModel.shangInvestingPrincipal = (ctrl.model.shangInvestingPrincipal / 100).toFixed(2);
+            ctrl.viewModel.bankInvestingPrincipal = (ctrl.model.bankInvestingPrincipal / 100).toFixed(2);
         };
 
         $scope.$on('$ionicView.enter', function() {

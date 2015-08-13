@@ -416,6 +416,14 @@ angular.module('jym.services.user', [
                 });
         };
 
+        service.userSign=function(){
+            var url=URLS.USER.USER_SIGN;
+            return $http.get(url)
+                .then(function(result) {
+                    return result.data;
+                });
+        };
+
         service.verifyBankCardByYilian = function(bankCardNo) {
             var url = URLS.BANKCARD.VERIFY_BANK_CARD_BY_YILIAN;
 
