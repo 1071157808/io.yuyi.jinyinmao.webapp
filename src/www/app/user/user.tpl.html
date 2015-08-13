@@ -8,10 +8,10 @@
 
     <ion-list>
       <ion-item class="row">
-        <div class="col col-33" ng-if="ctrl.viewModel.qian" ng-click="ctrl.toggleQian1()">
+        <div class="col col-33" ng-if="!ctrl.viewModel.qian" ng-click="ctrl.toggleQian1()">
           <img class="avatar" src="assets/img/common/qian@128x128-173b5c.png">
         </div>
-        <div class="col col-33" ng-if="!ctrl.viewModel.qian">
+        <div class="col col-33" ng-if="ctrl.viewModel.qian">
           <img src="assets/img/common/avatar@128x128-acece9.png"/>
         </div>
 
@@ -25,27 +25,6 @@
           <samp>尚未实名认证</samp>
         </div>
       </ion-item>
-
-
-
-
-      <!--<ion-item ng-if="ctrl.viewModel.verified" class="row item-thumbnail-left item-icon-right" ui-sref="jym.user-detail">-->
-
-        <!--<img class="col col-33 avatar" src="assets/img/common/avatar@128x128-acece9.png"/>-->
-
-        <!--<div class="col col-67">-->
-          <!--<h2 ng-bind="ctrl.viewModel.cellphone"></h2>-->
-          <!--<i class="icon ion-chevron-right"></i>-->
-        <!--</div>-->
-      <!--</ion-item>-->
-      <!--<ion-item ng-if="!ctrl.viewModel.verified" class="item-thumbnail-left item-icon-right">-->
-        <!--<img class="avatar" src="assets/img/common/avatar@128x128-acece9.png"/>-->
-
-        <!--<h2 ng-bind="ctrl.viewModel.cellphone"></h2>-->
-        <!--<samp ui-sref="jym-user/bank-card/add/select-method">尚未实名认证</samp>-->
-        <!--<i class="icon ion-chevron-right"></i>-->
-      <!--</ion-item>-->
-
       <ion-item class="item-icon-right" ui-sref="jym.user-investment">
         <p class="pull-left">在投资产</p>
 
@@ -97,11 +76,11 @@
   </ion-content>
   <div ng-include="'app/common/templates/tabs.tpl.html'"></div>
   <div class="qian" ng-if="ctrl.viewModel.showQian1">
-    <img src="assets/img/common/qian1@639x1136-49a141.png">
+    <img src="assets/img/common/qian1@640x1136-b8ec9d.jpg">
     <button class="btn button-yellow-round" ng-click="ctrl.toggleQian2()">立即签到</button>
   </div>
   <div class="qian" ng-if="ctrl.viewModel.showQian2">
-    <img src="assets/img/common/qian2@640x1136-a53793.png">
+    <img src="assets/img/common/qian2@640x1136-fbd4eb.jpg">
     <p class="reward"><span>100.00</span>&nbsp;元</p>
     <button class="btn button-yellow-round" ng-click="ctrl.toggleQian2()">收进钱包</button>
   </div>
