@@ -11,12 +11,12 @@ var waitTimer = null;
 
 function sendWaitTimer() {
     if (waitCount > 0) {
-        $("#btnGetCode").text(waitCount + '秒后重新获取');
+        $('#btnGetCode').text(waitCount + '秒后重新获取');
         waitCount = waitCount - 1;
     } else {
         clearInterval(waitTimer);
-        $("#btnGetCode").text("获取短信验证码");
-        $("#btnGetCode").bind("click");
+        $('#btnGetCode').text('获取短信验证码');
+        $('#btnGetCode').bind('click');
         waitCount = 60;
     }
 }
