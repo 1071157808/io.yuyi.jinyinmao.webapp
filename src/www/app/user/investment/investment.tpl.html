@@ -2,26 +2,25 @@
   <ion-content>
     <ion-list>
       <ion-item>
-        <p>在投总资金：<strong>100.00</strong>&nbsp;元</p>
+        <p>在投总资金：<strong ng-bind="ctrl.viewModel.toTalAmount"></strong>&nbsp;元</p>
       </ion-item>
       <ion-item class="divider"></ion-item>
       <ion-item>
         <p class="pull-left">金包银：</p>
-        <p class="pull-right"><span ng-bind=""></span>元</p>
+        <p class="pull-right"><span ng-bind="ctrl.viewModel.investingPrincipal"></span>元</p>
       </ion-item>
       <ion-item>
         <p class="pull-left">银企众盈：</p>
-        <p class="pull-right"><span ng-bind=""></span>元</p>
+        <p class="pull-right"><span ng-bind="ctrl.viewModel.yinInvestingPrincipal"></span>元</p>
       </ion-item>
       <ion-item>
         <p class="pull-left">商融保盈：</p>
-        <p class="pull-right"><span ng-bind=""></span>元</p>
+        <p class="pull-right"><span ng-bind="ctrl.viewModel.shangInvestingPrincipal"></span>元</p>
       </ion-item>
       <ion-item>
         <p class="pull-left">银行专区：</p>
-        <p class="pull-right"><span ng-bind=""></span>元</p>
+        <p class="pull-right"><span ng-bind="ctrl.viewModel.bankInvestingPrincipal"></span>元</p>
       </ion-item>
     </ion-list>
-
   </ion-content>
 </ion-view>

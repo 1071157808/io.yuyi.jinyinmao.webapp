@@ -1,4 +1,4 @@
-@charset 'utf-8';
+﻿@charset 'utf-8';
 html{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
 html,body{margin:0;height:100%}
 html,body,div,p,samp{font-family:'HiraginoSansGB W3','Microsoft YaHei',\5FAE\8F6F\96C5\9ED1,Helvetica,Arial,sans-serif}
@@ -305,9 +305,9 @@ a,a:hover{text-decoration:none}
     top: 23%;
   }
 }
+
+
 /*index7.css*/
-
-
 .jym-index7-view {
   margin: 0;
   padding: 0;
@@ -350,6 +350,7 @@ a,a:hover{text-decoration:none}
   line-height: 60px;
   color: #ffffff;
   background-color: #eabd08;
+  width:100%;
 }
 
 .jym-index7-view .login {
@@ -359,6 +360,7 @@ a,a:hover{text-decoration:none}
   line-height: 60px;
   color: #ffffff;
   background-color: #ff6600;
+  width:100%;
 }
 
 .jym-index7-view .Vericode {
