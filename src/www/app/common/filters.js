@@ -622,6 +622,8 @@ angular.module('jym.filters', [])
                     return '金包银赎回';
                 case 2001011106:
                     return '金包银利息复投';
+                case 1005011107:
+                    return '签到奖励';
                 default:
                     return '未知交易';
             }
@@ -660,6 +662,8 @@ angular.module('jym.filters', [])
                     return '购买理财产品';
                 case 1005012102:
                     return '取现手续费';
+                case 1005011107:
+                    return '签到奖励';
                 default:
                     return '未知交易';
             }

@@ -416,10 +416,10 @@ angular.module('jym.services.user', [
                 });
         };
 
-        service.userSign=function(){
-            var url=URLS.USER.USER_SIGN;
+        service.userSign = function() {
+            var url = URLS.USER.USER_SIGN;
             return $http.get(url)
-                .then(function(result) {
+                .then(function (result) {
                     return result.data;
                 });
         };

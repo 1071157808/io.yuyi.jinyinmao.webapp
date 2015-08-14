@@ -53,7 +53,7 @@ angular.module('jym.constants', [])
             SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
             SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
             VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            USER_SIGN:"https://jym-dev-api.jinyinmao.com.cn:443/User/Sign"
+            USER_SIGN:'https://jym-dev-api.jinyinmao.com.cn:443/User/Sign'
         },
         USERJINBAOYIN: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
@@ -133,15 +133,32 @@ angular.module('jym.constants', [])
                 LOGIN_OUT: '退出成功',
                 LOGIN_SUCCESS: '登录成功'
             }
+        },
+        BANNERS:[{
+                title: '金银猫最优投资收益比',
+                imageSource: 'assets/img/topic/banner@640x270-6af6f5.jpg',
+                targetUrl: 'https://m.jinyinmao.com.cn'
+            }, {
+                title: '银行级资金保障',
+                imageSource: 'assets/img/topic/banner1@640x270-28df7d.jpg',
+                targetUrl: 'https://m.jinyinmao.com.cn'
+            }, {
+                title: '更好的金银猫',
+                imageSource: 'assets/img/topic/banner2@640x270-3e38e2.png',
+                targetUrl: 'https://m.jinyinmao.com.cn'
+            }],
+        JBYINFO: {
+            YIELD: '7',
+            TITLE: '金包银第300期'
         }
     })
     .constant('REGEX', {
         CELLPHONE: /^(13|14|15|17|18)\d{9}$/,
         PASSWORD: /^[a-zA-Z\d~!@#$%^&*_]{6,18}$/,
-        PAYMENT_PASSWORD: /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/,                          
+        PAYMENT_PASSWORD: /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\D+$).{8,18}$/,
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.50-DEV',
+        VERSION: '13.1.53-DEV',
         ENV: 'dev'
     });

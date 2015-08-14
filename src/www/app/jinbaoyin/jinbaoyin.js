@@ -1,9 +1,10 @@
 /*jshint -W024 */
 'use strict';
 angular.module('jym.jinbaoyin', [
-    'jym.services.jinbaoyin',
-    'jym.jinbaoyin.detail'
-])
+        'jym.services.jinbaoyin',
+        'jym.jinbaoyin.detail',
+        'jym.constants'
+    ])
     .config(function($stateProvider) {
         $stateProvider
             .state('jym.jinbaoyin', {
@@ -16,11 +17,13 @@ angular.module('jym.jinbaoyin', [
                 }
             });
     })
-    .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy, APP, JinbaoyinService) {
+    .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy,RESOURCES, APP, JinbaoyinService) {
         var ctrl = this;
 
         ctrl.model = {};
         ctrl.viewModel = {};
+        ctrl.viewModel.yield = RESOURCES.JBYINFO.YIELD;
+        ctrl.viewModel.title = RESOURCES.JBYINFO.TITLE;
 
         ctrl.doRefresh = function() {
             if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
@@ -40,7 +43,6 @@ angular.module('jym.jinbaoyin', [
             JinbaoyinService.getIndex()
                 .then(function(result) {
                     ctrl.model = result;
-
                     ctrl.viewModel.title = result.productName + ' ' + '第' + result.issueNo + '期';
                     ctrl.viewModel.yield = result.yield / 100;
                     ctrl.viewModel.unitPrice = (result.unitPrice / 100).toFixed(0);

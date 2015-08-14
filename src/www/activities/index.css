@@ -199,11 +199,13 @@ a,a:hover{text-decoration:none}
   height: 100%;
 }
 .downloadpage1 button,.downloadpage2 button {
-  font-size: 18px;
   height: 50px;
   border-radius:6px;
-  color: white;
   outline: none;
+}
+.downloadpage1 a, .downloadpage2 a {
+  font-size: 18px;
+  color: white;
 }
 
 .downloadpage1 .andrioddownload {
@@ -367,10 +369,12 @@ a,a:hover{text-decoration:none}
   width: 50%;
   float: right;
   height: 58px;
-  background-color: #c0c0c0;
+  background-color: #5DA0FF;
   color: #ffffff;
   border-radius: 5px;
   border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
 }
 
 .jym-index7-view a:hover {
@@ -512,13 +516,13 @@ a,a:hover{text-decoration:none}
   .jym-index7-view .register {
     height: 36px;
     line-height: 36px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .jym-index7-view .login {
     height: 36px;
     line-height: 36px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .jym-index7-view .Vericode {
@@ -548,13 +552,13 @@ a,a:hover{text-decoration:none}
   .jym-index7-view .register {
     height: 36px;
     line-height: 36px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .jym-index7-view .login {
     height: 36px;
     line-height: 36px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .jym-index7-view .Vericode {

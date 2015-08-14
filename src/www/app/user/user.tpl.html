@@ -8,10 +8,10 @@
 
     <ion-list>
       <ion-item class="row">
-        <div class="col col-33" ng-if="!ctrl.viewModel.qian" ng-click="ctrl.toggleQian1()">
+        <div class="col col-33" ng-if="!ctrl.viewModel.signed" ng-click="ctrl.toggleQian1()">
           <img class="avatar" src="assets/img/common/qian@128x128-173b5c.png">
         </div>
-        <div class="col col-33" ng-if="ctrl.viewModel.qian">
+        <div class="col col-33" ng-if="ctrl.viewModel.signed">
           <img src="assets/img/common/avatar@128x128-acece9.png"/>
         </div>
 
@@ -76,11 +76,11 @@
   </ion-content>
   <div ng-include="'app/common/templates/tabs.tpl.html'"></div>
   <div class="qian" ng-if="ctrl.viewModel.showQian1">
-    <img src="assets/img/common/qian1@639x1136-49a141.png">
+    <img src="assets/img/common/qian1@@640x1136-ec41a3.png">
     <button class="btn button-yellow-round" ng-click="ctrl.toggleQian2()">立即签到</button>
   </div>
   <div class="qian" ng-if="ctrl.viewModel.showQian2">
-    <img src="assets/img/common/qian2@640x1136-a53793.png">
+    <img src="assets/img/common/qian2@@640x1136-b58ce3.png">
     <p class="reward"><span ng-bind="ctrl.viewModel.amount"></span>&nbsp;元</p>
     <button class="btn button-yellow-round" ng-click="ctrl.toggleQian2()">收进钱包</button>
   </div>

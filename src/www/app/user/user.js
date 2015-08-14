@@ -32,8 +32,7 @@ angular.module('jym.user', [
 
         ctrl.viewModel.showQian1 = false;
         ctrl.viewModel.showQian2 = false;
-        ctrl.viewModel.qian = false;
-        ctrl.viewModel.amount = "0.00";
+        ctrl.viewModel.amount = '0.00';
 
         ctrl.doRefresh = function() {
             ctrl.refreshUser()
@@ -58,6 +57,7 @@ angular.module('jym.user', [
             ctrl.viewModel.investingPrincipal = (ctrl.model.investingPrincipal / 100).toFixed(2);
             ctrl.viewModel.realName = ctrl.model.realName || '未实名认证';
             ctrl.viewModel.verified = ctrl.model.verified;
+            ctrl.viewModel.signed = ctrl.model.signed;
         };
 
         ctrl.loginOut = function() {
