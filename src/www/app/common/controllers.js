@@ -5,14 +5,13 @@ angular.module('jym.controllers', [
 ])
     .controller('SlidesCtrl', function($timeout, $ionicSlideBoxDelegate,RESOURCES,JYMConfigService, JYMUtilityService) {
         var ctrl = this;
-
         ctrl.activeSlideIndex = 0;
-        ctrl.slides = RESOURCES.BANNERS;
-       
+        ctrl.slides = RESOURCES.BANNERS;        
         JYMConfigService.getSlidesConfig()
             .then(function(result) {
                 ctrl.slides = result;
             })
+
             .then(function() {
                 $ionicSlideBoxDelegate.update();
         });        

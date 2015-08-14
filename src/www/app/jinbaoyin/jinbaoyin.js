@@ -21,7 +21,7 @@ angular.module('jym.jinbaoyin', [
         var ctrl = this;
 
         ctrl.model = {};
-        ctrl.viewModel = {};      
+        ctrl.viewModel = {};     
         ctrl.viewModel.yield = RESOURCES.JBYINFO.YIELD;
         ctrl.viewModel.title = RESOURCES.JBYINFO.TITLE;
 

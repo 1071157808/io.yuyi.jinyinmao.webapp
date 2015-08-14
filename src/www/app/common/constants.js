@@ -53,7 +53,7 @@ angular.module('jym.constants', [])
             SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
             SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
             VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            USER_SIGN: "https://jym-dev-api.jinyinmao.com.cn:443/User/Sign"
+            USER_SIGN:'https://jym-dev-api.jinyinmao.com.cn:443/User/Sign'
         },
         USERJINBAOYIN: {
             INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
@@ -134,7 +134,7 @@ angular.module('jym.constants', [])
                 LOGIN_SUCCESS: '登录成功'
             }
         },
-        BANNERS: [{
+        BANNERS:[{
                 title: '金银猫最优投资收益比',
                 imageSource: 'assets/img/topic/banner@640x270-6af6f5.jpg',
                 targetUrl: 'https://m.jinyinmao.com.cn'
@@ -147,9 +147,10 @@ angular.module('jym.constants', [])
                 imageSource: 'assets/img/topic/banner2@640x270-3e38e2.png',
                 targetUrl: 'https://m.jinyinmao.com.cn'
             }],
-        JBYINFO:{
-           YIELD:7,
-           TITLE:'金包银' + ' ' + '第300期'
+
+        JBYINFO: {
+            YIELD: '7',
+            TITLE: '金包银第300期'
         }
     })
     .constant('REGEX', {
@@ -159,6 +160,6 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.50-DEV',
+        VERSION: '13.1.53-DEV',
         ENV: 'dev'
     });
