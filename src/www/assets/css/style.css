@@ -1093,12 +1093,12 @@ ion-item img {
 }
 
 .button-yellow-round {
+  left: 50%;
+  width: 50%;
+  margin-left: -25%;
   background-color: #facb3a;
   border: 0 solid #cead52;
   border-radius: 20px;
-  width: 50%;
-  margin-left: -25%;
-  left: 50%;
 }
 
 .button-yellow:disabled {
@@ -2346,7 +2346,7 @@ input[readonly]:not(.cloned-text-input) {
   bottom: 30%;
   color: brown;
 }
-@media only screen and (max-width: 320px) and (max-height: 480px)  {
+@media only screen and (max-width: 320px) and (max-height: 480px) {
   .qian {
     position: absolute;
     top: 0;
@@ -2361,13 +2361,13 @@ input[readonly]:not(.cloned-text-input) {
 }
 .reward {
   position: absolute;
-  width: 50%;
   top: 48%;
   left: 50%;
-  text-align: center;
+  width: 50%;
   margin-left: -25%;
-  color: yellow;
   font-size: 20px;
+  color: yellow;
+  text-align: center;
 }
 .reward span {
   font-size: 34px;
