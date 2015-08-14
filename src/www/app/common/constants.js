@@ -147,6 +147,7 @@ angular.module('jym.constants', [])
                 imageSource: 'assets/img/topic/banner2@640x270-3e38e2.png',
                 targetUrl: 'https://m.jinyinmao.com.cn'
             }],
+
         JBYINFO: {
             YIELD: '7',
             TITLE: '金包银第300期'
