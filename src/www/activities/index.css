@@ -199,11 +199,13 @@ a,a:hover{text-decoration:none}
   height: 100%;
 }
 .downloadpage1 button,.downloadpage2 button {
-  font-size: 18px;
   height: 50px;
   border-radius:6px;
-  color: white;
   outline: none;
+}
+.downloadpage1 a, .downloadpage2 a {
+  font-size: 18px;
+  color: white;
 }
 
 .downloadpage1 .andrioddownload {
