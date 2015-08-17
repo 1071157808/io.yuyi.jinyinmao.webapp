@@ -17,7 +17,8 @@ angular.module('jym.interceptors', [
                 return $q.reject(rejection);
             },
 
-            response: function(response) {
+            response: function(response) {               
+                console.log("x-jym-auth:"+response.headers()['x-jym-auth']);
                 if (response.headers()['x-jym-auth']) {
                     authService.setToken(response.headers()['x-jym-auth']);
                 }
