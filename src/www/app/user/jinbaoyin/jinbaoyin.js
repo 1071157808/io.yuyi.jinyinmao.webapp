@@ -73,7 +73,6 @@ angular.module('jym.user.jinbaoyin', [
 
         ctrl.goWithdrawal = function() {
             var now = JYMTimeService.getTime();
-
             if (now.hour() >= 0 && now.hour() < 5) {
                 ctrl.showAlert();
             }
@@ -83,12 +82,9 @@ angular.module('jym.user.jinbaoyin', [
         };
 
         ctrl.showAlert = function() {
-            var alertPopup = $ionicPopup.alert({
+            $ionicPopup.alert({
                 title: ' ',
                 template: '每日0:00~05:00期间金包银暂停赎回服务'
-            });
-            alertPopup.then(function() {
-                console.log('');
             });
         };
 

@@ -3,18 +3,18 @@ angular.module('jym.controllers', [
     'jym.services',
     'jym.constants'
 ])
-    .controller('SlidesCtrl', function($timeout, $ionicSlideBoxDelegate,RESOURCES,JYMConfigService, JYMUtilityService) {
+    .controller('SlidesCtrl', function($timeout, $ionicSlideBoxDelegate, RESOURCES, JYMConfigService, JYMUtilityService) {
         var ctrl = this;
         ctrl.activeSlideIndex = 0;
-        ctrl.slides = RESOURCES.BANNERS;        
+        ctrl.slides = RESOURCES.BANNERS;
+
         JYMConfigService.getSlidesConfig()
             .then(function(result) {
                 ctrl.slides = result;
             })
-
             .then(function() {
                 $ionicSlideBoxDelegate.update();
-        });        
+            });
 
         ctrl.clickSlide = function(url) {
             JYMUtilityService.open(url);

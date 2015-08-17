@@ -2355,9 +2355,9 @@ input[readonly]:not(.cloned-text-input) {
     height: auto;
   }
   .qian > img {
-    width: 100%;   
+    width: 100%;
     height: 480px;
-  }  
+  }
 }
 .reward {
   position: absolute;

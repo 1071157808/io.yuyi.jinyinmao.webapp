@@ -11,12 +11,10 @@ angular.module('jym.interceptors', [
                 config.headers['x-jym-auth'] = authService.getToken();
                 return config;
             },
-
             requestError: function(rejection) {
                 $rootScope.$broadcast('http:requestError');
                 return $q.reject(rejection);
             },
-
             response: function(response) {
                 if (response.headers()['x-jym-auth']) {
                     authService.setToken(response.headers()['x-jym-auth']);
@@ -24,7 +22,6 @@ angular.module('jym.interceptors', [
                 if (response.headers().date) {
                     timeService.setTime(moment(response.headers().date));
                 }
-
                 return response;
             },
 

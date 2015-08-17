@@ -242,7 +242,6 @@ angular.module('jym.user.security-payment-password', [])
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.VERIFY_VERI_CODE);
                             $timeout(function() {
-                                alert('d');
                                 ctrl.resetInput();
                                 JYMUtilityService.go('jym.user-security-reset-payment-password', { token: result.token });
                             }, 1000);
