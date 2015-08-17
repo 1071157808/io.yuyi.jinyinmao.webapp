@@ -81,7 +81,7 @@ angular.module('jym.user', [
         ctrl.toggleQian2 = function() {
             UserService.userSign()
                 .then(function(result) {
-                    ctrl.viewModel.amount =(result.amount/100).toFixed(2);
+                    ctrl.viewModel.amount = (result.amount / 100).toFixed(2);
                     ctrl.viewModel.showQian1 = false;
                     $ionicScrollDelegate.scrollTop();
                     ctrl.viewModel.showQian2 = !ctrl.viewModel.showQian2;

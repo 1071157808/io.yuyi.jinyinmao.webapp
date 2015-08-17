@@ -82,10 +82,10 @@ angular.module('jym.user.jinbaoyin', [
         };
 
         ctrl.showAlert = function() {
-            var alertPopup = $ionicPopup.alert({
+            $ionicPopup.alert({
                 title: ' ',
                 template: '每日0:00~05:00期间金包银暂停赎回服务'
-            });            
+            });
         };
 
         $scope.$on('$ionicView.enter', function() {

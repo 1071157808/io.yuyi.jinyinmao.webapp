@@ -17,7 +17,7 @@ angular.module('jym.jinbaoyin', [
                 }
             });
     })
-    .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy,RESOURCES, APP, JinbaoyinService) {
+    .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy, RESOURCES, APP, JinbaoyinService) {
         var ctrl = this;
         ctrl.model = {};
         ctrl.viewModel = {};
