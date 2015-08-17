@@ -19,9 +19,8 @@ angular.module('jym.jinbaoyin', [
     })
     .controller('JinbaoyinCtrl', function($scope, $timeout, $ionicDeploy,RESOURCES, APP, JinbaoyinService) {
         var ctrl = this;
-
         ctrl.model = {};
-        ctrl.viewModel = {};     
+        ctrl.viewModel = {};
         ctrl.viewModel.yield = RESOURCES.JBYINFO.YIELD;
         ctrl.viewModel.title = RESOURCES.JBYINFO.TITLE;
 

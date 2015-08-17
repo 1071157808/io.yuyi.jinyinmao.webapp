@@ -46,7 +46,7 @@ angular.module('jym.user.investment', [
         ctrl.refreshViewModel = function() {
             ctrl.viewModel.toTalAmount = ((ctrl.model.jBYTotalAmount + ctrl.model.investingPrincipal) / 100).toFixed(2);
             ctrl.viewModel.investingPrincipal = (ctrl.model.investingPrincipal / 100).toFixed(2);
-            ctrl.viewModel.yinInvestingPrincipal = (ctrl.model.yinInvestingPrincipal / 100).toFixed(2);                
+            ctrl.viewModel.yinInvestingPrincipal = (ctrl.model.yinInvestingPrincipal / 100).toFixed(2);
             ctrl.viewModel.shangInvestingPrincipal = (ctrl.model.shangInvestingPrincipal / 100).toFixed(2);
             ctrl.viewModel.bankInvestingPrincipal = (ctrl.model.bankInvestingPrincipal / 100).toFixed(2);
         };
