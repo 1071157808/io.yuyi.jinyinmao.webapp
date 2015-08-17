@@ -33,6 +33,7 @@ angular.module('jym.user', [
         ctrl.viewModel.showQian1 = false;
         ctrl.viewModel.showQian2 = false;
         ctrl.viewModel.amount = '0.00';
+        ctrl.viewModel.signed = true;
 
         ctrl.doRefresh = function() {
             ctrl.refreshUser()
@@ -80,11 +81,12 @@ angular.module('jym.user', [
         ctrl.toggleQian2 = function() {
             UserService.userSign()
                 .then(function(result) {
-                    ctrl.viewModel.amount = result.amount.toFixed(2);
+                    ctrl.viewModel.amount =(result.amount/100).toFixed(2);
                     ctrl.viewModel.showQian1 = false;
                     $ionicScrollDelegate.scrollTop();
                     ctrl.viewModel.showQian2 = !ctrl.viewModel.showQian2;
                     $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian2);
+                    ctrl.doRefresh();
                 });
         };
 
