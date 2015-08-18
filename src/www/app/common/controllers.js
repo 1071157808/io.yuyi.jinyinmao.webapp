@@ -7,9 +7,12 @@ angular.module('jym.controllers', [
         var ctrl = this;
         ctrl.activeSlideIndex = 0;
         ctrl.slides = RESOURCES.BANNERS;
-
         JYMConfigService.getSlidesConfig()
             .then(function(result) {
+                var img = new Image();
+                for (var i = 0; i < result.length; i++) {
+                    img.src = result[i].imageSource;
+                }
                 ctrl.slides = result;
             })
             .then(function() {
