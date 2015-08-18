@@ -76,7 +76,7 @@ angular.module('jym.jinbaoyin.purchase', [
 
         ctrl.purchase = function() {
             if (ctrl.purchaseButtonEnable()) {
-                if (REGEX.PAYMENT_PASSWORD.test(ctrl.viewModel.password)) {
+                if (!REGEX.PAYMENT_PASSWORD.test(ctrl.viewModel.password)) {
                     JYMUtilityService.showAlert(RESOURCES.TIP.INVESTING.INVESTING_PASSWORD);
                     return false;
                 }
