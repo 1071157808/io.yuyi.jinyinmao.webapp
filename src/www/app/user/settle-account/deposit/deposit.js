@@ -66,12 +66,12 @@ angular.module('jym.user.settle-account-deposit', [
                 //    JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_MAX);
                 //    return false;
                 //}
-                //
-                //var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/;
-                //if (!rgexp.test(ctrl.viewModel.password)) {
-                //    JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_PASSWORD);
-                //    return false;
-                //}
+
+                var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/;
+                if (!rgexp.test(ctrl.viewModel.password)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_PASSWORD);
+                    return false;
+                }
 
                 var amount = parseInt(ctrl.viewModel.amount * 100, 10);
                 UserService.depositByYilian(amount, ctrl.viewModel.bankCardNo, ctrl.viewModel.password)
