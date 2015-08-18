@@ -61,7 +61,6 @@ angular.module('jym.user.settle-account-deposit', [
 
         ctrl.deposit = function() {
             if (ctrl.buttonEnable()) {
-
                 var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/;
                 if (!rgexp.test(ctrl.viewModel.password)) {
                     JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.WITHDRAWAL_PASSWORD);
@@ -70,13 +69,13 @@ angular.module('jym.user.settle-account-deposit', [
 
                 var amount = parseInt(ctrl.viewModel.amount * 100, 10);
                 UserService.depositByYilian(amount, ctrl.viewModel.bankCardNo, ctrl.viewModel.password)
-                    .then(function(result) {
+                    .then(function (result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.SETTLE_ACCOUNT.DEPOSIT_SUCCESS);
 
                             UserService.sharedData.depositBankCardNo = undefined;
 
-                            $timeout(function() {
+                            $timeout(function () {
                                 ctrl.resetInput();
                                 JYMUtilityService.goWithDisableBack('jym.user-settle-account-deposit-success');
                             }, 1000);
