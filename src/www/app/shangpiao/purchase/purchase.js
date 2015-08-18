@@ -167,7 +167,9 @@ angular.module('jym.shangpiao.purchase', [
 
         ctrl.toggleUseCoupon = function() {
             if (ctrl.viewModel.showCoupon && ctrl.viewModel.useCoupon) {
-                ctrl.viewModel.extraInterest = (ctrl.viewModel.expectedInterest * ctrl.model.coupon.amount / ctrl.model.order.amount).toFixed(2);
+                ctrl.viewModel.extraInterest = (ctrl.viewModel.expectedInterest * ctrl.model.coupon.amount / ctrl.model.order.amount).toString();
+                var vlen = ctrl.viewModel.extraInterest.indexOf('.') + 3;
+                ctrl.viewModel.extraInterest = ctrl.viewModel.extraInterest.substring(0, vlen);
             } else {
                 ctrl.viewModel.extraInterest = 0;
             }

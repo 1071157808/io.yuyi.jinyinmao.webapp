@@ -44,12 +44,12 @@ angular.module('jym.user.investment', [
         };
 
         ctrl.refreshViewModel = function() {
-            ctrl.viewModel.totalAmount = ctrl.model.jBYTotalPricipal;
+            ctrl.viewModel.totalAmount = ctrl.model.jBYTotalAmount;
             ctrl.viewModel.totalAmount += ctrl.model.yinInvestingPrincipal + ctrl.model.yinInvestingInterest;
             ctrl.viewModel.totalAmount += ctrl.model.shangInvestingPrincipal + ctrl.model.shangInvestingInterest;
             ctrl.viewModel.totalAmount += ctrl.model.bankInvestingInterest + ctrl.model.bankInvestingPrincipal;
             ctrl.viewModel.totalAmount = (ctrl.viewModel.totalAmount / 100).toFixed(2);
-            ctrl.viewModel.jBYTotalPricipal = ((ctrl.model.jBYTotalPricipal) / 100).toFixed(2);
+            ctrl.viewModel.jBYTotalAmount = (ctrl.model.jBYTotalAmount / 100).toFixed(2);
             ctrl.viewModel.yinInvestingPrincipal = ((ctrl.model.yinInvestingPrincipal + ctrl.model.yinInvestingInterest) / 100).toFixed(2);
             ctrl.viewModel.shangInvestingPrincipal = ((ctrl.model.shangInvestingPrincipal + ctrl.model.shangInvestingInterest) / 100).toFixed(2);
             ctrl.viewModel.bankInvestingPrincipal = ((ctrl.model.bankInvestingPrincipal + ctrl.model.bankInvestingInterest) / 100).toFixed(2);

@@ -59,7 +59,7 @@ angular.module('jym.user', [
             ctrl.viewModel.realName = ctrl.model.realName || '未实名认证';
             ctrl.viewModel.verified = ctrl.model.verified;
             ctrl.viewModel.signed = ctrl.model.signed;
-            ctrl.viewModel.totalAmount = ctrl.model.jBYTotalPricipal;
+            ctrl.viewModel.totalAmount = ctrl.model.jBYTotalAmount  ;
             ctrl.viewModel.totalAmount += ctrl.model.yinInvestingPrincipal + ctrl.model.yinInvestingInterest;
             ctrl.viewModel.totalAmount += ctrl.model.shangInvestingPrincipal + ctrl.model.shangInvestingInterest;
             ctrl.viewModel.totalAmount += ctrl.model.bankInvestingInterest + ctrl.model.bankInvestingPrincipal;
