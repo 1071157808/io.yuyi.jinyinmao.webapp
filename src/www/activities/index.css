@@ -1,4 +1,4 @@
-@charset 'utf-8';
+﻿@charset 'utf-8';
 html{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
 html,body{margin:0;height:100%}
 html,body,div,p,samp{font-family:'HiraginoSansGB W3','Microsoft YaHei',\5FAE\8F6F\96C5\9ED1,Helvetica,Arial,sans-serif}
@@ -328,7 +328,7 @@ a,a:hover{text-decoration:none}
 }
 
 .jym-index7-view .registeViewSub div {
-  margin-top: 30px;
+  margin-top: 19px;
 }
 
 .jym-index7-view .register-input input {
