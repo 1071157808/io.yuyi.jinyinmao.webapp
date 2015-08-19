@@ -73,15 +73,16 @@ angular.module('jym.services', [
             CacheFactory.clearAll();
         };
     })
-    .service('JYMConfigService', function($http, $q, URLS, JYMCacheService) {
+    .service('JYMConfigService', function($http, $q, URLS, JYMCacheService,APP) {
         var service = this;
 
         function parseConfig(result) {
-            if (ionic.Platform.isIOS()) {
+
+            if (APP.PLATFORMS === 'IOS') {
                 return result.data.ios;
             }
 
-            if (ionic.Platform.isAndroid()) {
+            if (APP.PLATFORMS === 'ANDROID') {
                 return result.data.android;
             }
 
@@ -92,7 +93,7 @@ angular.module('jym.services', [
             return $http.get(URLS.CONFIG.FETCH, {
                 cache: JYMCacheService.get('configCache')
             })
-                .then(parseConfig);
+            .then(parseConfig);
         };
 
         service.getSlidesConfig = function() {

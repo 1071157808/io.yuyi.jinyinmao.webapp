@@ -44,28 +44,61 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     })
-    .run(function($state, $timeout, $ionicDeploy, $ionicPlatform, APP) {
-        $ionicPlatform.ready(function() {
+    .run(function($state, $timeout, $ionicDeploy, $ionicPlatform,$http, $ionicPopup,APP,JYMConfigService,JYMUtilityService) {
+        $ionicPlatform.ready(function () {
+
+
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
 
-            var checkUpdate = function() {
+            var checkUpdate = function () {
                 $ionicDeploy.setChannel(APP.ENV);
-                $ionicDeploy.watch().then(function() {
-                    }, function() {
+                $ionicDeploy.watch().then(function () {
+                    }, function () {
                     },
-                    function(hasUpdate) {
+                    function (hasUpdate) {
                         if (hasUpdate) {
-                            $ionicDeploy.update().then(function() {
+                            $ionicDeploy.update().then(function () {
                                 $ionicDeploy.load();
                             });
                         }
                     });
             };
 
-            checkUpdate();
+            var url = 'app/config@' + APP.VERSION + '.json';
+            $http.get(url).success(function (result) {
+                APP.VERSION = result.version;
+                APP.PLATFORMS = result.platform.toUpperCase();
+                APP.CONTRACTID = result.contractId;
+            });
+
+            //URI来源
+            var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
+            var arrCookies = document.cookie.match(reg);
+            if (arrCookies != null) {
+                APP.CONTRACTID = arrCookies[2];
+            }
+
+            JYMConfigService.getConfig()
+                .then(function (result) {
+                    if (result.enableUpdatePush) {
+                        checkUpdate();
+                    }
+                    else if (result.lastVersion != APP.VERSION) {
+                        $ionicPopup.confirm({
+                            title: '',
+                            template: result.updateTip,
+                            cancelText: '取消',
+                            okText: '确定'
+                        }).then(function (res) {
+                            if (res) {
+                                JYMUtilityService.open(result.updateLink);
+                            }
+                        });
+                    }
+                });
         });
     })
     .run(function($rootScope, $ionicLoading) {

@@ -3,7 +3,7 @@ angular.module('jym.services.user', [
     'ionic',
     'jym.services'
 ])
-    .service('UserService', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
+    .service('UserService', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService , APP) {
         var service = this;
 
         service.sharedData = {};
@@ -385,24 +385,15 @@ angular.module('jym.services.user', [
 
         service.signUp = function (password, token) {
             var url = URLS.USER.SINGUP;
-
-            var clientType;
-            var contractId = 0;
-            var arrCookies;
-            var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
-
-            if (ionic.Platform.isIOS()) {
+            var contractId = APP.CONTRACTID;
+            var clientType= 0;
+            if (APP.PLATFORMS==='IOS') {
                 clientType = 901;
-            } else if (ionic.Platform.isAndroid()) {
+            } else if (APP.PLATFORMS==='ANDROID') {
                 clientType = 902;
             } else {
                 clientType = 903;
             }
-
-            if (arrCookies = document.cookie.match(reg)) {
-                contractId = arrCookies[2].toUpperCase();
-            }
-
             return $http.post(url, {
                 clientType: clientType,
                 contractId: contractId,
