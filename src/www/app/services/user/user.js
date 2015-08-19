@@ -1,13 +1,12 @@
 'use strict';
 angular.module('jym.services.user', [
     'ionic',
-    'jym.services'
+    'jym.services',
+    'jym.constants'
 ])
-    .service('UserService', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService , APP) {
+    .service('UserService', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService,APP) {
         var service = this;
-
         service.sharedData = {};
-
         var getCityName = function(bankName) {
             switch (bankName) {
                 case '浦发银行':
@@ -386,14 +385,15 @@ angular.module('jym.services.user', [
         service.signUp = function (password, token) {
             var url = URLS.USER.SINGUP;
             var contractId = APP.CONTRACTID;
-            var clientType= 0;
-            if (APP.PLATFORMS==='IOS') {
+            var clientType = 0;
+            if (APP.PLATFORMS === 'IOS') {
                 clientType = 901;
-            } else if (APP.PLATFORMS==='ANDROID') {
+            } else if (APP.PLATFORMS === 'ANDROID') {
                 clientType = 902;
             } else {
                 clientType = 903;
             }
+
             return $http.post(url, {
                 clientType: clientType,
                 contractId: contractId,

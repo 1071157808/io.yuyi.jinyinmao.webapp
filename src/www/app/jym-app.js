@@ -67,14 +67,6 @@ angular.module('JYM', [
                     });
             };
 
-            var url = 'app/config@' + APP.VERSION + '.json';
-            $http.get(url).success(function (result) {
-                APP.VERSION = result.version;
-                APP.PLATFORMS = result.platform.toUpperCase();
-                APP.CONTRACTID = result.contractId;
-            });
-
-            //URI来源
             var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
             var arrCookies = document.cookie.match(reg);
             if (arrCookies != null) {
@@ -83,21 +75,28 @@ angular.module('JYM', [
 
             JYMConfigService.getConfig()
                 .then(function (result) {
-                    if (result.enableUpdatePush) {
-                        checkUpdate();
-                    }
-                    else if (result.lastVersion != APP.VERSION) {
-                        $ionicPopup.confirm({
-                            title: '',
-                            template: result.updateTip,
-                            cancelText: '取消',
-                            okText: '确定'
-                        }).then(function (res) {
-                            if (res) {
-                                JYMUtilityService.open(result.updateLink);
-                            }
-                        });
-                    }
+                    var version = APP.VERSION.replace('-DEV', '');
+                    var url = 'app/config@' + version + '.json';
+                    $http.get(url).success(function (config) {
+                        APP.VERSION = config.version;
+                        APP.PLATFORMS = config.platform.toUpperCase();
+                        APP.CONTRACTID = config.contractId;
+                        if (result.enableUpdatePush) {
+                            checkUpdate();
+                        }
+                        else if (result.lastVersion.substring(0, result.lastVersion.lastIndexOf('.')) !== APP.VERSION.substring(0, APP.VERSION.lastIndexOf('.'))) {
+                            $ionicPopup.confirm({
+                                title: '',
+                                template: result.updateTip,
+                                cancelText: '取消',
+                                okText: '确定'
+                            }).then(function (res) {
+                                if (res) {
+                                    JYMUtilityService.open(result.updateLink);
+                                }
+                            });
+                        }
+                    });
                 });
         });
     })

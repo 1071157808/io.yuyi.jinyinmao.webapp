@@ -161,7 +161,10 @@ angular.module('jym.constants', [])
     })
     .constant('APP', {
         VERSION: '13.1.59',
-        ENV: 'product'
+        ENV: 'product',
+        PLATFORMS:'web',
+        CONTRACTID:'0',
+        CLIENTTYPE:'903'
     });
 
 'use strict';
@@ -1076,15 +1079,16 @@ angular.module('jym.services', [
             CacheFactory.clearAll();
         };
     }])
-    .service('JYMConfigService', ['$http', '$q', 'URLS', 'JYMCacheService', function($http, $q, URLS, JYMCacheService) {
+    .service('JYMConfigService', ['$http', '$q', 'URLS', 'JYMCacheService', 'APP', function($http, $q, URLS, JYMCacheService,APP) {
         var service = this;
 
         function parseConfig(result) {
-            if (ionic.Platform.isIOS()) {
+
+            if (APP.PLATFORMS === 'IOS') {
                 return result.data.ios;
             }
 
-            if (ionic.Platform.isAndroid()) {
+            if (APP.PLATFORMS === 'ANDROID') {
                 return result.data.android;
             }
 
@@ -1095,7 +1099,7 @@ angular.module('jym.services', [
             return $http.get(URLS.CONFIG.FETCH, {
                 cache: JYMCacheService.get('configCache')
             })
-                .then(parseConfig);
+            .then(parseConfig);
         };
 
         service.getSlidesConfig = function() {
@@ -1815,28 +1819,60 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     }])
-    .run(['$state', '$timeout', '$ionicDeploy', '$ionicPlatform', 'APP', function($state, $timeout, $ionicDeploy, $ionicPlatform, APP) {
-        $ionicPlatform.ready(function() {
+    .run(['$state', '$timeout', '$ionicDeploy', '$ionicPlatform', '$http', '$ionicPopup', 'APP', 'JYMConfigService', 'JYMUtilityService', function($state, $timeout, $ionicDeploy, $ionicPlatform,$http, $ionicPopup,APP,JYMConfigService,JYMUtilityService) {
+        $ionicPlatform.ready(function () {
+
+
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
 
-            var checkUpdate = function() {
+            var checkUpdate = function () {
                 $ionicDeploy.setChannel(APP.ENV);
-                $ionicDeploy.watch().then(function() {
-                    }, function() {
+                $ionicDeploy.watch().then(function () {
+                    }, function () {
                     },
-                    function(hasUpdate) {
+                    function (hasUpdate) {
                         if (hasUpdate) {
-                            $ionicDeploy.update().then(function() {
+                            $ionicDeploy.update().then(function () {
                                 $ionicDeploy.load();
                             });
                         }
                     });
             };
 
-            checkUpdate();
+            var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
+            var arrCookies = document.cookie.match(reg);
+            if (arrCookies != null) {
+                APP.CONTRACTID = arrCookies[2];
+            }
+
+            JYMConfigService.getConfig()
+                .then(function (result) {
+                    var version = APP.VERSION.replace('-DEV', '');
+                    var url = 'app/config@' + version + '.json';
+                    $http.get(url).success(function (config) {
+                        APP.VERSION = config.version;
+                        APP.PLATFORMS = config.platform.toUpperCase();
+                        APP.CONTRACTID = config.contractId;
+                        if (result.enableUpdatePush) {
+                            checkUpdate();
+                        }
+                        else if (result.lastVersion.substring(0, result.lastVersion.lastIndexOf('.')) !== APP.VERSION.substring(0, APP.VERSION.lastIndexOf('.'))) {
+                            $ionicPopup.confirm({
+                                title: '',
+                                template: result.updateTip,
+                                cancelText: '取消',
+                                okText: '确定'
+                            }).then(function (res) {
+                                if (res) {
+                                    JYMUtilityService.open(result.updateLink);
+                                }
+                            });
+                        }
+                    });
+                });
         });
     }])
     .run(['$rootScope', '$ionicLoading', function($rootScope, $ionicLoading) {
@@ -2196,13 +2232,12 @@ angular.module('jym.services.purchase', [
 'use strict';
 angular.module('jym.services.user', [
     'ionic',
-    'jym.services'
+    'jym.services',
+    'jym.constants'
 ])
-    .service('UserService', ['$http', '$timeout', 'URLS', 'RESOURCES', 'JYMAuthService', 'JYMCacheService', 'JYMUtilityService', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
+    .service('UserService', ['$http', '$timeout', 'URLS', 'RESOURCES', 'JYMAuthService', 'JYMCacheService', 'JYMUtilityService', 'APP', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService,APP) {
         var service = this;
-
         service.sharedData = {};
-
         var getCityName = function(bankName) {
             switch (bankName) {
                 case '浦发银行':
@@ -2580,22 +2615,14 @@ angular.module('jym.services.user', [
 
         service.signUp = function (password, token) {
             var url = URLS.USER.SINGUP;
-
-            var clientType;
-            var contractId = 0;
-            var arrCookies;
-            var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
-
-            if (ionic.Platform.isIOS()) {
+            var contractId = APP.CONTRACTID;
+            var clientType = 0;
+            if (APP.PLATFORMS === 'IOS') {
                 clientType = 901;
-            } else if (ionic.Platform.isAndroid()) {
+            } else if (APP.PLATFORMS === 'ANDROID') {
                 clientType = 902;
             } else {
                 clientType = 903;
-            }
-
-            if (arrCookies = document.cookie.match(reg)) {
-                contractId = arrCookies[2].toUpperCase();
             }
 
             return $http.post(url, {
