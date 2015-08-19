@@ -44,13 +44,12 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     })
-    .run(function($state, $timeout, $ionicDeploy, $ionicPlatform, APP) {
+    .run(function($state, $timeout, $ionicDeploy, $ionicPlatform,APP) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
-
             var checkUpdate = function() {
                 $ionicDeploy.setChannel(APP.ENV);
                 $ionicDeploy.watch().then(function() {
