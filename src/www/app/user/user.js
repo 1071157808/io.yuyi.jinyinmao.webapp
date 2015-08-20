@@ -30,12 +30,12 @@ angular.module('jym.user', [
         ctrl.model = {};
         ctrl.viewModel = {};
 
-        ctrl.viewModel.showQian1 = false;
-        ctrl.viewModel.showQian2 = false;
-        ctrl.viewModel.amount = '0.00';
-        ctrl.viewModel.signed = true;
-
         ctrl.doRefresh = function() {
+            ctrl.viewModel.showQian1 = false;
+            ctrl.viewModel.showQian2 = false;
+            ctrl.viewModel.amount = '0.00';
+            ctrl.viewModel.signed = true;
+
             ctrl.refreshUser()
                 .then(function(result) {
                     ctrl.model = result;
@@ -79,7 +79,7 @@ angular.module('jym.user', [
         ctrl.toggleQian1 = function() {
             ctrl.viewModel.showQian2 = false;
             $ionicScrollDelegate.scrollTop();
-            ctrl.viewModel.showQian1 = !ctrl.viewModel.showQian1;
+            ctrl.viewModel.showQian1 = true;
             $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian1);
         };
 
@@ -89,10 +89,16 @@ angular.module('jym.user', [
                     ctrl.viewModel.amount = (result.amount / 100).toFixed(2);
                     ctrl.viewModel.showQian1 = false;
                     $ionicScrollDelegate.scrollTop();
-                    ctrl.viewModel.showQian2 = !ctrl.viewModel.showQian2;
+                    ctrl.viewModel.showQian2 = true;
                     $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian2);
-                    ctrl.doRefresh();
+
                 });
+        };
+
+        ctrl.toggleQian3=function() {
+            ctrl.viewModel.showQian1 = false;
+            ctrl.viewModel.showQian2 = false;
+            ctrl.doRefresh();
         };
 
         $scope.$on('$ionicView.enter', function() {
