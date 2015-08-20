@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yuyi.Jinyinmao.Proxy</name>
+    </assembly>
+    <members>
+        <member name="T:Yuyi.Jinyinmao.Proxy.WebApiConfig">
+            <summary>
+                WebApiConfig.
+            </summary>
+        </member>
+        <member name="M:Yuyi.Jinyinmao.Proxy.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+                Registers the specified configuration.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="T:Yuyi.Jinyinmao.Proxy.Controllers.ProxyController">
+            <summary>
+                ProxyController.
+            </summary>
+        </member>
+        <member name="M:Yuyi.Jinyinmao.Proxy.Controllers.ProxyController.Proxy(System.String)">
+            <summary>
+                Proxies the specified target URL.
+            </summary>
+            <param name="targetUrl">The target URL.</param>
+            <returns>System.Threading.Tasks.Task&lt;System.Web.Http.IHttpActionResult&gt;.</returns>
+        </member>
+        <member name="T:Yuyi.Jinyinmao.Proxy.Filters.GlobalExceptionFilterAttribute">
+            <summary>
+                GlobalExceptionFilterAttribute.
+            </summary>
+        </member>
+        <member name="M:Yuyi.Jinyinmao.Proxy.Filters.GlobalExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+                Raises the exception event.
+            </summary>
+            <param name="actionExecutedContext">The context for the action.</param>
+        </member>
+        <member name="T:Yuyi.Jinyinmao.Proxy.WebApiApplication">
+            <summary>
+                WebApiApplication.
+            </summary>
+        </member>
+        <member name="M:Yuyi.Jinyinmao.Proxy.WebApiApplication.Application_Start">
+            <summary>
+                Application_s the start.
+            </summary>
+        </member>
+    </members>
+</doc>

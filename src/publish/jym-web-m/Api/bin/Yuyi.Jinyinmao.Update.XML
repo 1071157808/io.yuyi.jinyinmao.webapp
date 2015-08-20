@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yuyi.Jinyinmao.Update</name>
+    </assembly>
+    <members>
+        <member name="T:Yuyi.Jinyinmao.Update.WebApiConfig">
+            <summary>
+                WebApiConfig.
+            </summary>
+        </member>
+        <member name="M:Yuyi.Jinyinmao.Update.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+                Registers the specified configuration.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="T:Yuyi.Jinyinmao.Update.Controllers.HomeController">
+            <summary>
+                HomeController.
+            </summary>
+        </member>
+        <member name="M:Yuyi.Jinyinmao.Update.Controllers.HomeController.Index(System.String)">
+            <summary>
+                Check app version.
+            </summary>
+            <param name="source">The source.</param>
+        </member>
+        <member name="T:Yuyi.Jinyinmao.Update.WebApiApplication">
+            <summary>
+                WebApiApplication.
+            </summary>
+        </member>
+        <member name="M:Yuyi.Jinyinmao.Update.WebApiApplication.Application_Start">
+            <summary>
+                Application_s the start.
+            </summary>
+        </member>
+    </members>
+</doc>

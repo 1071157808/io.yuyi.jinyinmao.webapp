@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yuyi.Jinyinmao.UrlTransfer</name>
+    </assembly>
+    <members>
+        <member name="T:Yuyi.Jinyinmao.UrlTransfer.MvcApplication">
+            <summary>
+                MvcApplication.
+            </summary>
+        </member>
+        <member name="M:Yuyi.Jinyinmao.UrlTransfer.MvcApplication.Application_Start">
+            <summary>
+                Application_s the start.
+            </summary>
+        </member>
+    </members>
+</doc>
