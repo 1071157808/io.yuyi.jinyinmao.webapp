@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            app: 'publish/app/www/',
+            app: ['publish/app/assets/**/*', 'publish/app/packages/**/*', 'publish/platforms/**/*', 'publish/app/*.html', 'publish/app/*.json'],
             bower: 'www/lib/',
             dist: 'dist/**/*',
             js: ['www/app/**/*.annotated.js'],
@@ -54,10 +54,8 @@ module.exports = function(grunt) {
                 dest: 'dist/config@<%= pkg.version %>.json'
             },
             css: {
-                expand: true,
-                cwd: 'www/assets/css/',
-                src: ['*.css'],
-                dest: 'dist/assets/css/'
+                src: 'www/assets/css/style.css',
+                dest: 'dist/assets/css/style@<%= pkg.version %>.css'
             },
             favicon: {
                 src: 'www/favicon.ico',
@@ -121,14 +119,14 @@ module.exports = function(grunt) {
             },
             deployToDev: {
                 expand: true,
-                cwd: 'release/',
+                cwd: 'publish/jym-web-m/',
                 src: ['**/*'],
                 dest: 'publish/jym-web-dev-m/'
             },
             app: {
                 expand: true,
                 cwd: 'dist/',
-                src: ['*', 'packages/**/*', 'assets/js/*.min.js', 'assets/css/*.min.css', 'assets/fonts/**/*', 'assets/icon/**/*', 'assets/img/**/*'],
+                src: ['*', 'packages/**/*', 'assets/js/*.min.js', 'assets/css/*.min.css', 'assets/fonts/**/*', 'assets/icon/**/*', 'assets/img/**/*', '!Activities/', '!Activities', '!activities/', '!activities', '!Activities/**/*'],
                 dest: 'publish/app/'
             }
         },
