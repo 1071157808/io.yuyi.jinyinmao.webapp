@@ -2,63 +2,63 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         BANKCARD: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADD_BANK_CARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
-            ADD_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
+            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADD_BANK_CARD: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
+            ADD_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
+            FETCH: 'https://jymstoreproduct.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
         },
         COUPON: {
-            INDEX: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Index',
-            AVAILABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Remove/'
+            INDEX: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon/Index',
+            AVAILABLE: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon',
+            REMOVE: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon/Remove/'
         },
         INVESTING: {
-            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
-            REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
+            JBY: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         JINBAOYIN: {
-            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
-            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            AGREEMENT: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
+            FETCH: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         ORDER: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Info/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Index/'
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         REGULARPRDUCT: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
-            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
         SETTLE_ACCOUNT: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
-            DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
+            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
+            DEPOSIT: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
+            WITHDRAWAL: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
         USER: {
-            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
-            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
-            RESET_LOGIN_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SEND_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
-            SET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            USER_SIGN:'https://jym-dev-api.jinyinmao.com.cn:443/User/Sign'
+            AUTHENTICATE: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
+            GETINFO: 'https://jym-product-api.jinyinmao.com.cn:443/User',
+            RESET_LOGIN_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESET_PAYMENT_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SEND_VERICODE: 'https://jym-product-api.jinyinmao.com.cn:443/SendVeriCode',
+            SET_PAYMENT_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            SINGUP: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SIGNIN: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            VERIFY_VERICODE: 'https://jym-product-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            USER_SIGN:'https://jym-product-api.jinyinmao.com.cn:443/User/Sign'
         },
         USERJINBAOYIN: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         }
     })
     .constant('RESOURCES', {
@@ -160,8 +160,11 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.59-DEV',
-        ENV: 'dev'
+        VERSION: '13.1.60',
+        ENV: 'product',
+        PLATFORMS:'web',
+        CONTRACTID:'0',
+        CLIENTTYPE:'903'
     });
 
 'use strict';
@@ -1076,15 +1079,16 @@ angular.module('jym.services', [
             CacheFactory.clearAll();
         };
     }])
-    .service('JYMConfigService', ['$http', '$q', 'URLS', 'JYMCacheService', function($http, $q, URLS, JYMCacheService) {
+    .service('JYMConfigService', ['$http', '$q', 'URLS', 'JYMCacheService', 'APP', function($http, $q, URLS, JYMCacheService,APP) {
         var service = this;
 
         function parseConfig(result) {
-            if (ionic.Platform.isIOS()) {
+
+            if (APP.PLATFORMS === 'IOS') {
                 return result.data.ios;
             }
 
-            if (ionic.Platform.isAndroid()) {
+            if (APP.PLATFORMS === 'ANDROID') {
                 return result.data.android;
             }
 
@@ -1095,7 +1099,7 @@ angular.module('jym.services', [
             return $http.get(URLS.CONFIG.FETCH, {
                 cache: JYMCacheService.get('configCache')
             })
-                .then(parseConfig);
+            .then(parseConfig);
         };
 
         service.getSlidesConfig = function() {
@@ -1159,7 +1163,7 @@ angular.module('jym.services', [
         };
     }]);
 
-angular.module('jym.templates', ['app/common/templates/index-slide-box.tpl.html', 'app/common/templates/tabs.tpl.html', 'app/index.tpl.html', 'app/jinbaoyin/detail/detail.tpl.html', 'app/jinbaoyin/jinbaoyin.tpl.html', 'app/jinbaoyin/purchase/purchase.tpl.html', 'app/shangpiao/detail/detail.tpl.html', 'app/shangpiao/purchase/purchase.tpl.html', 'app/shangpiao/shangpiao.tpl.html', 'app/user/about/about.tpl.html', 'app/user/bank-card/Upgrade/upgrade.tpl.html', 'app/user/bank-card/add/add.tpl.html', 'app/user/bank-card/add/bankSelector.tpl.html', 'app/user/bank-card/add/methodSelector.tpl.html', 'app/user/bank-card/bank-card.tpl.html', 'app/user/bank-card/detail/detail.tpl.html', 'app/user/bank-card/yilian-notice.tpl.html', 'app/user/coupon/coupon.tpl.html', 'app/user/detail/detail.tpl.html', 'app/user/investment/investment.tpl.html', 'app/user/jinbaoyin/detail/detail.tpl.html', 'app/user/jinbaoyin/jinbaoyin.tpl.html', 'app/user/jinbaoyin/list/list.tpl.html', 'app/user/jinbaoyin/withdrawal/withdrawal.tpl.html', 'app/user/login/login.tpl.html', 'app/user/order/detail/detail.tpl.html', 'app/user/order/order.tpl.html', 'app/user/security/password/password.tpl.html', 'app/user/security/password/sendVeriCode.tpl.html', 'app/user/security/paymentPassword/paymentPassword.tpl.html', 'app/user/security/paymentPassword/sendVeriCode.tpl.html', 'app/user/security/paymentPassword/setPaymentPassword.tpl.html', 'app/user/security/security.tpl.html', 'app/user/settle-account/deposit/bank-card-selector.tpl.html', 'app/user/settle-account/deposit/deposit-success.tpl.html', 'app/user/settle-account/deposit/deposit.tpl.html', 'app/user/settle-account/detail/detail.tpl.html', 'app/user/settle-account/list/list.tpl.html', 'app/user/settle-account/settle-account.tpl.html', 'app/user/settle-account/withdrawal/bank-card-selector.tpl.html', 'app/user/settle-account/withdrawal/withdrawal.tpl.html', 'app/user/signup/sendVeriCode.tpl.html', 'app/user/signup/signup.tpl.html', 'app/user/user.tpl.html', 'app/yinpiao/detail/detail.tpl.html', 'app/yinpiao/purchase/purchase.tpl.html', 'app/yinpiao/yinpiao.tpl.html', 'app/zhuanqu/detail/detail.tpl.html', 'app/zhuanqu/list.tpl.html', 'app/zhuanqu/purchase/purchase.tpl.html', 'app/zhuanqu/zhuanqu.tpl.html']);
+angular.module('jym.templates', ['app/common/templates/index-slide-box.tpl.html', 'app/common/templates/tabs.tpl.html', 'app/index.tpl.html', 'app/jinbaoyin/detail/detail.tpl.html', 'app/jinbaoyin/jinbaoyin.tpl.html', 'app/jinbaoyin/purchase/purchase.tpl.html', 'app/shangpiao/detail/detail.tpl.html', 'app/shangpiao/purchase/purchase.tpl.html', 'app/shangpiao/shangpiao.tpl.html', 'app/user/about/about.tpl.html', 'app/user/bank-card/add/add.tpl.html', 'app/user/bank-card/add/bankSelector.tpl.html', 'app/user/bank-card/add/methodSelector.tpl.html', 'app/user/bank-card/bank-card.tpl.html', 'app/user/bank-card/detail/detail.tpl.html', 'app/user/bank-card/upgrade/upgrade.tpl.html', 'app/user/bank-card/yilian-notice.tpl.html', 'app/user/coupon/coupon.tpl.html', 'app/user/detail/detail.tpl.html', 'app/user/investment/investment.tpl.html', 'app/user/jinbaoyin/detail/detail.tpl.html', 'app/user/jinbaoyin/jinbaoyin.tpl.html', 'app/user/jinbaoyin/list/list.tpl.html', 'app/user/jinbaoyin/withdrawal/withdrawal.tpl.html', 'app/user/login/login.tpl.html', 'app/user/order/detail/detail.tpl.html', 'app/user/order/order.tpl.html', 'app/user/security/password/password.tpl.html', 'app/user/security/password/sendVeriCode.tpl.html', 'app/user/security/paymentPassword/paymentPassword.tpl.html', 'app/user/security/paymentPassword/sendVeriCode.tpl.html', 'app/user/security/paymentPassword/setPaymentPassword.tpl.html', 'app/user/security/security.tpl.html', 'app/user/settle-account/deposit/bank-card-selector.tpl.html', 'app/user/settle-account/deposit/deposit-success.tpl.html', 'app/user/settle-account/deposit/deposit.tpl.html', 'app/user/settle-account/detail/detail.tpl.html', 'app/user/settle-account/list/list.tpl.html', 'app/user/settle-account/settle-account.tpl.html', 'app/user/settle-account/withdrawal/bank-card-selector.tpl.html', 'app/user/settle-account/withdrawal/withdrawal.tpl.html', 'app/user/signup/sendVeriCode.tpl.html', 'app/user/signup/signup.tpl.html', 'app/user/user.tpl.html', 'app/yinpiao/detail/detail.tpl.html', 'app/yinpiao/purchase/purchase.tpl.html', 'app/yinpiao/yinpiao.tpl.html', 'app/zhuanqu/detail/detail.tpl.html', 'app/zhuanqu/list.tpl.html', 'app/zhuanqu/purchase/purchase.tpl.html', 'app/zhuanqu/zhuanqu.tpl.html']);
 
 angular.module("app/common/templates/index-slide-box.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/common/templates/index-slide-box.tpl.html",
@@ -1211,11 +1215,6 @@ angular.module("app/user/about/about.tpl.html", []).run(["$templateCache", funct
     "<ion-view title=关于金银猫><ion-content><ion-list><ion-item><p class=pull-left>平台网站</p><p class=pull-right>www.jinyinmao.com.cn</p></ion-item><ion-item><p class=pull-left>移动网站</p><p class=pull-right>m.jinyinmao.com.cn</p></ion-item><ion-item><p class=pull-left>客服热线</p><p class=pull-right>4008-556-333</p></ion-item><ion-item><p class=pull-left>新浪微博</p><p class=pull-right>金银猫</p></ion-item><ion-item><p class=pull-left>微信服务号</p><p class=pull-right>金银猫服务号</p></ion-item><ion-item><p class=pull-left>版本号</p><p class=pull-right ng-bind=ctrl.viewModel.version></p></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
-angular.module("app/user/bank-card/Upgrade/upgrade.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("app/user/bank-card/Upgrade/upgrade.tpl.html",
-    "<ion-view title=认证银行卡><ion-content><ion-list><label class=\"item item-input\"><span class=input-label>手机</span> <input type=text placeholder=请输入手机号码 required minlength=11 maxlength=11 ng-model=ctrl.viewModel.cellphone readonly=\"readonly\"></label><label class=\"item item-input\"><span class=input-label>姓名</span> <input type=text placeholder=请输入姓名 required minlength=2 maxlength=30 ng-model=ctrl.viewModel.realName ng-readonly=\"ctrl.viewModel.verified\"></label><label class=\"item item-input\"><span class=input-label>身份证</span> <input type=text placeholder=请输入18位身份证号 required minlength=5 maxlength=18 ng-model=ctrl.viewModel.credentialNo ng-readonly=\"ctrl.viewModel.verified\"></label><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>卡号</span> <input type=text placeholder=请输入借记卡号 required minlength=15 maxlength=19 ng-model=ctrl.viewModel.bankCardNo readonly=readonly ng-pattern=\"/^\\d{15,19}$/\"></label><ion-item class=\"bank-card item-thumbnail-left\"><img ng-src=\"{{ ctrl.viewModel.bankName | bankImg }}\"><h2 ng-bind=ctrl.viewModel.bankName></h2></ion-item></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-disabled=!ctrl.buttonEnable() ng-click=ctrl.verify()>认证银行卡</button><p class=attention>认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p></ion-content></ion-view>");
-}]);
-
 angular.module("app/user/bank-card/add/add.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/bank-card/add/add.tpl.html",
     "<ion-view title=添加银行卡><ion-content><div ng-if=\"ctrl.viewModel.showPart === 1\"><ion-list><label class=\"item item-input\"><span class=input-label>手机</span> <input type=text placeholder=请输入手机号码 required minlength=11 maxlength=11 ng-model=ctrl.viewModel.cellphone readonly=\"readonly\"></label><label class=\"item item-input\"><span class=input-label>姓名</span> <input type=text placeholder=请输入姓名 required minlength=1 maxlength=30 ng-model=ctrl.viewModel.realName ng-readonly=\"ctrl.viewModel.verified\"></label><label class=\"item item-input\"><span class=input-label>身份证</span> <input type=text placeholder=请输入18位身份证号 required minlength=1 maxlength=18 ng-model=ctrl.viewModel.credentialNo ng-readonly=\"ctrl.viewModel.verified\"></label><ion-item class=divider></ion-item><ion-item class=\"item-thumbnail-left bank-card item-icon-right\" ui-sref=jym.user-bank-card-add-bank-selector><img ng-src=\"{{ ctrl.viewModel.bankName | bankImg }}\"><h2 ng-bind=ctrl.viewModel.bankName></h2><i class=\"icon ion-chevron-right\"></i></ion-item><label class=\"item item-input\"><span class=input-label>卡号</span> <input type=text placeholder=请输入借记卡号 required minlength=1 maxlength=19 ng-model=\"ctrl.viewModel.bankCardNo\"></label></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-disabled=!ctrl.buttonEnable() ng-click=ctrl.verify() ng-if=ctrl.viewModel.hasSetPaymentPassword>绑定银行卡</button><div class=space></div><div class=space></div><button class=\"btn button-grey\" ng-if=!ctrl.canBack() ng-click=ctrl.backHome()>暂不绑卡 残忍拒绝</button><p class=attention ng-if=ctrl.viewModel.hasSetPaymentPassword>认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p></div><div ng-if=\"ctrl.viewModel.showPart === 2\" id=notice><div class=space></div><div class=space></div><div class=noticeDetail><h2>欢迎您成为金银猫的会员</h2><p>为了您的账户安全，请先完成以下设置</p><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ui-sref=jym.user-security-set-payment-password ng-if=!ctrl.viewModel.hasSetPaymentPassword>设置支付密码</button><div class=space></div><div class=space></div><button class=\"btn button-grey\" ng-click=ctrl.backHome()>先逛逛</button><p class=attention>为保证您能够正常使用支付功能，请先设置支付密码。</p></div></div></ion-content></ion-view>");
@@ -1239,6 +1238,11 @@ angular.module("app/user/bank-card/bank-card.tpl.html", []).run(["$templateCache
 angular.module("app/user/bank-card/detail/detail.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/bank-card/detail/detail.tpl.html",
     "<ion-view title=我的银行卡><ion-content><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=ctrl.doRefresh()></ion-refresher><ion-list class=\"bank-card detail\"><ion-item class=item-thumbnail-left><img ng-src=\"{{ ctrl.viewModel.bankName | bankImg }}\"><h2 ng-bind=ctrl.viewModel.bankName></h2><span class=pull-right ng-bind=\"ctrl.viewModel | bankCardStatus\"></span><p>尾号 <em ng-bind=ctrl.viewModel.bankCardNo.substr(-4)></em></p></ion-item></ion-list><br><button class=\"btn button-yellow\" ng-if=!ctrl.viewModel.verifiedByYilian ui-sref=\"jym.user-bank-card-upgrade({ bankCardNo: ctrl.viewModel.bankCardNo })\">升级签约支付</button><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.showConfirm()>删除银行卡</button><div class=space></div><div class=space></div></ion-content></ion-view>");
+}]);
+
+angular.module("app/user/bank-card/upgrade/upgrade.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("app/user/bank-card/upgrade/upgrade.tpl.html",
+    "<ion-view title=认证银行卡><ion-content><ion-list><label class=\"item item-input\"><span class=input-label>手机</span> <input type=text placeholder=请输入手机号码 required minlength=11 maxlength=11 ng-model=ctrl.viewModel.cellphone readonly=\"readonly\"></label><label class=\"item item-input\"><span class=input-label>姓名</span> <input type=text placeholder=请输入姓名 required minlength=2 maxlength=30 ng-model=ctrl.viewModel.realName ng-readonly=\"ctrl.viewModel.verified\"></label><label class=\"item item-input\"><span class=input-label>身份证</span> <input type=text placeholder=请输入18位身份证号 required minlength=5 maxlength=18 ng-model=ctrl.viewModel.credentialNo ng-readonly=\"ctrl.viewModel.verified\"></label><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>卡号</span> <input type=text placeholder=请输入借记卡号 required minlength=15 maxlength=19 ng-model=ctrl.viewModel.bankCardNo readonly=readonly ng-pattern=\"/^\\d{15,19}$/\"></label><ion-item class=\"bank-card item-thumbnail-left\"><img ng-src=\"{{ ctrl.viewModel.bankName | bankImg }}\"><h2 ng-bind=ctrl.viewModel.bankName></h2></ion-item></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-disabled=!ctrl.buttonEnable() ng-click=ctrl.verify()>认证银行卡</button><p class=attention>认证时会从卡内试扣1.08元，认证结束后即归还原卡。请保持身份信息与该银行卡开户信息一致，否则将认证失败。</p></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/bank-card/yilian-notice.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1815,13 +1819,12 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     }])
-    .run(['$state', '$timeout', '$ionicDeploy', '$ionicPlatform', 'APP', function($state, $timeout, $ionicDeploy, $ionicPlatform, APP) {
+    .run(['$state', '$timeout', '$ionicDeploy', '$ionicPlatform', '$http', '$ionicPopup', 'APP', 'JYMConfigService', 'JYMUtilityService', function($state, $timeout, $ionicDeploy, $ionicPlatform, $http, $ionicPopup, APP, JYMConfigService, JYMUtilityService) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
-
             var checkUpdate = function() {
                 $ionicDeploy.setChannel(APP.ENV);
                 $ionicDeploy.watch().then(function() {
@@ -1836,7 +1839,37 @@ angular.module('JYM', [
                     });
             };
 
-            checkUpdate();
+            if (APP.PLATFORMS.toUpperCase() === 'WEB') {
+                var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
+                var arrCookies = document.cookie.match(reg);
+                if (arrCookies != null) {
+                    APP.CONTRACTID = arrCookies[2];
+                }
+            }
+
+            JYMConfigService.getConfig()
+                .then(function(result) {
+                    var url = '/config@13.1.60.json';
+                    $http.get(url).then(function(config) {
+                        APP.VERSION = config.version;
+                        APP.PLATFORMS = config.platform.toUpperCase();
+                        APP.CONTRACTID = config.contractId;
+                        if (result.lastVersion.substring(0, result.lastVersion.lastIndexOf('.')) !== APP.VERSION.substring(0, APP.VERSION.lastIndexOf('.'))) {
+                            $ionicPopup.confirm({
+                                title: '',
+                                template: result.updateTip,
+                                cancelText: '取消',
+                                okText: '更新'
+                            }).then(function(res) {
+                                if (res) {
+                                    JYMUtilityService.open(result.updateLink);
+                                }
+                            });
+                        } else if (result.enableUpdatePush) {
+                            checkUpdate();
+                        }
+                    });
+                });
         });
     }])
     .run(['$rootScope', '$ionicLoading', function($rootScope, $ionicLoading) {
@@ -2196,13 +2229,12 @@ angular.module('jym.services.purchase', [
 'use strict';
 angular.module('jym.services.user', [
     'ionic',
-    'jym.services'
+    'jym.services',
+    'jym.constants'
 ])
-    .service('UserService', ['$http', '$timeout', 'URLS', 'RESOURCES', 'JYMAuthService', 'JYMCacheService', 'JYMUtilityService', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService) {
+    .service('UserService', ['$http', '$timeout', 'URLS', 'RESOURCES', 'JYMAuthService', 'JYMCacheService', 'JYMUtilityService', 'APP', function($http, $timeout, URLS, RESOURCES, JYMAuthService, JYMCacheService, JYMUtilityService,APP) {
         var service = this;
-
         service.sharedData = {};
-
         var getCityName = function(bankName) {
             switch (bankName) {
                 case '浦发银行':
@@ -2580,22 +2612,14 @@ angular.module('jym.services.user', [
 
         service.signUp = function (password, token) {
             var url = URLS.USER.SINGUP;
-
-            var clientType;
-            var contractId = 0;
-            var arrCookies;
-            var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
-
-            if (ionic.Platform.isIOS()) {
+            var contractId = APP.CONTRACTID;
+            var clientType = 0;
+            if (APP.PLATFORMS === 'IOS') {
                 clientType = 901;
-            } else if (ionic.Platform.isAndroid()) {
+            } else if (APP.PLATFORMS === 'ANDROID') {
                 clientType = 902;
             } else {
                 clientType = 903;
-            }
-
-            if (arrCookies = document.cookie.match(reg)) {
-                contractId = arrCookies[2].toUpperCase();
             }
 
             return $http.post(url, {
@@ -3231,112 +3255,6 @@ angular.module('jym.user.about', [])
     }]);
 
 'use strict';
-angular.module('jym.user.bank-card-upgrade', [
-    'jym.services.user'
-])
-    .config(['$stateProvider', function($stateProvider) {
-        $stateProvider
-            .state('jym.user-bank-card-upgrade', {
-                url: '/user/bank-card-upgrade/{bankCardNo}',
-                views: {
-                    '@': {
-                        controller: 'UserBankCardUpgradeCtrl as ctrl',
-                        templateUrl: 'app/user/bank-card/upgrade/upgrade.tpl.html'
-                    }
-                }
-            });
-    }])
-    .controller('UserBankCardUpgradeCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'RESOURCES', 'UserService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
-        var ctrl = this;
-
-        ctrl.model = {};
-        ctrl.viewModel = {};
-
-        ctrl.buttonEnable = function() {
-            return ctrl.viewModel.cellphone && ctrl.viewModel.realName && ctrl.viewModel.credentialNo && ctrl.viewModel.bankCardNo && ctrl.viewModel.bankName;
-        };
-
-        ctrl.doRefresh = function() {
-            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
-                return;
-            }
-
-            ctrl.viewModel.refreshTime = Date.now();
-
-            ctrl.refreshUser()
-                .then(function(result) {
-                    ctrl.model.user = result;
-                    return result;
-                }).then(function() {
-                    ctrl.refreshBankCard()
-                        .then(function(result) {
-                            ctrl.model.card = result;
-                            ctrl.refreshViewModel();
-
-                        });
-                });
-        };
-
-        ctrl.refreshBankCard = function() {
-            return UserService.getBankCard($stateParams.bankCardNo);
-        };
-
-        ctrl.refreshUser = function() {
-            return UserService.getUserInfo();
-        };
-
-        ctrl.refreshViewModel = function() {
-            ctrl.viewModel.verified = ctrl.model.user.verified;
-            ctrl.viewModel.cellphone = ctrl.model.user.cellphone;
-
-            if (ctrl.viewModel.verified) {
-                ctrl.viewModel.credentialNo = ctrl.model.user.credentialNo;
-                ctrl.viewModel.realName = ctrl.model.user.realName;
-            } else {
-                ctrl.viewModel.credentialNo = ctrl.viewModel.credentialNo || '';
-                ctrl.viewModel.realName = ctrl.viewModel.realName || '';
-            }
-
-            ctrl.viewModel.bankCardNo = ctrl.model.card.bankCardNo;
-            ctrl.viewModel.bankName = ctrl.model.card.bankName;
-        };
-
-        ctrl.verify = function() {
-            if (ctrl.buttonEnable()) {
-                if (ctrl.viewModel.verified) {
-                    UserService.verifyBankCardByYilian(ctrl.viewModel.bankCardNo)
-                        .then(function(result) {
-                            if (result) {
-                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
-
-                                $timeout(function() {
-                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
-                                }, 1000);
-                            }
-                        });
-                } else {
-                    UserService.authenticate(ctrl.viewModel.bankCardNo, ctrl.viewModel.bankName, ctrl.viewModel.credentialNo, ctrl.viewModel.realName)
-                        .then(function(result) {
-                            if (result) {
-                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
-
-                                $timeout(function() {
-                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
-                                }, 1000);
-                            }
-                        });
-                }
-            }
-        };
-
-        $scope.$on('$ionicView.enter', function() {
-            ctrl.doRefresh();
-        });
-
-        ctrl.doRefresh();
-    }]);
-
-'use strict';
 angular.module('jym.user.bank-card-add', [
     'jym.services.user'
 ])
@@ -3701,6 +3619,112 @@ angular.module('jym.user.bank-card-detail', [
                     ctrl.removeCard();
                 }
             });
+        };
+
+        $scope.$on('$ionicView.enter', function() {
+            ctrl.doRefresh();
+        });
+
+        ctrl.doRefresh();
+    }]);
+
+'use strict';
+angular.module('jym.user.bank-card-upgrade', [
+    'jym.services.user'
+])
+    .config(['$stateProvider', function($stateProvider) {
+        $stateProvider
+            .state('jym.user-bank-card-upgrade', {
+                url: '/user/bank-card-upgrade/{bankCardNo}',
+                views: {
+                    '@': {
+                        controller: 'UserBankCardUpgradeCtrl as ctrl',
+                        templateUrl: 'app/user/bank-card/upgrade/upgrade.tpl.html'
+                    }
+                }
+            });
+    }])
+    .controller('UserBankCardUpgradeCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'RESOURCES', 'UserService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, RESOURCES, UserService, JYMUtilityService) {
+        var ctrl = this;
+
+        ctrl.model = {};
+        ctrl.viewModel = {};
+
+        ctrl.buttonEnable = function() {
+            return ctrl.viewModel.cellphone && ctrl.viewModel.realName && ctrl.viewModel.credentialNo && ctrl.viewModel.bankCardNo && ctrl.viewModel.bankName;
+        };
+
+        ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
+            ctrl.refreshUser()
+                .then(function(result) {
+                    ctrl.model.user = result;
+                    return result;
+                }).then(function() {
+                    ctrl.refreshBankCard()
+                        .then(function(result) {
+                            ctrl.model.card = result;
+                            ctrl.refreshViewModel();
+
+                        });
+                });
+        };
+
+        ctrl.refreshBankCard = function() {
+            return UserService.getBankCard($stateParams.bankCardNo);
+        };
+
+        ctrl.refreshUser = function() {
+            return UserService.getUserInfo();
+        };
+
+        ctrl.refreshViewModel = function() {
+            ctrl.viewModel.verified = ctrl.model.user.verified;
+            ctrl.viewModel.cellphone = ctrl.model.user.cellphone;
+
+            if (ctrl.viewModel.verified) {
+                ctrl.viewModel.credentialNo = ctrl.model.user.credentialNo;
+                ctrl.viewModel.realName = ctrl.model.user.realName;
+            } else {
+                ctrl.viewModel.credentialNo = ctrl.viewModel.credentialNo || '';
+                ctrl.viewModel.realName = ctrl.viewModel.realName || '';
+            }
+
+            ctrl.viewModel.bankCardNo = ctrl.model.card.bankCardNo;
+            ctrl.viewModel.bankName = ctrl.model.card.bankName;
+        };
+
+        ctrl.verify = function() {
+            if (ctrl.buttonEnable()) {
+                if (ctrl.viewModel.verified) {
+                    UserService.verifyBankCardByYilian(ctrl.viewModel.bankCardNo)
+                        .then(function(result) {
+                            if (result) {
+                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+
+                                $timeout(function() {
+                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
+                                }, 1000);
+                            }
+                        });
+                } else {
+                    UserService.authenticate(ctrl.viewModel.bankCardNo, ctrl.viewModel.bankName, ctrl.viewModel.credentialNo, ctrl.viewModel.realName)
+                        .then(function(result) {
+                            if (result) {
+                                JYMUtilityService.showAlert(RESOURCES.TIP.BANKCARD.SIGN);
+
+                                $timeout(function() {
+                                    JYMUtilityService.goWithDisableBack('jym.user-bank-card-yilian-notice');
+                                }, 1000);
+                            }
+                        });
+                }
+            }
         };
 
         $scope.$on('$ionicView.enter', function() {

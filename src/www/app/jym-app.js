@@ -44,11 +44,7 @@ angular.module('JYM', [
 
         $urlRouterProvider.otherwise('/jinbaoyin');
     })
-<<<<<<< HEAD
-    .run(function($state, $timeout, $ionicDeploy, $ionicPlatform,APP) {
-=======
     .run(function($state, $timeout, $ionicDeploy, $ionicPlatform, $http, $ionicPopup, APP, JYMConfigService, JYMUtilityService) {
->>>>>>> 13.1
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);

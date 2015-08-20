@@ -160,7 +160,7 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.62-DEV',
+        VERSION: '13.1.60-DEV',
         ENV: 'dev',
         PLATFORMS:'web',
         CONTRACTID:'0',
@@ -1262,7 +1262,7 @@ angular.module("app/user/detail/detail.tpl.html", []).run(["$templateCache", fun
 
 angular.module("app/user/investment/investment.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/investment/investment.tpl.html",
-    "<ion-view title=在投本息总额><ion-content><ion-list><ion-item><p>在投总资金：<strong ng-bind=ctrl.viewModel.totalAmount></strong>&nbsp;元</p></ion-item><ion-item class=divider></ion-item><ion-item><p class=pull-left>金包银：</p><p class=pull-right><span ng-bind=\"ctrl.viewModel.jBYTotalAmount \"></span>&nbsp;元</p></ion-item><ion-item><p class=pull-left>银企众盈：</p><p class=pull-right><span ng-bind=ctrl.viewModel.yinInvestingPrincipal></span>&nbsp;元</p></ion-item><ion-item><p class=pull-left>商融保盈：</p><p class=pull-right><span ng-bind=ctrl.viewModel.shangInvestingPrincipal></span>&nbsp;元</p></ion-item><ion-item><p class=pull-left>银行专区：</p><p class=pull-right><span ng-bind=ctrl.viewModel.bankInvestingPrincipal></span>&nbsp;元</p></ion-item></ion-list></ion-content></ion-view>");
+    "<ion-view title=在投本息总额><ion-content><ion-list><ion-item><p>在投本息总额：<strong ng-bind=ctrl.viewModel.totalAmount></strong>&nbsp;元</p></ion-item><ion-item class=divider></ion-item><ion-item><p class=pull-left>金包银：</p><p class=pull-right><span ng-bind=\"ctrl.viewModel.jBYTotalAmount \"></span>&nbsp;元</p></ion-item><ion-item><p class=pull-left>银企众盈：</p><p class=pull-right><span ng-bind=ctrl.viewModel.yinInvestingPrincipal></span>&nbsp;元</p></ion-item><ion-item><p class=pull-left>商融保盈：</p><p class=pull-right><span ng-bind=ctrl.viewModel.shangInvestingPrincipal></span>&nbsp;元</p></ion-item><ion-item><p class=pull-left>银行专区：</p><p class=pull-right><span ng-bind=ctrl.viewModel.bankInvestingPrincipal></span>&nbsp;元</p></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/jinbaoyin/detail/detail.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1360,7 +1360,7 @@ angular.module("app/user/settle-account/list/list.tpl.html", []).run(["$template
 
 angular.module("app/user/settle-account/settle-account.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/settle-account/settle-account.tpl.html",
-    "<ion-view title=资金账户><ion-content class=settle-account><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=ctrl.doRefresh()></ion-refresher><ion-list><ion-item class=item-icon-right ui-sref=jym.user-settle-account-list><p><strong ng-bind=ctrl.viewModel.balance></strong> 元</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item><p>投资中金额（元）：<em ng-bind=ctrl.viewModel.investingPrincipal></em></p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=jym.user-settle-account-deposit><h2>充值</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-settle-account-withdrawal><h2>提现</h2><i class=\"icon ion-chevron-right\"></i></ion-item></ion-list></ion-content></ion-view>");
+    "<ion-view title=钱包><ion-content class=settle-account><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=ctrl.doRefresh()></ion-refresher><ion-list><ion-item class=item-icon-right ui-sref=jym.user-settle-account-list><p><strong ng-bind=ctrl.viewModel.balance></strong> 元</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=jym.user-settle-account-deposit><h2>充值</h2><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-settle-account-withdrawal><h2>提现</h2><i class=\"icon ion-chevron-right\"></i></ion-item></ion-list></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/settle-account/withdrawal/bank-card-selector.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1825,7 +1825,6 @@ angular.module('JYM', [
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
-
             var checkUpdate = function() {
                 $ionicDeploy.setChannel(APP.ENV);
                 $ionicDeploy.watch().then(function() {
@@ -1850,7 +1849,7 @@ angular.module('JYM', [
 
             JYMConfigService.getConfig()
                 .then(function(result) {
-                    var url = '/config@13.1.62.json';
+                    var url = '/config@13.1.60.json';
                     $http.get(url).then(function(config) {
                         APP.VERSION = config.version;
                         APP.PLATFORMS = config.platform.toUpperCase();
