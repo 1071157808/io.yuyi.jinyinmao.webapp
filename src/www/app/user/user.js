@@ -24,13 +24,23 @@ angular.module('jym.user', [
                 }
             });
     })
-    .controller('UserCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService, $ionicNavBarDelegate) {
+    .controller('UserCtrl', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMAuthService, JYMUtilityService) {
         var ctrl = this;
-
         ctrl.model = {};
         ctrl.viewModel = {};
+        ctrl.checkToken = function() {
+            if (!JYMAuthService.getToken()) {
+                JYMUtilityService.goWithDisableBack('jym.user-login');
+            }
+        };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
             ctrl.viewModel.showQian1 = false;
             ctrl.viewModel.showQian2 = false;
             ctrl.viewModel.amount = '0.00';
@@ -68,9 +78,7 @@ angular.module('jym.user', [
 
         ctrl.loginOut = function() {
             UserService.loginOut();
-
             JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_OUT);
-
             $timeout(function() {
                 JYMUtilityService.goWithDisableBack('jym.user-login');
             }, 1000);
@@ -78,9 +86,8 @@ angular.module('jym.user', [
 
         ctrl.toggleQian1 = function() {
             ctrl.viewModel.showQian2 = false;
-            $ionicScrollDelegate.scrollTop();
             ctrl.viewModel.showQian1 = true;
-            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian1);
+            $ionicScrollDelegate.scrollTop();
         };
 
         ctrl.toggleQian2 = function() {
@@ -88,18 +95,20 @@ angular.module('jym.user', [
                 .then(function(result) {
                     ctrl.viewModel.amount = (result.amount / 100).toFixed(2);
                     ctrl.viewModel.showQian1 = false;
-                    $ionicScrollDelegate.scrollTop();
                     ctrl.viewModel.showQian2 = true;
-                    $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian2);
-
+                    $ionicScrollDelegate.scrollTop();
                 });
         };
 
-        ctrl.toggleQian3=function() {
+        ctrl.toggleQian3 = function() {
             ctrl.viewModel.showQian1 = false;
             ctrl.viewModel.showQian2 = false;
             ctrl.doRefresh();
         };
+
+        $scope.$on('$ionicView.beforeEnter', function() {
+            ctrl.checkToken();
+        });
 
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();

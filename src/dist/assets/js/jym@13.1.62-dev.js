@@ -2,63 +2,63 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         BANKCARD: {
-            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADD_BANK_CARD: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
-            ADD_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADD_BANK_CARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
+            ADD_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoretest.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
+            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
         },
         COUPON: {
-            INDEX: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon/Index',
-            AVAILABLE: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon',
-            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon/Remove/'
+            INDEX: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Index',
+            AVAILABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon',
+            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Remove/'
         },
         INVESTING: {
-            JBY: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/JBY',
-            REGULAR: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/Regular'
+            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         JINBAOYIN: {
-            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
-            FETCH: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
+            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         ORDER: {
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Info/',
-            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Index/'
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         REGULARPRDUCT: {
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
-            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
         SETTLE_ACCOUNT: {
-            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
-            DEPOSIT: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
-            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
+            DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
+            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
         USER: {
-            AUTHENTICATE: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
-            GETINFO: 'https://jym-test-api.jinyinmao.com.cn:443/User',
-            RESET_LOGIN_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SEND_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/SendVeriCode',
-            SET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            SINGUP: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SIGNIN: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            VERIFY_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            USER_SIGN:'https://jym-test-api.jinyinmao.com.cn:443/User/Sign'
+            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
+            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
+            RESET_LOGIN_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SEND_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
+            SET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            USER_SIGN:'https://jym-dev-api.jinyinmao.com.cn:443/User/Sign'
         },
         USERJINBAOYIN: {
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         }
     })
     .constant('RESOURCES', {
@@ -160,8 +160,8 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.60-TEST',
-        ENV: 'test',
+        VERSION: '13.1.62-DEV',
+        ENV: 'dev',
         PLATFORMS:'web',
         CONTRACTID:'0',
         CLIENTTYPE:'903'
@@ -1014,7 +1014,7 @@ angular.module('jym.services', [
         var tokenStorage = JYMCacheService.get('authTokenCache');
 
         service.clearToken = function() {
-            tokenStorage.removeAll();
+            tokenStorage.put('auth', '');
         };
 
         service.getToken = function() {
@@ -1076,6 +1076,9 @@ angular.module('jym.services', [
         };
 
         service.clearAll = function () {
+            service.get('authTokenCache').removeAll();
+            service.get('configCache').removeAll();
+            service.get('userCache').removeAll();
             CacheFactory.clearAll();
         };
     }])
@@ -1386,7 +1389,7 @@ angular.module("app/user/signup/signup.tpl.html", []).run(["$templateCache", fun
 
 angular.module("app/user/user.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/user.tpl.html",
-    "<ion-view title=我的金银猫 hide-back-button=true><ion-content id=user-index class=has-footer><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=ctrl.doRefresh()></ion-refresher><ion-list><ion-item class=row><div class=\"col col-33\" ng-if=ctrl.viewModel.signed><img src=\"assets/img/common/avatar@128x128-acece9.png\"></div><div class=\"col col-33\" ng-if=!ctrl.viewModel.signed ng-click=ctrl.toggleQian1()><img class=avatar src=assets/img/common/qian@128x128-173b5c.png></div><div ng-if=ctrl.viewModel.verified ui-sref=jym.user-detail class=\"col col-67\"><span class=pull-left ng-bind=ctrl.viewModel.cellphone></span> <i class=\"icon ion-chevron-right pull-right\"></i></div><div ng-if=!ctrl.viewModel.verified class=\"col col-67\" ui-sref=jym.user-bank-card-add-method-selector><span class=pull-left ng-bind=ctrl.viewModel.cellphone></span> <i class=\"icon ion-chevron-right pull-right\"></i> <samp>尚未实名认证</samp></div></ion-item><ion-item class=item-icon-right ui-sref=jym.user-investment><p class=pull-left>在投本息总额</p><p class=pull-right><span ng-bind=ctrl.viewModel.totalAmount></span> 元</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-settle-account><p class=pull-left>钱包余额</p><p class=pull-right><span ng-bind=ctrl.viewModel.balance></span> 元</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=jym.user-jinbaoyin><p>金包银账户</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-orders><p>我的订单</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-bank-card><p><span class=pull-left>我的银行卡</span> <span class=pull-right ng-if=!ctrl.viewModel.verified><samp>未绑定</samp></span></p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=jym.user-security><p>密码设置</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-coupon><p>我的优惠券</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=jym.user-about><p>关于金银猫</p><i class=\"icon ion-chevron-right\"></i></ion-item></ion-list><br><button class=\"btn button-grey\" ng-click=ctrl.loginOut()>登出</button><div class=space></div><div class=space></div><div class=space></div></ion-content><div ng-include=\"'app/common/templates/tabs.tpl.html'\"></div><div class=qian ng-if=ctrl.viewModel.showQian1><img src=assets/img/common/qian1@640x1136-ec41a3.png> <button class=\"btn button-yellow-round\" ng-click=ctrl.toggleQian2()>立即签到</button></div><div class=qian ng-if=ctrl.viewModel.showQian2><img src=assets/img/common/qian2@640x1136-b58ce3.png><p class=reward><span ng-bind=ctrl.viewModel.amount></span>&nbsp;元</p><button class=\"btn button-yellow-round\" ng-click=ctrl.toggleQian2()>收进钱包</button></div></ion-view>");
+    "<ion-view title=我的金银猫 hide-back-button=true><ion-content id=user-index class=has-footer><ion-refresher pulling-icon=ion-arrow-down-c spinner=spiral on-refresh=ctrl.doRefresh()></ion-refresher><ion-list><ion-item class=row><div class=\"col col-33\" ng-if=ctrl.viewModel.signed><img src=\"assets/img/common/avatar@128x128-acece9.png\"></div><div class=\"col col-33\" ng-if=!ctrl.viewModel.signed ng-click=ctrl.toggleQian1()><img class=avatar src=assets/img/common/qian@128x128-173b5c.png></div><div ng-if=ctrl.viewModel.verified ui-sref=jym.user-detail class=\"col col-67\"><span class=pull-left ng-bind=ctrl.viewModel.cellphone></span> <i class=\"icon ion-chevron-right pull-right\"></i></div><div ng-if=!ctrl.viewModel.verified class=\"col col-67\" ui-sref=jym.user-bank-card-add-method-selector><span class=pull-left ng-bind=ctrl.viewModel.cellphone></span> <i class=\"icon ion-chevron-right pull-right\"></i> <samp>尚未实名认证</samp></div></ion-item><ion-item class=item-icon-right ui-sref=jym.user-investment><p class=pull-left>在投本息总额</p><p class=pull-right><span ng-bind=ctrl.viewModel.totalAmount></span> 元</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-settle-account><p class=pull-left>钱包余额</p><p class=pull-right><span ng-bind=ctrl.viewModel.balance></span> 元</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=jym.user-jinbaoyin><p>金包银账户</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-orders><p>我的订单</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-bank-card><p><span class=pull-left>我的银行卡</span> <span class=pull-right ng-if=!ctrl.viewModel.verified><samp>未绑定</samp></span></p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=jym.user-security><p>密码设置</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=item-icon-right ui-sref=jym.user-coupon><p>我的优惠券</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ui-sref=jym.user-about><p>关于金银猫</p><i class=\"icon ion-chevron-right\"></i></ion-item></ion-list><br><button class=\"btn button-grey\" ng-click=ctrl.loginOut()>登出</button><div class=space></div><div class=space></div><div class=space></div></ion-content><div ng-include=\"'app/common/templates/tabs.tpl.html'\"></div><div class=qian ng-if=ctrl.viewModel.showQian1><img src=assets/img/common/qian1@640x1136-ec41a3.png> <button class=\"btn button-yellow-round\" ng-click=ctrl.toggleQian2()>立即签到</button></div><div class=qian ng-if=ctrl.viewModel.showQian2><img src=assets/img/common/qian2@640x1136-b58ce3.png><p class=reward><span ng-bind=ctrl.viewModel.amount></span>&nbsp;元</p><button class=\"btn button-yellow-round\" ng-click=ctrl.toggleQian3()>收进钱包</button></div></ion-view>");
 }]);
 
 angular.module("app/yinpiao/detail/detail.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1434,7 +1437,7 @@ angular.module('jym.jinbaoyin.detail', [
     'jym.services.user',
     'jym.jinbaoyin.purchase'
 ])
-    .config(['$stateProvider', function($stateProvider) {
+    .config(['$stateProvider', function ($stateProvider) {
         $stateProvider
             .state('jym.jinbaoyin-detail', {
                 url: '/jinbaoyin/detail',
@@ -1446,25 +1449,25 @@ angular.module('jym.jinbaoyin.detail', [
                 }
             });
     }])
-    .controller('JinbaoyinDetailCtrl', ['$scope', '$state', '$timeout', '$q', 'RESOURCES', 'JinbaoyinService', 'ProductService', 'PurchaseService', 'UserService', 'JYMUtilityService', function($scope, $state, $timeout, $q, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinDetailCtrl', ['$scope', '$state', '$timeout', '$q', 'RESOURCES', 'JinbaoyinService', 'ProductService', 'PurchaseService', 'UserService', 'JYMAuthService', 'JYMUtilityService', function ($scope, $state, $timeout, $q, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMAuthService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
         ctrl.viewModel = {};
 
-        var getSaleProgress = function(product) {
+        var getSaleProgress = function (product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
-        var getSaleStatus = function(product) {
+        var getSaleStatus = function (product) {
             return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
         };
 
-        var getValueDateModeText = function(valueDateMode) {
+        var getValueDateModeText = function (valueDateMode) {
             return ProductService.getValueDateModeText(valueDateMode);
         };
 
-        ctrl.doRefresh = function() {
+        ctrl.doRefresh = function () {
             if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
                 return;
             }
@@ -1476,24 +1479,28 @@ angular.module('jym.jinbaoyin.detail', [
             ctrl.viewModel.investAmount = 0;
 
             ctrl.refreshProduct()
-                .then(function(result) {
+                .then(function (result) {
                     ctrl.model.product = result;
                     ctrl.refreshViewModel();
                     ctrl.refreshInvestViewModel();
                     return result;
                 });
 
-            ctrl.refreshUser()
-                .then(function(result) {
-                    ctrl.model.user = result;
-                });
+            if (JYMAuthService.getToken()) {
+                ctrl.refreshUser()
+                    .then(function (result) {
+                        ctrl.model.user = result;
+                    });
+            } else {
+                ctrl.model.user = null;
+            }
 
-            $timeout(function() {
+            $timeout(function () {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };
 
-        ctrl.investCountChange = function() {
+        ctrl.investCountChange = function () {
             if (ctrl.viewModel.investCount < 0) {
                 ctrl.viewModel.investCount = 0;
             }
@@ -1505,12 +1512,17 @@ angular.module('jym.jinbaoyin.detail', [
             ctrl.refreshInvestViewModel();
         };
 
-        ctrl.goPurchase = function() {
+        ctrl.goPurchase = function () {
             if (ctrl.goPurchaseButtonEnable()) {
+                if (!ctrl.model.user) {
+                    JYMUtilityService.go('jym.user-login');
+                    return;
+                }
+
                 var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {
-                        $timeout(function() {
+                        $timeout(function () {
                             JYMUtilityService.go('jym.user-bank-card-add');
                         }, 1000);
                     }
@@ -1527,11 +1539,11 @@ angular.module('jym.jinbaoyin.detail', [
             }
         };
 
-        ctrl.goPurchaseButtonEnable = function() {
+        ctrl.goPurchaseButtonEnable = function () {
             return ctrl.viewModel.status === 20 && ctrl.viewModel.investAmount && ctrl.viewModel.investAmount >= ctrl.viewModel.unitPrice;
         };
 
-        ctrl.refreshInvestViewModel = function() {
+        ctrl.refreshInvestViewModel = function () {
             if (isFinite(ctrl.viewModel.investCount)) {
                 ctrl.viewModel.investAmount = ctrl.viewModel.investCount * ctrl.viewModel.unitPrice;
             } else {
@@ -1541,15 +1553,15 @@ angular.module('jym.jinbaoyin.detail', [
             ctrl.viewModel.expectedInterest = (ProductService.getInterest(ctrl.viewModel.investAmount * 100, ctrl.model.product.yield, 30) / 100).toFixed(2);
         };
 
-        ctrl.refreshProduct = function() {
+        ctrl.refreshProduct = function () {
             return JinbaoyinService.getIndex();
         };
 
-        ctrl.refreshUser = function() {
+        ctrl.refreshUser = function () {
             return UserService.getUserInfo();
         };
 
-        ctrl.refreshViewModel = function() {
+        ctrl.refreshViewModel = function () {
             ctrl.viewModel.endSellTime = ctrl.model.product.endSellTime;
             ctrl.viewModel.financingSumAmount = (ctrl.model.product.financingSumAmount / 1000000).toFixed(0);
             ctrl.viewModel.issueNo = parseInt(ctrl.model.product.issueNo, 10);
@@ -1590,7 +1602,7 @@ angular.module('jym.jinbaoyin.detail', [
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.enter', function () {
             ctrl.doRefresh();
         });
 
@@ -1849,11 +1861,11 @@ angular.module('JYM', [
 
             JYMConfigService.getConfig()
                 .then(function(result) {
-                    var url = '/config@13.1.60.json';
+                    var url = '/config@13.1.62.json';
                     $http.get(url).then(function(config) {
-                        APP.VERSION = config.version;
-                        APP.PLATFORMS = config.platform.toUpperCase();
-                        APP.CONTRACTID = config.contractId;
+                        APP.VERSION = config.data.version;
+                        APP.PLATFORMS = config.data.platform.toUpperCase();
+                        APP.CONTRACTID = config.data.contractId;
                         if (result.lastVersion.substring(0, result.lastVersion.lastIndexOf('.')) !== APP.VERSION.substring(0, APP.VERSION.lastIndexOf('.'))) {
                             $ionicPopup.confirm({
                                 title: '',
@@ -2714,7 +2726,7 @@ angular.module('jym.shangpiao.detail', [
                 }
             });
     }])
-    .controller('ShangpiaoDetailCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'ProductService', 'PurchaseService', 'UserService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ShangpiaoDetailCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'ProductService', 'PurchaseService', 'UserService', 'JYMAuthService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMAuthService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -2751,10 +2763,14 @@ angular.module('jym.shangpiao.detail', [
                     return result;
                 });
 
-            ctrl.refreshUser()
-                .then(function(result) {
-                    ctrl.model.user = result;
-                });
+            if (JYMAuthService.getToken()) {
+                ctrl.refreshUser()
+                    .then(function (result) {
+                        ctrl.model.user = result;
+                    });
+            } else {
+                ctrl.model.user = null;
+            }
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
@@ -2780,6 +2796,11 @@ angular.module('jym.shangpiao.detail', [
 
         ctrl.goPurchase = function() {
             if (ctrl.goPurchaseButtonEnable()) {
+                if (!ctrl.model.user) {
+                    JYMUtilityService.go('jym.user-login');
+                    return;
+                }
+
                 var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {
@@ -6171,18 +6192,28 @@ angular.module('jym.user', [
                 }
             });
     }])
-    .controller('UserCtrl', ['$scope', '$timeout', '$ionicScrollDelegate', 'RESOURCES', 'UserService', 'JYMUtilityService', '$ionicNavBarDelegate', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMUtilityService, $ionicNavBarDelegate) {
+    .controller('UserCtrl', ['$scope', '$timeout', '$ionicScrollDelegate', 'RESOURCES', 'UserService', 'JYMAuthService', 'JYMUtilityService', function($scope, $timeout, $ionicScrollDelegate, RESOURCES, UserService, JYMAuthService, JYMUtilityService) {
         var ctrl = this;
-
         ctrl.model = {};
         ctrl.viewModel = {};
-
-        ctrl.viewModel.showQian1 = false;
-        ctrl.viewModel.showQian2 = false;
-        ctrl.viewModel.amount = '0.00';
-        ctrl.viewModel.signed = true;
+        ctrl.checkToken = function() {
+            if (!JYMAuthService.getToken()) {
+                JYMUtilityService.goWithDisableBack('jym.user-login');
+            }
+        };
 
         ctrl.doRefresh = function() {
+            if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
+                return;
+            }
+
+            ctrl.viewModel.refreshTime = Date.now();
+
+            ctrl.viewModel.showQian1 = false;
+            ctrl.viewModel.showQian2 = false;
+            ctrl.viewModel.amount = '0.00';
+            ctrl.viewModel.signed = true;
+
             ctrl.refreshUser()
                 .then(function(result) {
                     ctrl.model = result;
@@ -6215,9 +6246,7 @@ angular.module('jym.user', [
 
         ctrl.loginOut = function() {
             UserService.loginOut();
-
             JYMUtilityService.showAlert(RESOURCES.TIP.USER.LOGIN_OUT);
-
             $timeout(function() {
                 JYMUtilityService.goWithDisableBack('jym.user-login');
             }, 1000);
@@ -6225,9 +6254,8 @@ angular.module('jym.user', [
 
         ctrl.toggleQian1 = function() {
             ctrl.viewModel.showQian2 = false;
+            ctrl.viewModel.showQian1 = true;
             $ionicScrollDelegate.scrollTop();
-            ctrl.viewModel.showQian1 = !ctrl.viewModel.showQian1;
-            $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian1);
         };
 
         ctrl.toggleQian2 = function() {
@@ -6235,12 +6263,20 @@ angular.module('jym.user', [
                 .then(function(result) {
                     ctrl.viewModel.amount = (result.amount / 100).toFixed(2);
                     ctrl.viewModel.showQian1 = false;
+                    ctrl.viewModel.showQian2 = true;
                     $ionicScrollDelegate.scrollTop();
-                    ctrl.viewModel.showQian2 = !ctrl.viewModel.showQian2;
-                    $ionicNavBarDelegate.showBackButton(!ctrl.viewModel.showQian2);
-                    ctrl.doRefresh();
                 });
         };
+
+        ctrl.toggleQian3 = function() {
+            ctrl.viewModel.showQian1 = false;
+            ctrl.viewModel.showQian2 = false;
+            ctrl.doRefresh();
+        };
+
+        $scope.$on('$ionicView.beforeEnter', function() {
+            ctrl.checkToken();
+        });
 
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
@@ -6274,7 +6310,7 @@ angular.module('jym.yinpiao.detail', [
                 }
             });
     }])
-    .controller('YinpiaoDetailCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'ProductService', 'PurchaseService', 'UserService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('YinpiaoDetailCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'ProductService', 'PurchaseService', 'UserService', 'JYMAuthService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMAuthService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -6311,10 +6347,14 @@ angular.module('jym.yinpiao.detail', [
                     return result;
                 });
 
-            ctrl.refreshUser()
-                .then(function(result) {
-                    ctrl.model.user = result;
-                });
+            if (JYMAuthService.getToken()) {
+                ctrl.refreshUser()
+                    .then(function (result) {
+                        ctrl.model.user = result;
+                    });
+            } else {
+                ctrl.model.user = null;
+            }
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
@@ -6340,6 +6380,11 @@ angular.module('jym.yinpiao.detail', [
 
         ctrl.goPurchase = function() {
             if (ctrl.goPurchaseButtonEnable()) {
+                if (!ctrl.model.user) {
+                    JYMUtilityService.go('jym.user-login');
+                    return;
+                }
+
                 var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {
@@ -6811,7 +6856,7 @@ angular.module('jym.zhuanqu.detail', [
                 }
             });
     }])
-    .controller('ZhuanquDetailCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'ProductService', 'PurchaseService', 'UserService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ZhuanquDetailCtrl', ['$scope', '$state', '$stateParams', '$timeout', 'ProductService', 'PurchaseService', 'UserService', 'JYMAuthService', 'JYMUtilityService', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMAuthService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -6848,10 +6893,14 @@ angular.module('jym.zhuanqu.detail', [
                     return result;
                 });
 
-            ctrl.refreshUser()
-                .then(function(result) {
-                    ctrl.model.user = result;
-                });
+            if (JYMAuthService.getToken()) {
+                ctrl.refreshUser()
+                    .then(function (result) {
+                        ctrl.model.user = result;
+                    });
+            } else {
+                ctrl.model.user = null;
+            }
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
@@ -6888,6 +6937,11 @@ angular.module('jym.zhuanqu.detail', [
             }
 
             if (ctrl.goPurchaseButtonEnable()) {
+                if (!ctrl.model.user) {
+                    JYMUtilityService.go('jym.user-login');
+                    return;
+                }
+
                 var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {

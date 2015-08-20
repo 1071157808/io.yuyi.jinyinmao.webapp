@@ -8,7 +8,7 @@ angular.module('jym.jinbaoyin.detail', [
     'jym.services.user',
     'jym.jinbaoyin.purchase'
 ])
-    .config(function($stateProvider) {
+    .config(function ($stateProvider) {
         $stateProvider
             .state('jym.jinbaoyin-detail', {
                 url: '/jinbaoyin/detail',
@@ -20,25 +20,25 @@ angular.module('jym.jinbaoyin.detail', [
                 }
             });
     })
-    .controller('JinbaoyinDetailCtrl', function($scope, $state, $timeout, $q, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('JinbaoyinDetailCtrl', function ($scope, $state, $timeout, $q, RESOURCES, JinbaoyinService, ProductService, PurchaseService, UserService, JYMAuthService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
         ctrl.viewModel = {};
 
-        var getSaleProgress = function(product) {
+        var getSaleProgress = function (product) {
             return ProductService.getSaleProgress(product.paidAmount, product.financingSumAmount, product.soldOut, product.startSellTime, product.endSellTime);
         };
 
-        var getSaleStatus = function(product) {
+        var getSaleStatus = function (product) {
             return ProductService.getSaleStatus(product.soldOut, product.startSellTime, product.endSellTime);
         };
 
-        var getValueDateModeText = function(valueDateMode) {
+        var getValueDateModeText = function (valueDateMode) {
             return ProductService.getValueDateModeText(valueDateMode);
         };
 
-        ctrl.doRefresh = function() {
+        ctrl.doRefresh = function () {
             if (ctrl.viewModel.refreshTime && Date.now() - ctrl.viewModel.refreshTime < 100) {
                 return;
             }
@@ -50,24 +50,28 @@ angular.module('jym.jinbaoyin.detail', [
             ctrl.viewModel.investAmount = 0;
 
             ctrl.refreshProduct()
-                .then(function(result) {
+                .then(function (result) {
                     ctrl.model.product = result;
                     ctrl.refreshViewModel();
                     ctrl.refreshInvestViewModel();
                     return result;
                 });
 
-            ctrl.refreshUser()
-                .then(function(result) {
-                    ctrl.model.user = result;
-                });
+            if (JYMAuthService.getToken()) {
+                ctrl.refreshUser()
+                    .then(function (result) {
+                        ctrl.model.user = result;
+                    });
+            } else {
+                ctrl.model.user = null;
+            }
 
-            $timeout(function() {
+            $timeout(function () {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };
 
-        ctrl.investCountChange = function() {
+        ctrl.investCountChange = function () {
             if (ctrl.viewModel.investCount < 0) {
                 ctrl.viewModel.investCount = 0;
             }
@@ -79,12 +83,17 @@ angular.module('jym.jinbaoyin.detail', [
             ctrl.refreshInvestViewModel();
         };
 
-        ctrl.goPurchase = function() {
+        ctrl.goPurchase = function () {
             if (ctrl.goPurchaseButtonEnable()) {
+                if (!ctrl.model.user) {
+                    JYMUtilityService.go('jym.user-login');
+                    return;
+                }
+
                 var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {
-                        $timeout(function() {
+                        $timeout(function () {
                             JYMUtilityService.go('jym.user-bank-card-add');
                         }, 1000);
                     }
@@ -101,11 +110,11 @@ angular.module('jym.jinbaoyin.detail', [
             }
         };
 
-        ctrl.goPurchaseButtonEnable = function() {
+        ctrl.goPurchaseButtonEnable = function () {
             return ctrl.viewModel.status === 20 && ctrl.viewModel.investAmount && ctrl.viewModel.investAmount >= ctrl.viewModel.unitPrice;
         };
 
-        ctrl.refreshInvestViewModel = function() {
+        ctrl.refreshInvestViewModel = function () {
             if (isFinite(ctrl.viewModel.investCount)) {
                 ctrl.viewModel.investAmount = ctrl.viewModel.investCount * ctrl.viewModel.unitPrice;
             } else {
@@ -115,15 +124,15 @@ angular.module('jym.jinbaoyin.detail', [
             ctrl.viewModel.expectedInterest = (ProductService.getInterest(ctrl.viewModel.investAmount * 100, ctrl.model.product.yield, 30) / 100).toFixed(2);
         };
 
-        ctrl.refreshProduct = function() {
+        ctrl.refreshProduct = function () {
             return JinbaoyinService.getIndex();
         };
 
-        ctrl.refreshUser = function() {
+        ctrl.refreshUser = function () {
             return UserService.getUserInfo();
         };
 
-        ctrl.refreshViewModel = function() {
+        ctrl.refreshViewModel = function () {
             ctrl.viewModel.endSellTime = ctrl.model.product.endSellTime;
             ctrl.viewModel.financingSumAmount = (ctrl.model.product.financingSumAmount / 1000000).toFixed(0);
             ctrl.viewModel.issueNo = parseInt(ctrl.model.product.issueNo, 10);
@@ -164,7 +173,7 @@ angular.module('jym.jinbaoyin.detail', [
             }
         };
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.enter', function () {
             ctrl.doRefresh();
         });
 

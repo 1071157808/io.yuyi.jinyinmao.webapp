@@ -19,7 +19,7 @@ angular.module('jym.zhuanqu.detail', [
                 }
             });
     })
-    .controller('ZhuanquDetailCtrl', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMUtilityService) {
+    .controller('ZhuanquDetailCtrl', function($scope, $state, $stateParams, $timeout, ProductService, PurchaseService, UserService, JYMAuthService, JYMUtilityService) {
         var ctrl = this;
 
         ctrl.model = {};
@@ -56,10 +56,14 @@ angular.module('jym.zhuanqu.detail', [
                     return result;
                 });
 
-            ctrl.refreshUser()
-                .then(function(result) {
-                    ctrl.model.user = result;
-                });
+            if (JYMAuthService.getToken()) {
+                ctrl.refreshUser()
+                    .then(function (result) {
+                        ctrl.model.user = result;
+                    });
+            } else {
+                ctrl.model.user = null;
+            }
 
             $timeout(function() {
                 $scope.$broadcast('scroll.refreshComplete');
@@ -96,6 +100,11 @@ angular.module('jym.zhuanqu.detail', [
             }
 
             if (ctrl.goPurchaseButtonEnable()) {
+                if (!ctrl.model.user) {
+                    JYMUtilityService.go('jym.user-login');
+                    return;
+                }
+
                 var amount = ctrl.viewModel.investCount * ctrl.model.product.unitPrice;
                 try {
                     if (ctrl.model.user.hasSetPaymentPassword === false) {

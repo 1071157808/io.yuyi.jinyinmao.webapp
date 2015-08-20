@@ -76,9 +76,9 @@ angular.module('JYM', [
                 .then(function(result) {
                     var url = '/config.json';
                     $http.get(url).then(function(config) {
-                        APP.VERSION = config.version;
-                        APP.PLATFORMS = config.platform.toUpperCase();
-                        APP.CONTRACTID = config.contractId;
+                        APP.VERSION = config.data.version;
+                        APP.PLATFORMS = config.data.platform.toUpperCase();
+                        APP.CONTRACTID = config.data.contractId;
                         if (result.lastVersion.substring(0, result.lastVersion.lastIndexOf('.')) !== APP.VERSION.substring(0, APP.VERSION.lastIndexOf('.'))) {
                             $ionicPopup.confirm({
                                 title: '',

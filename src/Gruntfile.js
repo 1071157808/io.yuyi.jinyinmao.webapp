@@ -127,7 +127,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'dist/',
                 src: ['*', 'packages/**/*', 'assets/js/*.min.js', 'assets/css/*.min.css', 'assets/fonts/**/*', 'assets/icon/**/*', 'assets/img/**/*', '!Activities/', '!Activities', '!activities/', '!activities', '!Activities/**/*'],
-                dest: 'publish/app/'
+                dest: 'publish/app/www'
             }
         },
 
