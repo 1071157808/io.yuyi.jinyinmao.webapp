@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%; overflow: hidden;">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="zhinengfan">
+<title></title>
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+<meta name="screen-orientation" content="portrait">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/iphone4.css">
+<script src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="js/min.slip.js"></script>
+<script>
+(function set_cookie() {
+        var contractIdQueryString = location.search.match(new RegExp("[\?\&]" + 'contractId' + "=([^\&]+)", "i"));
+        if (contractIdQueryString !== null && contractIdQueryString.length > 0) {
+            
+            var contractId = contractIdQueryString[1];
+			
+            if (!isNaN(contractId) && contractId.length >= 8 && contractId.length <= 18) {
+                var exdate = new Date();
+                exdate.setHours(exdate.getHours()+1);
+                document.cookie = "JYM_contract_id=" + contractId + ";expires=" + exdate.toString() + ";path=/;domain=.jinyinmao.com.cn";
+            }
+        }
+		
+		if (contractIdQueryString == null) {
+            var contractId = "9999201501011100000";
+            document.cookie = "JYM_contract_id=" + contractId;
+        }
+		   
+        var moreContractIdQueryString = location.search.match(new RegExp("[\?\&]" + 'moreS1' + "=([^\&]+)", "i"));
+        if (moreContractIdQueryString !== null && moreContractIdQueryString.length > 0) {
+            var moreContractId = moreContractIdQueryString[1];
+            var moreContractIdQueryStringValue = location.search.match(new RegExp("[\?\&]" + moreContractId + "=([^\&]+)", "i"));
+
+            if (moreContractIdQueryStringValue !== null && moreContractIdQueryStringValue.length > 0) {
+                var moreContractIdValue = moreContractIdQueryStringValue[1];
+                if (moreContractIdValue !== null && moreContractIdValue !== undefined){
+                    var exdate = new Date();
+                    exdate.setHours(exdate.getHours()+1);
+                    document.cookie = "JYM_more_s1=" + moreContractIdValue + ";expires=" + exdate.toString() + ";path=/;domain=.jinyinmao.com.cn";
+                }
+            }
+        }
+        return;
+})();
+$(function(){ 
+		$(".register-a").click(function(){		
+			$.get('/api/v1/VeriCodes/SendGraphic',{
+				"width":"120"
+			})
+			$(this).find("img").attr("src","/api/v1/VeriCodes/SendGraphic?width=120");
+		})
+		$("#submit").click(function(){
+		var phone= $.trim($("#jqm-register-mobile").val());	
+		var imgCode= $.trim($("#imgCode").val());
+		var mydata ='';
+		if($.trim($("#jqm-register-mobile").val())=="")
+		 {
+		  $(".show").show();
+		  $("#jqm-register-warningtext1").html("手机号码不能为空!");
+		  return false;
+		 }
+		  if($.trim($("#jqm-register-mobile").val())!="")
+		 {
+		  var reg = /^[1][358]\d{9}$/;
+		  if(!reg.test($.trim($('#jqm-register-mobile').val())))
+		  {
+		   $(".show").show();
+		   $("#jqm-register-warningtext1").html("手机号码格式不对!");
+		   return false;
+		  }
+		 }
+		var imgCode=$("#imgCode").val();
+		$.get('/api/v1/User/CheckCellphone',{
+				"cellphone":phone
+			},function(data){
+				if(data.Result==true){
+				    $(".show").show();
+					$("#jqm-register-warningtext1").html("手机号码已注册!");
+					return false;	
+				}else{
+					if($.trim($("#imgCode").val())=="")
+						 {
+						  $(".show").show();
+						  $("#jqm-register-warningtext1").html("验证码不能为空!");
+						  $.get('/api/v1/VeriCodes/SendGraphic',{
+								"width":"120"
+							})
+						$("#imgNum").attr("src","/api/v1/VeriCodes/SendGraphic?width=120");
+						return false;
+					}
+					$.post('/api/v1/VeriCodes/VerifyGraphic',{
+							"cellphone":phone,
+							"Result": imgCode
+						},function(data){
+							if(data.Successful==true){
+								mydata=data.Token;			
+								$(".show").hide();
+								$.post('/api/v1/VeriCodes/Send',{
+										"cellphone":phone,
+										"Type": 10,
+										"Token":mydata
+									},function(data){
+										if(data.Successful==true){
+											location.href="/passport/register/code?mobile="+phone;
+										}
+								});
+							}else{
+                                $(".show").show();							
+								$("#jqm-register-warningtext1").html("验证不成功!");	
+								return false;				
+							}
+					});
+				}
+		});
+		
+	});
+}); 
+</script>
+</head>
+<body style="height: 100%; overflow: hidden;">
+<div id="container" class="wrap" x="0" y="0" style="-webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px); height: 3916px;"> 
+  <!--第一屏-->
+  <div class="page page-1 page-current">
+    <div id="ad1" class="openUpLeftRetourn">
+      <div class="iphone5s-page2 "> <img src="images/SlashLinker-1.png" class=" animated1 fadeInDown"> </div>
+      <div class="iphone4-page2 "><img src="images/SlashLinker-iphone1.png" class=" animated1 fadeInDown"> </div>
+      <div class="trendChart  ">
+        <p class="p-img"><img src="images/SlashLinker-1-2.png" class="animated1 fadeIn"></p>
+        <p class="p-imgiphone"><img src="images/SlashLinker-1-2.png" class="animated1 fadeIn"></p>
+        <p class="num animated1 fadeIn"></p>
+        <p class="num2 animated2 fadeIn"></p>
+        <p class="num3 animated3 fadeIn"></p>
+      </div>
+      <div class="links-pl015 animated1 bounceInRight" id="links-pl015-1">
+        <p>下一步</p>
+      </div>
+      <p class="img_6"> </p>
+    </div>
+  </div>
+  <!--第二屏-->
+  <div class="page page-2">
+    <div id="ad2">
+      <div class="div-title animated fadeInLeft"><strong>金银猫</strong> <span>四大优势</span> </div>
+      <div class="plr015">
+        <div class="iphone5s-page2 animated1 fadeInRight"> <img src="images/SlashLinker-2.png"> </div>
+        <div class="iphone4-page2 animated1 fadeInRight"> <img src="images/SlashLinker-iphone2.png"> </div>
+      </div>
+      <div class="links-pl015 animated2 fadeInLeft" id="links-pl015-2">
+        <p>下一步</p>
+      </div>
+      <p class="img_6"> </p>
+    </div>
+  </div>
+  <!--第三屏-->
+  <div class="page page-3">
+    <div id="ad3">
+      <div class="div-title animated1 fadeIn"><strong>他们</strong> <span>都选择了金银猫</span> </div>
+      <div class="plr015">
+        <div class="price animated2 fadeIn"> <img src="images/SlashLinker-3-1.png"> </div>
+        <div class="price animated4 fadeIn"> <img src="images/SlashLinker-3-2.png"> </div>
+        <div class="price animated5 fadeIn"> <img src="images/SlashLinker-3-3.png"> </div>
+      </div>
+      <div class="links-pl015 animated3 fadeInRight" id="links-pl015-3">
+        <a href="/#/user/signup-send-veri-code"  class="InvestmentButton">去注册</a>	
+      </div>
+      <p class="img_6"> </p>
+    </div>
+  </div>
+  <!--第四屏-->
+<!--   <div class="page page-4">
+    <div id="ad4">
+	<form type="post" method="#">
+      <div class="plr015 pt25 page-4bg">
+        <div class="div-title animated1 fadeInDown">
+          <p><strong>票据理财 认准金银猫</strong></p>
+        </div>
+        <div id="reg1" class="pt20">
+          <div class="page-5-1-table animated2 fadeInUp">
+			<div class="none show">
+                        <div id="jqm-register-warning" class="jqm-register-warning" style="display: block;">
+                            <div class="warning-box">
+                                <img class="warning-box-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTQyMUFBRURGQUQxMTFFNEFCQURCMTkzQzRBMzU4NjMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTQyMUFBRUVGQUQxMTFFNEFCQURCMTkzQzRBMzU4NjMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxNDIxQUFFQkZBRDExMUU0QUJBREIxOTNDNEEzNTg2MyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxNDIxQUFFQ0ZBRDExMUU0QUJBREIxOTNDNEEzNTg2MyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnMOFaoAAAFvSURBVHjaYvzExcVABBADYmMg1gdiQSD+D8Q3gfgcEF8D4t/4NLPgkWMEYjcgng3EsgQcMQ2I64H4DVaDcPgE5PL9QKzFQBrIBeKpUJ/CARMWhaAgeU6GBSAwGYg3AjEzPkvUoOHMxEA+8AXiVdDgxrCEHYhPUmgBDAQBcTo2S7qAWICBemA6zDyYJXxAnMdAfVCDbEkwA21AISibwCzJppElIPNVmaAMYwbaAT1QjmfDJcv79StJpn3m5sYmrMSEnnFoANhAlvyisSUvWaAl6CdoMibG+6SC67DUtYCGPrkEs2QOjSy4AsTvmZA492lgSSZyjgeV/4FUtuA0EB9FLyAvAnE7lSwApVh3WOWFXqxXA/FKCi34B8QGoLjAVWmBbI6ElZ5kAFAdrwhKtoSqX5BFrUCsDcQXSHB9BRBLAfEjbKUkLgBq6hhB6/wJ0AyLDk4AcQw0I3fiahoxEtnuQm5CsUFd/hO9VYILAAQYAB9RQesF4X7YAAAAAElFTkSuQmCC">
+								<span class="warning-box-span" id="jqm-register-warningtext1" style="display: block;">手机号码不能为空!</span>
+                            </div>
+                            <img class="warning-arrow" src="data:image/png;base64,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">
+                        </div>
+             </div>
+             <p><em class="img-icon"></em><input type="text"  id="jqm-register-mobile"  placeholder="请输入手机号码"  class="tel-input defaultColor"></p>
+             <p><em class="name-icon"></em><input type="text"  class="per-text" id="imgCode" placeholder="请输入验证码" ><a href="#" data-action="img-reload" title="点击刷新" class="register-a"><img id="imgNum" src="/api/v1/VeriCodes/SendGraphic?width=120" ></a></p>
+          </div>
+          <p class="pt20 pb-10 animated3 fadeInRight">
+            <button type="button" id="submit"  class="InvestmentButton">下一步</button>	
+          </p>
+        </div>
+		</div>
+	  </form> 
+      <div class="price  page-4img"><img src="images/SlashLinker-4-1.png"></div>
+      <div class="page-footer animated6 fadeInUp">法备案号：沪ICP备13042350号<br />
+理财有风险，投资需谨慎</div>
+    </div>
+  </div> -->
+</div>
+<script type="text/javascript">
+	var ad1=document.getElementById('ad1')
+	var ad2=document.getElementById('ad2')
+	var ad3=document.getElementById('ad3')
+	// var ad4=document.getElementById('ad4')
+	var slip=Slip(document.getElementById('container'), 'y').webapp().end(function() {
+	  		
+	  		switch(this.page)
+	  		{	
+	  			case 0:
+	  				removeClass();
+	  				addClass(ad1,'openUpLeftRetourn')
+	  			break;
+	  			case 1:
+	  				removeClass()
+	  				addClass(ad2,'openUpLeftRetourn')
+	  			break;
+			    case 2:
+                    removeClass()
+                    addClass(ad3,'openUpLeftRetourn')
+   			break;
+	  			// case 3:
+	  			// 	removeClass()
+	  			// 	addClass(ad4,' openUpLeftRetourn')
+	  			// break;
+	  			default:
+	  			return false;
+	  		}
+		});
+
+		document.getElementById('links-pl015-1').onclick=function(){
+ 				jump('1')
+ 			}
+   		document.getElementById('links-pl015-2').onclick=function(){
+   				jump('2')
+   			}
+   		document.getElementById('links-pl015-3').onclick=function(){
+   				jump('3')
+   			}
+		window.jump = function (page) {
+ 				slip.jump(page);
+ 			}
+ 			function removeClass(){
+			var arrayId = [ad1,ad2,ad3]
+			for(var i = 0 ;i <arrayId.length; i++){
+				addClass(arrayId[i],'')
+			}
+		}
+			function addClass(firstchild,classname){			
+				firstchild.className = classname
+			}
+
+			var _hmt = _hmt || [];
+			(function () {
+			    var hm = document.createElement("script");
+			    hm.src = "//hm.baidu.com/hm.js?0198a5b5ba2ee3d40c2807c957fdb018";
+			    var s = document.getElementsByTagName("script")[0];
+			    s.parentNode.insertBefore(hm, s);
+			})();
+	</script> 
+</body>
+</html>
