@@ -8,13 +8,14 @@
     "com.ionic.keyboard",
     "cordova-plugin-console",
     "cordova-plugin-device",
-    "cordova-plugin-splashscreen",
     "cordova-plugin-inappbrowser",
-    "nl.x-services.plugins.toast",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-whitelist",
     {
       "locator": "https://github.com/driftyco/ionic-plugins-deploy",
-      "id": "com.ionic.deploy"
-    }
+      "id": "ionic-plugin-deploy"
+    },
+    "cordova-plugin-x-toast"
   ],
   "cordovaPlatforms": [
     "android"

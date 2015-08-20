@@ -5,6 +5,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 /*
     // TODO nice way for the Toast plugin to offer a longer delay than the default short and long options
@@ -19,6 +20,7 @@ import org.json.JSONException;
 public class Toast extends CordovaPlugin {
 
   private static final String ACTION_SHOW_EVENT = "show";
+  private static final String ACTION_HIDE_EVENT = "hide";
 
   private android.widget.Toast mostRecentToast;
 
@@ -27,37 +29,41 @@ public class Toast extends CordovaPlugin {
 
   @Override
   public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-    if (ACTION_SHOW_EVENT.equals(action)) {
+    if (ACTION_HIDE_EVENT.equals(action)) {
+      if (mostRecentToast != null) {
+        mostRecentToast.cancel();
+      }
+      callbackContext.success();
+      return true;
+
+    } else if (ACTION_SHOW_EVENT.equals(action)) {
 
       if (this.isPaused) {
         return true;
       }
 
-      final String message = args.getString(0);
-      final String duration = args.getString(1);
-      final String position = args.getString(2);
+      final JSONObject options = args.getJSONObject(0);
+
+      final String message = options.getString("message");
+      final String duration = options.getString("duration");
+      final String position = options.getString("position");
+      final int addPixelsY = options.has("addPixelsY") ? options.getInt("addPixelsY") : 0;
 
       cordova.getActivity().runOnUiThread(new Runnable() {
         public void run() {
-          android.widget.Toast toast = android.widget.Toast.makeText(webView.getContext(), message, 0);
+          android.widget.Toast toast = android.widget.Toast.makeText(
+              cordova.getActivity().getApplicationContext(),
+              message,
+              "short".equals(duration) ? android.widget.Toast.LENGTH_SHORT : android.widget.Toast.LENGTH_LONG);
 
           if ("top".equals(position)) {
-            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 20);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 20 + addPixelsY);
           } else  if ("bottom".equals(position)) {
-            toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 20);
+            toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 20 - addPixelsY);
           } else if ("center".equals(position)) {
-            toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, addPixelsY);
           } else {
             callbackContext.error("invalid position. valid options are 'top', 'center' and 'bottom'");
-            return;
-          }
-
-          if ("short".equals(duration)) {
-            toast.setDuration(android.widget.Toast.LENGTH_SHORT);
-          } else if ("long".equals(duration)) {
-            toast.setDuration(android.widget.Toast.LENGTH_LONG);
-          } else {
-            callbackContext.error("invalid duration. valid options are 'short' and 'long'");
             return;
           }
 

@@ -1,8 +1,60 @@
 function Toast() {
 }
 
+Toast.prototype.optionsBuilder = function () {
+
+  // defaults
+  var message = null;
+  var duration = "short";
+  var position = "center";
+  var addPixelsY = 0;
+
+  return {
+    withMessage: function(m) {
+      message = m;
+      return this;
+    },
+
+    withDuration: function(d) {
+      duration = d;
+      return this;
+    },
+
+    withPosition: function(p) {
+      position = p;
+      return this;
+    },
+
+    withAddPixelsY: function(y) {
+      addPixelsY = y;
+      return this;
+    },
+
+    build: function() {
+      return {
+        message: message,
+        duration: duration,
+        position: position,
+        addPixelsY: addPixelsY
+      }
+    }
+  }
+};
+
+
+Toast.prototype.showWithOptions = function (options, successCallback, errorCallback) {
+  cordova.exec(successCallback, errorCallback, "Toast", "show", [options]);
+};
+
 Toast.prototype.show = function (message, duration, position, successCallback, errorCallback) {
-  cordova.exec(successCallback, errorCallback, "Toast", "show", [message, duration, position]);
+  this.showWithOptions(
+      this.optionsBuilder()
+          .withMessage(message)
+          .withDuration(duration)
+          .withPosition(position)
+          .build(),
+      successCallback,
+      errorCallback);
 };
 
 Toast.prototype.showShortTop = function (message, successCallback, errorCallback) {
@@ -27,6 +79,10 @@ Toast.prototype.showLongCenter = function (message, successCallback, errorCallba
 
 Toast.prototype.showLongBottom = function (message, successCallback, errorCallback) {
   this.show(message, "long", "bottom", successCallback, errorCallback);
+};
+
+Toast.prototype.hide = function (successCallback, errorCallback) {
+  cordova.exec(successCallback, errorCallback, "Toast", "hide", []);
 };
 
 Toast.install = function () {
