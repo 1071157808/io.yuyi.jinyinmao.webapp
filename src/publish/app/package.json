@@ -3,14 +3,13 @@
   "version": "13.1.62",
   "description": "jym",
   "dependencies": {},
-  "devDependencies": {   
-  },
+  "devDependencies": {},
   "cordovaPlugins": [
-    "cordova-plugin-device",
+    "com.ionic.keyboard",
     "cordova-plugin-console",
+    "cordova-plugin-device",
     "cordova-plugin-splashscreen",
     "cordova-plugin-inappbrowser",
-    "com.ionic.keyboard",
     "nl.x-services.plugins.toast",
     {
       "locator": "https://github.com/driftyco/ionic-plugins-deploy",

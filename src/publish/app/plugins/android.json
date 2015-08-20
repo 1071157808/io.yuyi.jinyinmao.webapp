@@ -29,6 +29,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
                             "count": 1
                         }
@@ -54,6 +58,9 @@
             "PACKAGE_NAME": "cn.com.jinyinmao.app"
         },
         "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "cn.com.jinyinmao.app"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "cn.com.jinyinmao.app"
         },
         "nl.x-services.plugins.toast": {

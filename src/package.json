@@ -29,20 +29,5 @@
     "grunt-usemin": "^3.0.0",
     "load-grunt-tasks": "^3.2.0",
     "time-grunt": "^1.2.1"
-  },
-  "cordovaPlugins": [
-    "cordova-plugin-device",
-    "cordova-plugin-console",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-inappbrowser",
-    "com.ionic.keyboard",
-    "nl.x-services.plugins.toast",
-    {
-      "locator": "https://github.com/driftyco/ionic-plugins-deploy",
-      "id": "com.ionic.deploy"
-    }
-  ],
-  "cordovaPlatforms": [
-    "android"
-  ]
+  }
 }
