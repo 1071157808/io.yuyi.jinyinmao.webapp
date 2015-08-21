@@ -2,63 +2,63 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         BANKCARD: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADD_BANK_CARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
-            ADD_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADD_BANK_CARD: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
+            ADD_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
+            FETCH: 'https://jymstoretest.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
         },
         COUPON: {
-            INDEX: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Index',
-            AVAILABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Remove/'
+            INDEX: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon/Index',
+            AVAILABLE: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon',
+            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon/Remove/'
         },
         INVESTING: {
-            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
-            REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
+            JBY: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         JINBAOYIN: {
-            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
-            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
+            FETCH: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         ORDER: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Info/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Index/'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         REGULARPRDUCT: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
-            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
         SETTLE_ACCOUNT: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
-            DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
+            DEPOSIT: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
+            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
         USER: {
-            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
-            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
-            RESET_LOGIN_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SEND_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
-            SET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            USER_SIGN:'https://jym-dev-api.jinyinmao.com.cn:443/User/Sign'
+            AUTHENTICATE: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
+            GETINFO: 'https://jym-test-api.jinyinmao.com.cn:443/User',
+            RESET_LOGIN_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SEND_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/SendVeriCode',
+            SET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            SINGUP: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SIGNIN: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            VERIFY_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            USER_SIGN:'https://jym-test-api.jinyinmao.com.cn:443/User/Sign'
         },
         USERJINBAOYIN: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         }
     })
     .constant('RESOURCES', {
@@ -160,8 +160,8 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.65-DEV',
-        ENV: 'dev',
+        VERSION: '13.1.66-TEST',
+        ENV: 'test',
         PLATFORMS:'web',
         CONTRACTID:'0',
         CLIENTTYPE:'903'
@@ -1250,7 +1250,7 @@ angular.module("app/user/bank-card/upgrade/upgrade.tpl.html", []).run(["$templat
 
 angular.module("app/user/bank-card/yilian-notice.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/bank-card/yilian-notice.tpl.html",
-    "<ion-view title=认证受理中><ion-content><div id=yilian-notice><h2>请求已受理</h2><ul id=disc><li><p>在十分钟之内您会接到号码为 &nbsp;<em>020-28317689</em> &nbsp;的银联认证电话。</p></li><li><p>认证时需要您输入银行卡的密码，这是确认您是卡主的必要步骤！</p></li><li><p>认证成功后记得 <em>先充值再下单啦！</em></p></li></ul><div class=space></div></div><div class=space></div><button class=\"btn button-yellow\" ng-click=\"ctrl.go('jym.user')\">返回个人中心</button></ion-content></ion-view>");
+    "<ion-view title=认证受理中><ion-content><div id=yilian-notice><h2>请求已受理</h2><ul id=disc><li><p>在十分钟之内您会接到号码为 &nbsp;<em>020-96585</em> &nbsp;的银联认证电话。</p></li><li><p>认证时需要您输入银行卡的密码，这是确认您是卡主的必要步骤！</p></li><li><p>认证成功后记得 <em>先充值再下单啦！</em></p></li></ul><div class=space></div></div><div class=space></div><button class=\"btn button-yellow\" ng-click=\"ctrl.go('jym.user')\">返回个人中心</button></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/coupon/coupon.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -4955,10 +4955,12 @@ angular.module('jym.user.security-password', [])
             if (ctrl.sendVeriCodeButtonEnable()) {
                 ctrl.viewModel.remainSeconds = 60;
                 UserService.sendVeriCode(ctrl.viewModel.cellphone, 20)
-                    .then(function(result) {
+                    .then(function (result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.SEND_VERI_CODE);
                         }
+                    }, function () {
+                        ctrl.viewModel.remainSeconds = 0;
                     });
                 ctrl.startTimer();
             }
@@ -6108,10 +6110,12 @@ angular.module('jym.user.signup', [])
             if (ctrl.sendVeriCodeButtonEnable()) {
                 ctrl.viewModel.remainSeconds = 60;
                 UserService.sendVeriCode(ctrl.viewModel.cellphone, 10)
-                    .then(function(result) {
+                    .then(function (result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.SEND_VERI_CODE);
                         }
+                    }, function () {
+                        ctrl.viewModel.remainSeconds = 0;
                     });
                 ctrl.startTimer();
             }
