@@ -107,10 +107,12 @@ angular.module('jym.user.security-password', [])
             if (ctrl.sendVeriCodeButtonEnable()) {
                 ctrl.viewModel.remainSeconds = 60;
                 UserService.sendVeriCode(ctrl.viewModel.cellphone, 20)
-                    .then(function(result) {
+                    .then(function (result) {
                         if (result) {
                             JYMUtilityService.showAlert(RESOURCES.TIP.MISC.SEND_VERI_CODE);
                         }
+                    }, function () {
+                        ctrl.viewModel.remainSeconds = 0;
                     });
                 ctrl.startTimer();
             }
