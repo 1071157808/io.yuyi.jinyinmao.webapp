@@ -146,7 +146,7 @@ module.exports = function(grunt) {
                     archive: 'publish/jym-web-m@<%= pkg.version %>.zip'
                 },
                 expand: true,
-                cwd: '..publish/jym-web-m/',
+                cwd: 'publish/jym-web-m/',
                 src: ['**/*'],
                 dest: '.'
             }

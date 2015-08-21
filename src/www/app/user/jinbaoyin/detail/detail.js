@@ -35,22 +35,28 @@ angular.module('jym.user.jinbaoyin-detail', [
 
             ctrl.viewModel.agreement = '';
             ctrl.viewModel.showAgreement = false;
-
             var refreshTransaction = ctrl.refreshTransaction()
-                .then(function(result) {
+                .then(function (result) {
                     ctrl.model.transaction = result;
                     ctrl.refreshViewModel();
                     return result;
                 });
 
             var refreshUser = ctrl.refreshUser()
-                .then(function(result) {
+                .then(function (result) {
                     ctrl.model.user = result;
                     return result;
                 });
 
-            $q.all([refreshTransaction, refreshUser])
-                .then(function() {
+            var refreshAgreement = ctrl.refreshAgreement()
+                .then(function (result) {
+                    ctrl.viewModel.agreement = result.content;
+                    return result;
+                });
+
+
+            $q.all([refreshTransaction, refreshUser, refreshAgreement])
+                .then(function () {
                     var orderTime = ctrl.viewModel.trade === 0 ? ctrl.viewModel.resultTime : ctrl.viewModel.transactionTime;
                     var agreementData = {
                         cellphone: ctrl.model.user.cellphone,
@@ -60,14 +66,10 @@ angular.module('jym.user.jinbaoyin-detail', [
                         realName: ctrl.model.user.realName
                     };
 
-                    ctrl.refreshAgreement()
-                        .then(function(result) {
-                            ctrl.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
-                        });
+                    ctrl.viewModel.agreement = ProductService.fillDataForAgreement(ctrl.viewModel.agreement, agreementData);
                 });
 
-
-            $timeout(function() {
+            $timeout(function () {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };

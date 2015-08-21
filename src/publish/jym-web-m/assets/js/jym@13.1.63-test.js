@@ -2,63 +2,63 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         BANKCARD: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADD_BANK_CARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
-            ADD_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADD_BANK_CARD: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
+            ADD_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
+            FETCH: 'https://jymstoretest.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
         },
         COUPON: {
-            INDEX: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Index',
-            AVAILABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon',
-            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Remove/'
+            INDEX: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon/Index',
+            AVAILABLE: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon',
+            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon/Remove/'
         },
         INVESTING: {
-            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
-            REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
+            JBY: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         JINBAOYIN: {
-            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
-            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
+            FETCH: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         ORDER: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Info/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Index/'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         REGULARPRDUCT: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
-            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
         SETTLE_ACCOUNT: {
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
-            DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
+            DEPOSIT: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
+            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
         USER: {
-            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
-            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
-            RESET_LOGIN_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SEND_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
-            SET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            USER_SIGN:'https://jym-dev-api.jinyinmao.com.cn:443/User/Sign'
+            AUTHENTICATE: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
+            GETINFO: 'https://jym-test-api.jinyinmao.com.cn:443/User',
+            RESET_LOGIN_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SEND_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/SendVeriCode',
+            SET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            SINGUP: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SIGNIN: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            VERIFY_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            USER_SIGN:'https://jym-test-api.jinyinmao.com.cn:443/User/Sign'
         },
         USERJINBAOYIN: {
-            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         }
     })
     .constant('RESOURCES', {
@@ -160,8 +160,8 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.62-DEV',
-        ENV: 'dev',
+        VERSION: '13.1.63-TEST',
+        ENV: 'test',
         PLATFORMS:'web',
         CONTRACTID:'0',
         CLIENTTYPE:'903'
@@ -1270,7 +1270,7 @@ angular.module("app/user/investment/investment.tpl.html", []).run(["$templateCac
 
 angular.module("app/user/jinbaoyin/detail/detail.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/jinbaoyin/detail/detail.tpl.html",
-    "<ion-view title=金包银流水记录><ion-content><ion-list class=reorder><ion-item><p class=pull-left>交易时间</p><p class=pull-right ng-bind=\"ctrl.viewModel.transactionTime | longTime\"></p></ion-item><ion-item ng-if=\"ctrl.viewModel.resultCode === 0\"><p class=pull-left>预计完成日期</p><p class=pull-right ng-bind=\"ctrl.viewModel.predeterminedResultDate | time\"></p></ion-item><ion-item ng-if=\"ctrl.viewModel.resultCode === 1\"><p class=pull-left>完成时间</p><p class=pull-right ng-bind=\"ctrl.viewModel.resultTime | longTime\"></p></ion-item><ion-item><p class=pull-left>交易类型</p><p class=pull-right ng-bind=\"ctrl.viewModel.tradeCode | tradeCodeForJBY\"></p></ion-item><ion-item><p class=pull-left>金额（元）</p><p class=pull-right><span class=plus ng-if=\"ctrl.viewModel.trade === 0\">+</span> <span class=minus ng-if=\"ctrl.viewModel.trade === 1\">-</span> <span ng-bind=ctrl.viewModel.amount></span></p></ion-item><ion-item><p class=pull-left>备注说明</p><p class=pull-right ng-bind=ctrl.viewModel.transDesc></p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ng-click=ctrl.toggleAgreement()><p>协议</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item><p class=pull-left>状态</p><p class=pull-right ng-bind=\"ctrl.viewModel.resultCode | resultText\" ng-style=ctrl.viewModel.resultStyle></p></ion-item></ion-list><div ng-if=!ctrl.canBack()><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=\"ctrl.go('jym.jinbaoyin')\">返回首页</button><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=\"ctrl.go('jym.user')\">返回个人中心</button><div class=space></div><div class=space></div></div><div class=agreement ng-if=ctrl.viewModel.showAgreement><div ng-bind-html=ctrl.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.toggleAgreement()>返回</button><div class=space></div><div class=space></div></div></ion-content></ion-view>");
+    "<ion-view title=金包银流水记录><ion-content><ion-list class=reorder><ion-item><p class=pull-left>交易时间</p><p class=pull-right ng-bind=\"ctrl.viewModel.transactionTime | longTime\"></p></ion-item><ion-item ng-if=\"ctrl.viewModel.resultCode === 0\"><p class=pull-left>预计完成日期</p><p class=pull-right ng-bind=\"ctrl.viewModel.predeterminedResultDate | time\"></p></ion-item><ion-item ng-if=\"ctrl.viewModel.resultCode === 1\"><p class=pull-left>完成时间</p><p class=pull-right ng-bind=\"ctrl.viewModel.resultTime | longTime\"></p></ion-item><ion-item><p class=pull-left>交易类型</p><p class=pull-right ng-bind=\"ctrl.viewModel.tradeCode | tradeCodeForJBY\"></p></ion-item><ion-item><p class=pull-left>金额（元）</p><p class=pull-right><span class=plus ng-if=\"ctrl.viewModel.trade === 0\">+</span> <span class=minus ng-if=\"ctrl.viewModel.trade === 1\">-</span> <span ng-bind=ctrl.viewModel.amount></span></p></ion-item><ion-item><p class=pull-left>备注说明</p><p class=pull-right ng-bind=ctrl.viewModel.transDesc></p></ion-item><ion-item class=divider></ion-item><ion-item class=item-icon-right ng-click=ctrl.toggleAgreement()><p>协议</p><i class=\"icon ion-chevron-right\"></i></ion-item><ion-item class=divider></ion-item><ion-item><p class=pull-left>状态</p><p class=pull-right ng-bind=\"ctrl.viewModel.resultCode | resultText\" ng-style=ctrl.viewModel.resultStyle></p></ion-item></ion-list><div ng-if=!ctrl.canBack()><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=\"ctrl.go('jym.jinbaoyin')\">返回首页</button><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=\"ctrl.go('jym.user')\">返回个人中心</button><div class=space></div><div class=space></div></div><div class=agreement ng-if=ctrl.viewModel.showAgreement style=width:100%><div ng-bind-html=ctrl.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.toggleAgreement()>返回</button><div class=space></div><div class=space></div></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/jinbaoyin/jinbaoyin.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1861,7 +1861,7 @@ angular.module('JYM', [
 
             JYMConfigService.getConfig()
                 .then(function(result) {
-                    var url = '/config@13.1.62.json';
+                    var url = '/config@13.1.63.json';
                     $http.get(url).then(function(config) {
                         APP.VERSION = config.data.version;
                         APP.PLATFORMS = config.data.platform.toUpperCase();
@@ -4011,22 +4011,28 @@ angular.module('jym.user.jinbaoyin-detail', [
 
             ctrl.viewModel.agreement = '';
             ctrl.viewModel.showAgreement = false;
-
             var refreshTransaction = ctrl.refreshTransaction()
-                .then(function(result) {
+                .then(function (result) {
                     ctrl.model.transaction = result;
                     ctrl.refreshViewModel();
                     return result;
                 });
 
             var refreshUser = ctrl.refreshUser()
-                .then(function(result) {
+                .then(function (result) {
                     ctrl.model.user = result;
                     return result;
                 });
 
-            $q.all([refreshTransaction, refreshUser])
-                .then(function() {
+            var refreshAgreement = ctrl.refreshAgreement()
+                .then(function (result) {
+                    ctrl.viewModel.agreement = result.content;
+                    return result;
+                });
+
+
+            $q.all([refreshTransaction, refreshUser, refreshAgreement])
+                .then(function () {
                     var orderTime = ctrl.viewModel.trade === 0 ? ctrl.viewModel.resultTime : ctrl.viewModel.transactionTime;
                     var agreementData = {
                         cellphone: ctrl.model.user.cellphone,
@@ -4036,14 +4042,10 @@ angular.module('jym.user.jinbaoyin-detail', [
                         realName: ctrl.model.user.realName
                     };
 
-                    ctrl.refreshAgreement()
-                        .then(function(result) {
-                            ctrl.viewModel.agreement = ProductService.fillDataForAgreement(result.content, agreementData);
-                        });
+                    ctrl.viewModel.agreement = ProductService.fillDataForAgreement(ctrl.viewModel.agreement, agreementData);
                 });
 
-
-            $timeout(function() {
+            $timeout(function () {
                 $scope.$broadcast('scroll.refreshComplete');
             }, 1500);
         };
@@ -6592,8 +6594,7 @@ angular.module('jym.yinpiao.purchase', [
             ctrl.viewModel.amount = (ctrl.model.order.amount / 100).toFixed(2);
             ctrl.viewModel.balance = (ctrl.model.user.balance / 100).toFixed(2);
             ctrl.viewModel.expectedInterest = ctrl.model.order.expectedInterest;
-
-            if (ctrl.model.order.amount >= 5000 && ctrl.model.coupon) {
+            if (ctrl.model.order.amount >= 50000 && ctrl.model.coupon) {
                 ctrl.viewModel.couponAmount = parseInt((ctrl.model.coupon.amount / 100), 10);
                 ctrl.viewModel.couponId = ctrl.model.coupon.id;
                 ctrl.viewModel.showCoupon = true;

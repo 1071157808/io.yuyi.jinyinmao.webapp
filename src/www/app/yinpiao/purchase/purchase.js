@@ -94,8 +94,7 @@ angular.module('jym.yinpiao.purchase', [
             ctrl.viewModel.amount = (ctrl.model.order.amount / 100).toFixed(2);
             ctrl.viewModel.balance = (ctrl.model.user.balance / 100).toFixed(2);
             ctrl.viewModel.expectedInterest = ctrl.model.order.expectedInterest;
-
-            if (ctrl.model.order.amount >= 5000 && ctrl.model.coupon) {
+            if (ctrl.model.order.amount >= 50000 && ctrl.model.coupon) {
                 ctrl.viewModel.couponAmount = parseInt((ctrl.model.coupon.amount / 100), 10);
                 ctrl.viewModel.couponId = ctrl.model.coupon.id;
                 ctrl.viewModel.showCoupon = true;
