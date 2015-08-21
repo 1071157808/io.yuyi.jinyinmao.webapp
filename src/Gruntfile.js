@@ -361,22 +361,6 @@ module.exports = function(grunt) {
         },
 
         replace: {
-            config: {
-                src: ['www/app/jym-app.js'],
-                overwrite: true,
-                replacements: [{
-                    from: 'var url = \'/config.json\';',
-                    to: 'var url = \'/config@<%= pkg.version %>.json\';'
-                }]
-            },
-            revertConfig: {
-                src: ['www/app/jym-app.js'],
-                overwrite: true,
-                replacements: [{
-                    from: 'var url = \'/config@<%= pkg.version %>.json\';',
-                    to: 'var url = \'/config.json\';'
-                }]
-            },
             dev: {
                 src: ['www/app/common/constants.js'],
                 overwrite: true,
@@ -573,19 +557,19 @@ module.exports = function(grunt) {
     grunt.registerTask('build-packages', ['copy:packages']);
     grunt.registerTask('build-js', ['clean:js', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:js', 'concat:app', 'uglify:app', 'usemin:js', 'clean:js']);
 
-    grunt.registerTask('build-js-dev', ['clean:js', 'replace:dev', 'replace:config', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsDev', 'concat:dev', 'uglify:dev', 'usemin:jsDev', 'clean:js']);
+    grunt.registerTask('build-js-dev', ['clean:js', 'replace:dev', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsDev', 'concat:dev', 'uglify:dev', 'usemin:jsDev', 'clean:js']);
     grunt.registerTask('build-css-dev', ['autoprefixer:app', 'csscomb:app', 'csslint:app', 'copy:css', 'useminPrepare:cssDev', 'cssmin:dev', 'usemin:cssDev']);
     grunt.registerTask('build-dev', ['pre-dev-build', 'build-js-dev', 'build-css-dev', 'post-dev-build']);
 
-    grunt.registerTask('build-js-test', ['clean:js', 'replace:test', 'replace:config', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsTest', 'concat:test', 'uglify:test', 'usemin:jsTest', 'clean:js']);
+    grunt.registerTask('build-js-test', ['clean:js', 'replace:test', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsTest', 'concat:test', 'uglify:test', 'usemin:jsTest', 'clean:js']);
     grunt.registerTask('build-css-test', ['useminPrepare:cssTest', 'autoprefixer:app', 'csscomb:app', 'csslint:app', 'copy:css', 'cssmin:test', 'usemin:cssTest']);
     grunt.registerTask('build-test', ['pre-test-build', 'build-js-test', 'build-css-test', 'post-test-build']);
 
-    grunt.registerTask('build-js-product', ['clean:js', 'replace:product', 'replace:config', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsProduct', 'concat:product', 'uglify:product', 'usemin:jsProduct', 'clean:js']);
+    grunt.registerTask('build-js-product', ['clean:js', 'replace:product', 'jscs:app', 'jshint:app', 'html2js:app', 'ngAnnotate:app', 'useminPrepare:jsProduct', 'concat:product', 'uglify:product', 'usemin:jsProduct', 'clean:js']);
     grunt.registerTask('build-css-product', ['useminPrepare:cssProduct', 'autoprefixer:app', 'csscomb:app', 'csslint:app', 'copy:css', 'cssmin:product', 'usemin:cssProduct']);
     grunt.registerTask('build-product', ['pre-product-build', 'build-js-product', 'build-css-product', 'post-product-build']);
 
-    grunt.registerTask('build', ['prepare-build', 'build-config', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'copy:html', 'replace:revertConfig', 'to-dev']);
+    grunt.registerTask('build', ['prepare-build', 'build-config', 'build-fonts', 'build-html', 'build-icon', 'build-img', 'build-packages', 'build-dev', 'build-test', 'build-product', 'copy:html', 'to-dev']);
 
     grunt.registerTask('release', ['copy:release', 'clean:app', 'copy:app', 'compress', 'copy:deployToDev']);
 

@@ -64,39 +64,31 @@ angular.module('JYM', [
                     });
             };
 
-            var url = '/config.json';
-            $http.get(url).then(function(config) {
-                APP.PLATFORMS = config.data.platform.toUpperCase();
-                APP.CONTRACTID = config.data.contractId;
-
-                if (APP.PLATFORMS.toUpperCase() === 'WEB') {
-                    var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
-                    var arrCookies = document.cookie.match(reg);
-                    if (arrCookies != null) {
-                        APP.CONTRACTID = arrCookies[2];
-                    }
+            if (APP.PLATFORMS.toUpperCase() === 'WEB') {
+                var reg = new RegExp('(^| )JYM_contract_id=([^;]*)(;|$)');
+                var arrCookies = document.cookie.match(reg);
+                if (arrCookies != null) {
+                    APP.CONTRACTID = arrCookies[2];
                 }
-
+            } else {
                 JYMConfigService.getConfig()
                     .then(function(result) {
-                        if (APP.PLATFORMS.toUpperCase() !== 'WEB') {
-                            if (result.lastVersion.substring(0, result.lastVersion.lastIndexOf('.')) !== APP.VERSION.substring(0, APP.VERSION.lastIndexOf('.'))) {
-                                $ionicPopup.confirm({
-                                    title: '',
-                                    template: result.updateTip,
-                                    cancelText: '取消',
-                                    okText: '更新'
-                                }).then(function(res) {
-                                    if (res) {
-                                        JYMUtilityService.open(result.updateLink);
-                                    }
-                                });
-                            } else if (result.enableUpdatePush) {
-                                checkUpdate();
-                            }
+                        if (result.lastVersion.substring(0, result.lastVersion.lastIndexOf('.')) !== APP.VERSION.substring(0, APP.VERSION.lastIndexOf('.'))) {
+                            $ionicPopup.confirm({
+                                title: '',
+                                template: result.updateTip,
+                                cancelText: '取消',
+                                okText: '更新'
+                            }).then(function(res) {
+                                if (res) {
+                                    JYMUtilityService.open(result.updateLink);
+                                }
+                            });
+                        } else if (result.enableUpdatePush) {
+                            checkUpdate();
                         }
                     });
-            });
+            }
         });
     })
     .run(function($rootScope, $ionicLoading) {
