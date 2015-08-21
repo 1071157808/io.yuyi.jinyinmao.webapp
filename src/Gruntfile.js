@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            app: ['publish/app/assets/**/*', 'publish/app/packages/**/*', 'publish/platforms/**/*', 'publish/app/*.html', 'publish/app/*.json'],
+            app: ['publish/app/www/assets/**/*', 'publish/app/www/packages/**/*', 'publish/app/platforms/**/*', 'publish/app/www/*.html', 'publish/app/www/*.json'],
             bower: 'www/lib/',
             dist: 'dist/**/*',
             js: ['www/app/**/*.annotated.js'],
