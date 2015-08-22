@@ -2,63 +2,63 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         BANKCARD: {
-            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADD_BANK_CARD: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
-            ADD_BANK_CARD_BY_YILIAN: 'https://jym-test-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
+            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADD_BANK_CARD: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
+            ADD_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoretest.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
+            FETCH: 'https://jymstoreproduct.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
         },
         COUPON: {
-            INDEX: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon/Index',
-            AVAILABLE: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon',
-            REMOVE: 'https://jym-test-api.jinyinmao.com.cn:443/Coupon/Remove/'
+            INDEX: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon/Index',
+            AVAILABLE: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon',
+            REMOVE: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon/Remove/'
         },
         INVESTING: {
-            JBY: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/JBY',
-            REGULAR: 'https://jym-test-api.jinyinmao.com.cn:443/Investing/Regular'
+            JBY: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         JINBAOYIN: {
-            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
-            FETCH: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            AGREEMENT: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
+            FETCH: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         ORDER: {
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Info/',
-            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Order/Index/'
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         REGULARPRDUCT: {
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
-            AGREEMENT: 'https://jym-test-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
         SETTLE_ACCOUNT: {
-            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
-            DEPOSIT: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
-            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
+            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
+            DEPOSIT: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
+            WITHDRAWAL: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
         USER: {
-            AUTHENTICATE: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
-            GETINFO: 'https://jym-test-api.jinyinmao.com.cn:443/User',
-            RESET_LOGIN_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SEND_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/SendVeriCode',
-            SET_PAYMENT_PASSWORD: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            SINGUP: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SIGNIN: 'https://jym-test-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            VERIFY_VERICODE: 'https://jym-test-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            USER_SIGN:'https://jym-test-api.jinyinmao.com.cn:443/User/Sign'
+            AUTHENTICATE: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
+            GETINFO: 'https://jym-product-api.jinyinmao.com.cn:443/User',
+            RESET_LOGIN_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESET_PAYMENT_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SEND_VERICODE: 'https://jym-product-api.jinyinmao.com.cn:443/SendVeriCode',
+            SET_PAYMENT_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            SINGUP: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SIGNIN: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            VERIFY_VERICODE: 'https://jym-product-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            USER_SIGN:'https://jym-product-api.jinyinmao.com.cn:443/User/Sign'
         },
         USERJINBAOYIN: {
-            INFO: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-test-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         }
     })
     .constant('RESOURCES', {
@@ -160,8 +160,8 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.66-TEST',
-        ENV: 'test',
+        VERSION: '13.1.67',
+        ENV: 'product',
         PLATFORMS:'web',
         CONTRACTID:'0',
         CLIENTTYPE:'903'
