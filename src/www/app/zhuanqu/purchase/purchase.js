@@ -156,5 +156,9 @@ angular.module('jym.zhuanqu.purchase', [
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
         ctrl.doRefresh();
     });

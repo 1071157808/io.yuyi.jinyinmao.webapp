@@ -2,63 +2,63 @@
 angular.module('jym.constants', [])
     .constant('URLS', {
         BANKCARD: {
-            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Index',
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Info/',
-            REMOVE: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Remove',
-            WITHDRAWALABLE: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
-            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
-            ADD_BANK_CARD: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
-            ADD_BANK_CARD_BY_YILIAN: 'https://jym-product-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Index',
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Info/',
+            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Remove',
+            WITHDRAWALABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/Withdrawalable',
+            VERIFY_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/VerifyBankCardByYilian',
+            ADD_BANK_CARD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCard',
+            ADD_BANK_CARD_BY_YILIAN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/BankCards/AddBankCardByYilian'
         },
         CONFIG: {
-            FETCH: 'https://jymstoreproduct.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
+            FETCH: 'https://jymstoredev.blob.core.chinacloudapi.cn:443/publicfiles/Configs/AppConfig/13.1'
         },
         COUPON: {
-            INDEX: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon/Index',
-            AVAILABLE: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon',
-            REMOVE: 'https://jym-product-api.jinyinmao.com.cn:443/Coupon/Remove/'
+            INDEX: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Index',
+            AVAILABLE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon',
+            REMOVE: 'https://jym-dev-api.jinyinmao.com.cn:443/Coupon/Remove/'
         },
         INVESTING: {
-            JBY: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/JBY',
-            REGULAR: 'https://jym-product-api.jinyinmao.com.cn:443/Investing/Regular'
+            JBY: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/JBY',
+            REGULAR: 'https://jym-dev-api.jinyinmao.com.cn:443/Investing/Regular'
         },
         JINBAOYIN: {
-            AGREEMENT: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
-            FETCH: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/JBY',
-            SOLD: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Current/Sold/'
+            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Agreement/',
+            FETCH: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/JBY',
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Current/Sold/'
         },
         ORDER: {
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/Order/Info/',
-            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/Order/Index/'
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Info/',
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Order/Index/'
         },
         REGULARPRDUCT: {
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/',
-            PAGE: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Page/',
-            SOLD: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
-            AGREEMENT: 'https://jym-product-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/',
+            PAGE: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Page/',
+            SOLD: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Sold/',
+            AGREEMENT: 'https://jym-dev-api.jinyinmao.com.cn:443/Product/Regular/Agreement/'
         },
         SETTLE_ACCOUNT: {
-            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
-            DEPOSIT: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
-            WITHDRAWAL: 'https://jym-product-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transactions/',
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Transaction/',
+            DEPOSIT: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Deposit/Yilian',
+            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Settle/Withdrawal'
         },
         USER: {
-            AUTHENTICATE: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
-            GETINFO: 'https://jym-product-api.jinyinmao.com.cn:443/User',
-            RESET_LOGIN_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
-            RESET_PAYMENT_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
-            SEND_VERICODE: 'https://jym-product-api.jinyinmao.com.cn:443/SendVeriCode',
-            SET_PAYMENT_PASSWORD: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
-            SINGUP: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SignUp',
-            SIGNIN: 'https://jym-product-api.jinyinmao.com.cn:443/User/Auth/SignIn',
-            VERIFY_VERICODE: 'https://jym-product-api.jinyinmao.com.cn:443/VerifyVeriCode',
-            USER_SIGN:'https://jym-product-api.jinyinmao.com.cn:443/User/Sign'
+            AUTHENTICATE: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/Authenticate',
+            GETINFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User',
+            RESET_LOGIN_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetLoginPassword',
+            RESET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/ResetPaymentPassword',
+            SEND_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/SendVeriCode',
+            SET_PAYMENT_PASSWORD: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SetPaymentPassword',
+            SINGUP: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignUp',
+            SIGNIN: 'https://jym-dev-api.jinyinmao.com.cn:443/User/Auth/SignIn',
+            VERIFY_VERICODE: 'https://jym-dev-api.jinyinmao.com.cn:443/VerifyVeriCode',
+            USER_SIGN:'https://jym-dev-api.jinyinmao.com.cn:443/User/Sign'
         },
         USERJINBAOYIN: {
-            INFO: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
-            LIST: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
-            WITHDRAWAL: 'https://jym-product-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
+            INFO: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transaction/',
+            LIST: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Transactions/',
+            WITHDRAWAL: 'https://jym-dev-api.jinyinmao.com.cn:443/User/JBY/Withdrawal'
         }
     })
     .constant('RESOURCES', {
@@ -160,8 +160,8 @@ angular.module('jym.constants', [])
         URL: /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[:?\d]*)\S*$/
     })
     .constant('APP', {
-        VERSION: '13.1.67',
-        ENV: 'product',
+        VERSION: '13.1.69-DEV',
+        ENV: 'dev',
         PLATFORMS:'web',
         CONTRACTID:'0',
         CLIENTTYPE:'903'
@@ -1286,7 +1286,7 @@ angular.module("app/user/jinbaoyin/list/list.tpl.html", []).run(["$templateCache
 
 angular.module("app/user/jinbaoyin/withdrawal/withdrawal.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/jinbaoyin/withdrawal/withdrawal.tpl.html",
-    "<ion-view title=金包银赎回><ion-content><ion-list class=deposit><ion-item><span class=pull-left>可取资金（元）</span> <span class=pull-right><strong ng-bind=ctrl.viewModel.jBYWithdrawalableAmount></strong></span></ion-item><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>今日可申请额度（元）：&nbsp;</span> <span class=pull-left ng-bind=ctrl.viewModel.todayJBYWithdrawalableAmount>元</span></ion-item><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>取款金额</span> <input type=number placeholder=请输入取款金额（元） required min=0.01 max=1000000 ng-model=ctrl.viewModel.amount></label><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=ctrl.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-item><div class=narrow><button ng-click=ctrl.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!ctrl.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=ctrl.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=ctrl.toggleAgreement()>《金包银自动交易授权委托书》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!ctrl.withdrawButtonEnable() ng-click=ctrl.withdraw()>同意协议并取现</button><div class=space></div><div class=space></div><h4 class=tel>取现额度：单日限额10万元。</h4><h4 class=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=ctrl.viewModel.showAgreement><div ng-bind-html=ctrl.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.toggleAgreement()>返回</button><div class=space></div><div class=space></div></div></ion-content></ion-view>");
+    "<ion-view title=金包银赎回><ion-content><ion-list class=deposit><ion-item><span class=pull-left>可取资金（元）</span> <span class=pull-right><strong ng-bind=ctrl.viewModel.jBYWithdrawalableAmount></strong></span></ion-item><ion-item class=\"card deposit\"><ion-item class=item><span class=pull-left>今日可申请额度（元）：&nbsp;</span> <span class=pull-left ng-bind=ctrl.viewModel.todayJBYWithdrawalableAmount>元</span></ion-item><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>取款金额</span> <input type=number placeholder=请输入取款金额（元） required min=0.01 max=1000000 ng-model=ctrl.viewModel.amount></label><label class=\"item item-input\"><span class=input-label>输入密码</span> <input type=password placeholder=请输入您的支付密码 ng-model=ctrl.viewModel.password required minlength=1 maxlength=18></label></ion-item><div class=narrow><button ng-click=ctrl.check()><span><i class=\"icon ion-android-checkbox-outline-blank\" ng-if=!ctrl.viewModel.checked></i> <i class=\"icon ion-android-checkbox-outline\" ng-if=ctrl.viewModel.checked></i></span> <span>同意</span></button> <span ng-click=ctrl.toggleAgreement()>《金包银自动交易授权委托书》</span></div></ion-list><button class=\"btn button-yellow\" ng-disabled=!ctrl.withdrawButtonEnable() ng-click=ctrl.withdraw()>同意协议并取现</button><div class=space></div><div class=space></div><h4 class=tel>取现额度：单日限额10万元。</h4><h4 class=tel>如有问题，请垂询&nbsp;4008-556-333。</h4><div class=agreement ng-if=ctrl.viewModel.showAgreement><div ng-bind-html=ctrl.viewModel.agreement></div><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.toggleAgreement()>返回</button><div class=space></div><div class=space></div></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/login/login.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1316,7 +1316,7 @@ angular.module("app/user/security/password/sendVeriCode.tpl.html", []).run(["$te
 
 angular.module("app/user/security/paymentPassword/paymentPassword.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/security/paymentPassword/paymentPassword.tpl.html",
-    "<ion-view title=设置新支付密码><ion-content><ion-list class=reset-payment-passsword><ion-item class=divider></ion-item><label class=\"item item-input\" ng-if=ctrl.viewModel.needUserInfo><span class=input-label>输入您的姓名</span> <input type=text placeholder=姓名 ng-model=ctrl.viewModel.realName required minlength=1 maxlength=8 ng-trim=true></label><label class=\"item item-input\" ng-if=ctrl.viewModel.needUserInfo><span class=input-label>确认您的证件号</span> <input type=text placeholder=证件号 ng-model=ctrl.viewModel.credentialNo required minlength=5 maxlength=30 ng-trim=true></label><label class=\"item item-input\"><span class=input-label>输入新支付密码</span> <input type=password placeholder=8-18位字符，必须包含英文字母 ng-model=ctrl.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label><label class=\"item item-input\"><span class=input-label>确认新支付密码</span> <input type=password placeholder=再次输入新支付密码 ng-model=ctrl.viewModel.confirmPassword required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.resetPassword() ng-disabled=!ctrl.enableButton()>修 改</button><div class=space></div><div class=space></div></ion-content></ion-view>");
+    "<ion-view title=设置新支付密码><ion-content><ion-list class=reset-payment-passsword><ion-item class=divider></ion-item><label class=\"item item-input\" ng-if=ctrl.viewModel.needUserInfo><span class=input-label>输入您的姓名</span> <input type=text placeholder=姓名 ng-model=ctrl.viewModel.realName required minlength=1 maxlength=8 ng-trim=true></label><label class=\"item item-input\" ng-if=ctrl.viewModel.needUserInfo><span class=input-label>确认您的证件号</span> <input type=text placeholder=证件号 ng-model=ctrl.viewModel.credentialNo required minlength=5 maxlength=30 ng-trim=true></label><label class=\"item item-input\"><span class=input-label>输入新支付密码</span> <input type=password placeholder=8-18位字符，必须包含英文字母 ng-model=ctrl.viewModel.password required minlength=1 maxlength=18></label><label class=\"item item-input\"><span class=input-label>确认新支付密码</span> <input type=password placeholder=再次输入新支付密码 ng-model=ctrl.viewModel.confirmPassword required minlength=1 maxlength=18></label></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.resetPassword() ng-disabled=!ctrl.enableButton()>修 改</button><div class=space></div><div class=space></div></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/security/paymentPassword/sendVeriCode.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1326,7 +1326,7 @@ angular.module("app/user/security/paymentPassword/sendVeriCode.tpl.html", []).ru
 
 angular.module("app/user/security/paymentPassword/setPaymentPassword.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("app/user/security/paymentPassword/setPaymentPassword.tpl.html",
-    "<ion-view title=设置支付密码><ion-content><ion-list><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>输入支付密码</span> <input type=password placeholder=8-18位字符，必须包含英文字母 ng-model=ctrl.viewModel.password required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label><label class=\"item item-input\"><span class=input-label>确认支付密码</span> <input type=password placeholder=再次输入支付密码 ng-model=ctrl.viewModel.confirmPassword required minlength=8 maxlength=18 ng-pattern=\"/^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/\"></label></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.setPassword() ng-disabled=!ctrl.enableButton()>确 认</button></ion-content></ion-view>");
+    "<ion-view title=设置支付密码><ion-content><ion-list><ion-item class=divider></ion-item><label class=\"item item-input\"><span class=input-label>输入支付密码</span> <input type=password placeholder=8-18位字符，必须包含英文字母 ng-model=ctrl.viewModel.password required minlength=1 maxlength=18></label><label class=\"item item-input\"><span class=input-label>确认支付密码</span> <input type=password placeholder=再次输入支付密码 ng-model=ctrl.viewModel.confirmPassword required minlength=1 maxlength=18></label></ion-list><div class=space></div><div class=space></div><button class=\"btn button-yellow\" ng-click=ctrl.setPassword() ng-disabled=!ctrl.enableButton()>确 认</button></ion-content></ion-view>");
 }]);
 
 angular.module("app/user/security/security.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -1780,6 +1780,10 @@ angular.module('jym.jinbaoyin.purchase', [
 
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
+        });
+
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
         });
 
         ctrl.doRefresh();
@@ -3087,6 +3091,11 @@ angular.module('jym.shangpiao.purchase', [
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
+
         ctrl.doRefresh();
     }]);
 
@@ -4097,6 +4106,10 @@ angular.module('jym.user.jinbaoyin-detail', [
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
         ctrl.doRefresh();
     }]);
 
@@ -4386,6 +4399,12 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         ctrl.withdraw = function() {
             var amount = parseInt(ctrl.viewModel.amount * 100, 10);
             if (ctrl.withdrawButtonEnable()) {
+                var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/;
+                if (!rgexp.test(ctrl.viewModel.password)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SECURITY_PASSWORD);
+                    return false;
+                }
+
                 UserService.jBYWithdrawal(amount, ctrl.viewModel.password)
                     .then(function(result) {
                         if (result) {
@@ -4408,6 +4427,10 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
 
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
+        });
+
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
         });
 
         ctrl.doRefresh();
@@ -4499,6 +4522,10 @@ angular.module('jym.user.login', [
         });
 
         $scope.$on('$ionicView.beforeLeave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
+        $scope.$on('$ionicView.leave', function() {
             $ionicNavBarDelegate.showBackButton(true);
         });
 
@@ -4690,6 +4717,11 @@ angular.module('jym.user.orders-detail', [
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
         });
+
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
 
         ctrl.doRefresh();
     }]);
@@ -5129,7 +5161,6 @@ angular.module('jym.user.security-payment-password', [])
         };
 
         ctrl.enableButton = function() {
-            /*return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;*/
             return ctrl.viewModel.password && ctrl.viewModel.confirmPassword;
         };
 
@@ -6083,6 +6114,11 @@ angular.module('jym.user.signup', [])
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
+
         ctrl.doRefresh();
     }])
     .controller('UserSignUpSendVeriCodeCtrl', ['$scope', '$timeout', 'RESOURCES', 'UserService', 'JYMUtilityService', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
@@ -6674,6 +6710,11 @@ angular.module('jym.yinpiao.purchase', [
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
+
         ctrl.doRefresh();
     }]);
 
@@ -7227,6 +7268,10 @@ angular.module('jym.zhuanqu.purchase', [
 
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
+        });
+
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
         });
 
         ctrl.doRefresh();

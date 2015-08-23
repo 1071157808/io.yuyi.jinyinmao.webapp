@@ -104,6 +104,11 @@ angular.module('jym.user.signup', [])
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
+
         ctrl.doRefresh();
     })
     .controller('UserSignUpSendVeriCodeCtrl', function($scope, $timeout, RESOURCES, UserService, JYMUtilityService) {
