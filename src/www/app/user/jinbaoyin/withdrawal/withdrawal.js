@@ -96,6 +96,12 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
         ctrl.withdraw = function() {
             var amount = parseInt(ctrl.viewModel.amount * 100, 10);
             if (ctrl.withdrawButtonEnable()) {
+                var rgexp = /^(?![^a-zA-Z~!@#$%^&*_]+$)(?!\\D+$).{8,18}$/;
+                if (!rgexp.test(ctrl.viewModel.password)) {
+                    JYMUtilityService.showAlert(RESOURCES.TIP.SECURITY.SECURITY_PASSWORD);
+                    return false;
+                }
+
                 UserService.jBYWithdrawal(amount, ctrl.viewModel.password)
                     .then(function(result) {
                         if (result) {
@@ -118,6 +124,10 @@ angular.module('jym.user.jinbaoyin-withdrawal', [
 
         $scope.$on('$ionicView.enter', function() {
             ctrl.doRefresh();
+        });
+
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
         });
 
         ctrl.doRefresh();

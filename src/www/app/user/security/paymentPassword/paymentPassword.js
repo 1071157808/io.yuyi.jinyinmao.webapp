@@ -116,7 +116,6 @@ angular.module('jym.user.security-payment-password', [])
         };
 
         ctrl.enableButton = function() {
-            /*return ctrl.viewModel.password && ctrl.viewModel.confirmPassword && ctrl.viewModel.password === ctrl.viewModel.confirmPassword;*/
             return ctrl.viewModel.password && ctrl.viewModel.confirmPassword;
         };
 

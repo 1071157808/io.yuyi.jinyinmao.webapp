@@ -87,5 +87,9 @@ angular.module('jym.user.login', [
             $ionicNavBarDelegate.showBackButton(true);
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
         ctrl.doRefresh();
     });

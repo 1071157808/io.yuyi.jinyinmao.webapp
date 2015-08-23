@@ -127,5 +127,9 @@ angular.module('jym.user.jinbaoyin-detail', [
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
         ctrl.doRefresh();
     });

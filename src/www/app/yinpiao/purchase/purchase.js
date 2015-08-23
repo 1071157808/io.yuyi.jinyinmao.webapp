@@ -176,5 +176,10 @@ angular.module('jym.yinpiao.purchase', [
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
+
         ctrl.doRefresh();
     });

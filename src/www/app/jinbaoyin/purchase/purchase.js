@@ -118,5 +118,9 @@ angular.module('jym.jinbaoyin.purchase', [
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
         ctrl.doRefresh();
     });

@@ -184,5 +184,10 @@ angular.module('jym.user.orders-detail', [
             ctrl.doRefresh();
         });
 
+        $scope.$on('$ionicView.leave', function() {
+            $ionicNavBarDelegate.showBackButton(true);
+        });
+
+
         ctrl.doRefresh();
     });
